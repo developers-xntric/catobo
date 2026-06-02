@@ -49,7 +49,7 @@ export default function DynamicHero({
       <div className="absolute inset-0 bg-black/60" />
 
       {/* Centered Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center gap-3 px-4 pt-16">
+      <div className="relative z-10 flex flex-col 2xl:max-w-360 w-[90%] justify-center tracking-wide gap-3 px-4 pt-16">
         {/* Page Title */}
         <h1
           className="text-white text-3xl lg:text-[55px] font-light tracking-wide text-balance"
@@ -57,7 +57,7 @@ export default function DynamicHero({
 
         {/* Shadcn Breadcrumb — styled white for dark background */}
         <Breadcrumb>
-          <BreadcrumbList className="justify-center flex-wrap [&_li]:text-white [&_svg]:text-white">
+          <BreadcrumbList className="flex-wrap [&_li]:text-white [&_svg]:text-white">
             {safeBreadcrumbs.map((crumb, index) => {
               const isLast = index === safeBreadcrumbs.length - 1;
               return (
@@ -70,7 +70,7 @@ export default function DynamicHero({
                     ) : (
                       <BreadcrumbLink
                         href={crumb.href || "#"}
-                        className="text-[#168DCA] underline text-[13px] md:text-base font-normal hover:text-white transition-colors duration-200"
+                        className="text-white underline text-[13px] md:text-base font-normal hover:text-white transition-colors duration-200"
                       >
                         {crumb.label}
                       </BreadcrumbLink>
@@ -78,7 +78,7 @@ export default function DynamicHero({
                   </BreadcrumbItem>
 
                   {!isLast && (
-                    <BreadcrumbSeparator className="text-white" />
+                    <span className="text-white" >/</span>
                   )}
                 </span>
               );
