@@ -26,7 +26,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-wide">
               Aviation Solutions
             </h2>
-            <p className="text-sm md:text-base text-gray-200 mb-8 max-w-md leading-relaxed">
+            <p className="text-sm md:text-base text-white! mb-8 max-w-md leading-relaxed">
               Helipads, lighting, firefighting, and aviation safety systems engineered for compliance and performance
             </p>
             <div className="flex flex-wrap gap-4">
@@ -57,7 +57,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-wide">
               Engineering Solutions
             </h2>
-            <p className="text-sm md:text-base text-gray-200 mb-8 max-w-md leading-relaxed">
+            <p className="text-sm md:text-base text-white! mb-8 max-w-md leading-relaxed">
               Cable containment, lightning protection, and industrial safety systems built for reliability
             </p>
             <div className="flex flex-wrap gap-4">
@@ -90,17 +90,17 @@ export default function Home() {
             <h3 className="text-3xl md:text-[2.5rem] leading-tight font-semibold text-gray-900 mb-6">
               Engineering Solutions Built On Expertise And Trust
             </h3>
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+            <p className="text-sm md:text-base leading-relaxed">
               Catoba's portfolio includes aviation lighting and safety systems, helipad and vertipad solutions, airfield lighting, aircraft warning lights, cable containment systems, lightning protection, and industrial safety products. Every solution is engineered for precision, durability, and seamless integration.
             </p>
           </div>
 
           {/* Right Text Column */}
           <div className="flex flex-col justify-end gap-6">
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+            <p className="text-sm md:text-base leading-relaxed">
               Catoba is an engineering and technical solutions group delivering integrated systems for aviation, construction, and industrial infrastructure. Company started in 2007 of operational experience, we enable organizations to enhance safety, productivity, and long-term sustainability through reliable, compliant, and performance-driven solutions.
             </p>
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+            <p className="text-sm md:text-base leading-relaxed">
               Our strength lies in combining deep engineering knowledge, a structured management approach, and a strong global network. This allows us to design, supply, and support systems that meet the highest technical and operational standards across safety-critical environments.
             </p>
           </div>

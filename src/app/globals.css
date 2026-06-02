@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --secondary: #636363;
 }
 
 @theme inline {
@@ -37,4 +38,8 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
+}
+
+p {
+  color: var(--secondary);
 }
