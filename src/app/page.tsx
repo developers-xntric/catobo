@@ -19,24 +19,23 @@ export default function Home() {
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
             style={{ backgroundImage: 'url("/aviation.png")' }}
           />
-          <div className="absolute inset-0 bg-black/40" />
 
           {/* Card Content */}
           <div className="relative z-10 h-full flex flex-col justify-end p-8 md:p-10 text-white">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-wide">
+            <h2 className="text-3xl md:text-4xl font-medium mb-4 tracking-wide">
               Aviation Solutions
             </h2>
-            <p className="text-sm md:text-base text-white! mb-8 max-w-md leading-relaxed">
+            <p className="text-sm md:text-[16px] text-white! max-w-lg mb-8">
               Helipads, lighting, firefighting, and aviation safety systems engineered for compliance and performance
             </p>
             <div className="flex flex-wrap gap-4">
               <button
                 style={brandGradient}
-                className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity"
+                className="px-6 py-2.5 rounded text-sm font-normal text-white shadow-lg hover:opacity-90 transition-opacity tracking-wide"
               >
                 Explore Aviation Solutions
               </button>
-              <button className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
+              <button className="px-8 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
                 Book Your Consultation
               </button>
             </div>
@@ -47,27 +46,26 @@ export default function Home() {
         <div className="relative h-100 md:h-150 rounded-3xl overflow-hidden group">
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1000")' }}
+            style={{ backgroundImage: 'url("/engineering.png")' }}
           />
           {/* Blue-ish dark overlay to match the second card's tone */}
-          <div className="absolute inset-0 bg-[#0a192f]/60" />
 
           {/* Card Content */}
           <div className="relative z-10 h-full flex flex-col justify-end p-8 md:p-10 text-white">
-            <h2 className="text-3xl md:text-4xl font-semibold mb-4 tracking-wide">
+            <h2 className="text-3xl md:text-4xl font-medium mb-4 tracking-wide">
               Engineering Solutions
             </h2>
-            <p className="text-sm md:text-base text-white! mb-8 max-w-md leading-relaxed">
+            <p className="text-sm md:text-[16px] text-white! max-w-lg mb-8">
               Cable containment, lightning protection, and industrial safety systems built for reliability
             </p>
             <div className="flex flex-wrap gap-4">
               <button
                 style={brandGradient}
-                className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity"
+                className="px-6 py-2.5 rounded text-sm font-normal text-white shadow-lg hover:opacity-90 tracking-wide transition-opacity"
               >
                 Explore Engineering Solutions
               </button>
-              <button className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
+              <button className="px-8 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
                 Book Your Consultation
               </button>
             </div>
