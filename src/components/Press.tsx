@@ -104,7 +104,7 @@ const pressItems: PressItem[] = [
 
 export default function Press() {
   return (
-    <section className="w-full ">
+    <section className="w-full py-12">
       <div className="2xl:max-w-[1440px] w-[90%] mx-auto">
         
 
@@ -127,7 +127,7 @@ export default function Press() {
                   {item.title}
                 </h3>
                 <div className="mt-auto flex pt-3">
-                  <img src="/Btn.png" alt="" className="w-8 h-8" />
+                  <img src="/Btn.png" alt="" className="w-7 h-7" />
                 </div>
                 <hr className="border-t border-[#D1D1D1] mt-5" />
               </div>
