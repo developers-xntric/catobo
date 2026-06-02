@@ -1,6 +1,7 @@
 
 import Image from 'next/image';
 import React from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   // Custom gradient defined from your prompt
@@ -31,13 +32,14 @@ export default function Home() {
               Helipads, lighting, firefighting, and aviation safety systems engineered for compliance and performance
             </p>
             <div className="flex flex-wrap gap-4">
-              <button
+              <Link
+                href="/"
                 style={brandGradient}
-                className="px-6 py-2.5 rounded text-sm font-normal text-white shadow-lg hover:opacity-90 transition-opacity tracking-wide"
+                className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
               >
                 Explore Aviation Solutions
-              </button>
-              <button className="px-8 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
+              </Link>
+              <button className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
                 Book Your Consultation
               </button>
             </div>
@@ -61,13 +63,14 @@ export default function Home() {
               Cable containment, lightning protection, and industrial safety systems built for reliability
             </p>
             <div className="flex flex-wrap gap-4">
-              <button
+              <Link
+                href="/engineering-home"
                 style={brandGradient}
-                className="px-6 py-2.5 rounded text-sm font-normal text-white shadow-lg hover:opacity-90 tracking-wide transition-opacity"
+                className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
               >
                 Explore Engineering Solutions
-              </button>
-              <button className="px-8 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
+              </Link>
+              <button className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
                 Book Your Consultation
               </button>
             </div>
@@ -98,17 +101,17 @@ export default function Home() {
             <h3 className="text-3xl md:text-[2.5rem] leading-tight font-medium text-black mb-6">
               Engineering Solutions Built On Expertise And Trust
             </h3>
-            <p className="text-sm md:text-base">
+            <p className="text-sm md:text-base secondary">
               Catobo's portfolio includes aviation lighting and safety systems, helipad and vertipad solutions, airfield lighting, aircraft warning lights, cable containment systems, lightning protection, and industrial safety products. Every solution is engineered for precision, durability, and seamless integration.
             </p>
           </div>
 
           {/* Right Text Column */}
           <div className="flex flex-col justify-end gap-6">
-            <p className="text-sm md:text-base">
+            <p className="text-sm md:text-base secondary">
               Catobo is an engineering and technical solutions group delivering integrated systems for aviation, construction, and industrial infrastructure. Company started in 2007 of operational experience, we enable organizations to enhance safety, productivity, and long-term sustainability through reliable, compliant, and performance-driven solutions.
             </p>
-            <p className="text-sm md:text-base">
+            <p className="text-sm md:text-base secondary">
               Our strength lies in combining deep engineering knowledge, a structured management approach, and a strong global network. This allows us to design, supply, and support systems that meet the highest technical and operational standards across safety-critical environments.
             </p>
           </div>
