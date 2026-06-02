@@ -10,14 +10,14 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
 
       {/* Top Section: Hero Cards */}
-      <section className="w-full max-w-360 mx-auto p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <section className="w-full max-w-360 mx-auto p-4 md:p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
 
         {/* Aviation Solutions Card */}
-        <div className="relative h-100 md:h-125 rounded-3xl overflow-hidden group">
+        <div className="relative h-100 md:h-150 rounded-3xl overflow-hidden group">
           {/* Background Image (Replace with your actual image path or Next/Image) */}
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&q=80&w=1000")' }}
+            style={{ backgroundImage: 'url("/aviation.png")' }}
           />
           <div className="absolute inset-0 bg-black/40" />
 
@@ -44,7 +44,7 @@ export default function Home() {
         </div>
 
         {/* Engineering Solutions Card */}
-        <div className="relative h-100 md:h-125 rounded-3xl overflow-hidden group">
+        <div className="relative h-100 md:h-150 rounded-3xl overflow-hidden group">
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
             style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1000")' }}
