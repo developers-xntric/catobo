@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import React from 'react';
 
@@ -132,7 +133,7 @@ export default function Home() {
         </div>
 
       </section>
-
+      
       {/* Footer */}
       <footer
         style={brandGradient}
