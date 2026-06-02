@@ -13,7 +13,7 @@ export default function Home() {
       <section className="w-full max-w-360 mx-auto p-4 md:p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
 
         {/* Aviation Solutions Card */}
-        <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden group">
+        <div className="relative h-100 md:h-125 rounded-3xl overflow-hidden group">
           {/* Background Image (Replace with your actual image path or Next/Image) */}
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -44,7 +44,7 @@ export default function Home() {
         </div>
 
         {/* Engineering Solutions Card */}
-        <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden group">
+        <div className="relative h-100 md:h-125 rounded-3xl overflow-hidden group">
           <div
             className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
             style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&q=80&w=1000")' }}
@@ -76,7 +76,7 @@ export default function Home() {
       </section>
 
       {/* Middle Section: Text Content & Bottom Images */}
-      <section className="w-full max-w-[1400px] mx-auto px-4 md:px-8 py-12 md:py-16 bg-white flex-grow">
+      <section className="w-full max-w-360 mx-auto px-4 md:px-8 py-12 md:py-16 bg-white grow">
 
         {/* Top Text Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
@@ -110,9 +110,9 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 
           {/* Left: Logo Box (Takes up ~4 columns) */}
-          <div className="md:col-span-4 bg-[#23428B] rounded-2xl flex items-center justify-center p-12 min-h-[300px]">
+          <div className="md:col-span-4 bg-[#23428B] rounded-2xl flex items-center justify-center p-12 min-h-75">
             {/* Placeholder for the complex 'C' SVG wireframe logo */}
-            <svg viewBox="0 0 100 100" className="w-full max-w-[200px] h-auto text-white opacity-80" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg viewBox="0 0 100 100" className="w-full max-w-50 h-auto text-white opacity-80" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M75,25 Q30,25 30,50 Q30,75 75,75" />
               <path d="M75,35 Q40,35 40,50 Q40,65 75,65" />
               <path d="M75,45 Q50,45 50,50 Q50,55 75,55" />
@@ -122,7 +122,7 @@ export default function Home() {
           </div>
 
           {/* Right: Helicopter Image (Takes up ~8 columns) */}
-          <div className="md:col-span-8 rounded-2xl overflow-hidden min-h-[300px] relative">
+          <div className="md:col-span-8 rounded-2xl overflow-hidden min-h-75 relative">
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1542289602-95f7c35eb843?auto=format&fit=crop&q=80&w=1000")' }}
