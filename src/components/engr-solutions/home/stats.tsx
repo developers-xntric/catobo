@@ -45,44 +45,40 @@ function AnimatedCounter({ target, label }: { target: number; label: string }) {
   }, [target]);
 
   return (
-    <div ref={ref} className="text-center">
-      <div className="text-3xl md:text-5xl font-bold text-white mb-1">
+    <div ref={ref} className="text-left">
+      <div className="text-3xl md:text-5xl font-medium text-white mb-1">
         {count.toLocaleString()}+
       </div>
-      <div className="text-sm md:text-base text-white/70">{label}</div>
+      <div className="text-sm text-white">{label}</div>
     </div>
   );
 }
 
 export default function Stats() {
   return (
-    <section className="relative py-20 overflow-hidden rounded-xl">
+    <section className="relative  mx-auto my-6 p-6 overflow-hidden rounded-xl">
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("/engr-solutions/hero-bg.png")' }} />
-        <div className="absolute inset-0" style={{ background: 'rgba(0,0,0,0.75)' }} />
+        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: 'url("/engr-solutions/stats-bg.png")' }} />
       </div>
       <div className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="flex flex-row justify-center gap-12 items-center">
           <div className="text-white">
-            <div className="flex items-center gap-2 mb-4 border border-white/30 px-4 py-2 rounded-full w-fit">
-              <span className="w-2 h-2 rounded-full bg-[#168DCA]" />
-              <span className="text-xs font-semibold text-white tracking-wide">Our Impact</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl lg:text-[44px] font-medium leading-[1.2] mb-6">
-              Delivering Excellence Across the Globe
+           
+            <h2 className="text-xl md:text-2xl font-medium leading-[1.2] mb-1">
+              Impact Across Continents
             </h2>
-            <p className="text-base text-white/70 mb-8 max-w-lg">
-              With decades of experience and a proven track record, we have successfully delivered complex engineering solutions for clients worldwide.
+            <p className="text-[13px] text-white mb-3 max-w-lg">
+             from mission critical sites to healthcare systems, aviation precision initiatives engineered to endure challenges.
             </p>
-            <GradButton href="/" size="lg">
-              Learn More
+            <GradButton href="/" size="md">
+              Book Your Consultation
             </GradButton>
           </div>
-          <div className="grid grid-cols-2 gap-8">
-            <AnimatedCounter target={450} label="Projects Completed" />
-            <AnimatedCounter target={32} label="Countries Served" />
-            <AnimatedCounter target={200} label="Happy Clients" />
-            <AnimatedCounter target={15} label="Years Experience" />
+          <div className="grid grid-cols-4 gap-10">
+            <AnimatedCounter target={18} label="Military & Defense Projects" />
+            <AnimatedCounter target={30} label="Healthcare Facility Deployments" />
+            <AnimatedCounter target={120} label="Aviation Installations Executed" />
+            <AnimatedCounter target={75} label="Government & Public Sector Installations" />
           </div>
         </div>
       </div>
