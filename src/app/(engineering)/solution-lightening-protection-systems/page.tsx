@@ -14,6 +14,7 @@ const SolutionLighteningProtectionSystems = () => {
                 }
                 backgroundImage={"/lightening-sol.png"}
             />
+
         </div>
     )
 }
