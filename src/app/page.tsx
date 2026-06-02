@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   // Custom gradient defined from your prompt
@@ -30,12 +31,13 @@ export default function Home() {
               Helipads, lighting, firefighting, and aviation safety systems engineered for compliance and performance
             </p>
             <div className="flex flex-wrap gap-4">
-              <button
+              <Link
+                href="/"
                 style={brandGradient}
-                className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity"
+                className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
               >
                 Explore Aviation Solutions
-              </button>
+              </Link>
               <button className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
                 Book Your Consultation
               </button>
@@ -61,12 +63,13 @@ export default function Home() {
               Cable containment, lightning protection, and industrial safety systems built for reliability
             </p>
             <div className="flex flex-wrap gap-4">
-              <button
+              <Link
+                href="/engineering-home"
                 style={brandGradient}
-                className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity"
+                className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
               >
                 Explore Engineering Solutions
-              </button>
+              </Link>
               <button className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
                 Book Your Consultation
               </button>
