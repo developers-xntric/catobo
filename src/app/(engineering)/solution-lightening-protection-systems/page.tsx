@@ -12,7 +12,7 @@ const SolutionLighteningProtectionSystems = () => {
                         { label: "Lightning Protection Systems" },
                     ]
                 }
-                backgroundImage={"/about/hero.png"}
+                backgroundImage={"/lightening-sol.png"}
             />
         </div>
     )

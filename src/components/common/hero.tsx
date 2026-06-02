@@ -42,12 +42,8 @@ export default function DynamicHero({
       className="relative w-full h-110 md:h-130 2xl:h-162.5 bg-cover bg-center flex items-center justify-center overflow-hidden"
       style={{
         backgroundImage: `url(${backgroundImage})`,
-
       }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60" />
-
       {/* Centered Content */}
       <div className="relative z-10 flex flex-col 2xl:max-w-360 w-[90%] justify-center tracking-wide gap-3 px-4 pt-16">
         {/* Page Title */}
