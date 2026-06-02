@@ -32,8 +32,13 @@ button {
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-33.3333%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-33.3333%);
+  }
 }
 
 .marquee-track {
@@ -54,4 +59,8 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading);
+}
+
+.secondary {
+  color: var(--secondary)
 }

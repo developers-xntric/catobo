@@ -100,17 +100,17 @@ export default function Home() {
             <h3 className="text-3xl md:text-[2.5rem] leading-tight font-medium text-black mb-6">
               Engineering Solutions Built On Expertise And Trust
             </h3>
-            <p className="text-sm md:text-base">
+            <p className="text-sm md:text-base secondary">
               Catobo's portfolio includes aviation lighting and safety systems, helipad and vertipad solutions, airfield lighting, aircraft warning lights, cable containment systems, lightning protection, and industrial safety products. Every solution is engineered for precision, durability, and seamless integration.
             </p>
           </div>
 
           {/* Right Text Column */}
           <div className="flex flex-col justify-end gap-6">
-            <p className="text-sm md:text-base">
+            <p className="text-sm md:text-base secondary">
               Catobo is an engineering and technical solutions group delivering integrated systems for aviation, construction, and industrial infrastructure. Company started in 2007 of operational experience, we enable organizations to enhance safety, productivity, and long-term sustainability through reliable, compliant, and performance-driven solutions.
             </p>
-            <p className="text-sm md:text-base">
+            <p className="text-sm md:text-base secondary">
               Our strength lies in combining deep engineering knowledge, a structured management approach, and a strong global network. This allows us to design, supply, and support systems that meet the highest technical and operational standards across safety-critical environments.
             </p>
           </div>
