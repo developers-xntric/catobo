@@ -77,7 +77,7 @@ const cards = [
 
 export default function Solutions() {
   return (
-    <div className="2xl:max-w-350 w-[90%] mx-auto">
+    <div className="2xl:max-w-350 w-[90%] py-16 mx-auto">
       <div className="flex items-center gap-2 mb-2 border border-gray-200 px-4 py-2 rounded-full w-fit mx-auto">
         <span className="w-2 h-2 rounded-full bg-[#168DCA]" />
         <span className="text-xs font-medium text-black tracking-normal lg:tracking-wide">

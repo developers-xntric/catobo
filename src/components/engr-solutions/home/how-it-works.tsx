@@ -2,7 +2,7 @@ import GradButton from "@/components/ui/grad-button";
 
 export default function HowItWorks() {
   return (
-    <section className="w-full bg-[#F8F8F8] py-16">
+    <section className="w-full bg-[#F8F8F8] pb-10">
       <div className="2xl:max-w-350 w-[90%] mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-0">
           <div className="w-full lg:w-[30%] flex flex-col items-start justify-end">
@@ -18,7 +18,7 @@ export default function HowItWorks() {
                 Expertise-Driven Delivery
               </h2>
 
-              <p className="text-[14px] md:text-[15px] leading-relaxed text-[#636363] mb-8 font-medium">
+              <p className="text-[14px] md:text-[15px] leading-relaxed text-[#636363] mb-8">
                 Our dense knowledge team ensures reliable runway and helipad
                 solutions via streamlined agile steps.
               </p>
@@ -32,7 +32,7 @@ export default function HowItWorks() {
           <div className="w-full lg:w-[70%] lg:pl-10">
             <div className="hidden md:block w-full rounded-[10px] overflow-hidden 2xl:h-100.5">
               <video
-                src="/engr-solutions/steps.mp4"
+             src="/how-it-works.webm"
                 autoPlay
                 loop
                 muted
@@ -42,7 +42,7 @@ export default function HowItWorks() {
             </div>
             <div className="block md:hidden w-full rounded-[10px] overflow-hidden md:h-[500px]">
               <video
-                src="/engr-solutions/steps-mobile.webm"
+                src="/how-it-works.webm"
                 autoPlay
                 loop
                 muted
