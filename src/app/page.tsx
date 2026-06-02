@@ -65,19 +65,11 @@ export default function Home() {
               <Link
                 href="/engineering-home"
                 style={brandGradient}
-<<<<<<< HEAD
                 className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
               >
                 Explore Engineering Solutions
               </Link>
               <button className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
-=======
-                className="px-6 py-2.5 rounded text-sm font-normal text-white shadow-lg hover:opacity-90 tracking-wide transition-opacity"
-              >
-                Explore Engineering Solutions
-              </button>
-              <button className="px-8 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
->>>>>>> d387b315a909364ef5a7d2f10161c4c7fb49f660
                 Book Your Consultation
               </button>
             </div>
