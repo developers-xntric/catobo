@@ -75,7 +75,7 @@ export default function Home() {
       </section>
 
       {/* Middle Section: Text Content & Bottom Images */}
-      <section className="w-[87.5%] max-w-360 mx-auto px-4 md:px-8 py-12 md:py-16 bg-white grow">
+      <section className="w-[87.5%] 2xl:max-w-340 mx-auto px-4 md:px-8 py-12 md:py-16 bg-white grow">
 
         {/* Top Text Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-10">
