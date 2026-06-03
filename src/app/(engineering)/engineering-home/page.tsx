@@ -3,6 +3,7 @@ import Solutions from "@/components/engr-solutions/home/solutions";
 import HowItWorks from "@/components/engr-solutions/home/how-it-works";
 import AboutCompany from "@/components/engr-solutions/home/about-company";
 import ContactSection from "@/components/ContactSection";
+import Testimonials from "@/components/Testimonials";
 
 export default function EngineeringHome() {
   return (
@@ -11,6 +12,7 @@ export default function EngineeringHome() {
       <Solutions />
       <HowItWorks />
       <AboutCompany />
+      <Testimonials />
       <ContactSection />
     </div>
   );

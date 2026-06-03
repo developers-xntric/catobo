@@ -81,9 +81,9 @@ export default function ContactSection() {
                 {/* Header */}
                 <div className="mb-12 text-center md:w-[80%] mx-auto">
                     <Badge text='Partner with Precision' variant='black' />
-                    <h2 className="text-[20px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000] mb-10 text-center">
-       Begin your journey with precision-engineered aviation safety, heliport, vertiport, and airfield solutions backed by decades of expertise.
-    </h2>
+                    <h2 className="text-[20px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000] mb-10 text-center ">
+                        Begin your Journey with Precision-Engineered Aviation Safety, Heliport, Vertiport, and Airfield Solutions Backed by Decades of Expertise.
+                    </h2>
                 </div>
 
                 {/* Two Column Layout */}
