@@ -98,7 +98,7 @@ export function Footer() {
                     <div className="grid grid-cols-1 gap-5 md:gap-12 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
                         {/* Logo Section */}
                         <div className="flex flex-col items-start w-fit">
-                            <Link href="/" className="relative w-36 h-32 mb-2">
+                            <Link href="/" className="relative w-36 h-28 mb-2">
                                 <Image
                                     src={logo.url}
                                     alt={logo.alt}
