@@ -5,7 +5,7 @@ import React from "react";
 function CheckIcon() {
   return (
     <svg
-      className="w-5 h-5 flex-shrink-0 mt-0.5"
+      className="w-5 h-5 shrink-0 mt-0.5"
       viewBox="0 0 20 20"
       fill="none"
     >
@@ -71,14 +71,14 @@ export default function MainContent() {
 
         {/* Two image grid */}
         <div className="grid grid-cols-2 gap-4">
-          <div className="rounded overflow-hidden bg-gray-100 aspect-[4/3]">
+          <div className="rounded overflow-hidden bg-gray-100 aspect-4/3">
             <img
               src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80"
               alt="Lightning protection installation worker"
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="rounded overflow-hidden bg-gray-100 aspect-[4/3]">
+          <div className="rounded overflow-hidden bg-gray-100 aspect-4/3">
             <img
               src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
               alt="Lightning rod system"
@@ -103,14 +103,14 @@ export default function MainContent() {
 
         {/* Two image grid */}
         <div className="grid grid-cols-2 gap-4 mb-5">
-          <div className="rounded overflow-hidden bg-gray-100 aspect-[4/3]">
+          <div className="rounded overflow-hidden bg-gray-100 aspect-4/3">
             <img
               src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=600&q=80"
               alt="Grounding cables installation"
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="rounded overflow-hidden bg-gray-100 aspect-[4/3]">
+          <div className="rounded overflow-hidden bg-gray-100 aspect-4/3">
             <img
               src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80"
               alt="Electrical panel technician"
