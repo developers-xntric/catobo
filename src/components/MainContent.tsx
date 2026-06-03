@@ -6,7 +6,7 @@ function CheckIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="w-[18px] h-[18px] shrink-0 mt-0.5 text-[#168DCA]"
+      className="w-4.5 h-4.5 shrink-0 mt-0.5 text-[#168DCA]"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -34,7 +34,7 @@ function ViewPDFLink({ label }: { label: string }) {
 
 export default function MainContent() {
   return (
-    <div className="flex-1 min-w-0 max-w-[900px]">
+    <div className="flex-1 min-w-0 max-w-225">
 
       {/* Breadcrumb Pill */}
       <div className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-[#E8E8E8] rounded-md mb-8">
@@ -68,14 +68,14 @@ export default function MainContent() {
 
         {/* Two image grid (Asymmetrical 5:3 ratio) */}
         <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4">
-          <div className="rounded-xl overflow-hidden bg-gray-100 h-[260px]">
+          <div className="rounded-xl overflow-hidden bg-gray-100 h-65">
             <img
               src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80"
               alt="Lightning protection installation worker"
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-[260px] flex items-center justify-center">
+          <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-65 flex items-center justify-center">
             <img
               src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400&q=80"
               alt="Lightning rod system"
@@ -100,14 +100,14 @@ export default function MainContent() {
 
         {/* Two image grid (Asymmetrical 5:3 ratio) */}
         <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4 mb-6">
-          <div className="rounded-xl overflow-hidden bg-gray-100 h-[260px]">
+          <div className="rounded-xl overflow-hidden bg-gray-100 h-65">
             <img
               src="https://images.unsplash.com/photo-1611078709848-18548a303666?w=800&q=80"
               alt="Grounding cables installation"
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="rounded-xl overflow-hidden bg-gray-100 h-[260px]">
+          <div className="rounded-xl overflow-hidden bg-gray-100 h-65">
             <img
               src="https://images.unsplash.com/photo-1581092926214-ee8aeb54374e?w=600&q=80"
               alt="Electrical panel technician"
