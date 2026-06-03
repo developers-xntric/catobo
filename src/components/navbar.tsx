@@ -39,7 +39,8 @@ const NAV_ITEMS: NavItem[] = [
   {
     label: "Engineering Solution",
     dropdown: {
-      image: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80",
+      image:
+        "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80",
       imageAlt: "Engineering",
       items: [
         {
@@ -114,22 +115,32 @@ const ExpandableRow = memo(function ExpandableRow({
 
   return (
     <div className="border-b border-gray-100 last:border-0 p-1">
-      <div className={`rounded-xl transition-all duration-300 ${isCurrentlyOpen ? "bg-blue-50/80 pb-2" : ""}`}>
+      <div
+        className={`rounded-xl transition-all duration-300 ${isCurrentlyOpen ? "bg-blue-50/80 pb-2" : ""}`}
+      >
         <button
           onClick={() => hasSubItems && handleToggle()}
           onMouseEnter={() => onHover && onHover(item)}
-          className={`w-full flex items-center font-bold text-xs justify-between px-3 py-2.5 rounded-xl transition-colors duration-150 ${isCurrentlyOpen
-            ? "text-[#133066]"
-            : "text-[#333333] hover:text-[#133066] hover:bg-gray-50"
-            } ${hasSubItems ? "cursor-pointer" : "cursor-default"}`}
+          className={`w-full flex items-center font-bold text-xs justify-between px-3 py-2.5 rounded-xl transition-colors duration-150 ${
+            isCurrentlyOpen
+              ? "text-[#133066]"
+              : "text-[#333333] hover:text-[#133066] hover:bg-gray-50"
+          } ${hasSubItems ? "cursor-pointer" : "cursor-default"}`}
         >
           <span>{item.heading}</span>
           {hasSubItems && (
             <svg
               className={`w-3.5 h-3.5 text-[#333333] transition-transform duration-200 ${isCurrentlyOpen ? "rotate-180" : ""}`}
-              fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2.5}
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           )}
         </button>
@@ -169,7 +180,7 @@ const DropdownPanel = memo(function DropdownPanel({
   const [currentImage, setCurrentImage] = useState(
     !isSimpleList && dropdown.items.length > 0 && dropdown.items[0].hoverImage
       ? dropdown.items[0].hoverImage
-      : dropdown.image
+      : dropdown.image,
   );
 
   useEffect(() => {
@@ -205,7 +216,13 @@ const DropdownPanel = memo(function DropdownPanel({
             {isSimpleList ? (
               <div className="space-y-1 border-2 border-[#F5F5F5] rounded-[10px]">
                 {dropdown.items.map((item) => (
-                  <ExpandableRow key={item.heading} item={item} isSimpleList={true} onHover={handleHover} onClose={onClose} />
+                  <ExpandableRow
+                    key={item.heading}
+                    item={item}
+                    isSimpleList={true}
+                    onHover={handleHover}
+                    onClose={onClose}
+                  />
                 ))}
               </div>
             ) : (
@@ -216,7 +233,11 @@ const DropdownPanel = memo(function DropdownPanel({
                     item={item}
                     isSimpleList={false}
                     isOpen={openSubItem === item.heading}
-                    onToggle={() => setOpenSubItem(openSubItem === item.heading ? null : item.heading)}
+                    onToggle={() =>
+                      setOpenSubItem(
+                        openSubItem === item.heading ? null : item.heading,
+                      )
+                    }
                     onHover={handleHover}
                     onClose={onClose}
                   />
@@ -232,12 +253,21 @@ const DropdownPanel = memo(function DropdownPanel({
 
 DropdownPanel.displayName = "DropdownPanel";
 
-const MobileMenu = memo(function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
+const MobileMenu = memo(function MobileMenu({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: () => void;
+}) {
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
   const [expandedSubIdx, setExpandedSubIdx] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!open) { setExpandedIdx(null); setExpandedSubIdx(null); }
+    if (!open) {
+      setExpandedIdx(null);
+      setExpandedSubIdx(null);
+    }
   }, [open]);
 
   return (
@@ -252,9 +282,23 @@ const MobileMenu = memo(function MobileMenu({ open, onClose }: { open: boolean; 
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
           <span className="font-bold text-base tracking-wide">Menu</span>
-          <button onClick={onClose} className="p-1.5 rounded-md hover:bg-white/10 transition-colors" aria-label="Close menu">
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          <button
+            onClick={onClose}
+            className="p-1.5 rounded-md hover:bg-white/10 transition-colors"
+            aria-label="Close menu"
+          >
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
             </svg>
           </button>
         </div>
@@ -264,12 +308,24 @@ const MobileMenu = memo(function MobileMenu({ open, onClose }: { open: boolean; 
               {item.dropdown ? (
                 <>
                   <button
-                    onClick={() => setExpandedIdx(expandedIdx === idx ? null : idx)}
+                    onClick={() =>
+                      setExpandedIdx(expandedIdx === idx ? null : idx)
+                    }
                     className="w-full flex items-center justify-between px-3 py-3 text-sm font-semibold rounded-lg hover:bg-white/10 transition-colors"
                   >
                     {item.label}
-                    <svg className={`w-4 h-4 transition-transform duration-200 ${expandedIdx === idx ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-200 ${expandedIdx === idx ? "rotate-180" : ""}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M19 9l-7 7-7-7"
+                      />
                     </svg>
                   </button>
                   {expandedIdx === idx && (
@@ -278,19 +334,39 @@ const MobileMenu = memo(function MobileMenu({ open, onClose }: { open: boolean; 
                         di.subItems ? (
                           <div key={di.heading}>
                             <button
-                              onClick={() => setExpandedSubIdx(expandedSubIdx === di.heading ? null : di.heading)}
+                              onClick={() =>
+                                setExpandedSubIdx(
+                                  expandedSubIdx === di.heading
+                                    ? null
+                                    : di.heading,
+                                )
+                              }
                               className="w-full flex items-center justify-between py-2 text-[13px] font-semibold text-gray-300 hover:text-white transition-colors"
                             >
                               {di.heading}
-                              <svg className={`w-3 h-3 transition-transform duration-200 ${expandedSubIdx === di.heading ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                              <svg
+                                className={`w-3 h-3 transition-transform duration-200 ${expandedSubIdx === di.heading ? "rotate-180" : ""}`}
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                strokeWidth={2.5}
+                              >
+                                <path
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  d="M19 9l-7 7-7-7"
+                                />
                               </svg>
                             </button>
                             {expandedSubIdx === di.heading && (
                               <ul className="space-y-1 pl-3 pb-1">
                                 {di.subItems.map((sub) => (
                                   <li key={sub.label}>
-                                    <Link href={sub.href ?? "#"} onClick={onClose} className="group flex justify-between items-center gap-2 text-[11.5px] pr-1.5 text-gray-400 hover:text-white py-1 transition-colors">
+                                    <Link
+                                      href={sub.href ?? "#"}
+                                      onClick={onClose}
+                                      className="group flex justify-between items-center gap-2 text-[11.5px] pr-1.5 text-gray-400 hover:text-white py-1 transition-colors"
+                                    >
                                       {sub.label}
                                       <ArrowRight className="w-3 h-3 text-blue-400 shrink-0 scale-0 group-hover:scale-100 transition-transform duration-300" />
                                     </Link>
@@ -300,17 +376,26 @@ const MobileMenu = memo(function MobileMenu({ open, onClose }: { open: boolean; 
                             )}
                           </div>
                         ) : (
-                          <Link key={di.heading} href={di.href ?? "#"} onClick={onClose} className="group flex justify-between items-center gap-2 py-2 text-[13px] text-gray-300 hover:text-white transition-colors">
+                          <Link
+                            key={di.heading}
+                            href={di.href ?? "#"}
+                            onClick={onClose}
+                            className="group flex justify-between items-center gap-2 py-2 text-[13px] text-gray-300 hover:text-white transition-colors"
+                          >
                             {di.heading}
                             <ArrowRight className="w-3 h-3 text-blue-400 shrink-0 scale-0 group-hover:scale-100 transition-transform duration-300" />
                           </Link>
-                        )
+                        ),
                       )}
                     </div>
                   )}
                 </>
               ) : (
-                <Link href={item.href ?? "#"} onClick={onClose} className="block px-3 py-3 text-sm font-semibold rounded-lg hover:bg-white/10 transition-colors">
+                <Link
+                  href={item.href ?? "#"}
+                  onClick={onClose}
+                  className="block px-3 py-3 text-sm font-semibold rounded-lg hover:bg-white/10 transition-colors"
+                >
                   {item.label}
                 </Link>
               )}
@@ -342,14 +427,17 @@ export default function Navbar() {
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) setActiveDropdown(null);
+      if (navRef.current && !navRef.current.contains(e.target as Node))
+        setActiveDropdown(null);
     };
     document.addEventListener("mousedown", handler);
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
   useEffect(() => {
-    return () => { if (closeTimer.current) clearTimeout(closeTimer.current); };
+    return () => {
+      if (closeTimer.current) clearTimeout(closeTimer.current);
+    };
   }, []);
 
   const handleMouseEnter = useCallback((label: string) => {
@@ -373,17 +461,22 @@ export default function Navbar() {
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
       `}</style>
 
-      <header ref={navRef} className="fixed top-4 left-0 right-0 z-50 bg-transparent transition-all duration-300">
-        <div className={`2xl:max-w-350 w-[90%] mx-auto border ${scrolled ? "bg-[#168DCA]/50 backdrop-blur-xs text-white border-[#168DCA] shadow-md" : "border-gray-500/50 backdrop-blur-3xl"} rounded-[10px] px-3 transition-all duration-300`}>
+      <header
+        ref={navRef}
+        className="fixed top-4 left-0 right-0 z-50 bg-transparent transition-all duration-300"
+      >
+        <div
+          className={`2xl:max-w-350 w-[90%] mx-auto border ${scrolled ? "bg-[#168DCA]/50 backdrop-blur-xs text-white border-[#168DCA] shadow-md" : "border-gray-500/50 backdrop-blur-3xl"} rounded-[10px] px-3 transition-all duration-300`}
+        >
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="shrink-0 flex items-center gap-2">
-              <svg viewBox="0 0 100 100" className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M75,25 Q30,25 30,50 Q30,75 75,75" />
-                <path d="M75,35 Q40,35 40,50 Q40,65 75,65" />
-                <path d="M75,45 Q50,45 50,50 Q50,55 75,55" />
-                <path d="M30,50 L75,25 M40,50 L75,35 M50,50 L75,45 M50,50 L75,55 M40,50 L75,65 M30,50 L75,75" strokeOpacity="0.3" />
-              </svg>
-              <span className="text-white font-bold text-xl">Catobo</span>
+            <Link href="/" className="shrink-0 flex items-center gap-2 w-14 h-14">
+              <Image
+                src="/logo.png"
+                alt="Catobo Logo"
+                width={2000}
+                height={2000}
+                className="object-cover "
+              />
             </Link>
 
             <nav className="hidden lg:flex items-center gap-1">
@@ -394,21 +487,39 @@ export default function Navbar() {
                   <div
                     key={item.label}
                     className="relative"
-                    onMouseEnter={() => hasDropdown && handleMouseEnter(item.label)}
+                    onMouseEnter={() =>
+                      hasDropdown && handleMouseEnter(item.label)
+                    }
                     onMouseLeave={handleMouseLeave}
                   >
                     {hasDropdown ? (
                       <button
-                        onClick={(e) => { e.preventDefault(); setActiveDropdown(isActive ? null : item.label); }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setActiveDropdown(isActive ? null : item.label);
+                        }}
                         className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg transition-all duration-150 ${scrolled ? "text-white hover:text-white" : "text-white"}`}
                       >
                         {item.label}
-                        <svg className={`w-3 h-3 mt-0.5 transition-transform duration-200 ${isActive ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                        <svg
+                          className={`w-3 h-3 mt-0.5 transition-transform duration-200 ${isActive ? "rotate-180" : ""}`}
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M19 9l-7 7-7-7"
+                          />
                         </svg>
                       </button>
                     ) : (
-                      <Link href={item.href ?? "#"} className="inline-flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg transition-all duration-150 text-white">
+                      <Link
+                        href={item.href ?? "#"}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 text-sm rounded-lg transition-all duration-150 text-white"
+                      >
                         {item.label}
                       </Link>
                     )}
@@ -443,8 +554,18 @@ export default function Navbar() {
               aria-controls="mobile-menu"
               aria-expanded={mobileOpen}
             >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               </svg>
             </button>
           </div>
