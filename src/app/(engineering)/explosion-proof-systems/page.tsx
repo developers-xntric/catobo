@@ -147,7 +147,7 @@ function MainContent() {
                         <img
                             src="/eps/2.png" // Replace with your actual path
                             alt="Connector schematic"
-                            className="w-full h-full object-contain mix-blend-multiply p-4"
+                            className="w-full h-full object-cover mix-blend-multiply"
                         />
                     </div>
                 </div>
@@ -241,8 +241,8 @@ function MainContent() {
                     <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
                         <img src="/eps/5.png" alt="Industrial panel" className="w-full h-full object-cover" />
                     </div>
-                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center p-8">
-                        <img src="/eps/6.png" alt="Metal clad plugs" className="w-full h-full object-contain mix-blend-multiply" />
+                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center">
+                        <img src="/eps/6.png" alt="Metal clad plugs" className="w-full h-full object-cover mix-blend-multiply" />
                     </div>
                 </div>
             </section>
@@ -306,8 +306,8 @@ function MainContent() {
                     <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
                         <img src="/eps/9.png" alt="Industrial site" className="w-full h-full object-cover" />
                     </div>
-                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center p-6">
-                        <img src="/eps/10.png" alt="Switch disconnectors" className="w-full h-full object-contain mix-blend-multiply" />
+                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center">
+                        <img src="/eps/10.png" alt="Switch disconnectors" className="w-full h-full object-cover mix-blend-multiply" />
                     </div>
                 </div>
             </section>
