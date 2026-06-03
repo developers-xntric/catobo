@@ -39,7 +39,7 @@ export default function MainContent() {
       {/* Breadcrumb Pill */}
       <div className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-[#E8E8E8] rounded-md mb-8">
         <span className="w-1.5 h-1.5 rounded-full bg-[#168DCA]"></span>
-        <span className="text-[13px] font-medium text-[#1A1A1A]">
+        <span className="text-[13px] font-medium text-black tracking-wide">
           Lightning Protection Systems
         </span>
       </div>
@@ -54,13 +54,13 @@ export default function MainContent() {
         <div className="space-y-3 mb-6">
           <div className="flex items-start gap-3">
             <CheckIcon />
-            <span className="text-[15px] text-[#636363]">
+            <span className="text-md text-[#636363]">
               Early Streamer Emission System-Active 2D – <ViewPDFLink label="View PDF" />
             </span>
           </div>
           <div className="flex items-start gap-3">
             <CheckIcon />
-            <span className="text-[15px] text-[#636363]">
+            <span className="text-md text-[#636363]">
               Early Streamer Emission System-Active 4D – <ViewPDFLink label="View PDF" />
             </span>
           </div>
@@ -91,7 +91,7 @@ export default function MainContent() {
           Lightning Protection System/Earthing
         </h2>
 
-        <p className="text-[15px] text-[#636363] leading-[1.7] mb-6">
+        <p className="text-md text-[#636363] leading-[1.7] mb-6">
           Lightning protection needs vary according to each specific facility. The requirements of telecom
           structures, buildings, power utility substations, transmission and distribution systems and grounding and
           bonding requirements can all vary greatly. In all cases, the purpose of a high-quality lightning protection
@@ -125,12 +125,12 @@ export default function MainContent() {
           ].map((point, i) => (
             <div key={i} className="flex items-start gap-3">
               <CheckIcon />
-              <span className="text-[15px] text-[#636363] leading-relaxed">{point}</span>
+              <span className="text-md text-[#636363] leading-relaxed">{point}</span>
             </div>
           ))}
         </div>
 
-        <p className="text-[15px] text-[#636363] leading-[1.7]">
+        <p className="text-md text-[#636363] leading-[1.7]">
           Nvent ERICO has the experts, experience and technology options to select and design the ideal lightning
           protection solution for your application from the ground up.
         </p>
@@ -143,7 +143,7 @@ export default function MainContent() {
         </h2>
 
         <div className="space-y-5 mb-8">
-          <p className="text-[15px] text-[#636363] leading-[1.7]">
+          <p className="text-md text-[#636363] leading-[1.7]">
             Modern industry relies heavily on electronic automation to increase productivity, ensure safety and
             provide economic benefits. However, power circuits are often severely polluted with electrical
             disturbances from switching of electrical loads, electrical noise and even the occasional induced impulse.
@@ -151,12 +151,12 @@ export default function MainContent() {
             cannot be tolerated, protection devices should be installed on critical power circuits.
           </p>
 
-          <p className="text-[15px] text-[#636363] leading-[1.7]">
+          <p className="text-md text-[#636363] leading-[1.7]">
             Nvent ERICO offers a complete line of surge protection devices that can be coordinated into an effectively
             staged electrical protection plan.
           </p>
 
-          <p className="text-[15px] text-[#636363] leading-[1.7]">
+          <p className="text-md text-[#636363] leading-[1.7]">
             Nvent ERICO offers power surge protection solutions in a coordinated approach where the first stage of
             defense is the installation of primary protection devices at the mains supply service entrance, followed by
             secondary protection at distribution branch panels and where necessary, at point-of-use applications.
