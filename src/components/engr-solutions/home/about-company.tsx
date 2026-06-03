@@ -52,7 +52,7 @@ export default function AboutCompany() {
             <div>
               <div className="flex items-center gap-2 mb-4 border border-gray-200 px-3 py-2 rounded-full w-fit">
                 <span className="w-2 h-2 rounded-full bg-[#168DCA]" />
-                <span className="text-xs font-medium text-[#000000] tracking-widest">
+                <span className="text-xs font-medium text-[#000000]">
                   About Our Company
                 </span>
               </div>
