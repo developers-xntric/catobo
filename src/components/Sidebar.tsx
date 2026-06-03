@@ -28,7 +28,7 @@ export default function Sidebar() {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="w-[220px] flex-shrink-0">
+    <div className="w-55 shrink-0">
       {/* Header */}
       <div className="bg-[#1a1a2e] px-4 py-3 mb-0">
         <span className="text-white text-sm font-semibold">Lightning Protection</span>
@@ -57,7 +57,7 @@ export default function Sidebar() {
             </span>
             {item.hasArrow && (
               <svg
-                className={`w-4 h-4 flex-shrink-0 ml-2 ${
+                className={`w-4 h-4 shrink-0 ml-2 ${
                   active === i ? "text-white" : "text-[#636363]"
                 }`}
                 fill="none"
