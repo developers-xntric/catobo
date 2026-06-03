@@ -5,17 +5,15 @@ interface SidebarItem {
   label: string;
   active?: boolean;
   hasArrow?: boolean;
-  children?: SidebarItem[];
 }
 
 const sidebarItems: SidebarItem[] = [
   {
     label: "Lightning Protection Systems",
-    active: true,
     hasArrow: true,
   },
   {
-    label: "Lightning Protection System/ Earthing",
+    label: "Lightning Protection System/\nEarthing",
     hasArrow: true,
   },
   {
@@ -28,19 +26,22 @@ export default function Sidebar() {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="w-55 shrink-0">
+    <div className="w-[360px] shrink-0 bg-[#F3F3F3] p-5 rounded-2xl">
       {/* Header */}
-      <div className="bg-[#1a1a2e] px-4 py-3 mb-0">
-        <span className="text-white text-sm font-semibold">Lightning Protection</span>
+      <div className="mb-4 px-1">
+        <h2 className="text-[1.35rem] text-black font-medium tracking-wide">
+          Lightning Protection
+        </h2>
       </div>
 
       {/* Nav Items */}
-      <div className="border border-gray-200">
+      <div className="flex flex-col gap-3">
         {sidebarItems.map((item, i) => (
           <button
             key={i}
             onClick={() => setActive(i)}
-            className="w-full text-left flex items-center justify-between px-4 py-2.5 border-b border-gray-200 last:border-b-0 group transition-all"
+            className={`w-full text-left flex items-center justify-between px-5 py-4 rounded-xl border transition-all ${active === i ? "border-transparent shadow-md" : "border-[#E8E8E8] hover:border-gray-300"
+              }`}
             style={{
               background:
                 active === i
@@ -49,23 +50,25 @@ export default function Sidebar() {
             }}
           >
             <span
-              className={`text-xs leading-tight font-medium ${
-                active === i ? "text-white" : "text-[#636363]"
-              }`}
+              className={`text-[0.95rem] leading-snug font-normal font-raleway tracking-wide pr-4 whitespace-pre-line ${active === i ? "text-white" : "text-[#1a1a1a]"
+                }`}
             >
               {item.label}
             </span>
             {item.hasArrow && (
               <svg
-                className={`w-4 h-4 shrink-0 ml-2 ${
-                  active === i ? "text-white" : "text-[#636363]"
-                }`}
+                className={`w-4.5 h-4.5 shrink-0 ${active === i ? "text-white" : "text-black"
+                  }`}
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                strokeWidth={2}
+                strokeWidth={1.5}
               >
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M7 17L17 7M7 7h10v10"
+                />
               </svg>
             )}
           </button>
