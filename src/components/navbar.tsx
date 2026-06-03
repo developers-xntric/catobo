@@ -38,6 +38,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "Engineering Solution",
+    href: "/engineering-home",
     dropdown: {
       image:
         "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80",
@@ -47,7 +48,7 @@ const NAV_ITEMS: NavItem[] = [
           heading: "Core Solutions",
           subItems: [
             { label: "Cable Containment", href: "/" },
-            { label: "Lightning Protection", href: "/" },
+            { label: "Lightning Protection", href: "/solution-lightening-protection-systems" },
             { label: "Industrial Safety", href: "/" },
           ],
         },
@@ -63,19 +64,19 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "Portfolio",
-    href: "/",
+    href: "/portfolio",
   },
   {
     label: "Testimonials",
-    href: "/",
+    href: "/testimonials",
   },
   {
     label: "FAQs",
-    href: "/",
+    href: "/faqs",
   },
   {
     label: "Contact Us",
-    href: "/",
+    href: "/contact",
   },
 ];
 
@@ -121,11 +122,10 @@ const ExpandableRow = memo(function ExpandableRow({
         <button
           onClick={() => hasSubItems && handleToggle()}
           onMouseEnter={() => onHover && onHover(item)}
-          className={`w-full flex items-center font-bold text-xs justify-between px-3 py-2.5 rounded-xl transition-colors duration-150 ${
-            isCurrentlyOpen
+          className={`w-full flex items-center font-bold text-xs justify-between px-3 py-2.5 rounded-xl transition-colors duration-150 ${isCurrentlyOpen
               ? "text-[#133066]"
               : "text-[#333333] hover:text-[#133066] hover:bg-gray-50"
-          } ${hasSubItems ? "cursor-pointer" : "cursor-default"}`}
+            } ${hasSubItems ? "cursor-pointer" : "cursor-default"}`}
         >
           <span>{item.heading}</span>
           {hasSubItems && (

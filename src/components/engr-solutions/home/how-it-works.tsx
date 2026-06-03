@@ -14,7 +14,7 @@ export default function HowItWorks() {
                 </span>
               </div>
 
-              <h2 className="text-[20px] md:text-3xl lg:text-[2.7vw] 2xl:text-[40px] font-medium leading-[1.2] text-[#0a0f1e] mb-2">
+              <h2 className="text-[20px] md:text-3xl lg:text-[35px] font-medium leading-[1.2] text-[#0a0f1e] mb-2">
                 Expertise-Driven Delivery
               </h2>
 
@@ -24,7 +24,7 @@ export default function HowItWorks() {
               </p>
             </div>
 
-            <GradButton href="/" size="lg">
+            <GradButton href="/" size="md">
             Book Your Consultation
             </GradButton>
           </div>
