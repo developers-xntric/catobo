@@ -81,7 +81,9 @@ export default function ContactSection() {
                 {/* Header */}
                 <div className="mb-12 text-center md:w-[80%] mx-auto">
                     <Badge text='Partner with Precision' variant='black' />
-                    <Typography text="Begin your journey with precision-engineered aviation safety, heliport, vertiport, and airfield solutions backed by decades of expertise." />
+                    <h2 className="text-[20px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000] mb-10 text-center">
+       Begin your journey with precision-engineered aviation safety, heliport, vertiport, and airfield solutions backed by decades of expertise.
+    </h2>
                 </div>
 
                 {/* Two Column Layout */}
@@ -94,7 +96,7 @@ export default function ContactSection() {
                     </div>
 
                     {/* Right Column - Form */}
-                    <div className="flex flex-col md:h-130 justify-center bg-[#D9D9D9] px-5 md:px-8 py-6 rounded-[14px]">
+                    <div className="flex flex-col  justify-center bg-[#D9D9D9] px-5 md:px-8 py-6 rounded-[14px]">
                         <form onSubmit={handleSubmit} className="space-y-5">
                             {/* Name Field */}
                             <div className="space-y-2">
