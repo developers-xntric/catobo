@@ -1,10 +1,9 @@
-import type { Metadata } from "next";
-import { Poppins, Raleway, Inter } from "next/font/google";
-import "./globals.css";
 import Navbar from "@/components/navbar";
 import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
+import { Poppins, Raleway } from "next/font/google";
+import "./globals.css";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const raleway = Raleway({
   variable: "--font-raleway",
@@ -30,7 +29,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", raleway.variable, poppins.variable, "font-sans", inter.variable)}
+      className={cn("h-full", "antialiased", raleway.variable, poppins.variable)}
     >
       <body className="min-h-full flex flex-col">
         <Navbar />
