@@ -70,14 +70,14 @@ export default function MainContent() {
         <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4">
           <div className="rounded-xl overflow-hidden bg-gray-100 h-65">
             <img
-              src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80"
+              src="/slps/1.png"
               alt="Lightning protection installation worker"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-65 flex items-center justify-center">
             <img
-              src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=400&q=80"
+              src="/slps/2.png"
               alt="Lightning rod system"
               className="w-full h-full mix-blend-multiply"
             />
@@ -102,14 +102,14 @@ export default function MainContent() {
         <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4 mb-6">
           <div className="rounded-xl overflow-hidden bg-gray-100 h-65">
             <img
-              src="https://images.unsplash.com/photo-1611078709848-18548a303666?w=800&q=80"
+              src="/slps/3.png"
               alt="Grounding cables installation"
               className="w-full h-full object-cover"
             />
           </div>
           <div className="rounded-xl overflow-hidden bg-gray-100 h-65">
             <img
-              src="https://images.unsplash.com/photo-1581092926214-ee8aeb54374e?w=600&q=80"
+              src="/slps/4.png"
               alt="Electrical panel technician"
               className="w-full h-full object-cover"
             />
@@ -167,15 +167,15 @@ export default function MainContent() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
             {
-              src: "https://images.unsplash.com/photo-1563207153-f403bf289096?w=400&q=80",
+              src: "/slps/5.png",
               alt: "Surge protection device left",
             },
             {
-              src: "https://images.unsplash.com/photo-1563207153-f403bf289096?w=400&q=80",
+              src: "/slps/6.png",
               alt: "Surge protection device center",
             },
             {
-              src: "https://images.unsplash.com/photo-1563207153-f403bf289096?w=400&q=80",
+              src: "/slps/7.png",
               alt: "Surge protection device right",
             },
           ].map((img, i) => (
