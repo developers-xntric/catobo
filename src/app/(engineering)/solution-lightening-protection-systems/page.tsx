@@ -17,8 +17,8 @@ const SolutionLighteningProtectionSystems = () => {
                 backgroundImage={"/lightening-sol.png"}
             />
             <main className="min-h-screen bg-white">
-                <div className="2xl:max-w-360 w-[90%] mx-auto px-6 py-8">
-                    <div className="flex gap-8 items-start">
+                <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
+                    <div className="flex gap-5 items-start">
                         {/* Sidebar TOC */}
                         <Sidebar />
 

@@ -34,7 +34,7 @@ function ViewPDFLink({ label }: { label: string }) {
 
 export default function MainContent() {
   return (
-    <div className="flex-1 min-w-0 max-w-225">
+    <div className="flex-1 min-w-0 max-w-240">
 
       {/* Breadcrumb Pill */}
       <div className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-[#E8E8E8] rounded-md mb-8">
@@ -46,7 +46,7 @@ export default function MainContent() {
 
       {/* ─── Section 1: Franklin France ─── */}
       <section className="mb-14">
-        <h1 className="text-[32px] font-medium text-[#1A1A1A] mb-5 leading-tight tracking-tight">
+        <h1 className="text-[32px] font-medium text-black mb-5 leading-tight tracking-wide">
           Franklin France
         </h1>
 
@@ -68,14 +68,14 @@ export default function MainContent() {
 
         {/* Two image grid (Asymmetrical 5:3 ratio) */}
         <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4">
-          <div className="rounded-xl overflow-hidden bg-gray-100 h-65">
+          <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
             <img
               src="/slps/1.png"
               alt="Lightning protection installation worker"
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-65 flex items-center justify-center">
+          <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center">
             <img
               src="/slps/2.png"
               alt="Lightning rod system"
@@ -87,7 +87,7 @@ export default function MainContent() {
 
       {/* ─── Section 2: Lightning Protection System / Earthing ─── */}
       <section className="mb-14">
-        <h2 className="text-[28px] font-medium text-[#1A1A1A] mb-4 leading-tight tracking-tight">
+        <h2 className="text-[28px] font-medium text-black mb-4 leading-tight tracking-wide">
           Lightning Protection System/Earthing
         </h2>
 
@@ -99,15 +99,15 @@ export default function MainContent() {
         </p>
 
         {/* Two image grid (Asymmetrical 5:3 ratio) */}
-        <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4 mb-6">
-          <div className="rounded-xl overflow-hidden bg-gray-100 h-65">
+        <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-2 mb-6">
+          <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
             <img
               src="/slps/3.png"
               alt="Grounding cables installation"
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="rounded-xl overflow-hidden bg-gray-100 h-65">
+          <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
             <img
               src="/slps/4.png"
               alt="Electrical panel technician"
@@ -138,7 +138,7 @@ export default function MainContent() {
 
       {/* ─── Section 3: Surge Protection Devices ─── */}
       <section className="mb-10">
-        <h2 className="text-[28px] font-medium text-[#1A1A1A] mb-4 leading-tight tracking-tight">
+        <h2 className="text-[28px] font-medium text-black mb-4 leading-tight tracking-wide">
           Surge Protection Devices
         </h2>
 
@@ -164,7 +164,7 @@ export default function MainContent() {
         </div>
 
         {/* Three product image grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {[
             {
               src: "/slps/5.png",
@@ -183,7 +183,7 @@ export default function MainContent() {
               <img
                 src={img.src}
                 alt={img.alt}
-                className={`w-full h-full object-contain mix-blend-multiply opacity-90 ${i === 1 ? 'hue-rotate-180' : ''} ${i === 2 ? 'hue-rotate-90' : ''}`}
+                className={`w-full h-full object-cover mix-blend-multiply opacity-90 ${i === 1 ? 'hue-rotate-180' : ''} ${i === 2 ? 'hue-rotate-90' : ''}`}
               />
             </div>
           ))}
