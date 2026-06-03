@@ -26,7 +26,7 @@ export default function Sidebar() {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="w-[360px] shrink-0 bg-[#F3F3F3] p-5 rounded-2xl">
+    <div className="w-90 shrink-0 bg-[#F3F3F3] p-5 rounded-2xl">
       {/* Header */}
       <div className="mb-4 px-1">
         <h2 className="text-[1.35rem] text-black font-medium tracking-wide">
