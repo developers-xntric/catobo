@@ -22,7 +22,7 @@ export default async function PressDetailPage({ params }: { params: Promise<{ id
                     { label: "Press", href: "/press" },
                     { label: item.title },
                 ]}
-                backgroundImage="/press/bg.png"
+                backgroundImage="/press/hero-press-list.png"
             />
 
             <TrainingProgramCard
