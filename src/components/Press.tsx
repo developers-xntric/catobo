@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface PressItem {
   id: number;
@@ -110,9 +111,10 @@ export default function Press() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pressItems.map((item) => (
-            <div
+            <Link
               key={item.id}
-              className="group flex flex-col overflow-hidden rounded-lg  "
+              href="/press-list"
+              className="group flex flex-col overflow-hidden rounded-lg"
             >
               <div className="relative w-full h-60 overflow-hidden">
                 <Image
@@ -131,7 +133,7 @@ export default function Press() {
                 </div>
                 <hr className="border-t border-[#D1D1D1] mt-5" />
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
