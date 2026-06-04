@@ -1,5 +1,6 @@
 "use client";
 
+import DynamicHero from "@/components/common/hero";
 import React, { useState } from "react";
 
 // ==========================================
@@ -101,8 +102,8 @@ export function Sidebar({ title, items }: SidebarProps) {
                         <button
                             onClick={() => setActive(i)}
                             className={`w-full text-left flex items-center justify-between px-5 py-4 rounded-xl border transition-all ${active === i
-                                    ? "border-transparent shadow-md"
-                                    : "border-[#E8E8E8] hover:border-gray-300"
+                                ? "border-transparent shadow-md"
+                                : "border-[#E8E8E8] hover:border-gray-300"
                                 }`}
                             style={{
                                 background:
@@ -537,15 +538,15 @@ export default function SolutionCableTrunking() {
 
     return (
         <div>
-            {/* Uncomment and use your DynamicHero once integrated */}
-            {/* <DynamicHero
-        title={"Cable Trunking"}
-        breadcrumbs={[
-          { label: "Home", href: "/" },
-          { label: "Cable Trunking" },
-        ]}
-        backgroundImage={"/cable-trunking-bg.png"}
-      /> */}
+            {/* DynamicHero integrated */}
+            <DynamicHero
+                title={"Cable Trunking"}
+                breadcrumbs={[
+                    { label: "Home", href: "/" },
+                    { label: "Cable Trunking" },
+                ]}
+                backgroundImage={"/cable-trunking-bg.png"}
+            />
 
             <main className="min-h-screen bg-white">
                 <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
