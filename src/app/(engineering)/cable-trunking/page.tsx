@@ -50,7 +50,7 @@ interface NumberedCardProps {
 
 function NumberedCard({ number, title, subtitle, points }: NumberedCardProps) {
     return (
-        <div className="border border-[#E8E8E8] rounded-xl p-6">
+        <div className="border border-[#E8E8E8] rounded-xl">
             <h4 className="text-[18px] font-medium text-black mb-2 tracking-wide">
                 {number}. {title}
             </h4>
@@ -208,18 +208,18 @@ function MainContent() {
 
                 {/* Image Grid (5:3 ratio) */}
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4">
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
+                    <div className="rounded-xl overflow-hidden h-76">
                         <img
                             src="/cable-trunking/1.png"
                             alt="Cable trunking systems"
                             className="w-full h-full object-cover"
                         />
                     </div>
-                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center">
+                    <div className="rounded-xl overflow-hidden h-76 flex items-center justify-center">
                         <img
                             src="/cable-trunking/2.png"
                             alt="Cable trunking product"
-                            className="w-full h-full object-contain mix-blend-multiply p-4"
+                            className="w-full h-full object-cover mix-blend-multiply"
                         />
                     </div>
                 </div>
@@ -249,60 +249,18 @@ function MainContent() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4">
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
+                    <div className="rounded-xl overflow-hidden h-76">
                         <img
                             src="/cable-trunking/3.png"
                             alt="Perforated cable tray"
                             className="w-full h-full object-cover"
                         />
                     </div>
-                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center">
+                    <div className="rounded-xl overflow-hidden h-76 flex items-center justify-center">
                         <img
                             src="/cable-trunking/4.png"
                             alt="Cable ladder"
-                            className="w-full h-full object-contain mix-blend-multiply p-4"
-                        />
-                    </div>
-                </div>
-            </section>
-
-            {/* ─── Section 3: Cable Ladder Systems – Material & Finishes ─── */}
-            <section className="mb-16">
-                <div className="flex items-center gap-2 mb-4">
-                    <span className="text-sm text-[#636363]">• Cable Ladder Systems</span>
-                </div>
-
-                <h2 className="text-[28px] font-medium text-black mb-3 leading-tight tracking-wide">
-                    Material &amp; Finishes
-                </h2>
-
-                {/* (Same finishes as perforated tray – reuse) */}
-                <div className="space-y-3.5 mb-8">
-                    {[
-                        "Cold rolled steel to JIS G3141 SPCC SD/Hot-Rolled steel sheet to JIS G3141 SPHC, Hot-dip Galvanized BS EN ISO 1461 (BS 729) after fabrication.",
-                        "Cold rolled steel sheet to JIS G3141 SPCC SD/Epoxy Powder Coated with minimum film thickness 45um after fabrication.",
-                        "Stainless Steel sheet to SUS 304, SUS, 316. AISI Type 304 or AISI Type 316.",
-                    ].map((point, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                            <CheckIcon />
-                            <span className="text-md text-[#636363] leading-relaxed">{point}</span>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4">
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
-                        <img
-                            src="/cable-trunking/5.png"
-                            alt="Cable ladder system"
-                            className="w-full h-full object-cover"
-                        />
-                    </div>
-                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center p-6">
-                        <img
-                            src="/cable-trunking/6.png"
-                            alt="Cable ladder product"
-                            className="w-full h-full object-contain mix-blend-multiply"
+                            className="w-full h-full object-cover mix-blend-multiply"
                         />
                     </div>
                 </div>
@@ -335,18 +293,18 @@ function MainContent() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4">
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
+                    <div className="rounded-xl overflow-hidden h-76">
                         <img
-                            src="/cable-trunking/7.png"
+                            src="/cable-trunking/5.png"
                             alt="Rigid flexible conduits"
                             className="w-full h-full object-cover"
                         />
                     </div>
-                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center p-6">
+                    <div className="rounded-xl overflow-hidden h-76 flex items-center justify-center">
                         <img
-                            src="/cable-trunking/8.png"
+                            src="/cable-trunking/6.png"
                             alt="Conduit product"
-                            className="w-full h-full object-contain mix-blend-multiply"
+                            className="w-full h-full object-cover mix-blend-multiply"
                         />
                     </div>
                 </div>
@@ -400,18 +358,18 @@ function MainContent() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4 mb-10">
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
+                    <div className="rounded-xl overflow-hidden h-76">
                         <img
-                            src="/cable-trunking/9.png"
+                            src="/cable-trunking/7.png"
                             alt="Flush floor trunking installation"
                             className="w-full h-full object-cover"
                         />
                     </div>
-                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center p-6">
+                    <div className="rounded-xl overflow-hidden h-76 flex items-center justify-center">
                         <img
-                            src="/cable-trunking/10.png"
+                            src="/cable-trunking/8.png"
                             alt="Flush floor trunking product"
-                            className="w-full h-full object-contain mix-blend-multiply"
+                            className="w-full h-full object-cover mix-blend-multiply"
                         />
                     </div>
                 </div>
@@ -478,18 +436,18 @@ function MainContent() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4">
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
+                    <div className="rounded-xl overflow-hidden h-76">
                         <img
-                            src="/cable-trunking/11.png"
+                            src="/cable-trunking/9.png"
                             alt="Wiremesh cable tray installation"
                             className="w-full h-full object-cover"
                         />
                     </div>
-                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center p-6">
+                    <div className="rounded-xl overflow-hidden h-76 flex items-center justify-center">
                         <img
-                            src="/cable-trunking/12.png"
+                            src="/cable-trunking/10.png"
                             alt="Wiremesh cable tray product"
-                            className="w-full h-full object-contain mix-blend-multiply"
+                            className="w-full h-full object-cover mix-blend-multiply"
                         />
                     </div>
                 </div>
