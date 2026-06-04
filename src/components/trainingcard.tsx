@@ -15,12 +15,11 @@ export default function TrainingProgramCard({
   href = "#",
 }: TrainingProgramCardProps) {
   return (
-    <Link
-      href={href}
-      className="group block overflow-hidden bg-white transition-all duration-300  2xl:max-w-350 w-[90%] mx-auto lg:px-8 py-10"
+    <div
+      className="group block overflow-hidden bg-white transition-all duration-300  2xl:max-w-360 w-[90%] mx-auto py-10"
     >
       {/* Image */}
-      <div className="relative aspect-[16/9] w-full h-[450px] overflow-hidden rounded">
+      <div className="relative aspect-[16/9] w-full h-[500px] overflow-hidden rounded-[10px]">
         <Image
           src={image}
           alt={title}
@@ -39,6 +38,6 @@ export default function TrainingProgramCard({
           {description}
         </p>
       </div>
-    </Link>
+    </div>
   );
 }
