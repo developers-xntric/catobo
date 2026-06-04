@@ -34,11 +34,11 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "About Us",
-    href: "/about",
+    href: "/engineering/about",
   },
   {
     label: "Engineering Solution",
-    href: "/engineering-home",
+    href: "/engineering",
     dropdown: {
       image:
         "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=400&q=80",
@@ -64,19 +64,19 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "Portfolio",
-    href: "/portfolio",
+    href: "/engineering/portfolio",
   },
   {
     label: "Testimonials",
-    href: "/testimonials",
+    href: "/engineering/testimonials",
   },
   {
     label: "FAQs",
-    href: "/faqs",
+    href: "/engineering/faqs",
   },
   {
     label: "Contact Us",
-    href: "/contact",
+    href: "/engineering/contact",
   },
 ];
 
