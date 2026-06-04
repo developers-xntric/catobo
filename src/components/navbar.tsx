@@ -34,7 +34,7 @@ const NAV_ITEMS: NavItem[] = [
   },
   {
     label: "About Us",
-    href: "/",
+    href: "/about",
   },
   {
     label: "Engineering Solution",

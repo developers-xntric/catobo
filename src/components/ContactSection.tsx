@@ -87,7 +87,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* Two Column Layout */}
-                <div className="grid grid-cols-1 gap-6 md:gap-1 xl:gap-8 2xl:gap-1 lg:grid-cols-2">
+                <div className="grid grid-cols-1 gap-6 md:gap-1 xl:gap-8 2xl:gap-8 lg:grid-cols-2">
                     {/* Left Column - Image */}
                     <div className="md:flex hidden items-center justify-center">
                         <div className="relative w-full h-full min-h-[400px] overflow-hidden rounded-xl">

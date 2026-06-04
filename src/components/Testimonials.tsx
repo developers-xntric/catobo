@@ -55,54 +55,56 @@ export default function Testimonials() {
     };
 
     return (
-        <section className="py-10 bg-white">
-            <div className="2xl:max-w-[440px] w-[90%]  mx-auto space-y-3">
+        <section className="py-16 bg-white">
+            <div className="2xl:max-w-[1440px] w-[90%]  mx-auto space-y-3">
                 <Badge text='Testimonials' variant='black' />
                 <h2 className="text-[20px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000] text-center ">
                     Voices of Partnerships
                 </h2>
-                <p className="text-base md:text-lg text-[#636363] mb-6 max-w-[80%] text-center mx-auto">
+                <p className="text-base md:text-lg text-[#636363] mb-6 max-w-[80%] text-center mx-auto tracking-normal">
                     What We've Learned Together.
                 </p>
                 <div className="grid gap-4 md:grid-cols-3">
                     {testimonials.map((item) => (
                         <div
                             key={item.id}
-                            className="rounded-md bg-[#1E1E1E] p-6 text-white flex flex-col h-full"
+                            className="rounded-md bg-[#1E1E1E] p-6 text-white flex flex-col justify-between h-[295px]"
                         >
-                            <h3 className="text-[15x] font-semibold mb-4">
+                            <h3 className="text-[17px] font-semibold mb-4">
                                 {item.company}
                             </h3>
 
-                            <p
-                                className={`text-[14px] leading-relaxed text-[#C6CDD1] ${expandedId !== item.id ? "line-clamp-4" : ""}`}
-                            >
-                                "{item.quote}"
-                            </p>
+                            <div>
+                                <p
+                                    className={`text-[14px] leading-relaxed text-[#C6CDD1] ${expandedId !== item.id ? "line-clamp-4" : ""}`}
+                                >
+                                    "{item.quote}"
+                                </p>
 
-                            <button
-                                onClick={() => toggleExpand(item.id)}
-                                className="mt-2 self-start text-[14px] font-medium text-[#1EA7FF] underline"
-                            >
-                                {expandedId === item.id ? "Show Less" : "Read More"}
-                            </button>
+                                <button
+                                    onClick={() => toggleExpand(item.id)}
+                                    className="mt-2 self-start text-[14px] font-medium text-[#1EA7FF] underline"
+                                >
+                                    {expandedId === item.id ? "Show Less" : "Read More"}
+                                </button>
 
-                            <div className="mt-4 flex items-center gap-3 ">
-                                <Image
-                                    src={item.image}
-                                    alt={item.author}
-                                    width={28}
-                                    height={28}
-                                    className="rounded-md object-cover"
-                                />
+                                <div className="mt-4 flex items-center gap-3 ">
+                                    <Image
+                                        src={item.image}
+                                        alt={item.author}
+                                        width={28}
+                                        height={28}
+                                        className="rounded-md object-cover"
+                                    />
 
-                                <div>
-                                    <p className="text-[13px] font-light uppercase text-[#cdd6db]">
-                                        {item.author}
-                                    </p>
-                                    <p className="text-[12px] text-gray-400">
-                                        {item.designation}
-                                    </p>
+                                    <div>
+                                        <p className="text-[13px] font-light uppercase text-[#cdd6db]">
+                                            {item.author}
+                                        </p>
+                                        <p className="text-[12px] text-gray-400">
+                                            {item.designation}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +112,7 @@ export default function Testimonials() {
                 </div>
                 <div className="flex justify-center">
                     <Button
-                        href="#"
+                        href="/testimonials"
                         className="text-white font-medium py-3 px-10 transition-colors rounded-lg disabled:opacity-50 mt-5"
                     >
                         View All Testimonals
