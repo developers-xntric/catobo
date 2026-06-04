@@ -1,23 +1,19 @@
 import DynamicHero from '@/components/common/hero';
 import FaqAccordion from '@/components/FaqAccordion';
-import PressContent from '@/components/Press';
+import { engineeringFaqsData } from '@/data/engineering/faqs-data';
 
 const Faqs = () => {
+    const { hero, faqs } = engineeringFaqsData;
+
     return (
-        
         <div>
             <DynamicHero
-                title={"Faqs"}
-                breadcrumbs={
-                    [
-                        { label: "Home", href: "/" },
-                        { label: "Faqs" },
-                    ]
-                }
-                backgroundImage={"/faqs.png"}
+                title={hero.title}
+                breadcrumbs={hero.breadcrumbs}
+                backgroundImage={hero.backgroundImage}
             />
-           
-            <FaqAccordion />
+
+            <FaqAccordion faqData={faqs} />
         </div>
     )
 }

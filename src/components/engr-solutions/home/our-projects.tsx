@@ -4,45 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import GradButton from "@/components/ui/grad-button";
-
-/* ─── project data ─── */
-const projects = [
-    {
-        image: "/engr-solutions/project-image.png",
-        title: "Vertiport & Heliport Lighting & Safety System",
-        description:
-            "Delivered a state-of-the-art helipad lighting system designed for maximum safety, reliability, and operational efficiency. The project included perimeter and touchdown lighting, integrated safety beacons, and a control & monitoring system to ensure continuous compliance with international aviation standards. Engineered to withstand challenging conditions, this installation highlights Catobo's expertise in end-to-end aviation solutions.",
-        link: "/projects/vertiport-heliport",
-        category: "Aviation",
-    },
-    {
-        image: "/engr-solutions/project-image.png",
-        title: "Airfield Ground Lighting System",
-        description:
-            "Designed and installed a comprehensive airfield ground lighting system for a major international airport, ensuring full compliance with ICAO standards. The project encompassed runway edge and centerline lighting, taxiway guidance systems, and approach lighting with advanced CCR control. Built to perform under extreme conditions, this installation demonstrates Catobo's capability in large-scale aviation infrastructure.",
-        link: "/projects/airfield-lighting",
-        category: "Construction",
-    },
-    {
-        image: "/engr-solutions/project-image.png",
-        title: "Lightning Protection & Earthing Systems",
-        description:
-            "Engineered a complete lightning protection and earthing solution for a healthcare facility, safeguarding critical medical equipment and patient safety. The installation included external LPS, surge protection devices, and a comprehensive earthing network designed to meet IEC 62305 standards. This project underscores Catobo's precision in delivering safety-critical infrastructure.",
-        link: "/projects/lightning-protection",
-        category: "Healthcare",
-    },
-];
-
-const categories = [
-    "Aviation",
-    "Construction",
-    "Defense & Military",
-    "Healthcare",
-    "Oil & Gas",
-    "Transportation",
-    "Telecommunications",
-    "Energy",
-];
+import { HomeData } from "@/data/types";
 
 /* ─── arrow svg ─── */
 const ArrowIcon = () => (
@@ -91,7 +53,8 @@ const ChevronRight = () => (
     </svg>
 );
 
-export default function OurProjects() {
+export default function OurProjects({ data }: { data: HomeData['projects'] }) {
+    const { badge, title, description, items: projects, categories } = data;
     const [activeIndex, setActiveIndex] = useState(0);
 
     const goPrev = () =>
@@ -123,22 +86,18 @@ export default function OurProjects() {
                         <div className="flex items-center gap-2 mb-5 border border-[#2A2F3D] px-4 py-2 rounded-full w-fit">
                             <span className="w-2 h-2 rounded-full bg-[#168DCA]" />
                             <span className="text-xs text-white ">
-                                Our Projects
+                                {badge}
                             </span>
                         </div>
                         <h2 className="text-[20px] md:text-[30px] lg:text-[35px] font-medium leading-[1.2] text-balance text-white">
-                            Engineering Excellence In
-                            <br className="hidden md:block" />
-                            Every Project We Deliver
+                            {title}
                         </h2>
                     </div>
 
                     {/* right */}
                     <div className="lg:w-[45%] lg:pt-4">
                         <p className="text-[14px] md:text-[15px] leading-relaxed text-[#7C8192] mb-6">
-                            Showcasing our expertise in aviation, construction, and critical
-                            infrastructure solutions. Explore how we deliver safety,
-                            compliance, precision in every project.
+                            {description}
                         </p>
                         <GradButton href="/projects" size="md">
                             View All Projects
@@ -174,7 +133,7 @@ export default function OurProjects() {
                             <p className="text-[13px] md:text-[14px] leading-relaxed text-[#6D6D6D]">
                                 {project.description}
                             </p>
-                        </div>   
+                        </div>
 
                         {/* gradient arrow button */}
                         <Link
@@ -243,8 +202,8 @@ export default function OurProjects() {
                                     <span
                                         key={`${cat}-${i}`}
                                         className={`text-[14px] md:text-[15px] transition-colors duration-200 cursor-pointer select-none shrink-0 ${cat === project.category
-                                                ? "text-[#168DCA] font-medium"
-                                                : "text-[#fff]"
+                                            ? "text-[#168DCA] font-medium"
+                                            : "text-[#fff]"
                                             }`}
                                     >
                                         {cat}

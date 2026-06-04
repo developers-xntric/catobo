@@ -1,35 +1,29 @@
-'use client';
-
 import Image from 'next/image';
 import GradButton from '@/components/ui/grad-button';
+import { HeroData } from '@/data/types';
 
-const partnerLogos = [
-  { file: '1.png', name: 'Partner 1' },
-  { file: '2.png', name: 'Partner 2' },
-  { file: '3.png', name: 'Partner 3' },
-  { file: '4.png', name: 'Partner 4' },
-  { file: '5.png', name: 'Partner 5' },
-  { file: '6.png', name: 'Partner 6' },
-];
+export default function Hero({ data }: { data: HeroData }) {
+  const { title, subtitle, backgroundImage, partnerLogos = [] } = data;
 
-export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col justify-between overflow-hidden shadow-none">
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url("/engr-solutions/hero-bg.png")' }}
+          style={{ backgroundImage: `url("${backgroundImage}")` }}
         />
       </div>
 
 
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-24">
         <h1 className="max-w-6xl text-3xl lg:text-[50px] xl:text-[50px] font-medium leading-[1.1] tracking-tight text-white mb-3">
-          Decades of Precision, Across Continents
+          {title}
         </h1>
-        <p className="max-w-5xl text-base md:text-lg text-white mb-6">
-          Catobo harnesses deep expertise in ME/African military, healthcare, airport, and royal challenges to deliver holistic airfield lighting, vertiport & heliport, lightning protection, and cable systems from inception to completion.
-        </p>
+        {subtitle && (
+          <p className="max-w-5xl text-base md:text-lg text-white mb-6">
+            {subtitle}
+          </p>
+        )}
 
 
         <div className="flex flex-col sm:flex-row items-center gap-4">

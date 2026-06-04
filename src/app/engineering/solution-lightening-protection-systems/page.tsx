@@ -1,29 +1,23 @@
 import DynamicHero from '@/components/common/hero';
-import Hero from '@/components/engr-solutions/home/hero';
+import { Sidebar } from '@/components/Sidebar';
 import MainContent from '@/components/MainContent';
-import Sidebar from '@/components/Sidebar';
+import { engineeringLightningProtectionData } from '@/data/engineering/lightning-protection-data';
 
 const SolutionLighteningProtectionSystems = () => {
+    const { hero, sidebar } = engineeringLightningProtectionData;
+
     return (
         <div>
             <DynamicHero
-                title={"Lightning Protection Systems"}
-                breadcrumbs={
-                    [
-                        { label: "Home", href: "/" },
-                        { label: "Lightning Protection Systems" },
-                    ]
-                }
-                backgroundImage={"/lightening-sol.png"}
+                title={hero.title}
+                breadcrumbs={hero.breadcrumbs}
+                backgroundImage={hero.backgroundImage}
             />
             <main className="min-h-screen bg-white">
                 <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
                     <div className="flex gap-5 items-start">
-                        {/* Sidebar TOC */}
-                        <Sidebar />
-
-                        {/* Main content area */}
-                        <MainContent />
+                        <Sidebar title={sidebar.title} items={sidebar.items} />
+                        <MainContent data={engineeringLightningProtectionData} />
                     </div>
                 </div>
             </main>

@@ -1,31 +1,29 @@
 import DynamicHero from '@/components/common/hero';
 import PortfolioContent from '@/components/portfolio';
 import TechnologyPartners from '@/components/TechnologyPartners';
+import { engineeringPortfolioData } from '@/data/engineering/portfolio-data';
 
 const Portfolio = () => {
+    const { hero, partners } = engineeringPortfolioData;
+
     return (
         <div>
             <DynamicHero
-                title={"Our Network of Associate Companies & Strategic Partners"}
-                breadcrumbs={
-                    [
-                        { label: "Home", href: "/" },
-                        { label: "Portfolio" },
-                    ]
-                }
-                backgroundImage={"/portfolio/bg.png"}
+                title={hero.title}
+                breadcrumbs={hero.breadcrumbs}
+                backgroundImage={hero.backgroundImage}
             />
-            <PortfolioContent />
-             <TechnologyPartners
-        data={{
-          badge: "Partners",
-          title: "Technology & Industry Partners",
-          description: [{
-            children: [{ text: "Some of the global players in their field of excellence with whom we have partnered for various prestigious projects" }]
-          }]
-        }}
-        logoCount={7}
-      />
+            <PortfolioContent data={engineeringPortfolioData} />
+            <TechnologyPartners
+                data={{
+                    badge: partners.badge,
+                    title: partners.title,
+                    description: [{
+                        children: [{ text: partners.description }]
+                    }]
+                }}
+                logoCount={partners.logoCount}
+            />
         </div>
     )
 }
