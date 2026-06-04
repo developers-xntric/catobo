@@ -4,6 +4,7 @@ import OurApproach from "../../../components/engr-solutions/about/our-approach";
 import TrustedSolutions from "../../../components/engr-solutions/about/trusted-solutions";
 import Testimonials from '@/components/Testimonials';
 import { engineeringAboutData } from '@/data/engineering/about-data';
+import { engineeringHomeData } from '@/data/engineering/home-data';
 
 export default function AboutPage() {
     return (
@@ -20,7 +21,7 @@ export default function AboutPage() {
             <TrustedSolutions data={engineeringAboutData.trustedSolutions} />
             <EngineeringExcellence data={engineeringAboutData.engineeringExcellence} />
             <OurApproach data={engineeringAboutData.ourApproach} />
-            <Testimonials />
+            <Testimonials data={engineeringHomeData.testimonials} />
         </main>
     );
 }

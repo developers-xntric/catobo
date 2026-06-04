@@ -4,6 +4,7 @@ import OurApproach from "../../../components/engr-solutions/about/our-approach";
 import TrustedSolutions from "../../../components/engr-solutions/about/trusted-solutions";
 import Testimonials from '@/components/Testimonials';
 import { aviationAboutData } from '@/data/aviation/about-data';
+import { aviationHomeData } from '@/data/aviation/home-data';
 
 export default function AboutPage() {
     return (
@@ -20,7 +21,7 @@ export default function AboutPage() {
             <TrustedSolutions data={aviationAboutData.trustedSolutions} />
             <EngineeringExcellence data={aviationAboutData.engineeringExcellence} />
             <OurApproach data={aviationAboutData.ourApproach} />
-            <Testimonials />
+            <Testimonials data={aviationHomeData.testimonials} />
         </main>
     );
 }

@@ -17,7 +17,7 @@ export default function EngineeringExcellence({ data }: { data: AboutData['engin
                         />
                     </div>
                     <div className="lg:w-1/2">
-                        <div className="flex items-center gap-2 mb-6 border border-gray-200 px-3 py-2 rounded-full w-fit">
+                        <div className="flex items-center gap-2 mb-6 border border-gray-200 px-3 py-2 rounded-full w-fit mx-auto lg:mx-0">
                             <span className="w-2 h-2 rounded-full bg-[#168DCA]" />
                             <span className="text-xs font-medium text-[#000000]">
                                 {badge}

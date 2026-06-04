@@ -9,7 +9,7 @@ export default function OurApproach({ data }: { data: AboutData['ourApproach'] }
             <div className="2xl:max-w-360 w-[90%] mx-auto">
                 <div className="flex flex-col lg:flex-row justify-between items-stretch gap-10 mb-10 h-full">
                     <div className="lg:w-[50%] w-full">
-                        <div className="flex items-center gap-2 mb-6 border border-white/20 px-3 py-2 rounded-full w-fit bg-white/5">
+                        <div className="flex items-center gap-2 mb-6 border border-white/20 px-3 py-2 rounded-full w-fit bg-white/5 mx-auto lg:mx-0">
                             <span className="w-2 h-2 rounded-full bg-[#168DCA]" />
                             <span className="text-xs font-medium text-white/80">
                                 {badge}
