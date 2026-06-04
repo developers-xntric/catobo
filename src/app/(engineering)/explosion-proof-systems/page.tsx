@@ -120,7 +120,7 @@ function MainContent() {
 
                 <div className="space-y-5 mb-8">
                     <p className="text-md text-[#636363] leading-[1.7]">
-                        Catoba supply high quality, heavy-duty industrial power connectors, power units and automatic plug-in
+                        Catobo supply high quality, heavy-duty industrial power connectors, power units and automatic plug-in
                         systems for applications worldwide. Technologies that help customers improve safety, reduce
                         environmental impact and operate more efficiently. Our connectors are used in many heavy industries
                         for all kinds of electrification purposes.
