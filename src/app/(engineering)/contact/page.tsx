@@ -147,7 +147,7 @@ export default function ContactPage() {
                     { label: "Home", href: "/" },
                     { label: "Contact Us" },
                 ]}
-                backgroundImage={"/cable-trunking-bg.png"}
+                backgroundImage={"/contact-bg.png"}
             />
             <div className="2xl:max-w-360 w-[90%] mx-auto py-10">
 
