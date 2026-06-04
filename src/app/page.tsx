@@ -33,7 +33,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/"
+                href="/aviation"
                 style={brandGradient}
                 className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
               >
@@ -64,7 +64,7 @@ export default function Home() {
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
-                href="/engineering-home"
+                href="/engineering"
                 style={brandGradient}
                 className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
               >
