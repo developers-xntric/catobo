@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback, memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 
 interface SubItem {
@@ -78,6 +79,49 @@ const NAV_ITEMS: NavItem[] = [
     label: "Contact Us",
     href: "/engineering/contact",
   },
+];
+
+const AVIATION_NAV_ITEMS: NavItem[] = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/aviation/about" },
+  {
+    label: "Aviation Solutions",
+    href: "/aviation",
+    dropdown: {
+      image:
+        "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=400&q=80",
+      imageAlt: "Aviation",
+      items: [
+        {
+          heading: "Fire & Safety",
+          subItems: [
+            { label: "Heliport & Vertiport Firefighting Systems", href: "/aviation/firefighting-systems" },
+            { label: "Aviation Consultation & Firefighting Design", href: "/aviation/consultation-design" },
+          ],
+        },
+        {
+          heading: "Infrastructure",
+          subItems: [
+            { label: "Helipad & VertiPad Construction", href: "/aviation/helipad-construction" },
+            { label: "Portable Helipad & VertiPad Solutions", href: "/aviation/portable-helipad" },
+          ],
+        },
+        {
+          heading: "Lighting Solutions",
+          subItems: [
+            { label: "Portable Lighting Solutions", href: "/aviation/portable-lighting" },
+            { label: "Aircraft Warning Lights", href: "/aviation/aircraft-warning-lights" },
+            { label: "Airfield Lighting Solution", href: "/aviation/airfield-lighting" },
+            { label: "Helideck & Helipad Lighting Systems", href: "/aviation/helideck-lighting" },
+          ],
+        },
+      ],
+    },
+  },
+  { label: "Portfolio", href: "/aviation/portfolio" },
+  { label: "Testimonials", href: "/aviation/testimonials" },
+  { label: "FAQs", href: "/aviation/faqs" },
+  { label: "Contact Us", href: "/aviation/contact" },
 ];
 
 const ExpandableRow = memo(function ExpandableRow({
@@ -256,9 +300,11 @@ DropdownPanel.displayName = "DropdownPanel";
 const MobileMenu = memo(function MobileMenu({
   open,
   onClose,
+  items,
 }: {
   open: boolean;
   onClose: () => void;
+  items: NavItem[];
 }) {
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
   const [expandedSubIdx, setExpandedSubIdx] = useState<string | null>(null);
@@ -303,7 +349,7 @@ const MobileMenu = memo(function MobileMenu({
           </button>
         </div>
         <nav className="px-4 py-3 space-y-1">
-          {NAV_ITEMS.map((item, idx) => (
+          {items.map((item, idx) => (
             <div key={item.label}>
               {item.dropdown ? (
                 <>
@@ -410,6 +456,10 @@ const MobileMenu = memo(function MobileMenu({
 MobileMenu.displayName = "MobileMenu";
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isAviation = pathname?.startsWith("/aviation") ?? false;
+  const navItems = isAviation ? AVIATION_NAV_ITEMS : NAV_ITEMS;
+
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -480,7 +530,7 @@ export default function Navbar() {
             </Link>
 
             <nav className="hidden lg:flex items-center gap-1">
-              {NAV_ITEMS.map((item) => {
+              {navItems.map((item) => {
                 const hasDropdown = !!item.dropdown;
                 const isActive = activeDropdown === item.label;
                 return (
@@ -526,7 +576,7 @@ export default function Navbar() {
                     {hasDropdown && isActive && (
                       <DropdownPanel
                         dropdown={item.dropdown!}
-                        isSimpleList={item.label !== "Engineering Solution"}
+                        isSimpleList={!item.dropdown?.items.some(i => i.subItems && i.subItems.length > 0)}
                         onClose={() => setActiveDropdown(null)}
                       />
                     )}
@@ -572,7 +622,7 @@ export default function Navbar() {
         </div>
       </header>
 
-      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
+      <MobileMenu open={mobileOpen} onClose={() => setMobileOpen(false)} items={navItems} />
     </>
   );
 }
