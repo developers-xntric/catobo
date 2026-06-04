@@ -20,6 +20,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Catobo - Engineering & Technical Solutions",
   description: "Integrated systems for aviation, construction, and industrial infrastructure",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
