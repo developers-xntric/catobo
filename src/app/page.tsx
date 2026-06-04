@@ -102,7 +102,7 @@ export default function Home() {
               Engineering Solutions Built On Expertise And Trust
             </h3>
             <p className="text-sm md:text-base secondary">
-              Catobo's portfolio includes aviation lighting and safety systems, helipad and vertipad solutions, airfield lighting, aircraft warning lights, cable containment systems, lightning protection, and industrial safety products. Every solution is engineered for precision, durability, and seamless integration.
+              Catobo&apos;s portfolio includes aviation lighting and safety systems, helipad and vertipad solutions, airfield lighting, aircraft warning lights, cable containment systems, lightning protection, and industrial safety products. Every solution is engineered for precision, durability, and seamless integration.
             </p>
           </div>
 
@@ -137,15 +137,6 @@ export default function Home() {
 
       </section>
       
-      {/* Footer */}
-      <footer
-        style={brandGradient}
-        className="w-full py-3 text-center"
-      >
-        <p className="text-white! text-sm font-light tracking-wider">
-          Copyright © 2026 All Rights Reserved.
-        </p>
-      </footer>
 
     </div>
   );

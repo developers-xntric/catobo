@@ -14,7 +14,7 @@ const partnerLogos = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[100vh] flex flex-col justify-between overflow-hidden shadow-none">
+    <section className="relative min-h-screen flex flex-col justify-between overflow-hidden shadow-none">
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center"

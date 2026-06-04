@@ -1,6 +1,5 @@
-import Navbar from "@/components/navbar";
-import { Footer } from "@/components/Footer";
 import { cn } from "@/lib/utils";
+import { SiteChrome } from "@/components/SiteChrome";
 import type { Metadata } from "next";
 import { Poppins, Raleway } from "next/font/google";
 import "./globals.css";
@@ -36,9 +35,7 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", raleway.variable, poppins.variable)}
     >
       <body className="min-h-full flex flex-col">
-        <Navbar />
-        {children}
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
