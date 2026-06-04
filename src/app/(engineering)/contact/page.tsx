@@ -3,30 +3,53 @@
 import DynamicHero from "@/components/common/hero";
 import React, { useState } from "react";
 
-// ==========================================
-// ICON COMPONENTS
-// ==========================================
-
 function PhoneIcon() {
     return (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.9a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <g clip-path="url(#clip0_3115_17565)">
+                <mask id="mask0_3115_17565" style={{ maskType: "luminance" }} x="0" y="0" width="24" height="24">
+                    <path d="M24 0H0V24H24V0Z" fill="white" />
+                </mask>
+                <g mask="url(#mask0_3115_17565)">
+                    <path d="M20 11.03V17C20 21 19 22 15 22H9C5 22 4 21 4 17V7C4 3 5 2 9 2H15C19 2 20 3 20 7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M14 5.5H10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12.0012 19.1C12.8572 19.1 13.5512 18.406 13.5512 17.55C13.5512 16.694 12.8572 16 12.0012 16C11.1452 16 10.4512 16.694 10.4512 17.55C10.4512 18.406 11.1452 19.1 12.0012 19.1Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+            </g>
+            <defs>
+                <clipPath id="clip0_3115_17565">
+                    <rect width="24" height="24" fill="white" />
+                </clipPath>
+            </defs>
         </svg>
     );
 }
 
 function EmailIcon() {
     return (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2" />
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <g clip-path="url(#clip0_3115_17579)">
+                <mask id="mask0_3115_17579" style={{ maskType: "luminance" }} x="0" y="0" width="24" height="24">
+                    <path d="M24 0H0V24H24V0Z" fill="white" />
+                </mask>
+                <g mask="url(#mask0_3115_17579)">
+                    <path d="M20 11.03V17C20 21 19 22 15 22H9C5 22 4 21 4 17V7C4 3 5 2 9 2H15C19 2 20 3 20 7" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M14 5.5H10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M12.0012 19.1C12.8572 19.1 13.5512 18.406 13.5512 17.55C13.5512 16.694 12.8572 16 12.0012 16C11.1452 16 10.4512 16.694 10.4512 17.55C10.4512 18.406 11.1452 19.1 12.0012 19.1Z" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </g>
+            </g>
+            <defs>
+                <clipPath id="clip0_3115_17579">
+                    <rect width="24" height="24" fill="white" />
+                </clipPath>
+            </defs>
         </svg>
     );
 }
 
 function LocationIcon() {
     return (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
             <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
             <circle cx="12" cy="10" r="3" />
         </svg>
