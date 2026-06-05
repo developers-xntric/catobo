@@ -5,9 +5,9 @@ export const aviationFaqsData: FaqsData = {
     title: "Aviation FAQs",
     breadcrumbs: [
       { label: "Home", href: "/" },
-      { label: "Aviation FAQs" },
+      { label: "FAQs" },
     ],
-    backgroundImage: "/faqs-bg.png",
+    backgroundImage: "/aviation/faq-aviation.png",
   },
   faqs: [
     {

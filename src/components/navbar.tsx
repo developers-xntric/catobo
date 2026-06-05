@@ -31,7 +31,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   {
     label: "Home",
-    href: "/",
+    href: "/engineering",
   },
   {
     label: "About Us",
@@ -82,7 +82,7 @@ const NAV_ITEMS: NavItem[] = [
 ];
 
 const AVIATION_NAV_ITEMS: NavItem[] = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "/aviation" },
   { label: "About Us", href: "/aviation/about" },
   {
     label: "Aviation Solutions",
