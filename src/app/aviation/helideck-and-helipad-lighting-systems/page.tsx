@@ -84,7 +84,7 @@ function ImageGrid({
                 <img src={left} alt="" className="w-full h-full object-cover" />
             </div>
             <div
-                className={`rounded-xl overflow-hidden h-full ${rightContain ? "bg-[#EFEFEF] flex items-center justify-center p-4" : "bg-gray-100"
+                className={`rounded-xl overflow-hidden h-full ${rightContain ? "flex items-center justify-center" : "bg-gray-100"
                     }`}
             >
                 <img
@@ -209,7 +209,7 @@ function MainContent() {
                     ].map((f, i) => <CheckItem key={i} label={f} />)}
                 </div>
 
-                <ImageGrid left="/heliport/1.png" right="/heliport/2.png" height="h-64" />
+                <ImageGrid left="/hvls/1.png" right="/hvls/2.png" height="h-64" />
             </section>
 
             {/* ─── Section 2: HELI-30 ─── */}
@@ -230,7 +230,7 @@ function MainContent() {
                     <CheckItem label="Helomat panels are 38mm thick, 305mm wide and can be manufactured up to 14m in length" />
                 </div>
 
-                <ImageGrid left="/heliport/3.png" right="/heliport/4.png" height="h-64" />
+                <ImageGrid left="/hvls/3.png" right="/hvls/4.png" height="h-64" />
             </section>
 
             {/* ─── Section 3: HELI 30 - Portable ─── */}
@@ -254,7 +254,7 @@ function MainContent() {
                     <CheckItem label="Helideck Safety Net" />
                 </div>
 
-                <ImageGrid left="/heliport/5.png" right="/heliport/6.png" height="h-64" />
+                <ImageGrid left="/hvls/5.png" right="/hvls/6.png" height="h-64" />
             </section>
 
             {/* ─── Section 4: Landing Nets ─── */}
@@ -276,7 +276,7 @@ function MainContent() {
                     </BodyText>
                 </div>
 
-                <ImageGrid left="/heliport/7.png" right="/heliport/8.png" height="h-64" />
+                <ImageGrid left="/hvls/7.png" right="/hvls/8.png" height="h-64" />
             </section>
 
             {/* ─── Section 5: Perimeter Safety Nets ─── */}
@@ -300,7 +300,7 @@ function MainContent() {
                     <CheckItem label="Helipad & Helideck Lighting & Controllers" />
                 </div>
 
-                <ImageGrid left="/heliport/9.png" right="/heliport/10.png" height="h-64" />
+                <ImageGrid left="/hvls/9.png" right="/hvls/10.png" height="h-64" />
             </section>
 
             {/* ─── Section 6: Circle & H Lights / Offshore ─── */}
@@ -314,7 +314,7 @@ function MainContent() {
                     environment or weather conditions.
                 </BodyText>
 
-                <ImageGrid left="/heliport/11.png" right="/heliport/12.png" height="h-64" />
+                <ImageGrid left="/hvls/11.png" right="/hvls/12.png" height="h-64" />
             </section>
 
             {/* ─── Section 7: FATO & TLOF Lights – Surface Mounted Helipad Light ─── */}
@@ -329,7 +329,7 @@ function MainContent() {
                     surface with the attachment hardware.
                 </BodyText>
 
-                <ImageGrid left="/heliport/13.png" right="/heliport/14.png" rightContain height="h-64" />
+                <ImageGrid left="/hvls/13.png" right="/hvls/14.png" rightContain height="h-64" />
 
                 <SectionHeading size="h3">Key Features:</SectionHeading>
                 <div className="space-y-3 mt-4">
@@ -359,7 +359,7 @@ function MainContent() {
                     beam pattern can be used as heliport/helipad TLOF/FATO within the heliport area.
                 </BodyText>
 
-                <ImageGrid left="/heliport/15.png" right="/heliport/16.png" rightContain height="h-64" />
+                <ImageGrid left="/hvls/15.png" right="/hvls/16.png" rightContain height="h-64" />
 
                 <SectionHeading size="h3">Key Features:</SectionHeading>
                 <div className="space-y-3 mt-4">
@@ -389,7 +389,7 @@ function MainContent() {
                     for high visibility. There are four mounting holes for easy installation on any surface.
                 </BodyText>
 
-                <ImageGrid left="/heliport/17.png" right="/heliport/18.png" rightContain height="h-64" />
+                <ImageGrid left="/hvls/17.png" right="/hvls/18.png" rightContain height="h-64" />
 
                 <SectionHeading size="h3">Key Features:</SectionHeading>
                 <div className="space-y-3 mt-4 mb-8">
@@ -434,7 +434,7 @@ function MainContent() {
                     passive fire-retardant type aluminium helidecks.
                 </BodyText>
 
-                <ImageGrid left="/heliport/19.png" right="/heliport/20.png" height="h-64" />
+                <ImageGrid left="/hvls/19.png" right="/hvls/20.png" height="h-64" />
             </section>
 
             {/* ─── Section 11: Oil/Water Separator ─── */}
@@ -456,7 +456,7 @@ function MainContent() {
                     <CheckItem label="Storm Water" />
                 </div>
 
-                <ImageGrid left="/heliport/21.png" right="/heliport/22.png" height="h-64" />
+                <ImageGrid left="/hvls/21.png" right="/hvls/22.png" height="h-64" />
             </section>
 
             {/* ─── Section 12: Emergency Crash Rescue ─── */}
@@ -478,7 +478,7 @@ function MainContent() {
                     />
                 </div>
 
-                <ImageGrid left="/heliport/23.png" right="/heliport/24.png" height="h-64" />
+                <ImageGrid left="/hvls/23.png" right="/hvls/24.png" height="h-64" />
             </section>
 
             {/* ─── Section 13: Wind Direction Indicator ─── */}
@@ -491,7 +491,7 @@ function MainContent() {
                     helicopter and make sure pilot can recognize wind cone at 200 meters clearly.
                 </BodyText>
 
-                <ImageGrid left="/heliport/25.png" right="/heliport/26.png" rightContain height="h-64" />
+                <ImageGrid left="/hvls/25.png" right="/hvls/26.png" rightContain height="h-64" />
 
                 <SectionHeading size="h3">Key Features:</SectionHeading>
                 <div className="space-y-3 mt-4">
@@ -516,7 +516,7 @@ function MainContent() {
                     <CheckItem label="Annual Maintenance" />
                 </div>
 
-                <ImageGrid left="/heliport/27.png" right="/heliport/28.png" height="h-64" />
+                <ImageGrid left="/hvls/27.png" right="/hvls/28.png" height="h-64" />
             </section>
 
         </div>
