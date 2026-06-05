@@ -6,6 +6,7 @@ export interface NavLink {
 export interface HeroData {
     title: string;
     subtitle?: string;
+    buttonText?: string;
     backgroundImage: string;
     breadcrumbs?: NavLink[];
     partnerLogos?: { file: string; name: string }[];

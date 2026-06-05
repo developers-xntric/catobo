@@ -101,10 +101,10 @@ export default function ConsultationTabs() {
   const currentTab = tabsData.find((tab) => tab.id === activeTab)!
 
   return (
-    <div className="min-h-screen bg-white py-12">
-      <div className="2xl:max-w-[1440px] w-[90%] mx-auto">
+    <div className=" ">
+      <div className=" mx-auto">
         {/* Tabs Navigation */}
-        <div className="mb-5 grid grid-cols-2 sm:grid-cols-4 border border-[#168DCA]">
+        <div className="mb-6 grid grid-cols-2 sm:grid-cols-4 border border-[#168DCA]">
           {tabsData.map((tab) => (
             <button
               key={tab.id}
@@ -146,14 +146,14 @@ export default function ConsultationTabs() {
               {/* Buttons */}
               <div className=" flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <Button
-                  className="px-6 py-2 text-white sm:px-8 rounded border border-black"
+                  className="px-6 py-2 text-white sm:px-8"
                   style={{ background: 'var(--New-button, linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%))' }}
                 >
                   {currentTab.primaryBtnText}
                 </Button>
                 <Button
                   variant="outline"
-                  className="border border-black px-6 py-2 text-black hover:bg-blue-50 sm:px-8 rounded"
+                  className="border-2 border-blue-600 px-6 py-2 text-blue-600 hover:bg-blue-50 sm:px-8"
                 >
                   {currentTab.secondaryBtnText}
                 </Button>

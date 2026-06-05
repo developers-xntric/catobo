@@ -3,7 +3,7 @@ import GradButton from '@/components/ui/grad-button';
 import { HeroData } from '@/data/types';
 
 export default function Hero({ data }: { data: HeroData }) {
-  const { title, subtitle, backgroundImage, partnerLogos = [] } = data;
+  const { title, subtitle,buttonText, backgroundImage, partnerLogos = [] } = data;
 
   return (
     <section className="relative min-h-screen flex flex-col justify-between overflow-hidden shadow-none">
@@ -28,7 +28,7 @@ export default function Hero({ data }: { data: HeroData }) {
 
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <GradButton href="/" size="lg">
-            Get Started Now
+            {buttonText}
           </GradButton>
         </div>
       </div>
