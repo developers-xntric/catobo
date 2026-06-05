@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import GradButton from "@/components/ui/grad-button";
+import { ContactCtaButton } from "@/components/ContactCtaButton";
 import { HomeData } from "@/data/types";
 
 /* ─── arrow svg ─── */
@@ -224,12 +225,11 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
 
                     {/* Right column: Request a Strategy Call — aligned under map card */}
                     <div className="w-full">
-                        <Link
-                            href="/contact"
+                        <ContactCtaButton
                             className="inline-flex w-full items-center justify-center gap-2 px-6 py-2.5 rounded-[13px] border border-[#fff] text-sm text-[#fff] hover:text-white hover:border-white/40 transition-all duration-200 whitespace-nowrap "
                         >
                             Request a Strategy Call
-                        </Link>
+                        </ContactCtaButton>
                     </div>
                 </div>
             </div>
