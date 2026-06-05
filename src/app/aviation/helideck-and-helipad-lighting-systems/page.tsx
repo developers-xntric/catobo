@@ -303,20 +303,6 @@ function MainContent() {
                 <ImageGrid left="/hvls/9.png" right="/hvls/10.png" height="h-64" />
             </section>
 
-            {/* ─── Section 6: Circle & H Lights / Offshore ─── */}
-            <section className="mb-16">
-                <SectionHeading size="h2">Circle &amp; H Lights For On/Offshore Platforms &amp; Vessels</SectionHeading>
-
-                <BodyText className="mb-7">
-                    Catoba supplies a comprehensive range of helideck and helipad lighting systems for both onshore and
-                    offshore applications. Our Circle & H lighting solutions are designed to meet all international aviation
-                    and maritime regulations, ensuring maximum safety and visibility for helicopter operations in any
-                    environment or weather conditions.
-                </BodyText>
-
-                <ImageGrid left="/hvls/11.png" right="/hvls/12.png" height="h-64" />
-            </section>
-
             {/* ─── Section 7: FATO & TLOF Lights – Surface Mounted Helipad Light ─── */}
             <section className="mb-16">
                 <SectionTag label="FATO & TLOF lights" />
@@ -329,8 +315,8 @@ function MainContent() {
                     surface with the attachment hardware.
                 </BodyText>
 
-                <ImageGrid left="/hvls/13.png" right="/hvls/14.png" rightContain height="h-64" />
-
+                <ImageGrid left="/hvls/11.png" right="/hvls/12.png" rightContain height="h-64" />
+                <br />
                 <SectionHeading size="h3">Key Features:</SectionHeading>
                 <div className="space-y-3 mt-4">
                     {[
@@ -359,8 +345,8 @@ function MainContent() {
                     beam pattern can be used as heliport/helipad TLOF/FATO within the heliport area.
                 </BodyText>
 
-                <ImageGrid left="/hvls/15.png" right="/hvls/16.png" rightContain height="h-64" />
-
+                <ImageGrid left="/hvls/13.png" right="/hvls/14.png" rightContain height="h-64" />
+                <br />
                 <SectionHeading size="h3">Key Features:</SectionHeading>
                 <div className="space-y-3 mt-4">
                     {[
@@ -389,8 +375,8 @@ function MainContent() {
                     for high visibility. There are four mounting holes for easy installation on any surface.
                 </BodyText>
 
-                <ImageGrid left="/hvls/17.png" right="/hvls/18.png" rightContain height="h-64" />
-
+                <ImageGrid left="/hvls/15.png" right="/hvls/16.png" rightContain height="h-64" />
+                <br />
                 <SectionHeading size="h3">Key Features:</SectionHeading>
                 <div className="space-y-3 mt-4 mb-8">
                     {[
@@ -434,7 +420,7 @@ function MainContent() {
                     passive fire-retardant type aluminium helidecks.
                 </BodyText>
 
-                <ImageGrid left="/hvls/19.png" right="/hvls/20.png" height="h-64" />
+                <ImageGrid left="/hvls/17.png" right="/hvls/18.png" height="h-64" />
             </section>
 
             {/* ─── Section 11: Oil/Water Separator ─── */}
@@ -456,7 +442,7 @@ function MainContent() {
                     <CheckItem label="Storm Water" />
                 </div>
 
-                <ImageGrid left="/hvls/21.png" right="/hvls/22.png" height="h-64" />
+                <ImageGrid left="/hvls/19.png" right="/hvls/20.png" height="h-64" />
             </section>
 
             {/* ─── Section 12: Emergency Crash Rescue ─── */}
@@ -478,7 +464,7 @@ function MainContent() {
                     />
                 </div>
 
-                <ImageGrid left="/hvls/23.png" right="/hvls/24.png" height="h-64" />
+                <ImageGrid left="/hvls/21.png" right="/hvls/22.png" height="h-64" />
             </section>
 
             {/* ─── Section 13: Wind Direction Indicator ─── */}
@@ -491,8 +477,8 @@ function MainContent() {
                     helicopter and make sure pilot can recognize wind cone at 200 meters clearly.
                 </BodyText>
 
-                <ImageGrid left="/hvls/25.png" right="/hvls/26.png" rightContain height="h-64" />
-
+                <ImageGrid left="/hvls/23.png" right="/hvls/24.png" rightContain height="h-64" />
+                <br />
                 <SectionHeading size="h3">Key Features:</SectionHeading>
                 <div className="space-y-3 mt-4">
                     {[
@@ -516,7 +502,7 @@ function MainContent() {
                     <CheckItem label="Annual Maintenance" />
                 </div>
 
-                <ImageGrid left="/hvls/27.png" right="/hvls/28.png" height="h-64" />
+                <ImageGrid left="/hvls/25.png" right="/hvls/26.png" height="h-64" />
             </section>
 
         </div>
@@ -536,7 +522,6 @@ export default function SolutionHeliportVertiportLighting() {
                 { label: "HELI 30 - Portable", hasArrow: true },
                 { label: "Landing Nets", hasArrow: true },
                 { label: "Perimeter Safety Nets", hasArrow: true },
-                { label: "Circle & H Lights For On/\nOffshore Platforms & Vessels", hasArrow: true },
             ],
         },
         {
