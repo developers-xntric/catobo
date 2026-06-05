@@ -5,6 +5,7 @@ export const engineeringHomeData: HomeData = {
   hero: {
     title: "Decades of Precision, Across Continents",
     subtitle: "Catobo harnesses deep expertise in ME/African military, healthcare, airport, and royal challenges to deliver holistic airfield lighting, vertiport & heliport, lightning protection, and cable systems from inception to completion.",
+    buttonText: "Get Started Now",
     backgroundImage: "/engr-solutions/hero-bg.png",
     partnerLogos: [
       { file: '1.png', name: 'Partner 1' },

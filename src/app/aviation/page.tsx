@@ -11,6 +11,7 @@ export default function AviationHome() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
       <Hero data={aviationHomeData.hero} />
+      
       <Solutions data={aviationHomeData.solutions} />
       <HowItWorks data={aviationHomeData.howItWorks} />
       <OurProjects data={aviationHomeData.projects} />
