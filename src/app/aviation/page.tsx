@@ -19,7 +19,6 @@ export default function AviationHome() {
       <AboutCompany data={aviationHomeData.aboutCompany} />
       <Testimonials data={aviationHomeData.testimonials} />
       <ContactSection />
-      
     </div>
   );
 }
