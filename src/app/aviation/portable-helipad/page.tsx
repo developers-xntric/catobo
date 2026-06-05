@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckIcon } from "@/components/common/CheckIcon";
+import DynamicHero from "@/components/common/hero";
 import React, { useState } from "react";
 
 // SHARED UI COMPONENTS
@@ -281,12 +282,12 @@ export function Sidebar({ title, groups }: SidebarProps) {
 
 function ImageGridEqual({ left, right }: { left: string; right: string }) {
     return (
-        <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-60">
+        <div className="grid grid-cols-3 gap-4">
+            <div className="rounded-xl col-span-2 overflow-hidden bg-gray-100 h-72">
                 <img src={left} alt="" className="w-full h-full object-cover" />
             </div>
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-60">
-                <img src={right} alt="" className="w-full h-full object-cover" />
+            <div className="rounded-xl overflow-hidden bg-gray-100 h-72">
+                <img src={right} alt="" className="w-full h-full object-contain" />
             </div>
         </div>
     );
@@ -383,8 +384,8 @@ function MainContent() {
                 </BodyText>
 
                 <ImageGridEqual
-                    left="/portable-helipad/1.png"
-                    right="/portable-helipad/2.png"
+                    left="/ph/1.png"
+                    right="/ph/2.png"
                 />
             </section>
 
@@ -419,9 +420,9 @@ function MainContent() {
             <section className="mb-10">
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-8 items-center">
                     {/* Left – image */}
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-52">
+                    <div className="rounded-xl overflow-hidden bg-gray-100 h-90">
                         <img
-                            src="/portable-helipad/3.png"
+                            src="/ph/3.png"
                             alt="Aerial view of helipad"
                             className="w-full h-full object-cover"
                         />
@@ -461,9 +462,8 @@ function MainContent() {
     );
 }
 
-// ==========================================
+
 // MAIN PAGE EXPORT
-// ==========================================
 
 export default function SolutionPortableHelipad() {
     const sidebarGroups: SidebarGroup[] = [
@@ -478,6 +478,14 @@ export default function SolutionPortableHelipad() {
 
     return (
         <div>
+            <DynamicHero
+                title={"Portable Helipad & VertiPad Solutions"}
+                breadcrumbs={[
+                    { label: "Home", href: "/" },
+                    { label: "Portable Helipad & VertiPad Solutions" },
+                ]}
+                backgroundImage="/ph.png"
+            />
             <main className="min-h-screen bg-white">
                 <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
                     <div className="flex flex-col lg:flex-row gap-5 items-start">
