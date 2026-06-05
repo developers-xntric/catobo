@@ -3,10 +3,6 @@
 import DynamicHero from "@/components/common/hero";
 import React, { useState } from "react";
 
-// ==========================================
-// SHARED UI COMPONENTS
-// ==========================================
-
 function CheckIcon() {
     return (
         <svg
