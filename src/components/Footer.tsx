@@ -10,8 +10,8 @@ const footerData = {
     logo: { url: '/footerlogo.png', alt: 'Americana Computers Logo' },
     locationSection: {
         heading: 'Our Location',
-        address: 'Office 702 – Al Masaood Tower,Riggat Al ButeenDeira, Dubai, UAE',
-        mapUrl: 'https://maps.google.com/?q=ICAD+3+Bldg.+3B,+Mrawiq+St,+Mussafah+South,+1st+Floor+-+Abu+Dhabi',
+        address: 'Office 702 – Al Masaood Tower, Riggat Al Buteen, Deira, Dubai, UAE',
+        mapUrl: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3608.3445428399737!2d55.3189441!3d25.2589927!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5da2e3a82867%3A0x6df6bbe7793fb398!2sAl%20Masaood%20Tower!5e0!3m2!1sen!2s!4v1780651063068!5m2!1sen!2s',
     },
     socialMediaLinks: [
         { platform: 'Facebook', url: 'https://www.facebook.com/people/Americana-Computer-Systems-LLC/100068080842516/', icon: { url: '/social1.png', alt: 'Facebook' } },
@@ -114,16 +114,15 @@ export function Footer() {
                                 {locationSection.heading}
                             </h3>
                             <a
-                                href={locationSection.mapUrl}
+                                href="https://www.google.com/maps/search/Al+Masaood+Tower,+Deira,+Dubai"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-sm text-white space-y-0.5 hover:text-blue-400 transition-colors block"
+                                className="text-sm text-white hover:text-blue-400 transition-colors block"
                             >
-                                {locationSection.address.split('\n').map((line, i) => (
-                                    <span key={i} className="block">{line}</span>
-                                ))}
+                                Office 702 – Al Masaood Tower,<br />
+                                Riggat Al Buteen,<br />
+                                Deira, Dubai, UAE
                             </a>
-                            
                         </div>
 
                         {/* Contact Information */}

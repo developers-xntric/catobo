@@ -96,6 +96,7 @@ export interface AboutData {
             icon: string;
         }[];
     };
+    testimonials?: HomeData['testimonials'];
 }
 
 export interface SidebarItem {
