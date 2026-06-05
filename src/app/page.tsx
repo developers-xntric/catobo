@@ -127,6 +127,10 @@ export default function Home() {
         </div>
 
       </section>
+
+      <section className="p-3 text-center" style={{ background: 'linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%)' }}  >
+        <p className="text-white">Copyright © 2026 All Rights Reserved.</p>
+        </section>
       
 
     </div>
