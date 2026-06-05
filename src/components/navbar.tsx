@@ -112,7 +112,7 @@ const AVIATION_NAV_ITEMS: NavItem[] = [
             { label: "Portable Lighting Solutions", href: "/aviation/portable-lighting" },
             { label: "Aircraft Warning Lights", href: "/aviation/aircraft-warning-lights" },
             { label: "Airfield Lighting Solution", href: "/aviation/airfield-lighting" },
-            { label: "Helideck & Helipad Lighting Systems", href: "/aviation/helideck-lighting" },
+            { label: "Helideck & Helipad Lighting Systems", href: "/aviation/helideck-and-helipad-lighting-systems" },
           ],
         },
       ],

@@ -55,7 +55,20 @@ export const engineeringHomeData: HomeData = {
           </svg>
         ),
       },
-    ]
+    ],
+    stats: {
+      title: "Impact Across Continents",
+      description: "from mission critical sites to healthcare systems, engineering precision initiatives built to perform under pressure.",
+      buttonText: "Book Your Consultation",
+      buttonHref: "/",
+      backgroundImage: "/engr-solutions/stats-bg.png",
+      counters: [
+        { target: 25, label: 'Infrastructure Projects Completed' },
+        { target: 50, label: 'Industrial Facility Deployments' },
+        { target: 100, label: 'Cable & Protection Installations' },
+        { target: 60, label: 'Government & Public Sector Contracts' },
+      ],
+    },
   },
   howItWorks: {
     badge: "How It Works",

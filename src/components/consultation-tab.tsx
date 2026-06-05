@@ -103,22 +103,22 @@ export default function ConsultationTabs() {
   const { open } = useContactPopup()
 
   return (
-    <div className=" ">
-      <div className=" mx-auto">
+    <div>
+      <div className="mx-auto">
         {/* Tabs Navigation */}
         <div className="mb-6 grid grid-cols-2 sm:grid-cols-4 border border-[#168DCA]">
           {tabsData.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`border border-[#168DCA] px-12 py-3 text-center text-sm font-light transition-colors sm:text-base ${
+              className={`border border-[#168DCA] px-2 sm:px-12 py-3 text-center text-[11px] sm:text-sm lg:text-base font-light transition-colors whitespace-normal break-words ${
                 activeTab === tab.id
                   ? 'text-white'
                   : 'bg-white text-[#168DCA] hover:bg-gray-200'
               }`}
               style={activeTab === tab.id ? { background: 'var(--New-button, linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%))' } : {}}
             >
-              <div className="font-medium ">{tab.title}{tab.subTitle}</div>
+              <div className="font-medium">{tab.title}{tab.subTitle}</div>
             </button>
           ))}
         </div>
@@ -127,7 +127,7 @@ export default function ConsultationTabs() {
         <div className="overflow-hidden rounded-xl">
           <div className="grid lg:grid-cols-2">
             {/* Image */}
-            <div className="flex items-stretch">
+            <div className="flex items-stretch max-h-[220px] sm:max-h-[300px] lg:max-h-none">
               <img
                 src={currentTab.image}
                 alt={currentTab.title}
@@ -136,20 +136,19 @@ export default function ConsultationTabs() {
             </div>
 
             {/* Content */}
-            <div className="flex flex-col justify-center px-6 py-8 sm:px-8 sm:py-10 space-y-3  md:space-y-6">
-              <h2 className="text-[20px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-[#000000]">
+            <div className="flex flex-col justify-center px-4 sm:px-8 py-6 sm:py-10 space-y-3 md:space-y-6">
+              <h2 className="text-lg sm:text-xl md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-[#000000]">
                 {currentTab.title}
               </h2>
 
-              <p className="text-base md:text-lg text-[#7C7E86] tracking-normal">
+              <p className="text-sm sm:text-base md:text-lg text-[#7C7E86] tracking-normal">
                 {currentTab.description}
               </p>
 
               {/* Buttons */}
-              <div className=" flex flex-col gap-3 sm:flex-row sm:gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <Button
-                  onClick={open}
-                  className="px-6 py-2 text-white sm:px-8"
+                  className="w-full sm:w-auto px-6 py-2 text-white sm:px-8"
                   style={{ background: 'var(--New-button, linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%))' }}
                 >
                   {currentTab.primaryBtnText}
@@ -157,7 +156,7 @@ export default function ConsultationTabs() {
                 <Button
                   onClick={open}
                   variant="outline"
-                  className="border-2 border-blue-600 px-6 py-2 text-blue-600 hover:bg-blue-50 sm:px-8"
+                  className="w-full sm:w-auto border-2 border-black px-6 py-2 text-black hover:bg-blue-50 sm:px-8"
                 >
                   {currentTab.secondaryBtnText}
                 </Button>

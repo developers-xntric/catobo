@@ -20,6 +20,19 @@ export const aviationHomeData: HomeData = {
         badge: "Solutions",
         title: "Complete Aviation Lighting Solutions for High-Risk Environments",
         cards: [],
+        stats: {
+            title: "Impact Across Continents",
+            description: "from mission critical sites to healthcare systems, aviation precision initiatives engineered to endure challenges.",
+            buttonText: "Book Your Consultation",
+            buttonHref: "/",
+            backgroundImage: "/aviation/stats.png",
+            counters: [
+                { target: 18, label: 'Military & Defense Projects' },
+                { target: 30, label: 'Healthcare Facility Deployments' },
+                { target: 120, label: 'Aviation Installations Executed' },
+                { target: 75, label: 'Government & Public Sector Installations' },
+            ],
+        },
     },
     howItWorks: {
         badge: "How It Work",

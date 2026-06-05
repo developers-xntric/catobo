@@ -154,7 +154,7 @@ export function Footer() {
                             <label className="mb-3 block text-sm text-white">
                                 {newsletterSection.description}
                             </label>
-                            <form onSubmit={handleNewsletterSubmit} className="space-y-3 flex relative">
+                            <form onSubmit={handleNewsletterSubmit} className="relative">
                                 <Input
                                     type="email"
                                     name="email"
@@ -163,12 +163,12 @@ export function Footer() {
                                     onChange={(e) => setNewsletterEmail(e.target.value)}
                                     required
                                     disabled={isSubmitting}
-                                    className="bg-[rgba(255,255,255,0.10)] border-none text-white placeholder:text-white focus:border-none outline-none focus:ring-none rounded-lg px-4 py-6 text-sm disabled:opacity-50"
+                                    className="bg-[rgba(255,255,255,0.10)] border-none text-white placeholder:text-white focus:border-none outline-none focus:ring-none rounded-lg px-4 py-6 pr-20 text-sm disabled:opacity-50 w-full"
                                 />
                                 <Button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className="w-[30%] h-[60%] bg-white text-[#0F2453] hover:bg-blue-50 text-xs font-semibold absolute right-1 top-1.5 rounded-sm disabled:opacity-50"
+                                    className="absolute right-1 top-1/2 -translate-y-1/2 bg-white text-[#0F2453] hover:bg-blue-50 text-xs font-semibold rounded-sm disabled:opacity-50 px-3 py-1.5"
                                 >
                                     {isSubmitting ? '...' : newsletterSection.buttonText}
                                 </Button>

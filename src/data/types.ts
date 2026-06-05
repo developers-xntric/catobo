@@ -24,6 +24,14 @@ export interface HomeData {
         badge: string;
         title: string;
         cards: SolutionCard[];
+        stats: {
+            title: string;
+            description: string;
+            buttonText: string;
+            buttonHref: string;
+            backgroundImage: string;
+            counters: { target: number; label: string }[];
+        };
     };
     howItWorks: {
         badge: string;
