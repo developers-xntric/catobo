@@ -587,7 +587,7 @@ export default function Navbar() {
 
             <div className="hidden lg:block">
               <Link
-                href="/contact"
+                href={isAviation ? "/aviation/contact" : "/engineering/contact"}
                 className="relative inline-flex h-11 overflow-hidden rounded-[10px] p-0.5 focus:outline-none"
               >
                 <span className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2E8F0_20%,#0F2453_80%,#E2E8F0_100%)] pointer-events-none" />

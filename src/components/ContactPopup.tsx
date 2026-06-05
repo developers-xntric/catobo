@@ -5,20 +5,12 @@ import { X } from "lucide-react";
 import { useContactPopup } from "@/contexts/ContactPopupContext";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 
 export default function ContactPopup() {
   const { isOpen, close } = useContactPopup();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    inquiryType: "Services",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -47,7 +39,7 @@ export default function ContactPopup() {
       });
       if (response.ok) {
         setSubmitStatus("success");
-        setFormData({ name: "", email: "", inquiryType: "Services", message: "" });
+        setFormData({ name: "", email: "", message: "" });
       } else {
         setSubmitStatus("error");
       }
@@ -81,20 +73,7 @@ export default function ContactPopup() {
             <label className="text-sm font-medium text-[#101010]">Email</label>
             <Input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Your Email" className="border-[#D6D6D6] bg-white" required />
           </div>
-          <div className="space-y-1.5">
-            <label className="text-sm font-medium text-[#101010]">Inquiry Type</label>
-            <Select value={formData.inquiryType} onValueChange={(v) => setFormData((prev) => ({ ...prev, inquiryType: v }))}>
-              <SelectTrigger className="border-[#D6D6D6] bg-white">
-                <SelectValue placeholder="Select inquiry type" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="Services">Services</SelectItem>
-                <SelectItem value="Support">Support</SelectItem>
-                <SelectItem value="Partnership">Partnership</SelectItem>
-                <SelectItem value="Other">Other</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+          
           <div className="space-y-1.5">
             <label className="text-sm font-medium text-[#101010]">Message</label>
             <Textarea name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" className="border-[#D6D6D6] bg-white resize-none" rows={5} required />
