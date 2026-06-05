@@ -54,6 +54,8 @@ export const aviationHomeData: HomeData = {
                 </p>
             </>
         ),
+        buttonHref:"/aviation/about",
+        
         image: "/aviation/our-company.png", // placeholder
         safelyBg: "/engr-solutions/safely-bg.png", // placeholder
         safelyTitle: "Safety Without Compromise.",
@@ -61,6 +63,7 @@ export const aviationHomeData: HomeData = {
     },
     projects: {
         badge: "Our Projects",
+        buttonHre: "/aviation/portfolio",
         title: "Engineering Excellence in Every Project We Deliver",
         description: "Showcasing our expertise in aviation, construction, and critical infrastructure solutions. Explore how we deliver safety, compliance, and precision in every project.",
         items: [
@@ -97,6 +100,7 @@ export const aviationHomeData: HomeData = {
         badge: "Testimonials",
         title: "Voices of Partnerships",
         description: "What We've Learned Together.",
+        buttonHref:"/aviation/testimonials",
         items: [
             {
                 id: 1,

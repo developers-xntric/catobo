@@ -8,7 +8,7 @@ import { HomeData } from "@/data/types";
 
 export default function Testimonials({ data }: { data?: HomeData['testimonials'] }) {
     if (!data) return null;
-    const { badge, title, description, items } = data;
+    const { badge, title, description, items, buttonHref } = data;
     const [expandedId, setExpandedId] = useState<number | null>(null);
 
     const toggleExpand = (id: number) => {
@@ -73,7 +73,7 @@ export default function Testimonials({ data }: { data?: HomeData['testimonials']
                 </div>
                 <div className="flex justify-center">
                     <Button
-                        href="/testimonials"
+                        href={buttonHref}
                         className="text-white font-medium py-3 px-10 transition-colors rounded-lg disabled:opacity-50 mt-5"
                     >
                         View All Testimonals

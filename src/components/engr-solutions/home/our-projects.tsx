@@ -55,7 +55,7 @@ const ChevronRight = () => (
 );
 
 export default function OurProjects({ data }: { data: HomeData['projects'] }) {
-    const { badge, title, description, items: projects, categories } = data;
+    const { badge, title, description, items: projects, categories, buttonHre } = data;
     const [activeIndex, setActiveIndex] = useState(0);
 
     const goPrev = () =>
@@ -100,7 +100,7 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                         <p className="text-[14px] md:text-[15px] leading-relaxed text-[#7C8192] mb-6">
                             {description}
                         </p>
-                        <GradButton href="/projects" size="md">
+                        <GradButton href={buttonHre} size="md">
                             View All Projects
                         </GradButton>
                     </div>

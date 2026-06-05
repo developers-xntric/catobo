@@ -48,10 +48,12 @@ export interface HomeData {
         safelyBg: string;
         safelyTitle: string;
         safelyDesc: string;
+        buttonHref: string;
     };
     projects: {
         badge: string;
         title: string;
+        buttonHre?:string;
         description: string;
         items: {
             image: string;
@@ -66,6 +68,7 @@ export interface HomeData {
         badge: string;
         title: string;
         description: string;
+        buttonHref?:string;
         items: {
             id: number;
             company: string;
