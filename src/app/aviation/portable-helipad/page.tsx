@@ -1,28 +1,9 @@
 "use client";
 
+import { CheckIcon } from "@/components/common/CheckIcon";
 import React, { useState } from "react";
 
-// ==========================================
 // SHARED UI COMPONENTS
-// ==========================================
-
-function CheckIcon() {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-4.5 h-4.5 shrink-0 mt-0.5 text-[#168DCA]"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-    );
-}
 
 function CheckItem({ label }: { label: string }) {
     return (
@@ -62,9 +43,7 @@ function SectionHeading({
     return <h2 className={`text-[24px] ${base}`}>{children}</h2>;
 }
 
-// ==========================================
 // FEATURE CARD ICONS (SVG outlines)
-// ==========================================
 
 function IconModular() {
     return (
@@ -259,8 +238,8 @@ export function Sidebar({ title, groups }: SidebarProps) {
                                         key={idx}
                                         onClick={() => setActive(idx)}
                                         className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
-                                                ? "border-transparent shadow-md"
-                                                : "border-[#E8E8E8] hover:border-gray-300"
+                                            ? "border-transparent shadow-md"
+                                            : "border-[#E8E8E8] hover:border-gray-300"
                                             }`}
                                         style={{
                                             background: isActive
