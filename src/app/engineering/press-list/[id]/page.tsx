@@ -19,7 +19,7 @@ export default async function PressDetailPage({ params }: { params: Promise<{ id
                 title={item.title}
                 breadcrumbs={[
                     { label: "Home", href: "/" },
-                    { label: "Press", href: "/press" },
+                    { label: "Press", href: "/engineering/press" },
                     { label: item.title },
                 ]}
                 backgroundImage="/press/hero-press-list.png"
@@ -31,7 +31,7 @@ export default async function PressDetailPage({ params }: { params: Promise<{ id
                 description={item.description || "No description available."}
             />
 
-            <PressContent limit={6} showHeading={true} />
+            <PressContent limit={6} showHeading={true} basePath="/engineering" />
         </div>
     );
 }

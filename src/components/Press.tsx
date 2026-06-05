@@ -9,9 +9,10 @@ import { pressItems } from '@/data/press-items';
 interface PressProps {
   limit?: number;
   showHeading?: boolean;
+  basePath?: string;
 }
 
-export default function Press({ limit, showHeading = false }: PressProps) {
+export default function Press({ limit, showHeading = false, basePath = "" }: PressProps) {
   const displayItems = limit ? pressItems.slice(0, limit) : pressItems;
 
   return (
@@ -30,7 +31,7 @@ export default function Press({ limit, showHeading = false }: PressProps) {
           {displayItems.map((item) => (
             <Link
               key={item.id}
-              href={`/press-list/${item.id}`}
+              href={`${basePath}/press-list/${item.id}`}
               className="group flex flex-col overflow-hidden rounded-lg"
             >
               <div className="relative w-full h-64 overflow-hidden">

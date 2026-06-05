@@ -186,15 +186,11 @@ export function Footer() {
                 {/* Bottom Footer */}
                 <div className="relative z-10 border-t border-[rgba(255,255,255,0.10)]">
                     <div className="mx-auto max-w-350 w-[90%] py-4 md:py-4">
-                        <div className="flex flex-col-reverse gap-4 sm:flex-row md:items-center md:justify-between">
-                            <p className="text-sm text-white text-left">
+                        <div className="flex flex-col-reverse gap-4 sm:flex-row md:items-center  md:justify-center">
+                            <p className="text-sm text-white md:text-center">
                                 Copyright <span className='font-sans'>© {new Date().getFullYear()}</span> {bottomSection.copyrightText}
                             </p>
-                            <div className="flex flex-wrap items-center gap-3 md:gap-6 text-sm text-white font-medium justify-start md:justify-end">
-                                {bottomSection.navLinks.map((link, index) => (
-                                    <a key={index} href={link.href} className="hover:text-blue-400 transition-colors whitespace-nowrap">{link.label}</a>
-                                ))}
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
