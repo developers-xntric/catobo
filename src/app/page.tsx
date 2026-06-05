@@ -2,6 +2,7 @@
 import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
+import Badge from '@/components/ui/badge';
 
 export default function Home() {
   // Custom gradient defined from your prompt
@@ -10,7 +11,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
+    <div className="min-h-screen bg-[#F3F3F3] flex flex-col font-sans">
 
       {/* Top Section: Hero Cards */}
       <section className="w-full max-w-360 mx-auto p-4 md:p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -24,11 +25,11 @@ export default function Home() {
           />
 
           {/* Card Content */}
-          <div className="relative z-10 h-full flex flex-col justify-end p-8 md:p-10 text-white">
-            <h2 className="text-3xl md:text-4xl font-medium mb-4 tracking-wide">
+          <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-10 text-white">
+            <h2 className="text-2xl md:text-4xl font-medium mb-3 md:mb-4 tracking-wide">
               Aviation Solutions
             </h2>
-            <p className="text-sm md:text-[16px] text-white! max-w-lg mb-8">
+            <p className="text-sm md:text-[16px] text-white! max-w-lg mb-6 md:mb-8">
               Helipads, lighting, firefighting, and aviation safety systems engineered for compliance and performance
             </p>
             <div className="flex flex-wrap gap-4">
@@ -55,11 +56,11 @@ export default function Home() {
           {/* Blue-ish dark overlay to match the second card's tone */}
 
           {/* Card Content */}
-          <div className="relative z-10 h-full flex flex-col justify-end p-8 md:p-10 text-white">
-            <h2 className="text-3xl md:text-4xl font-medium mb-4 tracking-wide">
+          <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-10 text-white">
+            <h2 className="text-2xl md:text-4xl font-medium mb-3 md:mb-4 tracking-wide">
               Engineering Solutions
             </h2>
-            <p className="text-sm md:text-[16px] text-white! max-w-lg mb-8">
+            <p className="text-sm md:text-[16px] text-white! max-w-lg mb-6 md:mb-8">
               Cable containment, lightning protection, and industrial safety systems built for reliability
             </p>
             <div className="flex flex-wrap gap-4">
@@ -79,26 +80,15 @@ export default function Home() {
       </section>
 
       {/* Middle Section: Text Content & Bottom Images */}
-      <section className="w-[87.5%] 2xl:max-w-340 mx-auto px-4 md:px-8 py-12 md:py-16 bg-white grow">
+      <section className="2xl:max-w-340 mx-auto px-4 md:px-8 py-12 md:py-16 bg-white grow">
 
         {/* Top Text Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 mb-10">
 
           {/* Left Text Column */}
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 text-sm text-black tracking-wider mb-6 border border-gray-200 rounded">
-              <svg className="rounded-full" width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="6" height="6" fill="url(#paint0_linear_3112_10531)" />
-                <defs>
-                  <linearGradient id="paint0_linear_3112_10531" x1="-1.53484" y1="-1.44227e-07" x2="8.52461" y2="0.594743" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#168DCA" />
-                    <stop offset="1" stop-color="#0F2453" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              About Catobo
-            </div>
-            <h3 className="text-3xl md:text-[2.5rem] leading-tight font-medium text-black mb-6">
+            <Badge text='Partner with Precision' variant='black' />
+            <h3 className="text-2xl md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-[#0a0f1e] mb-4">
               Engineering Solutions Built On Expertise And Trust
             </h3>
             <p className="text-sm md:text-base secondary">
@@ -121,13 +111,13 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5">
 
           {/* Left: Logo Box (Takes up ~4 columns) */}
-          <div className="md:col-span-4 rounded-2xl flex items-center justify-center min-h-70">
+          <div className="md:col-span-4 rounded-2xl flex items-center justify-center min-h-40 md:min-h-70">
             {/* Placeholder for the complex 'C' SVG wireframe logo */}
             <Image src={"/bottom.png"} alt="Main Page Bottom blue Image" width={1500} height={1500} className="h-full w-full" />
           </div>
 
           {/* Right: Helicopter Image (Takes up ~8 columns) */}
-          <div className="md:col-span-8 rounded-2xl overflow-hidden min-h-70 relative">
+          <div className="md:col-span-8 rounded-2xl overflow-hidden min-h-40 md:min-h-70 relative">
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: 'url("/heli-main.png")' }}
