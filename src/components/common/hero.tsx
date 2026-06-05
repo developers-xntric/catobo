@@ -48,7 +48,7 @@ export default function DynamicHero({
       <div className="relative z-10 flex flex-col 2xl:max-w-360 w-[90%] justify-center tracking-wide gap-3 px-4 pt-16">
         {/* Page Title */}
         <h1
-          className="text-white text-3xl lg:text-[55px] font-light tracking-wide text-balance"
+          className="text-white text-3xl lg:text-[55px]  tracking-wide text-balance"
           dangerouslySetInnerHTML={{ __html: title }}></h1>
 
         {/* Shadcn Breadcrumb — styled white for dark background */}

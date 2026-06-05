@@ -231,5 +231,6 @@ export interface PortfolioData {
         title: string;
         description: string;
         logoCount: number;
+        logosBasePath?: string;
     };
 }

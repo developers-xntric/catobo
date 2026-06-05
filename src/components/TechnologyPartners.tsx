@@ -20,9 +20,10 @@ interface TechnologyPartnersProps {
     }>;
   };
   logoCount?: number;
+  logosBasePath?: string;
 }
 
-export default function TechnologyPartners({ data, logoCount = 49 }: TechnologyPartnersProps) {
+export default function TechnologyPartners({ data, logoCount = 49, logosBasePath = "/technologypartner" }: TechnologyPartnersProps) {
   const badge = data?.badge || "Our Technology Partners";
   const title = data?.title || "Strategic Technology Partnerships That Deliver Results";
   const description = data?.description;
@@ -30,7 +31,7 @@ export default function TechnologyPartners({ data, logoCount = 49 }: TechnologyP
   const defaultDescription = "Partnering with the best technology vendors in the world, Americana Computers is among the top digital transformation companies in UAE, delivering best-in-class enterprise solutions. Using vendor-certified expertise and technology consulting, we design innovative technology ecosystems that optimize businesses for operational efficiency and enable sustainable growth.";
 
   const logos = Array.from({ length: logoCount }, (_, i) => ({
-    src: `/technologypartner/${i + 1}.png`,
+    src: `${logosBasePath}/${i + 1}.png`,
     alt: `Partner ${i + 1}`,
     key: i.toString()
   }));
