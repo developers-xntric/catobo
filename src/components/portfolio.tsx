@@ -43,7 +43,7 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
 
                     <div className="space-y-4 bg-[#FAFAFA] border border-[#E6E6E6] rounded-xl p-2 md:p-5">
                         <div>
-                            <h2 className="text-[20px] md:text-[30px] lg:text-[35px] text-[#000000] font-medium mb-2 leading-12 w-[90%]">
+                            <h2 className="text-3xl lg:text-[40px] font-medium leading-[1.2] text-[#0a0f1e] mb-4">
                                 {d.associateTitle}
                             </h2>
                         </div>
