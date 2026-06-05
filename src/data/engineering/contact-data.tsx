@@ -76,7 +76,7 @@ export const engineeringContactData: ContactData = {
     {
       icon: <LocationIcon />,
       title: "Address",
-      lines: ["Office 702 – Al Masaood Tower,", "Riggat Al Buteen, Deira, Dubai, UAE"],
+      lines: ["Office 702 – Al Masaood Tower", "54 Al Maktoum Rd, Riggat Al Buteen", "Deira, Dubai, United Arab Emirates"],
     },
   ],
   form: {
@@ -92,6 +92,6 @@ export const engineeringContactData: ContactData = {
     },
     submitText: "Submit Now",
   },
-  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.9!2d55.3241!3d25.2744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5d3f4c0c0001%3A0x0!2sAl+Masaood+Tower%2C+Deira%2C+Dubai!5e0!3m2!1sen!2sae!4v1699999999999",
-  mapTitle: "catobo Location – Al Masaood Tower, Deira, Dubai",
+  mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3608.3445428399737!2d55.3189441!3d25.2589927!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5da2e3a82867%3A0x6df6bbe7793fb398!2sAl%20Masaood%20Tower!5e0!3m2!1sen!2s!4v1780651063068!5m2!1sen!2s",
+  mapTitle: "Catobo – Office 702, Al Masaood Tower, Deira, Dubai",
 };

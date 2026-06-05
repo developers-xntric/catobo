@@ -114,5 +114,36 @@ export const engineeringAboutData: AboutData = {
                 icon: "/engr-solutions/about/4.png"
             }
         ]
+    },
+    testimonials: {
+        badge: "Testimonials",
+        title: "Voices of Partnerships",
+        description: "What We've Learned Together.",
+        items: [
+            {
+                id: 1,
+                company: "Leads Investments Group L.L.C",
+                quote: "We had the pleasure of working with Catobo for more than 7 years. Their team has successfully completed multiple projects with our requirements. Catobo has always been responsive to our needs, very knowledgeable in many engineering topics",
+                author: "ATIQ HASSAN MUBARAK ",
+                designation: "Intl. Security Safety Aviation Advisor",
+                image: "/profile/user-1.png",
+            },
+            {
+                id: 2,
+                company: "Dubai Civil Aviation Authority, DCAA",
+                quote: "Representing the Dubai Civil Aviation Authority, DCAA, I have had numerous dealings with  CATOBO on many occasions. Predominately in the construction and or rehabilitation of Helipads throughout the entire UAE, CATOBO have set the benchmark",
+                author: "MICHEAL RUDOLPH ",
+                designation: "UAS / UTM SME ",
+                image: "/profile/user-2.png",
+            },
+            {
+                id: 3,
+                company: "SEED Engineering, UAE",
+                quote: "We have the pleasure of working with Catobo for more than 15 years Every once in a while, you run across another professional whose standards match your own. Catobo for us has been that kind of great experience. We were able to take our idea from concept",
+                author: "SANJU MATHEW",
+                designation: "CEO",
+                image: "/profile/user-3.png",
+            },
+        ]
     }
 };
