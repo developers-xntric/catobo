@@ -1,5 +1,7 @@
 import { cn } from "@/lib/utils";
 import { SiteChrome } from "@/components/SiteChrome";
+import { ContactPopupProvider } from "@/contexts/ContactPopupContext";
+import ContactPopup from "@/components/ContactPopup";
 import type { Metadata } from "next";
 import { Poppins, Raleway } from "next/font/google";
 import "./globals.css";
@@ -35,7 +37,10 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", raleway.variable, poppins.variable)}
     >
       <body className="min-h-full flex flex-col">
-        <SiteChrome>{children}</SiteChrome>
+        <ContactPopupProvider>
+          <SiteChrome>{children}</SiteChrome>
+          <ContactPopup />
+        </ContactPopupProvider>
       </body>
     </html>
   );

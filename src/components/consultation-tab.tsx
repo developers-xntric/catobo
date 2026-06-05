@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import { useContactPopup } from '@/contexts/ContactPopupContext'
 
 interface TabContent {
   id: string
@@ -99,6 +100,7 @@ const tabsData: TabContent[] = [
 export default function ConsultationTabs() {
   const [activeTab, setActiveTab] = useState('aviation')
   const currentTab = tabsData.find((tab) => tab.id === activeTab)!
+  const { open } = useContactPopup()
 
   return (
     <div className=" ">
@@ -146,12 +148,14 @@ export default function ConsultationTabs() {
               {/* Buttons */}
               <div className=" flex flex-col gap-3 sm:flex-row sm:gap-4">
                 <Button
+                  onClick={open}
                   className="px-6 py-2 text-white sm:px-8"
                   style={{ background: 'var(--New-button, linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%))' }}
                 >
                   {currentTab.primaryBtnText}
                 </Button>
                 <Button
+                  onClick={open}
                   variant="outline"
                   className="border-2 border-blue-600 px-6 py-2 text-blue-600 hover:bg-blue-50 sm:px-8"
                 >

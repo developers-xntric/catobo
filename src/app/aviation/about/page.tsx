@@ -14,7 +14,7 @@ export default function AboutPage() {
                     { label: "Home", href: "/" },
                     { label: "About Us" },
                 ]}
-                backgroundImage="/engr-solutions/about/hero-bg.png"
+                backgroundImage="/aviation/about-bg.png"
             />
 
             <TrustedSolutions data={aviationAboutData.trustedSolutions} />

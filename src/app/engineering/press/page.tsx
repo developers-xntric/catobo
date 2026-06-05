@@ -15,8 +15,8 @@ const Press = () => {
                 }
                 backgroundImage={"/press/bg.png"}
             />
-           
-            <PressContent />
+            
+            <PressContent basePath="/engineering" />
         </div>
     )
 }

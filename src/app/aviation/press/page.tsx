@@ -12,10 +12,10 @@ const Press = () => {
                         { label: "Press" },
                     ]
                 }
-                backgroundImage={"/press/bg.png"}
+                backgroundImage={"/aviation/press-bg.png"}
             />
            
-            <PressContent />
+            <PressContent basePath="/aviation" />
         </div>
     )
 }

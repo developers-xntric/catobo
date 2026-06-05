@@ -19,10 +19,10 @@ export default async function PressDetailPage({ params }: { params: Promise<{ id
                 title={item.title}
                 breadcrumbs={[
                     { label: "Home", href: "/" },
-                    { label: "Press", href: "/press" },
+                    { label: "Press", href: "/aviation/press" },
                     { label: item.title },
                 ]}
-                backgroundImage="/press/hero-press-list.png"
+                backgroundImage="/aviation/press-list-bg.png"
             />
 
             <TrainingProgramCard
@@ -31,7 +31,7 @@ export default async function PressDetailPage({ params }: { params: Promise<{ id
                 description={item.description || "No description available."}
             />
 
-            <PressContent limit={6} showHeading={true} />
+            <PressContent limit={6} showHeading={true} basePath="/aviation" />
         </div>
     );
 }

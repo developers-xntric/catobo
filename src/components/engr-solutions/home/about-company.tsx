@@ -1,6 +1,6 @@
 import Image from "next/image";
 import GradButton from "@/components/ui/grad-button";
-import Link from "next/link";
+import { ContactCtaButton } from "@/components/ContactCtaButton";
 import { HomeData } from "@/data/types";
 
 export default function AboutCompany({ data }: { data: HomeData['aboutCompany'] }) {
@@ -26,13 +26,12 @@ export default function AboutCompany({ data }: { data: HomeData['aboutCompany'] 
               {safelyDesc}
             </p>
 
-            <Link
-              href="/contact"
+            <ContactCtaButton
               className="group inline-flex items-center gap-2.5 rounded-[5px] bg-white px-7 py-3 text-sm font-medium text-[#000000] shadow-lg shadow-white/10
                          hover:bg-transparent hover:text-white hover:border hover:border-white hover:shadow-xl hover:shadow-white/20 active:scale-95 transition-all duration-200 cursor-pointer"
             >
               Start Your Consultation
-            </Link>
+            </ContactCtaButton>
           </div>
         </div>
 

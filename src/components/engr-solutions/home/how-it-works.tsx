@@ -1,4 +1,4 @@
-import GradButton from "@/components/ui/grad-button";
+import { ContactCtaButton } from "@/components/ContactCtaButton";
 import { HomeData } from "@/data/types";
 
 export default function HowItWorks({ data }: { data: HomeData['howItWorks'] }) {
@@ -26,9 +26,10 @@ export default function HowItWorks({ data }: { data: HomeData['howItWorks'] }) {
               </p>
             </div>
 
-            <GradButton href="/" size="md">
+            <ContactCtaButton className="group inline-flex items-center justify-center rounded-md transition-all duration-300 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 px-6 py-2.5 text-sm bg-linear-to-l from-[#0F2453] to-[#168DCA] text-white hover:border hover:scale-105 hover:bg-none hover:text-[#168DCA] hover:border-[#168DCA] hover:shadow-xl hover:shadow-[#168DCA]/20 active:scale-95">
               {ctaText}
-            </GradButton>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2 group-hover:translate-x-0.5 transition-transform duration-300"><path d="m9 18 6-6-6-6" /></svg>
+            </ContactCtaButton>
           </div>
 
           <div className="w-full lg:w-[70%] lg:pl-10">

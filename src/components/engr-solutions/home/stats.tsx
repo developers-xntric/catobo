@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import GradButton from '@/components/ui/grad-button';
+import { ContactCtaButton } from '@/components/ContactCtaButton';
 
 function AnimatedCounter({ target, label }: { target: number; label: string }) {
   const [count, setCount] = useState(0);
@@ -70,9 +70,10 @@ export default function Stats() {
             <p className="text-[13px] text-white mb-3 max-w-lg">
              from mission critical sites to healthcare systems, aviation precision initiatives engineered to endure challenges.
             </p>
-            <GradButton href="/" size="md">
+            <ContactCtaButton className="group inline-flex items-center justify-center rounded-md transition-all duration-300 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 px-6 py-2.5 text-sm bg-linear-to-l from-[#0F2453] to-[#168DCA] text-white hover:border hover:scale-105 hover:bg-none hover:text-[#168DCA] hover:border-[#168DCA] hover:shadow-xl hover:shadow-[#168DCA]/20 active:scale-95">
               Book Your Consultation
-            </GradButton>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2 group-hover:translate-x-0.5 transition-transform duration-300"><path d="m9 18 6-6-6-6" /></svg>
+            </ContactCtaButton>
           </div>
           <div className="grid grid-cols-4 gap-10">
             <AnimatedCounter target={18} label="Military & Defense Projects" />
