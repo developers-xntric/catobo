@@ -1,4 +1,5 @@
 import DynamicHero from '@/components/common/hero';
+import ConsultationTabs from '@/components/consultation-tab';
 import PressContent from '@/components/Press';
 
 const Press = () => {
