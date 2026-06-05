@@ -1,29 +1,10 @@
 "use client";
 
+import { CheckIcon } from "@/components/common/CheckIcon";
 import DynamicHero from "@/components/common/hero";
 import React, { useState } from "react";
 
-// ==========================================
 // SHARED UI COMPONENTS
-// ==========================================
-
-function CheckIcon() {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-4.5 h-4.5 shrink-0 mt-0.5 text-[#168DCA]"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-    );
-}
 
 function CheckItem({ label }: { label: string }) {
     return (
@@ -63,10 +44,7 @@ function SectionHeading({
     return <h2 className={`text-[24px] ${base}`}>{children}</h2>;
 }
 
-// ==========================================
 // PROCESS TIMELINE COMPONENT
-// ==========================================
-
 interface Step {
     number: string;
     title: string;
@@ -214,17 +192,15 @@ export function Sidebar({ title, groups }: SidebarProps) {
     );
 }
 
-// ==========================================
 // IMAGE GRID — Equal 50/50
-// ==========================================
 
 function ImageGridEqual({ left, right }: { left: string; right: string }) {
     return (
         <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-56">
+            <div className="rounded-xl overflow-hidden bg-gray-100 h-100">
                 <img src={left} alt="" className="w-full h-full object-cover" />
             </div>
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-56">
+            <div className="rounded-xl overflow-hidden bg-gray-100 h-100">
                 <img src={right} alt="" className="w-full h-full object-cover" />
             </div>
         </div>
@@ -241,7 +217,7 @@ function ImageTextRow({
 }) {
     return (
         <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-7 items-start">
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-56">
+            <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
                 <img src={src} alt="" className="w-full h-full object-cover" />
             </div>
             <div>{children}</div>
@@ -249,9 +225,7 @@ function ImageTextRow({
     );
 }
 
-// ==========================================
 // MAIN CONTENT
-// ==========================================
 
 function MainContent() {
     return (
@@ -275,8 +249,8 @@ function MainContent() {
                 </BodyText>
 
                 <ImageGridEqual
-                    left="/aviation-consult/1.png"
-                    right="/aviation-consult/2.png"
+                    left="/hvc/1.png"
+                    right="/hvc/2.png"
                 />
             </section>
 
@@ -320,7 +294,7 @@ function MainContent() {
 
             {/* ─── Section 3: Compliance & Quality Assurance ─── */}
             <section className="mb-14">
-                <ImageTextRow src="/aviation-consult/3.png">
+                <ImageTextRow src="/hvc/3.png">
                     <SectionHeading size="h2" className="mb-3">
                         Compliance &amp; Quality Assurance
                     </SectionHeading>
@@ -350,9 +324,7 @@ function MainContent() {
     );
 }
 
-// ==========================================
 // MAIN PAGE EXPORT
-// ==========================================
 
 export default function SolutionAviationConsultationFirefighting() {
     const sidebarGroups: SidebarGroup[] = [
@@ -369,12 +341,12 @@ export default function SolutionAviationConsultationFirefighting() {
     return (
         <div>
             <DynamicHero
-                title={"Aviation Consultation & Firefighting Design"}
+                title={"Helipad & VertiPad Construction"}
                 breadcrumbs={[
                     { label: "Home", href: "/" },
-                    { label: "Aviation Consultation & Firefighting Design" },
+                    { label: "Helipad & VertiPad Construction" },
                 ]}
-                backgroundImage="/hpfs.png"
+                backgroundImage="/hvc.png"
             />
             <main className="min-h-screen bg-white">
                 <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
