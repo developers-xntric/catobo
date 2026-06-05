@@ -90,6 +90,7 @@ export const engineeringHomeData: HomeData = {
         </p>
       </>
     ),
+    buttonHref:"/engineering/about",
     image: "/engr-solutions/about.png",
     safelyBg: "/engr-solutions/safely-bg.png",
     safelyTitle: "Safety Without Compromise.",
@@ -98,6 +99,7 @@ export const engineeringHomeData: HomeData = {
   projects: {
     badge: "Our Projects",
     title: "Engineering Excellence In Every Project We Deliver",
+    buttonHre: "/engineering/portfolio",
     description: "Showcasing our expertise in aviation, construction, and critical infrastructure solutions. Explore how we deliver safety, compliance, precision in every project.",
     items: [
       {
@@ -137,6 +139,7 @@ export const engineeringHomeData: HomeData = {
     badge: "Testimonials",
     title: "Voices of Partnerships",
     description: "What We've Learned Together.",
+       buttonHref:"/engineering/testimonials",
     items: [
       {
         id: 1,

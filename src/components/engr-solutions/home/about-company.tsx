@@ -4,7 +4,7 @@ import { ContactCtaButton } from "@/components/ContactCtaButton";
 import { HomeData } from "@/data/types";
 
 export default function AboutCompany({ data }: { data: HomeData['aboutCompany'] }) {
-  const { badge, title, description, image, safelyBg, safelyTitle, safelyDesc } = data;
+  const { badge, title, description, image, safelyBg, safelyTitle, safelyDesc, buttonHref } = data;
 
   return (
     <section className="w-full bg-white py-16">
@@ -66,7 +66,7 @@ export default function AboutCompany({ data }: { data: HomeData['aboutCompany'] 
             </div>
 
             <div className="flex flex-row gap-8">
-              <GradButton href="/" size="md">
+              <GradButton href={buttonHref} size="md">
                 More About Us
               </GradButton>
             </div>

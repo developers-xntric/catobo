@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { useContactPopup } from '@/contexts/ContactPopupContext'
+import Link from 'next/link'
 
 interface TabContent {
   id: string
@@ -111,11 +112,10 @@ export default function ConsultationTabs() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`border border-[#168DCA] px-2 sm:px-12 py-3 text-center text-[11px] sm:text-sm lg:text-base font-light transition-colors whitespace-normal break-words ${
-                activeTab === tab.id
+              className={`border border-[#168DCA] px-2 sm:px-12 py-3 text-center text-[11px] sm:text-sm lg:text-base font-light transition-colors whitespace-normal break-words ${activeTab === tab.id
                   ? 'text-white'
                   : 'bg-white text-[#168DCA] hover:bg-gray-200'
-              }`}
+                }`}
               style={activeTab === tab.id ? { background: 'var(--New-button, linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%))' } : {}}
             >
               <div className="font-medium">{tab.title}{tab.subTitle}</div>
@@ -147,12 +147,16 @@ export default function ConsultationTabs() {
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Button
-                  className="w-full sm:w-auto px-6 py-2 text-white sm:px-8"
-                  style={{ background: 'var(--New-button, linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%))' }}
-                >
-                  {currentTab.primaryBtnText}
-                </Button>
+                <Link   href="/aviation/about">
+
+                  <Button
+                    className="w-full sm:w-auto px-6 py-2 text-white sm:px-8"
+                    style={{ background: 'var(--New-button, linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%))' }}
+                  >
+                    {currentTab.primaryBtnText}
+                  </Button>
+
+                </Link>
                 <Button
                   onClick={open}
                   variant="outline"
