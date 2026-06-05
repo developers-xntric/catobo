@@ -1,28 +1,8 @@
 "use client";
 
+import { CheckIcon } from "@/components/common/CheckIcon";
+import DynamicHero from "@/components/common/hero";
 import React, { useState } from "react";
-
-// ==========================================
-// SHARED UI COMPONENTS
-// ==========================================
-
-function CheckIcon() {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-4.5 h-4.5 shrink-0 mt-0.5 text-[#168DCA]"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-    );
-}
 
 function CheckItem({ label }: { label: string }) {
     return (
@@ -163,8 +143,8 @@ export function Sidebar({ title, groups }: SidebarProps) {
                                         key={idx}
                                         onClick={() => setActive(idx)}
                                         className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
-                                                ? "border-transparent shadow-md"
-                                                : "border-[#E8E8E8] hover:border-gray-300"
+                                            ? "border-transparent shadow-md"
+                                            : "border-[#E8E8E8] hover:border-gray-300"
                                             }`}
                                         style={{
                                             background: isActive
@@ -236,9 +216,9 @@ function MainContent() {
             <section className="mb-14">
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_6fr] gap-8 items-start">
                     {/* Left – image */}
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-72">
+                    <div className="rounded-xl overflow-hidden bg-gray-100 h-100">
                         <img
-                            src="/aviation-consult/4.png"
+                            src="/cd/1.png"
                             alt="Aviation runway at dusk"
                             className="w-full h-full object-cover"
                         />
@@ -308,9 +288,9 @@ function MainContent() {
                     </div>
 
                     {/* Right – image */}
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-72">
+                    <div className="rounded-xl overflow-hidden bg-gray-100 h-100">
                         <img
-                            src="/aviation-consult/5.png"
+                            src="/cd/2.png"
                             alt="Airport runway at sunset"
                             className="w-full h-full object-cover"
                         />
@@ -337,9 +317,7 @@ function MainContent() {
     );
 }
 
-// ==========================================
 // MAIN PAGE EXPORT
-// ==========================================
 
 export default function SolutionAviationConsultationPage2() {
     const sidebarGroups: SidebarGroup[] = [
@@ -355,6 +333,14 @@ export default function SolutionAviationConsultationPage2() {
 
     return (
         <div>
+            <DynamicHero
+                title={"Aviation Consultation & Firefighting Design"}
+                breadcrumbs={[
+                    { label: "Home", href: "/" },
+                    { label: "Aviation Consultation & Firefighting Design" },
+                ]}
+                backgroundImage="/cd.png"
+            />
             <main className="min-h-screen bg-white">
                 <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
                     <div className="flex flex-col lg:flex-row gap-5 items-start">
