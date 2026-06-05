@@ -1,5 +1,6 @@
 "use client";
 
+import DynamicHero from "@/components/common/hero";
 import React, { useState } from "react";
 
 // ==========================================
@@ -145,8 +146,8 @@ export function Sidebar({ title, groups }: SidebarProps) {
                                             key={idx}
                                             onClick={() => setActive(idx)}
                                             className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
-                                                    ? "border-transparent shadow-md"
-                                                    : "border-[#E8E8E8] hover:border-gray-300"
+                                                ? "border-transparent shadow-md"
+                                                : "border-[#E8E8E8] hover:border-gray-300"
                                                 }`}
                                             style={{
                                                 background: isActive
@@ -560,7 +561,14 @@ export default function SolutionHeliportVertiportLighting() {
 
     return (
         <div>
-            {/* <DynamicHero title={"Heliport & Vertiport Lighting"} ... /> */}
+            <DynamicHero
+                title={"Heliport & Vertiport Lighting Systems"}
+                breadcrumbs={[
+                    { label: "Home", href: "/" },
+                    { label: "Heliport & Vertiport Lighting Systems" },
+                ]}
+                backgroundImage="/hvls.png"
+            />
 
             <main className="min-h-screen bg-white">
                 <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
