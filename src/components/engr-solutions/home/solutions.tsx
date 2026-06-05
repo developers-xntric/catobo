@@ -8,7 +8,7 @@ import ConsultationTabs from "@/components/consultation-tab";
 export default function Solutions({ data }: { data: HomeData['solutions'] }) {
   const pathname = usePathname()
   const isAviation = pathname?.startsWith('/aviation')
-  const { badge, title, cards } = data;
+  const { badge, title, cards, stats } = data;
 
   return (
     <div className="2xl:max-w-350 w-[90%] py-16 mx-auto">
@@ -62,7 +62,7 @@ export default function Solutions({ data }: { data: HomeData['solutions'] }) {
           ))}
         </div>
       )}
-      <Stats />
+      <Stats {...stats} />
     </div>
   );
 }
