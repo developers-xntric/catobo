@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import GradButton from '@/components/ui/grad-button';
+import { ContactCtaButton } from '@/components/ContactCtaButton';
 import { HeroData } from '@/data/types';
 
 export default function Hero({ data }: { data: HeroData }) {
@@ -27,9 +28,10 @@ export default function Hero({ data }: { data: HeroData }) {
 
 
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <GradButton href="/" size="lg">
+          <ContactCtaButton className="group inline-flex items-center justify-center rounded-md transition-all duration-300 cursor-pointer select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 px-8 py-3.5 text-base bg-linear-to-l from-[#0F2453] to-[#168DCA] text-white hover:border hover:scale-105 hover:bg-none hover:text-[#168DCA] hover:border-[#168DCA] hover:shadow-xl hover:shadow-[#168DCA]/20 active:scale-95">
             {buttonText}
-          </GradButton>
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2 group-hover:translate-x-0.5 transition-transform duration-300"><path d="m9 18 6-6-6-6" /></svg>
+          </ContactCtaButton>
         </div>
       </div>
 

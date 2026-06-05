@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 import Link from 'next/link';
 import Badge from '@/components/ui/badge';
+import { ContactCtaButton } from '@/components/ContactCtaButton';
 
 export default function Home() {
   // Custom gradient defined from your prompt
@@ -40,9 +41,9 @@ export default function Home() {
               >
                 Explore Aviation Solutions
               </Link>
-              <button className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
+              <ContactCtaButton className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
                 Book Your Consultation
-              </button>
+              </ContactCtaButton>
             </div>
           </div>
         </div>
@@ -71,9 +72,9 @@ export default function Home() {
               >
                 Explore Engineering Solutions
               </Link>
-              <button className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
+              <ContactCtaButton className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
                 Book Your Consultation
-              </button>
+              </ContactCtaButton>
             </div>
           </div>
         </div>
