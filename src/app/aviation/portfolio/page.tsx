@@ -23,6 +23,7 @@ const Portfolio = () => {
                     }]
                 }}
                 logoCount={partners.logoCount}
+                logosBasePath={partners.logosBasePath}
             />
         </div>
     )
