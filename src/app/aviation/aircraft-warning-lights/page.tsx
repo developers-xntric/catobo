@@ -146,12 +146,12 @@ export function Sidebar({ title, groups }: SidebarProps) {
 
 function ImageGrid({ left, right, rightContain = false }: { left: string; right: string; rightContain?: boolean }) {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4">
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-72">
+        <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-3">
+            <div className="rounded-xl overflow-hidden bg-gray-100 h-70">
                 <img src={left} alt="" className="w-full h-full object-cover" />
             </div>
-            <div className={`rounded-xl overflow-hidden h-72 ${rightContain ? "bg-[#EFEFEF] flex items-center justify-center p-4" : "bg-gray-100"}`}>
-                <img src={right} alt="" className={`w-full h-full ${rightContain ? "object-contain mix-blend-multiply" : "object-cover"}`} />
+            <div className={`rounded-xl overflow-hidden h-70 ${rightContain ? "" : "bg-gray-100"}`}>
+                <img src={right} alt="" className={`w-full h-full ${rightContain ? "object-fill mix-blend-multiply" : "object-cover"}`} />
             </div>
         </div>
     );
@@ -188,8 +188,8 @@ function MainContent() {
                 </div>
 
                 <ImageGrid
-                    left="/aviation/1.png"
-                    right="/aviation/2.png"
+                    left="/acs/1.png"
+                    right="/acs/2.png"
                     rightContain
                 />
 
@@ -234,7 +234,7 @@ function MainContent() {
                     </p>
                 </div>
 
-                <ImageGrid left="/aviation/3.png" right="/aviation/4.png" rightContain />
+                <ImageGrid left="/acs/3.png" right="/acs/4.png" rightContain />
 
                 <h3 className="text-[22px] font-medium text-black mt-8 mb-4 tracking-wide">Application:</h3>
                 <p className="text-[14px] text-[#636363] leading-[1.75] mb-6">
@@ -272,7 +272,7 @@ function MainContent() {
                     blocking strip that minimizes ground scatter light, resulting in a "community friendly" lighting system.
                 </p>
 
-                <ImageGrid left="/aviation/5.png" right="/aviation/6.png" rightContain />
+                <ImageGrid left="/acs/5.png" right="/acs/6.png" rightContain />
 
                 <h3 className="text-[22px] font-medium text-black mt-8 mb-4 tracking-wide">Application:</h3>
                 <p className="text-[14px] text-[#636363] leading-[1.75]">
@@ -301,7 +301,7 @@ function MainContent() {
                     system and provides a NO or NC alarm contact upon any system failure.
                 </p>
 
-                <ImageGrid left="/aviation/7.png" right="/aviation/8.png" rightContain />
+                <ImageGrid left="/acs/7.png" right="/acs/8.png" rightContain />
 
                 <h3 className="text-[22px] font-medium text-black mt-8 mb-4 tracking-wide">Application:</h3>
                 <p className="text-[14px] text-[#636363] leading-[1.75] mb-6">
@@ -343,7 +343,7 @@ function MainContent() {
                     70 Series LED Control System
                 </h3>
 
-                <ImageGrid left="/aviation/9.png" right="/aviation/10.png" />
+                <ImageGrid left="/acs/9.png" right="/acs/10.png" />
 
                 <h3 className="text-[20px] font-medium text-black mt-8 mb-3 tracking-wide">Application:</h3>
                 <p className="text-[14px] text-[#636363] leading-[1.75] mb-5">
@@ -367,7 +367,7 @@ function MainContent() {
                     9LC Control System
                 </h3>
 
-                <ImageGrid left="/aviation/11.png" right="/aviation/12.png" />
+                <ImageGrid left="/acs/11.png" right="/acs/12.png" />
 
                 <h3 className="text-[20px] font-medium text-black mt-8 mb-3 tracking-wide">Application:</h3>
                 <p className="text-[14px] text-[#636363] leading-[1.75]">
@@ -395,7 +395,7 @@ function MainContent() {
                     obstruction lighting is used on structures over 500' (152M) above ground level to provide aviation safety.
                 </p>
 
-                <ImageGrid left="/aviation/13.png" right="/aviation/14.png" rightContain />
+                <ImageGrid left="/acs/13.png" right="/acs/14.png" rightContain />
 
                 <h3 className="text-[22px] font-medium text-black mt-8 mb-4 tracking-wide">Application:</h3>
                 <p className="text-[14px] text-[#636363] leading-[1.75] mb-6">
