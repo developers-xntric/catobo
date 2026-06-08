@@ -45,7 +45,7 @@ export default function FaqAccordion({ faqData }: FaqAccordionProps) {
     };
 
     return (
-        <div className="2xl:max-w-350 w-[90%] mx-auto lg:px-8 py-5 md:py-10">
+        <div className="2xl:max-w-350 w-[90%] mx-auto lg:px-8 py-16 md:py-10">
             <div className="w-full overflow-hidden rounded border border-[#1475AF] bg-[#F9F6F6] p-3">
                 {data.map((faq, index) => (
                     <div

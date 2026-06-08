@@ -34,7 +34,7 @@ export default function Press({ limit, showHeading = false, basePath = "" }: Pre
               href={`${basePath}/press-list/${item.id}`}
               className="group flex flex-col overflow-hidden rounded-lg"
             >
-              <div className="relative w-full h-64 overflow-hidden">
+              <div className="relative w-full h-60 md:h-64 overflow-hidden">
                 <Image
                   src={item.imageUrl}
                   alt={item.alt}

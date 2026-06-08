@@ -19,7 +19,7 @@ export default function TrainingProgramCard({
       className="group block overflow-hidden bg-white transition-all duration-300  2xl:max-w-360 w-[90%] mx-auto py-10"
     >
       {/* Image */}
-      <div className="relative aspect-[16/9] w-full h-[500px] overflow-hidden rounded-[10px]">
+      <div className="relative aspect-[16/9] w-full h-[400px] md:h-[500px] overflow-hidden rounded-[10px]">
         <Image
           src={image}
           alt={title}
@@ -30,7 +30,7 @@ export default function TrainingProgramCard({
 
       {/* Content */}
       <div className="pt-3 w-full md:w-[60%]">
-        <h3 className="text-[20px] md:text-[30px] lg:text-[35px] text-[#000000] font-medium  mb-2 leading-12">
+        <h3 className="text-[20px] md:text-[30px] lg:text-[35px] text-[#000000] font-medium  md:mb-2 md:leading-12">
           {title}
         </h3>
 

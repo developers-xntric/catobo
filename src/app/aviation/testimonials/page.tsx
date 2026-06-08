@@ -6,7 +6,7 @@ export default function TestimonialsPage() {
     const { hero } = aviationTestimonialsData;
 
     return (
-        <main className="w-full bg-white pb-20">
+        <main className="w-full bg-white ">
             <DynamicHero
                 title={hero.title}
                 breadcrumbs={hero.breadcrumbs}

@@ -14,7 +14,7 @@ export default function TestimonialsPageContent({ data }: TestimonialsPageConten
     const responseItem = data.items.find((item) => item.response);
 
     return (
-        <main className="w-full bg-white pb-20">
+        <main className="w-full bg-white md:pb-20">
             <div className="2xl:max-w-360 w-[90%] mx-auto z-20 pt-16">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                     {data.stats.map((stat, i) => (
@@ -42,7 +42,7 @@ export default function TestimonialsPageContent({ data }: TestimonialsPageConten
                 <div className="flex flex-col gap-8">
                     {fullWidthItem && (
                         <div className="bg-[#FAFAFA] rounded-[15px] overflow-hidden border border-gray-100 flex flex-col lg:flex-row transition-shadow p-4 gap-10">
-                            <div className="lg:w-[35%] w-full min-h-[300px] xl:min-h-[380px] relative rounded-xl overflow-hidden shrink-0">
+                            <div className="lg:w-[35%] w-full min-h-[310px] md:min-h-[300px] xl:min-h-[380px] relative rounded-xl overflow-hidden shrink-0">
                                 <Image
                                     src={fullWidthItem.logo || "/testimonials/seed.png"}
                                     alt={fullWidthItem.company}

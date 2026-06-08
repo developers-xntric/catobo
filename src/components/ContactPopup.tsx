@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { X } from "lucide-react";
 import { useContactPopup } from "@/contexts/ContactPopupContext";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function ContactPopup() {
   const { isOpen, close } = useContactPopup();
@@ -15,6 +16,8 @@ export default function ContactPopup() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -29,17 +32,20 @@ export default function ContactPopup() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!recaptchaToken) return;
     setIsSubmitting(true);
     setSubmitStatus("idle");
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, recaptchaToken }),
       });
       if (response.ok) {
         setSubmitStatus("success");
         setFormData({ name: "", email: "", message: "" });
+        setRecaptchaToken(null);
+        recaptchaRef.current?.reset();
       } else {
         setSubmitStatus("error");
       }
@@ -78,9 +84,14 @@ export default function ContactPopup() {
             <label className="text-sm font-medium text-[#101010]">Message</label>
             <Textarea name="message" value={formData.message} onChange={handleChange} placeholder="Your Message" className="border-[#D6D6D6] bg-white resize-none" rows={5} required />
           </div>
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+            onChange={(token) => setRecaptchaToken(token)}
+          />
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !recaptchaToken}
             className="w-full py-3 rounded-lg text-white text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-50"
             style={{ background: "linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%)" }}
           >

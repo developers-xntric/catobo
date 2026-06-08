@@ -2,9 +2,16 @@
 
 import { useRef, useState, useCallback, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import { HomeData } from "@/data/types";
 import Stats from "./stats";
 import ConsultationTabs from "@/components/consultation-tab";
+
+const cardRoutes: Record<string, string> = {
+  'Cable Containment Systems': '/engineering/cable-trunking',
+  'Lightning Protection Systems': '/engineering/solution-lightening-protection-systems',
+  'Industrial Products': '/engineering/explosion-proof-systems',
+}
 
 export default function Solutions({ data }: { data: HomeData['solutions'] }) {
   const pathname = usePathname()
@@ -62,8 +69,9 @@ export default function Solutions({ data }: { data: HomeData['solutions'] }) {
         <>
         <div ref={scrollRef} onScroll={handleScroll} className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible">
           {cards.map((item) => (
-            <div
+            <Link
               key={item.title}
+              href={cardRoutes[item.title] || '#'}
               className="bg-[#f3f3f3] border border-gray-200 rounded-xl p-5 min-h-[300px] md:min-h-[335px] hover:shadow-lg hover:border-[#168DCA] transition-all duration-300 flex flex-col group shrink-0 w-[95%] snap-center md:w-auto"
             >
               <div className="flex items-start justify-between mb-4 border-b border-white/20">
@@ -92,7 +100,7 @@ export default function Solutions({ data }: { data: HomeData['solutions'] }) {
               <div className="w-12 h-12 bg-linear-to-r from-[#0F2453] to-[#168DCA] text-white rounded-full flex items-center justify-center mt-auto transition-transform duration-300 group-hover:scale-110 p-2.5">
                 {item.icon}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
         <div className="flex justify-center gap-2 mt-4 md:hidden">

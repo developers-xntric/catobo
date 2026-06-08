@@ -41,14 +41,14 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
                         </div>
                     </div>
 
-                    <div className="space-y-4 bg-[#FAFAFA] border border-[#E6E6E6] rounded-xl p-2 md:p-5">
+                    <div className="space-y-4 bg-[#FAFAFA] border border-[#E6E6E6] rounded-xl p-4 md:p-5">
                         <div>
-                            <h2 className="text-3xl lg:text-[40px] font-medium leading-[1.2] text-[#0a0f1e] mb-4">
+                            <h2 className="text-[20px] lg:text-[40px] font-medium leading-[1.2] text-[#0a0f1e] mb-4">
                                 {d.associateTitle}
                             </h2>
                         </div>
 
-                        <p className="text-[#636363] leading-relaxed text-[16px] font-light whitespace-pre-line">
+                        <p className="text-[#636363] leading-relaxed text-[15px] md:text-[16px] font-light whitespace-pre-line">
                             {d.associateDescription}
                         </p>
 
@@ -59,7 +59,7 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
                                     className="flex items-start gap-3 group"
                                 >
                                     <Image src="/portfolio/tick.png" alt="" width={16} height={16} className="mt-1" />
-                                    <span className="text-[#636363] text-[16px] ">
+                                    <span className="text-[#636363] text-[14px] md:text-[16px] ">
                                         {associate.title}
                                     </span>
                                 </div>
