@@ -12,6 +12,7 @@ interface TabContent {
   description: string
   image: string
   primaryBtnText: string
+  primaryBtnHref: string
   secondaryBtnText: string
 }
 
@@ -24,6 +25,7 @@ const tabsData: TabContent[] = [
       'Expert consultation and engineered fire-fighting system designs tailored for heliports, vertiports, and airfield environments. We ensure safety, compliance, and operational readiness from concept to execution.',
     image: '/aviation-consultant.png',
     primaryBtnText: 'Explore More',
+    primaryBtnHref: '/aviation/consultation-design',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
@@ -34,6 +36,7 @@ const tabsData: TabContent[] = [
       'End-to-end construction of helipads and vertipads, engineered for structural integrity, load performance, and aviation safety. Built to meet operational demands and international standards.',
     image: '/aviation/helipad-vertiports.png',
     primaryBtnText: 'Explore More',
+    primaryBtnHref: '/aviation/helipad-construction',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
@@ -44,6 +47,7 @@ const tabsData: TabContent[] = [
       'High-performance lighting systems designed to enhance visibility, guidance, and safety during landing and take-off. Our solutions ensure reliable operation in all weather and light conditions.',
     image: '/aviation/heliport-lightning.png',
      primaryBtnText: 'Explore More',
+    primaryBtnHref: '/aviation/helideck-and-helipad-lighting-systems',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
@@ -54,6 +58,7 @@ const tabsData: TabContent[] = [
       'Advanced fire-fighting solutions engineered to protect aircraft, crew, and infrastructure. Designed for rapid response, compliance, and seamless integration with heliport operations.',
     image: '/aviation/firefighting.png',
     primaryBtnText: 'Explore More',
+    primaryBtnHref: '/aviation/firefighting-systems',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
@@ -64,6 +69,7 @@ const tabsData: TabContent[] = [
       'Precision airfield lighting solutions that support safe aircraft ground movement and runway operations. Engineered for durability, efficiency, and consistent performance in demanding environments.',
     image: '/aviation/AirfieldLightingSystems.png',
     primaryBtnText: 'Explore More',
+    primaryBtnHref: '/aviation/helideck-and-helipad-lighting-systems',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
@@ -74,6 +80,7 @@ const tabsData: TabContent[] = [
       'High-visibility aircraft warning lights for towers, buildings, and obstacles. Designed to ensure maximum visibility, regulatory compliance, and long-term reliability.',
     image: '/aviation/AircraftWarningLights.png',
    primaryBtnText: 'Explore More',
+    primaryBtnHref: '/aviation/aircraft-warning-lights',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
@@ -84,6 +91,7 @@ const tabsData: TabContent[] = [
       'Flexible, rapid-deployment helipad and lighting systems for temporary or remote operations. Ideal for emergency response, offshore use, and mobile aviation requirements.',
     image: '/aviation/PortableHelipadAndVertiPad.png',
     primaryBtnText: 'Explore More',
+    primaryBtnHref: '/aviation/portable-helipad',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
@@ -94,6 +102,7 @@ const tabsData: TabContent[] = [
       'Flexible, rapid-deployment helipad and lighting systems for temporary or remote operations. Ideal for emergency response, offshore use, and mobile aviation requirements.',
     image: '/aviation/PortableLightingSolutions.png',
     primaryBtnText: 'Explore More',
+    primaryBtnHref: '/aviation/portable-lighting',
     secondaryBtnText: 'Book Your Consultation',
   },
 ]
@@ -147,7 +156,7 @@ export default function ConsultationTabs() {
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <Link   href="/aviation/about">
+                <Link   href={currentTab.primaryBtnHref}>
 
                   <Button
                     className="w-full sm:w-auto px-6 py-2 text-white sm:px-8"
