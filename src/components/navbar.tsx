@@ -48,16 +48,9 @@ const NAV_ITEMS: NavItem[] = [
         {
           heading: "Core Solutions",
           subItems: [
-            { label: "Cable Containment", href: "/" },
-            { label: "Lightning Protection", href: "/solution-lightening-protection-systems" },
-            { label: "Industrial Safety", href: "/" },
-          ],
-        },
-        {
-          heading: "Specialized Systems",
-          subItems: [
-            { label: "Earthing & Bonding", href: "/" },
-            { label: "Custom Engineering", href: "/" },
+            { label: "Cable Containment", href: "/engineering/cable-trunking" },
+            { label: "Lightning Protection", href: "/engineering/solution-lightening-protection-systems" },
+            { label: "Industrial Products Explosion Proof Systems", href: "/explosion-proof-systems" },
           ],
         },
       ],
