@@ -110,7 +110,7 @@ export default function Stats({
       <div className="relative z-10">
         <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-12 items-center">
           <div className="text-white w-full md:w-auto">
-            <h2 className="text-[18px] md:text-2xl font-medium leading-[1.2] mb-1">
+            <h2 className="text-[22px] md:text-2xl font-medium leading-[1.2] mb-1">
               {title}
             </h2>
 

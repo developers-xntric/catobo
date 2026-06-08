@@ -19,7 +19,7 @@ export default function AboutCompany({ data }: { data: HomeData['aboutCompany'] 
             />
           </div>
           <div className="relative z-10 mx-auto">
-            <h2 className="text-[20px] md:text-3xl lg:text-[35px] font-medium leading-[1.2] text-white mb-4">
+            <h2 className="text-[22px] md:text-3xl lg:text-[35px] font-medium leading-[1.2] text-white mb-4">
               {safelyTitle}
             </h2>
             <p className="text-[14px] md:text-lg text-white mb-6 max-w-full sm:max-w-[80%] px-4 sm:px-0 mx-auto">
