@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckIcon } from "@/components/common/CheckIcon";
+import DynamicHero from "@/components/common/hero";
 import React, { useState } from "react";
 
 // SHARED UI COMPONENTS
@@ -174,6 +175,14 @@ export default function SolutionAirfieldLighting() {
 
     return (
         <div>
+            <DynamicHero
+                title={"Airfield Lighting"}
+                breadcrumbs={[
+                    { label: "Home", href: "/" },
+                    { label: "Airfield Lighting" },
+                ]}
+                backgroundImage="/al.png"
+            />
             <main className="min-h-screen bg-white">
                 <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
                     <div className="flex flex-col lg:flex-row gap-5 items-start">
