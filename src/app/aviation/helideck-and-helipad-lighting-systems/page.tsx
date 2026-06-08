@@ -100,7 +100,7 @@ export function Sidebar({ title, groups }: SidebarProps) {
     let globalIdx = 0;
 
     return (
-        <div className="w-90 shrink-0 bg-[#F3F3F3] p-5 rounded-2xl sticky top-8">
+        <div className="w-full lg:w-90 lg:shrink-0 bg-[#F3F3F3] p-5 rounded-2xl lg:sticky lg:top-8">
             <div className="mb-4 px-1">
                 <h2 className="text-[1.15rem] text-black font-medium tracking-wide leading-snug">
                     {title}

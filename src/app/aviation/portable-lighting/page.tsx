@@ -222,8 +222,7 @@ export function ProcessTimeline({
             </SectionHeading>
             {subtitle && <BodyText className="mb-2">{subtitle}</BodyText>}
             <div
-                className="grid gap-5 mt-6"
-                style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
+                className={`grid gap-5 mt-6 grid-cols-1 sm:grid-cols-2 ${columns >= 4 ? "lg:grid-cols-4" : columns === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}
             >
                 {steps.map((step) => (
                     <div key={step.number} className="flex flex-col items-start gap-3">
@@ -269,7 +268,7 @@ export function Sidebar({ title, groups }: SidebarProps) {
     let globalIdx = 0;
 
     return (
-        <div className="w-90 shrink-0 bg-[#F3F3F3] p-5 rounded-2xl sticky top-8">
+        <div className="w-full lg:w-90 lg:shrink-0 bg-[#F3F3F3] p-5 rounded-2xl lg:sticky lg:top-8">
             <div className="mb-4 px-1">
                 <h2 className="text-[1.1rem] text-black font-medium tracking-wide leading-snug">
                     {title}

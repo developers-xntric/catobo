@@ -62,8 +62,7 @@ export function ProcessTimeline({ title, columns = 4, steps, subtitle }: Process
             {subtitle && <BodyText className="mb-6">{subtitle}</BodyText>}
 
             <div
-                className="grid gap-5 mt-6"
-                style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
+                className={`grid gap-5 mt-6 grid-cols-1 sm:grid-cols-2 ${columns >= 4 ? "lg:grid-cols-4" : columns === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}
             >
                 {steps.map((step) => (
                     <div key={step.number} className="flex flex-col items-start gap-3">
@@ -116,7 +115,7 @@ export function Sidebar({ title, groups }: SidebarProps) {
     let globalIdx = 0;
 
     return (
-        <div className="w-90 shrink-0 bg-[#F3F3F3] p-5 rounded-2xl sticky top-8">
+        <div className="w-full lg:w-90 lg:shrink-0 bg-[#F3F3F3] p-5 rounded-2xl lg:sticky lg:top-8">
             <div className="mb-4 px-1">
                 <h2 className="text-[1.1rem] text-black font-medium tracking-wide leading-snug">
                     {title}
@@ -190,11 +189,11 @@ export function Sidebar({ title, groups }: SidebarProps) {
 
 function ImageGridEqual({ left, right }: { left: string; right: string }) {
     return (
-        <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-100">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="rounded-xl overflow-hidden bg-gray-100 h-70 sm:h-100">
                 <img src={left} alt="" className="w-full h-full object-cover" />
             </div>
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-100">
+            <div className="rounded-xl overflow-hidden bg-gray-100 h-70 sm:h-100">
                 <img src={right} alt="" className="w-full h-full object-cover" />
             </div>
         </div>
