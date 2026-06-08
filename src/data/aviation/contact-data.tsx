@@ -94,7 +94,7 @@ export const aviationContactData: ContactData = {
       subject: "Subject",
       enquiry: "Enquiry Details",
     },
-    submitText: "Submit Enquiry",
+    submitText: "Submit Now",
   },
   mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3608.3445428399737!2d55.3189441!3d25.2589927!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f5da2e3a82867%3A0x6df6bbe7793fb398!2sAl%20Masaood%20Tower!5e0!3m2!1sen!2s!4v1780651063068!5m2!1sen!2s",
   mapTitle: "Catobo – Office 702, Al Masaood Tower, Deira, Dubai",
