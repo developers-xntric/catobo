@@ -1,28 +1,9 @@
 "use client";
 
+import { CheckIcon } from "@/components/common/CheckIcon";
 import React, { useState } from "react";
 
-// ==========================================
 // SHARED UI COMPONENTS
-// ==========================================
-
-function CheckIcon() {
-    return (
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-4.5 h-4.5 shrink-0 mt-0.5 text-[#168DCA]"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
-        </svg>
-    );
-}
 
 function CheckItem({ label }: { label: string }) {
     return (
@@ -39,9 +20,7 @@ function BodyText({ children, className = "" }: { children: React.ReactNode; cla
     );
 }
 
-// ==========================================
 // SIDEBAR
-// ==========================================
 
 interface SidebarItem {
     label: string;
@@ -108,9 +87,7 @@ export function Sidebar({ title, groups }: { title: string; groups: SidebarGroup
     );
 }
 
-// ==========================================
 // MAIN CONTENT
-// ==========================================
 
 function MainContent() {
     return (
@@ -182,9 +159,7 @@ function MainContent() {
     );
 }
 
-// ==========================================
 // MAIN PAGE EXPORT
-// ==========================================
 
 export default function SolutionAirfieldLighting() {
     const sidebarGroups: SidebarGroup[] = [
