@@ -14,7 +14,7 @@ export default function Home() {
     <div className="min-h-screen  flex flex-col font-sans">
       <div className="w-full bg-[#F3F3F3]">
         {/* Top Section: Hero Cards */}
-        <section className="w-full max-w-360 mx-auto px-5 py-16 grid grid-cols-1 md:grid-cols-2 gap-4  bg-[#F3F3F3]">
+        <section className="w-full max-w-360 mx-auto px-5 md:pb-6 pt-4 pb-12 grid grid-cols-1 md:grid-cols-2 gap-4  bg-[#F3F3F3]">
           {/* Aviation Solutions Card */}
           <div className="relative h-100 md:h-150 rounded-3xl overflow-hidden group">
             {/* Background Image (Replace with your actual image path or Next/Image) */}
