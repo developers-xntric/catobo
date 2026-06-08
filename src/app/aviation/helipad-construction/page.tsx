@@ -40,7 +40,7 @@ function SectionHeading({
     className?: string;
 }) {
     const base = `font-medium text-black leading-tight tracking-wide ${className}`;
-    if (size === "h1") return <h1 className={`text-[30px] ${base}`}>{children}</h1>;
+    if (size === "h1") return <h1 className={`text-[24px] ${base}`}>{children}</h1>;
     if (size === "h3") return <h3 className={`text-[18px] ${base}`}>{children}</h3>;
     return <h2 className={`text-[24px] ${base}`}>{children}</h2>;
 }
