@@ -15,7 +15,7 @@ export default function Home() {
     <div className="min-h-screen  flex flex-col font-sans">
 
       {/* Top Section: Hero Cards */}
-      <section className="w-full max-w-360 mx-auto p-4 md:p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <section className="w-full max-w-360 mx-auto p-4 md:p-4 grid grid-cols-1 md:grid-cols-2 gap-4  bg-[#F3F3F3]">
 
         {/* Aviation Solutions Card */}
         <div className="relative h-100 md:h-150 rounded-3xl overflow-hidden group">

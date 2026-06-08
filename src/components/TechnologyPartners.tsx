@@ -48,13 +48,13 @@ export default function TechnologyPartners({ data, logoCount = 49, logosBasePath
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl lg:text-[40px] font-medium leading-[1.2] text-[#0a0f1e] md:text-center mb-4">
+        <h2 className="text-[20px] lg:text-[40px] font-medium leading-[1.2] text-[#0a0f1e] md:text-center mb-4">
           {title}
         </h2>
 
         {/* Paragraph */}
         {description && description.length > 0 ? (
-          <div className="text-[#636363] leading-relaxed text-[16px] font-light mb-7">
+          <div className="text-[#636363] leading-relaxed text-[15px] md:text-[16px] font-light mb-7">
             {description.map((block: any, idx: number) => (
               <p key={idx}>
                 {block.children?.map((child: any) => child.text).join('')}
