@@ -15,7 +15,7 @@ function renderSection(section: ContentSection, index: number, isLast: boolean) 
     const sectionClass = isLast ? "mb-10" : "mb-16";
 
     return (
-        <section key={index} className={sectionClass}>
+        <section key={index} id={`section-${index}`} className={sectionClass}>
             {isFirst ? (
                 <h1 className="text-[32px] font-medium text-black mb-5 leading-tight tracking-wide">
                     {section.title}

@@ -38,7 +38,7 @@ export default function CableTrunkingContent({ data }: CableTrunkingContentProps
                 const hasTwoImages = section.images?.length === 2;
 
                 return (
-                    <section key={index} className={index === data.sections.length - 1 ? "mb-10" : "mb-16"}>
+                    <section key={index} id={`section-${index}`} className={index === data.sections.length - 1 ? "mb-10" : "mb-16"}>
                         {section.badge && (
                             <div className="flex items-center gap-2 mb-4">
                                 <span className="text-sm text-[#636363]">• {section.badge}</span>

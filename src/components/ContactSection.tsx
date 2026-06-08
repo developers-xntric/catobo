@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 import Button from '@/components/ui/grad-button';
 import { Input } from '@/components/ui/input';
@@ -14,6 +14,7 @@ import {
 } from '@/components/ui/select';
 import Badge from './ui/badge';
 import Typography from './ui/heading';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function ContactSection() {
     const [formData, setFormData] = useState({
@@ -24,9 +25,12 @@ export default function ContactSection() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!recaptchaToken) return;
         setIsSubmitting(true);
         setSubmitStatus('idle');
 
@@ -36,7 +40,7 @@ export default function ContactSection() {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify({ ...formData, recaptchaToken }),
             });
 
             const result = await response.json();
@@ -49,6 +53,8 @@ export default function ContactSection() {
                     inquiryType: 'Services',
                     message: '',
                 });
+                setRecaptchaToken(null);
+                recaptchaRef.current?.reset();
             } else {
                 setSubmitStatus('error');
             }
@@ -167,10 +173,17 @@ export default function ContactSection() {
                                 />
                             </div>
 
+                            {/* reCAPTCHA */}
+                            <ReCAPTCHA
+                                ref={recaptchaRef}
+                                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                                onChange={(token) => setRecaptchaToken(token)}
+                            />
+
                             {/* Submit Button */}
                             <Button
                                 type="submit"
-                                disabled={isSubmitting}
+                                disabled={isSubmitting || !recaptchaToken}
                                 className="text-white font-medium py-3 px-10 transition-colors rounded-lg disabled:opacity-50"
                             >
                                 {isSubmitting ? 'Submitting...' : 'Submit Now'}

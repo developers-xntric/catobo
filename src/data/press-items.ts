@@ -129,4 +129,117 @@ export const pressItems: PressItem[] = [
         date: '2022',
         description: "International outreach and project consultation in Erbil, expanding our regional footprint."
     },
+    {
+        id: 16,
+        title: 'Bernell’s Farewell',
+        imageUrl: '/press/16.png',
+        alt: 'Bernell’s Farewell',
+        date: '2022',
+        description: "Celebrating the career of our esteemed colleague, Bernell, as he embarks on a new chapter."
+    },
+    {
+        id: 17,
+        title: 'CATOBO in 2019',
+        imageUrl: '/press/17.png',
+        alt: 'CATOBO in 2019',
+        date: '2022',
+        description: "Reflecting on our achievements and milestones in 2019."
+    },
+     {
+        id: 18,
+        title: 'DCAA Award',
+        imageUrl: '/press/18.png',
+        alt: 'DCAA Award',
+        date: '2022',
+        description: "DCAA Award for excellence in aviation project delivery and client service."
+    },
+     {
+        id: 19,
+        title: 'Catobo UAE is proud to announce that we are now recertified as ISO 9001 : 2015',
+        imageUrl: '/press/19.png',
+        alt: 'Catobo UAE is proud to announce that we are now recertified as ISO 9001 : 2015',
+        date: '2022',
+        description: "Catobo UAE is proud to announce that we are now recertified as ISO 9001 : 2015, reaffirming our commitment to quality management and continuous improvement in all aspects of our operations."
+    },
+     {
+        id: 20,
+        title: 'Catobo turns 10',
+        imageUrl: '/press/20.png',
+        alt: 'Catobo turns 10',
+        date: '2022',
+        description: "Celebrating a decade of innovation and excellence in the engineering industry."
+    },
+     {
+        id: 21,
+        title: 'Middle East Electricity at Dubai World Trade Center 14-16 February 2017',
+        imageUrl: '/press/21.png',
+        alt: 'Middle East Electricity at Dubai World Trade Center 14-16 February 2017',
+        date: '2022',
+        description: "Middle East Electricity at Dubai World Trade Center 14-16 February 2017, showcasing our latest solutions in power and energy engineering."
+    },
+    {
+        id: 22,
+        title: 'Catobo is proud to be a sponsor to the second edition of this successful event.',
+        imageUrl: '/press/22.png',
+        alt: 'Catobo is proud to be a sponsor to the second edition of this successful event.',
+        date: '2022',
+        description: "Catobo is proud to be a sponsor to the second edition of this successful event, supporting innovation and excellence in the engineering industry."
+    },
+     {
+        id: 23,
+        title: 'Technical Presentation on DEHN SPDs at Dehn Middle East',
+        imageUrl: '/press/23.png',
+        alt: 'Technical Presentation on DEHN SPDs at Dehn Middle East',
+        date: '2022',
+        description: "Technical presentation on DEHN SPDs at Dehn Middle East, highlighting our expertise in specialized engineering solutions."
+    },
+     {
+        id: 24,
+        title: 'Catobo are the proud sponsors of the first ever student go karting championship for drivers with a zest for speed',
+        imageUrl: '/press/24.png',
+        alt: 'Catobo are the proud sponsors of the first ever student go karting championship for drivers with a zest for speed',
+        date: '2022',
+        description: "Catobo are the proud sponsors of the first ever student go karting championship for drivers with a zest for speed, supporting the next generation of engineering talent."
+    },
+    {
+        id: 25,
+        title: 'Catobo sponsored the first 8 hour endurance karting event',
+        imageUrl: '/press/25.png',
+        alt: 'Catobo sponsored the first 8 hour endurance karting event',
+        date: '2022',
+        description: "Catobo sponsored the first 8 hour endurance karting event, supporting the next generation of engineering talent."
+    },
+     {
+        id: 26,
+        title: 'Catobo sponsored drivers of Team G-Force',
+        imageUrl: '/press/26.png',
+        alt: 'Catobo sponsored drivers of Team G-Force',
+        date: '2022',
+        description: "Catobo sponsored drivers of Team G-Force, supporting the next generation of engineering talent."
+    },
+     {
+        id: 27,
+        title: 'Catobo relocates into New Head-Office',
+        imageUrl: '/press/27.png',
+        alt: 'Catobo relocates into New Head-Office',
+        date: '2022',
+        description: "Catobo relocates into New Head-Office, marking a new chapter in our company's growth and development."
+    },
+     {
+        id: 28,
+        title: 'ISO 9001:2008 certification from TUV NORD',
+        imageUrl: '/press/28.png',
+        alt: 'ISO 9001:2008 certification from TUV NORD',
+        date: '2022',
+        description: "Catobo is proud to announce that we are now certified to ISO 9001:2008 by TUV NORD, reaffirming our commitment to quality management and continuous improvement in all aspects of our operations."
+    },
+     {
+        id: 29,
+        title: 'Community Desert Clean-up',
+        imageUrl: '/press/29.png',
+        alt: 'Community Desert Clean-up',
+        date: '2022',
+        description: "Community Desert Clean-up initiative, demonstrating our commitment to environmental sustainability and community engagement."
+    },
+
 ];
