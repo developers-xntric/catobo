@@ -24,7 +24,7 @@ export default function Home() {
             />
 
             {/* Card Content */}
-            <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-10 text-white">
+            <div className="relative z-10 h-full flex flex-col justify-end p-4 md:p-10 text-white">
               <h2 className="text-2xl md:text-4xl font-medium mb-3 md:mb-4 tracking-wide">
                 Aviation Solutions
               </h2>
@@ -56,7 +56,7 @@ export default function Home() {
             {/* Blue-ish dark overlay to match the second card's tone */}
 
             {/* Card Content */}
-            <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-10 text-white">
+            <div className="relative z-10 h-full flex flex-col justify-end p-4 md:p-10 text-white">
               <h2 className="text-2xl md:text-4xl font-medium mb-3 md:mb-4 tracking-wide">
                 Engineering Solutions
               </h2>
@@ -68,7 +68,7 @@ export default function Home() {
                 <Link
                   href="/engineering"
                   style={brandGradient}
-                  className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
+                  className="px-3 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
                 >
                   Explore Engineering Solutions
                 </Link>
