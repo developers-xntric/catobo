@@ -57,7 +57,10 @@ export function Sidebar({ title, groups }: { title: string; groups: SidebarGroup
                                 return (
                                     <button
                                         key={idx}
-                                        onClick={() => setActive(idx)}
+                                        onClick={() => {
+                                            setActive(idx);
+                                            document.getElementById(`section-${idx}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }}
                                         className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive ? "border-transparent shadow-md" : "border-[#E8E8E8] hover:border-gray-300"
                                             }`}
                                         style={{
@@ -95,7 +98,7 @@ function MainContent() {
         <div className="flex-1 min-w-0 max-w-240">
 
             {/* ─── Section 1: Airfield Lighting ─── */}
-            <section className="mb-14">
+            <section id="section-0" className="mb-14">
                 <p className="text-[12px] text-[#636363] mb-3">• Airfield Lighting System</p>
                 <h1 className="text-[30px] font-medium text-black mb-4 leading-tight tracking-wide">
                     Airfield Lighting
@@ -136,7 +139,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 2: ALCMS ─── */}
-            <section className="mb-10">
+            <section id="section-1" className="mb-10">
                 <p className="text-[12px] text-[#636363] mb-3">• ALCMS System</p>
                 <h2 className="text-[28px] font-medium text-black mb-5 leading-tight tracking-wide">
                     ALCMS

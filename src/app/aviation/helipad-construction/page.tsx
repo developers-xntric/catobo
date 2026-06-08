@@ -148,7 +148,10 @@ export function Sidebar({ title, groups }: SidebarProps) {
                                 return (
                                     <button
                                         key={idx}
-                                        onClick={() => setActive(idx)}
+                                        onClick={() => {
+                                            setActive(idx);
+                                            document.getElementById(`section-${idx}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }}
                                         className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
                                             ? "border-transparent shadow-md"
                                             : "border-[#E8E8E8] hover:border-gray-300"
@@ -232,7 +235,7 @@ function MainContent() {
         <div className="flex-1 min-w-0 max-w-240">
 
             {/* ─── Section 1: Industrial Products / Overview ─── */}
-            <section className="mb-14">
+            <section id="section-0" className="mb-14">
                 <SectionHeading size="h1" className="mb-4">
                     Engineered Construction For Safe And Reliable Aviation Operations
                 </SectionHeading>
@@ -255,7 +258,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 2: Comprehensive Construction Solutions ─── */}
-            <section className="mb-14">
+            <section id="section-1" className="mb-14">
                 <SectionHeading size="h2" className="mb-3">
                     Comprehensive Construction Solutions
                 </SectionHeading>
@@ -293,7 +296,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 3: Compliance & Quality Assurance ─── */}
-            <section className="mb-14">
+            <section id="section-2" className="mb-14">
                 <ImageTextRow src="/hvc/3.png">
                     <SectionHeading size="h2" className="mb-3">
                         Compliance &amp; Quality Assurance
@@ -330,10 +333,9 @@ export default function SolutionAviationConsultationFirefighting() {
     const sidebarGroups: SidebarGroup[] = [
         {
             items: [
-                { label: "Industrial Products", hasArrow: true },
-                { label: "Aviation Design & Technical\nConsultation", hasArrow: true },
-                { label: "Firefighting System Design\nFor Aviation Facilities", hasArrow: true },
-                { label: "Compliance & Safety", hasArrow: true },
+                { label: "Industrial Products / Overview", hasArrow: true },
+                { label: "Comprehensive Construction\nSolutions", hasArrow: true },
+                { label: "Compliance & Quality\nAssurance", hasArrow: true },
             ],
         },
     ];
@@ -352,7 +354,7 @@ export default function SolutionAviationConsultationFirefighting() {
                 <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
                     <div className="flex flex-col lg:flex-row gap-5 items-start">
                         <Sidebar
-                            title="Aviation Consultation & Firefighting Design"
+                            title="Helipad & VertiPad Construction"
                             groups={sidebarGroups}
                         />
                         <MainContent />

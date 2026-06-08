@@ -393,7 +393,10 @@ export function Sidebar({ title, groups }: SidebarProps) {
                                 return (
                                     <button
                                         key={idx}
-                                        onClick={() => setActive(idx)}
+                                        onClick={() => {
+                                            setActive(idx);
+                                            document.getElementById(`section-${idx}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }}
                                         className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
                                             ? "border-transparent shadow-md"
                                             : "border-[#E8E8E8] hover:border-gray-300"
@@ -511,7 +514,7 @@ function MainContent() {
         <div className="flex-1 min-w-0 max-w-240">
 
             {/* ─── Section 1: Overview ─── */}
-            <section className="mb-12">
+            <section id="section-0" className="mb-12">
                 <SectionHeading size="h1" className="mb-4">
                     Rapid-Deploy Helipad Systems For Temporary &amp; Emergency Operations
                 </SectionHeading>
@@ -542,7 +545,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 2: Key Features — 3×2 card grid ─── */}
-            <section className="mb-14">
+            <section id="section-1" className="mb-14">
                 <SectionHeading size="h2" className="mb-6">
                     Key Features
                 </SectionHeading>
@@ -555,7 +558,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 3: Applications (ProcessTimeline) ─── */}
-            <section className="mb-14">
+            <section id="section-2" className="mb-14">
                 <ProcessTimeline
                     title="Applications"
                     columns={4}
@@ -569,7 +572,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 4: Why Choose Catobo — Image LEFT | Text RIGHT ─── */}
-            <section className="mb-10">
+            <section id="section-3" className="mb-10">
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-8 items-center">
                     {/* Left – image */}
                     <div className="rounded-xl overflow-hidden bg-gray-100 h-90">

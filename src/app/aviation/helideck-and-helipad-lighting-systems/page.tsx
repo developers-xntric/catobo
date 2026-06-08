@@ -123,7 +123,10 @@ export function Sidebar({ title, groups }: SidebarProps) {
                                     return (
                                         <button
                                             key={idx}
-                                            onClick={() => setActive(idx)}
+                                            onClick={() => {
+                                                setActive(idx);
+                                                document.getElementById(`section-${idx}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                            }}
                                             className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
                                                 ? "border-transparent shadow-md"
                                                 : "border-[#E8E8E8] hover:border-gray-300"
@@ -172,7 +175,7 @@ function MainContent() {
         <div className="flex-1 min-w-0 max-w-240">
 
             {/* ─── Section 1: HELI-150 – Design Of The Aluminium Heliport & Vertiport ─── */}
-            <section className="mb-16">
+            <section id="section-0" className="mb-16">
                 <SectionTag label="Helideck & Helipad Lighting Systems" />
                 <SectionHeading size="h1">Design Of The Aluminium Heliport &amp; Vertiport</SectionHeading>
 
@@ -192,7 +195,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 2: HELI-30 ─── */}
-            <section className="mb-16">
+            <section id="section-1" className="mb-16">
                 <SectionHeading size="h2">HELI - 30</SectionHeading>
 
                 <div className="space-y-3 mb-7">
@@ -213,7 +216,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 3: HELI 30 - Portable ─── */}
-            <section className="mb-16">
+            <section id="section-2" className="mb-16">
                 <SectionHeading size="h2">HELI 30 - Portable</SectionHeading>
 
                 <div className="space-y-3 mb-7">
@@ -237,7 +240,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 4: Landing Nets ─── */}
-            <section className="mb-16">
+            <section id="section-3" className="mb-16">
                 <SectionHeading size="h2">Landing Nets</SectionHeading>
 
                 <div className="space-y-3.5 mb-7">
@@ -259,7 +262,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 5: Perimeter Safety Nets ─── */}
-            <section className="mb-16">
+            <section id="section-4" className="mb-16">
                 <SectionHeading size="h2">Perimeter Safety Nets</SectionHeading>
 
                 <div className="space-y-3.5 mb-6">
@@ -283,7 +286,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 7: FATO & TLOF Lights – Surface Mounted Helipad Light ─── */}
-            <section className="mb-16">
+            <section id="section-5" className="mb-16">
                 <SectionTag label="FATO & TLOF lights" />
                 <SectionHeading size="h2">Surface Mounted Helipad Light:</SectionHeading>
 
@@ -314,7 +317,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 8: Flush Mounted Helipad Light ─── */}
-            <section className="mb-16">
+            <section id="section-6" className="mb-16">
                 <SectionHeading size="h2">Flush Mounted Helipad Light</SectionHeading>
 
                 <BodyText className="mb-7">
@@ -344,7 +347,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 9: Floodlights Ex & Non Ex – Hooded Floodlights ─── */}
-            <section className="mb-16">
+            <section id="section-7" className="mb-16">
                 <SectionTag label="Floodlights Ex & Non Ex" />
                 <SectionHeading size="h2">Hooded Floodlights</SectionHeading>
 
@@ -378,7 +381,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 10: Helipad Fire Fighting Equipment ─── */}
-            <section className="mb-16">
+            <section id="section-8" className="mb-16">
                 <SectionHeading size="h2">Helipad Fire Fighting Equipment</SectionHeading>
 
                 <p className="text-[11px] font-semibold text-[#1a1a1a] uppercase tracking-widest mb-3">
@@ -403,7 +406,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 11: Oil/Water Separator ─── */}
-            <section className="mb-16">
+            <section id="section-9" className="mb-16">
                 <SectionHeading size="h2">Oil/Water Separator</SectionHeading>
 
                 <BodyText className="mb-6">
@@ -425,7 +428,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 12: Emergency Crash Rescue ─── */}
-            <section className="mb-16">
+            <section id="section-10" className="mb-16">
                 <SectionHeading size="h2">
                     Emergency Crash Rescue ICAO/CAP437 Compliant H1/H2 &amp; H3 Category
                 </SectionHeading>
@@ -447,7 +450,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 13: Wind Direction Indicator ─── */}
-            <section className="mb-16">
+            <section id="section-11" className="mb-16">
                 <SectionHeading size="h2">Wind Direction Indicator</SectionHeading>
 
                 <BodyText className="mb-7">
@@ -472,7 +475,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 14: Value Added Services ─── */}
-            <section className="mb-10">
+            <section id="section-12" className="mb-10">
                 <SectionHeading size="h2">Value Added Services</SectionHeading>
 
                 <div className="space-y-3 mb-7">

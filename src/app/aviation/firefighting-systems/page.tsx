@@ -138,7 +138,10 @@ export function Sidebar({ title, groups }: SidebarProps) {
                                 return (
                                     <button
                                         key={idx}
-                                        onClick={() => setActive(idx)}
+                                        onClick={() => {
+                                            setActive(idx);
+                                            document.getElementById(`section-${idx}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }}
                                         className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
                                             ? "border-transparent shadow-md"
                                             : "border-[#E8E8E8] hover:border-gray-300"
@@ -219,7 +222,7 @@ function MainContent() {
         <div className="flex-1 min-w-0 max-w-240">
 
             {/* ─── Section 1: Overview ─── */}
-            <section className="mb-14">
+            <section id="section-0" className="mb-14">
                 <SectionHeading size="h1" className="mb-4">
                     Advanced Fire Protection For Aviation Safety-Critical Environments
                 </SectionHeading>
@@ -241,7 +244,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 2: Purpose-Built Firefighting Solutions ─── */}
-            <section className="mb-14">
+            <section id="section-1" className="mb-14">
                 <SectionHeading size="h2" className="mb-3">
                     Purpose-Built Firefighting Solutions
                 </SectionHeading>
@@ -268,17 +271,19 @@ function MainContent() {
                 </div>
 
                 {/* Standards, Compliance & Reliability — ProcessTimeline */}
-                <ProcessTimeline
-                    title="Standards, Compliance & Reliability"
-                    columns={4}
-                    subtitle="Catoba ensures that all firefighting systems are designed in accordance with recognized aviation and fire safety standards. Our compliance-driven approach helps streamline authority approvals and ensures long-term system reliability."
-                    steps={[
-                        { number: "01", title: "Aviation Authority Firefighting Requirements" },
-                        { number: "02", title: "International Aviation Safety Guidelines" },
-                        { number: "03", title: "Fire Safety And Emergency Response Standards" },
-                        { number: "04", title: "Environmental And Operational Safety Norms" },
-                    ]}
-                />
+                <div id="section-2">
+                    <ProcessTimeline
+                        title="Standards, Compliance & Reliability"
+                        columns={4}
+                        subtitle="Catoba ensures that all firefighting systems are designed in accordance with recognized aviation and fire safety standards. Our compliance-driven approach helps streamline authority approvals and ensures long-term system reliability."
+                        steps={[
+                            { number: "01", title: "Aviation Authority Firefighting Requirements" },
+                            { number: "02", title: "International Aviation Safety Guidelines" },
+                            { number: "03", title: "Fire Safety And Emergency Response Standards" },
+                            { number: "04", title: "Environmental And Operational Safety Norms" },
+                        ]}
+                    />
+                </div>
             </section>
 
             {/* ─── Section 3: Installation, Testing & Commissioning ─── */}

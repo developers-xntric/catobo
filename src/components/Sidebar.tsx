@@ -33,7 +33,10 @@ export function Sidebar({ title = "Lightning Protection", items = defaultItems }
                 {items.map((item, i) => (
                     <div key={i}>
                         <button
-                            onClick={() => setActive(i)}
+                            onClick={() => {
+                                setActive(i);
+                                document.getElementById(`section-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                            }}
                             className={`w-full text-left flex items-center justify-between px-5 py-4 rounded-xl border transition-all ${active === i
                                 ? "border-transparent shadow-md"
                                 : "border-[#E8E8E8] hover:border-gray-300"

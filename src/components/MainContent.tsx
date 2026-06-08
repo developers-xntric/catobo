@@ -66,7 +66,7 @@ function renderSection(section: ContentSection, index: number) {
     const hasThreeImages = section.images?.length === 3;
 
     return (
-        <section key={index} className={index === 0 ? "mb-14" : "mb-14"}>
+        <section key={index} id={`section-${index}`} className={index === 0 ? "mb-14" : "mb-14"}>
             {section.badge && (
                 <div className="flex items-center gap-2 mb-4">
                     <span className="text-sm text-[#636363]">• {section.badge}</span>
