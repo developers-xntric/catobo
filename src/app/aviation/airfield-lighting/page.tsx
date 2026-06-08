@@ -110,11 +110,11 @@ function MainContent() {
 
                 {/* Image grid — 5:3 */}
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4 mb-8">
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-52">
-                        <img src="/airfield/1.png" alt="Airfield runway lighting" className="w-full h-full object-cover" />
+                    <div className="rounded-xl overflow-hidden bg-gray-100 h-70">
+                        <img src="/al/1.png" alt="Airfield runway lighting" className="w-full h-full object-cover" />
                     </div>
-                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-52 flex items-center justify-center p-4">
-                        <img src="/airfield/2.png" alt="Airfield lighting diagram" className="w-full h-full object-contain mix-blend-multiply" />
+                    <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-70 flex items-center justify-center p-4">
+                        <img src="/al/2.png" alt="Airfield lighting diagram" className="w-full h-full object-contain mix-blend-multiply" />
                     </div>
                 </div>
 
