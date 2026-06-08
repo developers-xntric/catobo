@@ -9,6 +9,7 @@ export interface TimelineStep {
 
 interface ProcessTimelineProps {
   title?: string;
+  subtitle?: string;
   steps?: TimelineStep[];
   columns?: 2 | 3 | 4 | 5 | 6;
   cardHeight?: string;
@@ -36,6 +37,7 @@ const defaultSteps: TimelineStep[] = [
 
 export default function ProcessTimeline({
   title = 'Application',
+  subtitle,
   steps = defaultSteps,
   columns = 4,
   cardHeight = 'h-40',
@@ -52,9 +54,14 @@ export default function ProcessTimeline({
   return (
     <section className={`w-full py-8 ${className}`}>
       <div className="2xl:max-w-[1440px] w-[90%] mx-auto bg-[#D7E3ED] rounded-lg p-4 sm:p-8">
-        <h2 className="text-lg sm:text-xl md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-black mb-6 sm:mb-10">
+        <h2 className={`text-lg sm:text-xl md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-black ${subtitle ? "mb-2" : "mb-6 sm:mb-10"}`}>
           {title}
         </h2>
+        {subtitle && (
+          <p className="text-[13px] sm:text-sm text-[#3a3a3a] leading-relaxed mb-6 sm:mb-10 max-w-3xl">
+            {subtitle}
+          </p>
+        )}
 
         <div className={`grid grid-cols-1 gap-5 sm:gap-[30px] ${gridCols[columns]}`}>
           {steps.map((step, index) => (

@@ -2,6 +2,7 @@
 
 import { CheckIcon } from "@/components/common/CheckIcon";
 import DynamicHero from "@/components/common/hero";
+import ProcessTimeline from "@/components/Timeline";
 import React, { useState } from "react";
 
 function CheckItem({ label }: { label: string }) {
@@ -40,59 +41,6 @@ function SectionHeading({
     if (size === "h1") return <h1 className={`text-[30px] ${base}`}>{children}</h1>;
     if (size === "h3") return <h3 className={`text-[18px] ${base}`}>{children}</h3>;
     return <h2 className={`text-[24px] ${base}`}>{children}</h2>;
-}
-
-// ==========================================
-// PROCESS TIMELINE COMPONENT
-// ==========================================
-
-interface Step {
-    number: string;
-    title: string;
-}
-
-interface ProcessTimelineProps {
-    title: string;
-    columns?: number;
-    steps: Step[];
-    subtitle?: string;
-}
-
-export function ProcessTimeline({
-    title,
-    columns = 4,
-    steps,
-    subtitle,
-}: ProcessTimelineProps) {
-    return (
-        <div className="bg-[#EEF4F8] rounded-2xl p-7 w-full">
-            <SectionHeading size="h2" className="mb-2">
-                {title}
-            </SectionHeading>
-            {subtitle && <BodyText className="mb-2">{subtitle}</BodyText>}
-            <div
-                className={`grid gap-5 mt-6 grid-cols-1 sm:grid-cols-2 ${columns >= 4 ? "lg:grid-cols-4" : columns === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}
-            >
-                {steps.map((step) => (
-                    <div key={step.number} className="flex flex-col items-start gap-3">
-                        <div
-                            className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
-                            style={{
-                                background: "linear-gradient(135deg, #168DCA 0%, #0F2453 100%)",
-                            }}
-                        >
-                            <span className="text-white font-semibold text-[15px] tracking-wide">
-                                {step.number}
-                            </span>
-                        </div>
-                        <p className="text-[13px] text-[#1a1a1a] font-normal leading-snug">
-                            {step.title}
-                        </p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
 }
 
 // ==========================================
