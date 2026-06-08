@@ -72,8 +72,7 @@ export function ProcessTimeline({
             {subtitle && <BodyText className="mb-6">{subtitle}</BodyText>}
 
             <div
-                className="grid gap-5 mt-6"
-                style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
+                className={`grid gap-5 mt-6 grid-cols-1 sm:grid-cols-2 ${columns >= 4 ? "lg:grid-cols-4" : columns === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}
             >
                 {steps.map((step) => (
                     <div key={step.number} className="flex flex-col items-start gap-3">
@@ -126,7 +125,7 @@ export function Sidebar({ title, groups }: SidebarProps) {
     let globalIdx = 0;
 
     return (
-        <div className="w-90 shrink-0 bg-[#F3F3F3] p-5 rounded-2xl sticky top-8">
+        <div className="w-full lg:w-90 lg:shrink-0 bg-[#F3F3F3] p-5 rounded-2xl lg:sticky lg:top-8">
             <div className="mb-4 px-1">
                 <h2 className="text-[1.1rem] text-black font-medium tracking-wide leading-snug">
                     {title}
@@ -148,7 +147,10 @@ export function Sidebar({ title, groups }: SidebarProps) {
                                 return (
                                     <button
                                         key={idx}
-                                        onClick={() => setActive(idx)}
+                                        onClick={() => {
+                                            setActive(idx);
+                                            document.getElementById(`section-${idx}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }}
                                         className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
                                             ? "border-transparent shadow-md"
                                             : "border-[#E8E8E8] hover:border-gray-300"
@@ -196,11 +198,11 @@ export function Sidebar({ title, groups }: SidebarProps) {
 
 function ImageGridEqual({ left, right }: { left: string; right: string }) {
     return (
-        <div className="grid grid-cols-2 gap-4">
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-100">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="rounded-xl overflow-hidden bg-gray-100 h-70 sm:h-100">
                 <img src={left} alt="" className="w-full h-full object-cover" />
             </div>
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-100">
+            <div className="rounded-xl overflow-hidden bg-gray-100 h-70 sm:h-100">
                 <img src={right} alt="" className="w-full h-full object-cover" />
             </div>
         </div>
@@ -232,7 +234,7 @@ function MainContent() {
         <div className="flex-1 min-w-0 max-w-240">
 
             {/* ─── Section 1: Industrial Products / Overview ─── */}
-            <section className="mb-14">
+            <section id="section-0" className="mb-14">
                 <SectionHeading size="h1" className="mb-4">
                     Engineered Construction For Safe And Reliable Aviation Operations
                 </SectionHeading>
@@ -255,7 +257,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 2: Comprehensive Construction Solutions ─── */}
-            <section className="mb-14">
+            <section id="section-1" className="mb-14">
                 <SectionHeading size="h2" className="mb-3">
                     Comprehensive Construction Solutions
                 </SectionHeading>
@@ -293,7 +295,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 3: Compliance & Quality Assurance ─── */}
-            <section className="mb-14">
+            <section id="section-2" className="mb-14">
                 <ImageTextRow src="/hvc/3.png">
                     <SectionHeading size="h2" className="mb-3">
                         Compliance &amp; Quality Assurance
@@ -330,10 +332,9 @@ export default function SolutionAviationConsultationFirefighting() {
     const sidebarGroups: SidebarGroup[] = [
         {
             items: [
-                { label: "Industrial Products", hasArrow: true },
-                { label: "Aviation Design & Technical\nConsultation", hasArrow: true },
-                { label: "Firefighting System Design\nFor Aviation Facilities", hasArrow: true },
-                { label: "Compliance & Safety", hasArrow: true },
+                { label: "Industrial Products / Overview", hasArrow: true },
+                { label: "Comprehensive Construction\nSolutions", hasArrow: true },
+                { label: "Compliance & Quality\nAssurance", hasArrow: true },
             ],
         },
     ];
@@ -352,7 +353,7 @@ export default function SolutionAviationConsultationFirefighting() {
                 <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
                     <div className="flex flex-col lg:flex-row gap-5 items-start">
                         <Sidebar
-                            title="Aviation Consultation & Firefighting Design"
+                            title="Helipad & VertiPad Construction"
                             groups={sidebarGroups}
                         />
                         <MainContent />

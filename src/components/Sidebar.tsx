@@ -22,7 +22,7 @@ export function Sidebar({ title = "Lightning Protection", items = defaultItems }
     const [active, setActive] = useState(0);
 
     return (
-        <div className="w-90 shrink-0 bg-[#F3F3F3] p-5 rounded-2xl sticky top-8">
+        <div className="w-full lg:w-90 lg:shrink-0 bg-[#F3F3F3] p-5 rounded-2xl lg:sticky lg:top-8">
             <div className="mb-4 px-1">
                 <h2 className="text-[1.35rem] text-black font-medium tracking-wide">
                     {title}
@@ -33,7 +33,10 @@ export function Sidebar({ title = "Lightning Protection", items = defaultItems }
                 {items.map((item, i) => (
                     <div key={i}>
                         <button
-                            onClick={() => setActive(i)}
+                            onClick={() => {
+                                setActive(i);
+                                document.getElementById(`section-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                            }}
                             className={`w-full text-left flex items-center justify-between px-5 py-4 rounded-xl border transition-all ${active === i
                                 ? "border-transparent shadow-md"
                                 : "border-[#E8E8E8] hover:border-gray-300"

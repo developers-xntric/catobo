@@ -222,8 +222,7 @@ export function ProcessTimeline({
             </SectionHeading>
             {subtitle && <BodyText className="mb-2">{subtitle}</BodyText>}
             <div
-                className="grid gap-5 mt-6"
-                style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
+                className={`grid gap-5 mt-6 grid-cols-1 sm:grid-cols-2 ${columns >= 4 ? "lg:grid-cols-4" : columns === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}
             >
                 {steps.map((step) => (
                     <div key={step.number} className="flex flex-col items-start gap-3">
@@ -269,7 +268,7 @@ export function Sidebar({ title, groups }: SidebarProps) {
     let globalIdx = 0;
 
     return (
-        <div className="w-90 shrink-0 bg-[#F3F3F3] p-5 rounded-2xl sticky top-8">
+        <div className="w-full lg:w-90 lg:shrink-0 bg-[#F3F3F3] p-5 rounded-2xl lg:sticky lg:top-8">
             <div className="mb-4 px-1">
                 <h2 className="text-[1.1rem] text-black font-medium tracking-wide leading-snug">
                     {title}
@@ -290,7 +289,10 @@ export function Sidebar({ title, groups }: SidebarProps) {
                                 return (
                                     <button
                                         key={idx}
-                                        onClick={() => setActive(idx)}
+                                        onClick={() => {
+                                            setActive(idx);
+                                            document.getElementById(`section-${idx}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }}
                                         className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
                                             ? "border-transparent shadow-md"
                                             : "border-[#E8E8E8] hover:border-gray-300"
@@ -336,7 +338,7 @@ function MainContent() {
         <div className="flex-1 min-w-0 max-w-240">
 
             {/* ─── Section 1: Overview ─── */}
-            <section className="mb-12">
+            <section id="section-0" className="mb-12">
                 <SectionHeading size="h1" className="mb-4">
                     Reliable. Rapid. Ready For Every Operation.
                 </SectionHeading>
@@ -378,7 +380,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 2: Key Features That Set It Apart ─── */}
-            <section className="mb-12">
+            <section id="section-1" className="mb-12">
                 <SectionHeading size="h2" className="mb-5">
                     Key Features That Set It Apart
                 </SectionHeading>
@@ -403,7 +405,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 3: Smart Control & Operational Flexibility ─── */}
-            <section className="mb-12">
+            <section id="section-2" className="mb-12">
                 <SectionHeading size="h2" className="mb-2">
                     Smart Control &amp; Operational Flexibility
                 </SectionHeading>
@@ -430,7 +432,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 4: Applications (ProcessTimeline) ─── */}
-            <section className="mb-12">
+            <section id="section-3" className="mb-12">
                 <ProcessTimeline
                     title="Applications"
                     columns={4}
@@ -444,7 +446,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 5: Why Choose Catobo — Image LEFT | Text RIGHT ─── */}
-            <section className="mb-10">
+            <section id="section-4" className="mb-10">
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-8 items-center">
                     {/* Left – image */}
                     <div className="rounded-xl overflow-hidden bg-gray-100 h-90">

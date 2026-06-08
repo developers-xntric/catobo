@@ -60,7 +60,7 @@ export function Sidebar({ title, groups }: SidebarProps) {
     let globalIdx = 0;
 
     return (
-        <div className="w-90 shrink-0 bg-[#F3F3F3] p-5 rounded-2xl sticky top-8">
+        <div className="w-full lg:w-90 lg:shrink-0 bg-[#F3F3F3] p-5 rounded-2xl lg:sticky lg:top-8">
             <div className="mb-4 px-1">
                 <h2 className="text-[1.25rem] text-black font-medium tracking-wide">
                     {title}
@@ -83,7 +83,10 @@ export function Sidebar({ title, groups }: SidebarProps) {
                                     return (
                                         <button
                                             key={idx}
-                                            onClick={() => setActive(idx)}
+                                            onClick={() => {
+                                                setActive(idx);
+                                                document.getElementById(`section-${idx}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                            }}
                                             className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
                                                 ? "border-transparent shadow-md"
                                                 : "border-[#E8E8E8] hover:border-gray-300"
@@ -149,7 +152,7 @@ function MainContent() {
         <div className="flex-1 min-w-0 max-w-240">
 
             {/* ─── Section 1: HORIZON™ L-810 LED Obstruction Light ─── */}
-            <section className="mb-16">
+            <section id="section-0" className="mb-16">
                 <p className="text-[12px] text-[#636363] mb-3">• Low Intensity</p>
                 <h1 className="text-[30px] font-medium text-black mb-4 leading-tight tracking-wide">
                     HORIZON™ L-810 LED Obstruction Light
@@ -196,7 +199,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 2: FlashGuard® 2000B ─── */}
-            <section className="mb-16">
+            <section id="section-1" className="mb-16">
                 <p className="text-[12px] text-[#636363] mb-3">• Medium Intensity</p>
                 <h2 className="text-[28px] font-medium text-black mb-4 leading-tight tracking-wide">
                     FlashGuard® 2000B
@@ -240,7 +243,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 3: FlashGuard® 3000B ─── */}
-            <section className="mb-16">
+            <section id="section-2" className="mb-16">
                 <p className="text-[12px] text-[#636363] mb-3">• Medium Intensity</p>
                 <h2 className="text-[28px] font-medium text-black mb-4 leading-tight tracking-wide">
                     FlashGuard® 3000B
@@ -271,7 +274,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 4: Horizon™ 2000/2009/3000 AC Series ─── */}
-            <section className="mb-16">
+            <section id="section-3" className="mb-16">
                 <p className="text-[12px] text-[#636363] mb-3">• Medium Intensity</p>
                 <h2 className="text-[28px] font-medium text-black mb-4 leading-tight tracking-wide">
                     Horizon™ 2000/2009/3000 AC Series
@@ -306,7 +309,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 5: HORIZON™ Tower Lighting Controller ─── */}
-            <section className="mb-16">
+            <section id="section-4" className="mb-16">
                 <p className="text-[12px] text-[#636363] mb-3">• Medium Intensity</p>
                 <h2 className="text-[28px] font-medium text-black mb-5 leading-tight tracking-wide">
                     HORIZON™ Tower Lighting Controller
@@ -365,7 +368,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 6: High Intensity – Strobeguard® SS-122/125 ─── */}
-            <section className="mb-10">
+            <section id="section-5" className="mb-10">
                 <p className="text-[12px] text-[#636363] mb-3">• High Intensity</p>
                 <h2 className="text-[28px] font-medium text-black mb-4 leading-tight tracking-wide">
                     Strobeguard® SS-122/125

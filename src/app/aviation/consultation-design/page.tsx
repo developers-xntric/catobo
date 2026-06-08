@@ -71,8 +71,7 @@ export function ProcessTimeline({
             </SectionHeading>
             {subtitle && <BodyText className="mb-2">{subtitle}</BodyText>}
             <div
-                className="grid gap-5 mt-6"
-                style={{ gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))` }}
+                className={`grid gap-5 mt-6 grid-cols-1 sm:grid-cols-2 ${columns >= 4 ? "lg:grid-cols-4" : columns === 3 ? "lg:grid-cols-3" : "lg:grid-cols-2"}`}
             >
                 {steps.map((step) => (
                     <div key={step.number} className="flex flex-col items-start gap-3">
@@ -120,7 +119,7 @@ export function Sidebar({ title, groups }: SidebarProps) {
     let globalIdx = 0;
 
     return (
-        <div className="w-90 shrink-0 bg-[#F3F3F3] p-5 rounded-2xl sticky top-8">
+        <div className="w-full lg:w-90 lg:shrink-0 bg-[#F3F3F3] p-5 rounded-2xl lg:sticky lg:top-8">
             <div className="mb-4 px-1">
                 <h2 className="text-[1.1rem] text-black font-medium tracking-wide leading-snug">
                     {title}
@@ -141,7 +140,10 @@ export function Sidebar({ title, groups }: SidebarProps) {
                                 return (
                                     <button
                                         key={idx}
-                                        onClick={() => setActive(idx)}
+                                        onClick={() => {
+                                            setActive(idx);
+                                            document.getElementById(`section-${idx}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }}
                                         className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
                                             ? "border-transparent shadow-md"
                                             : "border-[#E8E8E8] hover:border-gray-300"
@@ -194,7 +196,7 @@ function MainContent() {
         <div className="flex-1 min-w-0 max-w-240">
 
             {/* ─── Section 1: Hero text ─── */}
-            <section className="mb-12">
+            <section id="section-0" className="mb-12">
                 <SectionHeading size="h1" className="mb-4">
                     Engineering Safe, Compliant, And Operationally Ready Aviation Facilities
                 </SectionHeading>
@@ -213,7 +215,7 @@ function MainContent() {
 
             {/* ─── Section 2: Aviation Design & Technical Consultation
               Layout: IMAGE LEFT (larger) | TEXT RIGHT ─── */}
-            <section className="mb-14">
+            <section id="section-1" className="mb-14">
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_6fr] gap-8 items-start">
                     {/* Left – image */}
                     <div className="rounded-xl overflow-hidden bg-gray-100 h-100">
@@ -256,7 +258,7 @@ function MainContent() {
 
             {/* ─── Section 3: Firefighting System Design For Aviation Facilities
               Layout: TEXT LEFT | IMAGE RIGHT (smaller) ─── */}
-            <section className="mb-14">
+            <section id="section-2" className="mb-14">
                 <div className="grid grid-cols-1 md:grid-cols-[6fr_5fr] gap-8 items-start">
                     {/* Left – text */}
                     <div className="pt-1">
@@ -299,7 +301,7 @@ function MainContent() {
             </section>
 
             {/* ─── Section 4: Standards, Compliance & Safety Assurance (ProcessTimeline) ─── */}
-            <section className="mb-10">
+            <section id="section-3" className="mb-10">
                 <ProcessTimeline
                     title="Standards, Compliance & Safety Assurance"
                     columns={4}
