@@ -41,7 +41,7 @@ function SectionHeading({
     const base = `font-medium text-black leading-tight tracking-wide ${className}`;
     if (size === "h1") return <h1 className={`text-[28px] ${base}`}>{children}</h1>;
     if (size === "h3") return <h3 className={`text-[16px] ${base}`}>{children}</h3>;
-    return <h2 className={`text-[22px] ${base}`}>{children}</h2>;
+    return <h2 className={`text-[35px] ${base}`}>{children}</h2>;
 }
 
 // FEATURE CARD ICONS
@@ -269,12 +269,12 @@ function MainContent() {
                 </div>
 
                 {/* Equal 50/50 image grid */}
-                <div className="grid grid-cols-2 gap-4">
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-52">
-                        <img src="/portable-lighting/1.png" alt="" className="w-full h-full object-cover" />
+                <div className="flex gap-3">
+                    <div className="w-[63%] rounded-xl overflow-hidden bg-gray-100 h-74">
+                        <img src="/pl/1.png" alt="" className="w-full h-full object-fill" />
                     </div>
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-52">
-                        <img src="/portable-lighting/2.png" alt="" className="w-full h-full object-cover" />
+                    <div className="w-[36%] rounded-xl overflow-hidden bg-gray-100 h-74">
+                        <img src="/pl/2.png" alt="" className="w-full h-full object-fill" />
                     </div>
                 </div>
             </section>
@@ -349,9 +349,9 @@ function MainContent() {
             <section className="mb-10">
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-8 items-center">
                     {/* Left – image */}
-                    <div className="rounded-xl overflow-hidden bg-gray-100 h-52">
+                    <div className="rounded-xl overflow-hidden bg-gray-100 h-90">
                         <img
-                            src="/portable-lighting/3.png"
+                            src="/pl/3.png"
                             alt="Aerial helipad view"
                             className="w-full h-full object-cover"
                         />
