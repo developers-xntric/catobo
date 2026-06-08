@@ -120,6 +120,7 @@ export const aviationAboutData: AboutData = {
     testimonials: {
         badge: "Testimonials",
         title: "Voices of Partnerships",
+        buttonHref: "/aviation/testimonials",
         description: "What We've Learned Together.",
         items: [
             {

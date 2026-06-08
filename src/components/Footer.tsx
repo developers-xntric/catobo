@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const footerData = {
     logo: { url: '/footerlogo.png', alt: 'Americana Computers Logo' },
@@ -49,7 +50,28 @@ const footerData = {
     },
 }
 
+const aviationLinks = [
+    { label: 'Home', href: '/aviation' },
+    { label: 'About Us', href: '/aviation/about' },
+    { label: 'Portfolio', href: '/aviation/portfolio' },
+    { label: 'Testimonials', href: '/aviation/testimonials' },
+    { label: 'FAQs', href: '/aviation/faqs' },
+    { label: 'Contact Us', href: '/aviation/contact' },
+]
+
+const engineeringLinks = [
+    { label: 'Home', href: '/engineering' },
+    { label: 'About Us', href: '/engineering/about' },
+    { label: 'Portfolio', href: '/engineering/portfolio' },
+    { label: 'Testimonials', href: '/engineering/testimonials' },
+    { label: 'FAQs', href: '/engineering/faqs' },
+    { label: 'Contact Us', href: '/engineering/contact' },
+]
+
 export function Footer() {
+    const pathname = usePathname()
+    const isAviation = pathname?.startsWith('/aviation') ?? false
+    const navLinks = isAviation ? aviationLinks : engineeringLinks
     const [newsletterEmail, setNewsletterEmail] = useState('')
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -186,11 +208,17 @@ export function Footer() {
                 {/* Bottom Footer */}
                 <div className="relative z-10 border-t border-[rgba(255,255,255,0.10)]">
                     <div className="mx-auto max-w-350 w-[90%] py-4 md:py-4">
-                        <div className="flex flex-col-reverse gap-4 sm:flex-row md:items-center  md:justify-center">
-                            <p className="text-sm text-white md:text-center">
+                        <div className="flex flex-col-reverse gap-4 sm:flex-row sm:items-center sm:justify-between">
+                            <p className="text-sm text-white">
                                 Copyright <span className='font-sans'>© {new Date().getFullYear()}</span> {bottomSection.copyrightText}
                             </p>
-                            
+                            <div className="flex flex-wrap gap-x-5 gap-y-1 sm:justify-end">
+                                {navLinks.map((link) => (
+                                    <Link key={link.href} href={link.href} className="text-sm text-white hover:text-blue-300 transition-colors">
+                                        {link.label}
+                                    </Link>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

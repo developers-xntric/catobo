@@ -17,7 +17,7 @@ export default function HowItWorks({ data }: { data: HomeData['howItWorks'] }) {
                 </span>
               </div>
 
-              <h2 className="text-[20px] md:text-3xl lg:text-[35px] font-medium leading-[1.2] text-[#0a0f1e] mb-2">
+              <h2 className="text-[22px] md:text-3xl lg:text-[35px] font-medium leading-[1.2] text-[#0a0f1e] mb-2">
                 {title}
               </h2>
 

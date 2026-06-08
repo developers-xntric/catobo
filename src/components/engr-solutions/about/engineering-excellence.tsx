@@ -23,7 +23,7 @@ export default function EngineeringExcellence({ data }: { data: AboutData['engin
                                 {badge}
                             </span>
                         </div>
-                        <h2 className="text-[28px] md:text-[35px] font-medium text-[#111111] leading-[1.2] mb-5">
+                        <h2 className="text-[22px] md:text-[35px] font-medium text-[#111111] md:leading-[1.2] mb-5">
                             {title}
                         </h2>
                         <div className="space-y-3 text-[#636363] text-[16px] md:text-[15px] leading-relaxed">

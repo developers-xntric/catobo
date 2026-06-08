@@ -51,7 +51,7 @@ export default function Testimonials({ data }: { data?: HomeData['testimonials']
         <section className="py-16 bg-white">
             <div className="2xl:max-w-[1440px] w-[90%]  mx-auto space-y-3 flex flex-col items-center justify-center">
                 <Badge text={badge} variant='black' />
-                <h2 className="text-[20px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000] text-center ">
+                <h2 className="text-[22px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000] text-center ">
                     {title}
                 </h2>
                 <p className="text-[14px] md:text-lg text-[#636363] mb-6 max-w-full sm:max-w-[80%] px-4 sm:px-0 text-center mx-auto tracking-normal">

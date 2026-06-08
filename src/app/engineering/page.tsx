@@ -9,7 +9,7 @@ import { engineeringHomeData } from "@/data/engineering/home-data";
 
 export default function EngineeringHome() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
+    <div className="min-h-screen bg-gray-50 flex flex-col font-sans overflow-hidden md:overflow-auto">
       <Hero data={engineeringHomeData.hero} />
       <Solutions data={engineeringHomeData.solutions} />
       <HowItWorks data={engineeringHomeData.howItWorks} />
