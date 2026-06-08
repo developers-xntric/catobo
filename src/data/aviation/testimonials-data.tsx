@@ -46,14 +46,7 @@ export const aviationTestimonialsData: TestimonialsData = {
       designation: "Head of Operations",
       avatar: "/profile/user-1.png",
     },
-    {
-      id: 3,
-      company: "Global Air Logistics",
-      text: "Catobo delivered our heliport lighting project ahead of schedule and within budget.",
-      author: "Hassan Bin Zayed",
-      designation: "Director of Safety",
-      avatar: "/profile/user-3.png",
-    },
+    
     {
       id: 4,
       company: "SEED Engineering, UAE",
