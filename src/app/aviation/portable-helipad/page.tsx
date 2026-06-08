@@ -4,8 +4,6 @@ import { CheckIcon } from "@/components/common/CheckIcon";
 import DynamicHero from "@/components/common/hero";
 import React, { useState } from "react";
 
-// SHARED UI COMPONENTS
-
 function CheckItem({ label }: { label: string }) {
     return (
         <div className="flex items-start gap-3">
@@ -104,9 +102,7 @@ function IconTile() {
     );
 }
 
-// ==========================================
 // FEATURE CARD COMPONENT
-// ==========================================
 
 interface FeatureCardProps {
     icon: React.ReactNode;
@@ -138,10 +134,7 @@ function FeatureCard({ icon, title, bullets }: FeatureCardProps) {
     );
 }
 
-// ==========================================
 // PROCESS TIMELINE COMPONENT
-// ==========================================
-
 interface Step {
     number: string;
     title: string;
@@ -192,10 +185,7 @@ export function ProcessTimeline({
     );
 }
 
-// ==========================================
 // SIDEBAR
-// ==========================================
-
 interface SidebarItem {
     label: string;
     hasArrow?: boolean;
@@ -276,9 +266,7 @@ export function Sidebar({ title, groups }: SidebarProps) {
     );
 }
 
-// ==========================================
 // EQUAL IMAGE GRID
-// ==========================================
 
 function ImageGridEqual({ left, right }: { left: string; right: string }) {
     return (
@@ -293,9 +281,7 @@ function ImageGridEqual({ left, right }: { left: string; right: string }) {
     );
 }
 
-// ==========================================
 // MAIN CONTENT
-// ==========================================
 
 function MainContent() {
     const featureCards: FeatureCardProps[] = [
