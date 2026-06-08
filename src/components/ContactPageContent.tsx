@@ -26,6 +26,8 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
         enquiry: "",
         robot: false,
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -37,8 +39,34 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
         }));
     };
 
-    const handleSubmit = () => {
-        console.log("Form submitted:", formData);
+    const handleSubmit = async () => {
+        setIsSubmitting(true);
+        setSubmitStatus("idle");
+        try {
+            const response = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    inquiryType: formData.subject,
+                    message: `Surname: ${formData.surname}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nSubject: ${formData.subject}\n\nMessage:\n${formData.enquiry}`,
+                }),
+            });
+            if (response.ok) {
+                setSubmitStatus("success");
+                setFormData({
+                    name: "", surname: "", phone: "", email: "",
+                    company: "", subject: "", enquiry: "", robot: false,
+                });
+            } else {
+                setSubmitStatus("error");
+            }
+        } catch {
+            setSubmitStatus("error");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const inputClass =
@@ -205,14 +233,21 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
 
                             <button
                                 onClick={handleSubmit}
-                                className="mt-6 w-full flex items-center justify-center gap-2.5 py-3.5 rounded-lg text-white text-[14px] font-medium tracking-wide transition-opacity hover:opacity-90 active:opacity-80"
+                                disabled={isSubmitting}
+                                className="mt-6 w-full flex items-center justify-center gap-2.5 py-3.5 rounded-lg text-white text-[14px] font-medium tracking-wide transition-opacity hover:opacity-90 active:opacity-80 disabled:opacity-50"
                                 style={{
                                     background: "linear-gradient(93deg, #22A1D8 0.43%, #025094 98.09%)",
                                 }}
                             >
-                                {data.form.submitText}
-                                <ArrowRightIcon />
+                                {isSubmitting ? 'Submitting...' : data.form.submitText}
+                                {!isSubmitting && <ArrowRightIcon />}
                             </button>
+                            {submitStatus === 'success' && (
+                                <p className="text-green-600 text-sm mt-2">Thank you! Your message has been sent successfully.</p>
+                            )}
+                            {submitStatus === 'error' && (
+                                <p className="text-red-600 text-sm mt-2">Failed to send message. Please try again later.</p>
+                            )}
                         </div>
 
                         <div className="overflow-hidden border border-[#D9E6F0] rounded-2xl h-full min-h-[400px] lg:min-h-[550px]">
