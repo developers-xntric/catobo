@@ -79,7 +79,7 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
             <div className="2xl:max-w-360 w-[90%] mx-auto py-10">
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">
                     {data.infoCards.map((card, i) => (
-                        <div key={i} className="flex-1 border border-[#D9E6F0] rounded-xl p-5 bg-white min-w-0">
+                        <div key={i} className="flex-1 border border-[#1475AF] rounded-xl p-5 bg-white min-w-0">
                             <div
                                 className="w-10 h-10 rounded-md flex items-center justify-center mb-3"
                                 style={{
@@ -107,8 +107,8 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
                         {data.form.heading}
                     </h2>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                        <div className="border border-[#D9E6F0] rounded-2xl p-7 bg-[#F9F6F6]">
+                    <div className="grid  gap-6">
+                        <div className="border border-[#1475AF] rounded-2xl p-4 md:p-7 bg-[#F9F6F6]">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
                                 <div>
                                     <label className={labelClass}>
