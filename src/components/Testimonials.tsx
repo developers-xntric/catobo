@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import Button from '@/components/ui/grad-button';
 import Badge from './ui/badge';
 import { HomeData } from "@/data/types";
@@ -10,10 +10,42 @@ export default function Testimonials({ data }: { data?: HomeData['testimonials']
     if (!data) return null;
     const { badge, title, description, items, buttonHref } = data;
     const [expandedId, setExpandedId] = useState<number | null>(null);
+    const [activeDot, setActiveDot] = useState(0);
+    const scrollRef = useRef<HTMLDivElement>(null);
 
     const toggleExpand = (id: number) => {
         setExpandedId((prev) => (prev === id ? null : id));
     };
+
+    const handleScroll = useCallback(() => {
+        if (!scrollRef.current) return;
+        const { scrollLeft } = scrollRef.current;
+        const child = scrollRef.current.children[0] as HTMLElement;
+        if (!child) return;
+        const gap = 16;
+        const cardWidth = child.offsetWidth;
+        const idx = Math.round(scrollLeft / (cardWidth + gap));
+        setActiveDot(Math.min(idx, items.length - 1));
+    }, [items.length]);
+
+    useEffect(() => {
+        if (items.length <= 1) return;
+        const timer = setInterval(() => {
+            if (!scrollRef.current) return;
+            const { scrollLeft } = scrollRef.current;
+            const child = scrollRef.current.children[0] as HTMLElement;
+            if (!child) return;
+            const gap = 16;
+            const cardWidth = child.offsetWidth;
+            const currentIdx = Math.round(scrollLeft / (cardWidth + gap));
+            const nextIndex = (currentIdx + 1) % items.length;
+            scrollRef.current.scrollTo({
+                left: nextIndex * (cardWidth + gap),
+                behavior: 'smooth',
+            });
+        }, 2500);
+        return () => clearInterval(timer);
+    }, [items.length]);
 
     return (
         <section className="py-16 bg-white">
@@ -22,14 +54,14 @@ export default function Testimonials({ data }: { data?: HomeData['testimonials']
                 <h2 className="text-[20px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000] text-center ">
                     {title}
                 </h2>
-                <p className="text-base md:text-lg text-[#636363] mb-6 max-w-[80%] text-center mx-auto tracking-normal">
+                <p className="text-[14px] md:text-lg text-[#636363] mb-6 max-w-full sm:max-w-[80%] px-4 sm:px-0 text-center mx-auto tracking-normal">
                     {description}
                 </p>
-                <div className="grid gap-4 md:grid-cols-3">
+                <div ref={scrollRef} onScroll={handleScroll} className="flex gap-4 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-3 md:overflow-visible w-full">
                     {items.map((item) => (
                         <div
                             key={item.id}
-                            className="rounded-md bg-[#1E1E1E] p-6 text-white flex flex-col justify-between h-[295px]"
+                            className="rounded-md bg-[#1E1E1E] p-6 text-white flex flex-col justify-between min-h-[250px] md:h-[295px] shrink-0 w-[85%] snap-center md:w-auto"
                         >
                             <h3 className="text-[17px] font-semibold mb-4">
                                 {item.company}
@@ -69,6 +101,14 @@ export default function Testimonials({ data }: { data?: HomeData['testimonials']
                                 </div>
                             </div>
                         </div>
+                    ))}
+                </div>
+                <div className="flex justify-center gap-2 mt-4 md:hidden">
+                    {items.map((_, i) => (
+                        <span
+                            key={i}
+                            className={`w-2 h-2 rounded-full transition-colors ${i === activeDot ? 'bg-[#168DCA]' : 'bg-gray-300'}`}
+                        />
                     ))}
                 </div>
                 <div className="flex justify-center">

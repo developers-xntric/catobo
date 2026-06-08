@@ -111,7 +111,7 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                     {/* ── Card 1: Project Image ── */}
                     <div
                         key={`img-${activeIndex}`}
-                        className="relative rounded-xl overflow-hidden min-h-[320px] md:min-h-[380px] lg:min-h-[420px] group animate-fadeIn"
+                        className="relative rounded-xl overflow-hidden min-h-[220px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px] group animate-fadeIn"
                     >
                         <Image
                             src={project.image}
@@ -125,7 +125,7 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                     {/* ── Card 2: Description card ── */}
                     <div
                         key={`desc-${activeIndex}`}
-                        className="relative rounded-xl bg-[#FFFFFF] p-6 md:p-7 flex flex-col justify-between min-h-[320px] md:min-h-[380px] lg:min-h-[420px] animate-fadeIn"
+                        className="relative rounded-xl bg-[#FFFFFF] p-6 md:p-7 flex flex-col justify-between min-h-[220px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px] animate-fadeIn"
                     >
                         <div>
                             <h3 className="text-[20px] md:text-[22px] lg:text-[24px] font-semibold leading-snug text-[#111] mb-4">
@@ -145,9 +145,58 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                         </Link>
                     </div>
 
+                    {/* ── Mobile nav arrows + marquee after card 2 ── */}
+                    <div className="flex items-center gap-3 md:hidden">
+                        <button
+                            onClick={goPrev}
+                            className="shrink-0 w-10 h-10 rounded-full border border-[#fff] bg-[#151515] flex items-center justify-center text-[#fff] hover:border-white/40 transition-colors duration-200"
+                            aria-label="Previous project"
+                        >
+                            <ChevronLeft />
+                        </button>
+                        <div className="flex-1 overflow-hidden relative">
+                            <div
+                                aria-hidden
+                                className="pointer-events-none absolute left-0 top-0 h-full w-12 z-10"
+                                style={{
+                                    background:
+                                        "linear-gradient(to right, #151515 0%, transparent 100%)",
+                                }}
+                            />
+                            <div
+                                aria-hidden
+                                className="pointer-events-none absolute right-0 top-0 h-full w-12 z-10"
+                                style={{
+                                    background:
+                                        "linear-gradient(to left, #151515 0%, transparent 100%)",
+                                }}
+                            />
+                            <div className="category-marquee-track flex items-center gap-6 whitespace-nowrap py-2">
+                                {[...categories, ...categories, ...categories].map((cat, i) => (
+                                    <span
+                                        key={`${cat}-${i}`}
+                                        className={`text-[14px] transition-colors duration-200 cursor-pointer select-none shrink-0 ${cat === project.category
+                                            ? "text-[#168DCA] font-medium"
+                                            : "text-[#fff]"
+                                        }`}
+                                    >
+                                        {cat}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                        <button
+                            onClick={goNext}
+                            className="shrink-0 w-10 h-10 rounded-full border border-[#fff] bg-[#151515] flex items-center justify-center text-[#fff] hover:border-white/40 transition-colors duration-200"
+                            aria-label="Next project"
+                        >
+                            <ChevronRight />
+                        </button>
+                    </div>
+
                     {/* ── Card 3: Map card (static — does not change on slide) ── */}
                     <div
-                        className="relative rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] p-6 md:p-7 flex flex-col justify-between min-h-[320px] md:min-h-[380px] lg:min-h-[420px] overflow-hidden"
+                        className="relative rounded-xl bg-[#1A1A1A] border border-[#2A2A2A] p-6 md:p-7 flex flex-col justify-between min-h-[220px] sm:min-h-[320px] md:min-h-[380px] lg:min-h-[420px] overflow-hidden"
                     >
                         <h3 className="text-[20px] md:text-[22px] lg:text-[24px] font-semibold leading-snug text-white mb-4">
                             Delivering Safety And Innovation Across The Region
@@ -168,7 +217,7 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                 {/* ═══════════ ROW 3 — Arrows + Marquee ticker + CTA (aligned under map card) ═══════════ */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 items-center">
                     {/* Left column: arrows + marquee (spans first 2 cols) */}
-                    <div className="lg:col-span-2 flex items-center gap-4">
+                    <div className="hidden lg:flex lg:col-span-2 items-center gap-4">
                         {/* left arrow — navigates project slides */}
                         <button
                             onClick={goPrev}
@@ -198,7 +247,7 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                                 }}
                             />
 
-                            <div className="category-marquee-track flex items-center gap-10 whitespace-nowrap py-2">
+                            <div className="category-marquee-track flex items-center gap-6 md:gap-10 whitespace-nowrap py-2">
                                 {[...categories, ...categories, ...categories].map((cat, i) => (
                                     <span
                                         key={`${cat}-${i}`}

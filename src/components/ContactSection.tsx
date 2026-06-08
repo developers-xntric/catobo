@@ -79,7 +79,7 @@ export default function ContactSection() {
         <section className="w-full bg-[#E6E5E5] md:py-16 py-10">
             <div className="2xl:max-w-350 w-[90%] mx-auto lg:px-8 ">
                 {/* Header */}
-                <div className=" text-center md:w-[80%] mx-auto flex flex-col items-center justify-center">
+                <div className="text-center w-full md:w-[80%] mx-auto flex flex-col items-center justify-center">
                     <Badge text='Partner with Precision' variant='black' />
                     <h2 className="text-[20px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000] mb-10 text-center ">
                         Begin your Journey with Precision-Engineered Aviation Safety, Heliport, Vertiport, and Airfield Solutions Backed by Decades of Expertise.

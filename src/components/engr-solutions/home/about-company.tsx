@@ -7,7 +7,7 @@ export default function AboutCompany({ data }: { data: HomeData['aboutCompany'] 
   const { badge, title, description, image, safelyBg, safelyTitle, safelyDesc, buttonHref } = data;
 
   return (
-    <section className="w-full bg-white py-16">
+    <section className="w-full bg-white pb-6 md:pb-16 pt-16">
       <div className="2xl:max-w-350 w-[90%] mx-auto h-full">
         <div className="relative mb-16 py-16 px-4 rounded-xl overflow-hidden text-center">
           <div className="absolute inset-0 z-0">
@@ -19,10 +19,10 @@ export default function AboutCompany({ data }: { data: HomeData['aboutCompany'] 
             />
           </div>
           <div className="relative z-10 mx-auto">
-            <h2 className="text-3xl md:text-3xl lg:text-[35px] font-medium leading-[1.2] text-white mb-4">
+            <h2 className="text-[20px] md:text-3xl lg:text-[35px] font-medium leading-[1.2] text-white mb-4">
               {safelyTitle}
             </h2>
-            <p className="text-base md:text-lg text-white mb-6 max-w-[80%] mx-auto">
+            <p className="text-[14px] md:text-lg text-white mb-6 max-w-full sm:max-w-[80%] px-4 sm:px-0 mx-auto">
               {safelyDesc}
             </p>
 
@@ -35,7 +35,7 @@ export default function AboutCompany({ data }: { data: HomeData['aboutCompany'] 
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-10 md:gap-2 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-10 items-stretch">
           <div className="w-full lg:w-[35%]">
             <div className="relative w-full h-full rounded-[15px] overflow-hidden min-h-[250px]">
               <Image
@@ -56,7 +56,7 @@ export default function AboutCompany({ data }: { data: HomeData['aboutCompany'] 
                 </span>
               </div>
 
-              <h2 className="text-[20px] md:text-3xl lg:text-[35px] font-medium leading-[1.2] text-balance text-[#000] mb-6">
+              <h2 className="text-[18px] md:text-3xl lg:text-[35px] font-medium leading-[1.2] text-balance text-[#000] mb-6">
                 {title}
               </h2>
 

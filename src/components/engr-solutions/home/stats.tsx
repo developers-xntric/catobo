@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import GradButton from '@/components/ui/grad-button';
+import { useContactPopup } from '@/contexts/ContactPopupContext';
 
 interface CounterItem {
   target: number;
@@ -95,6 +96,8 @@ export default function Stats({
   backgroundImage = '',
   counters = [],
 }: StatsProps) {
+  const { open } = useContactPopup();
+
   return (
     <section className="relative mx-auto my-6 p-6 overflow-hidden rounded-xl">
       <div className="absolute inset-0 z-0">
@@ -105,28 +108,28 @@ export default function Stats({
       </div>
 
       <div className="relative z-10">
-        <div className="flex flex-row justify-center gap-12 items-center">
-          <div className="text-white">
-            <h2 className="text-xl md:text-2xl font-medium leading-[1.2] mb-1">
+        <div className="flex flex-col md:flex-row justify-center gap-6 md:gap-12 items-center">
+          <div className="text-white w-full md:w-auto">
+            <h2 className="text-[18px] md:text-2xl font-medium leading-[1.2] mb-1">
               {title}
             </h2>
 
-            <p className="text-[13px] text-white mb-3 max-w-lg">
+            <p className="text-[14px] text-white mb-3 max-w-lg">
               {description}
             </p>
 
-            <GradButton href={buttonHref} size="md">
+            <GradButton onClick={open} size="md">
               {buttonText}
             </GradButton>
           </div>
 
           <div
-            className={`grid gap-10 ${
+            className={`grid gap-4 md:gap-10 ${
               counters.length <= 2
                 ? 'grid-cols-2'
                 : counters.length === 3
-                ? 'grid-cols-3'
-                : 'grid-cols-4'
+                ? 'grid-cols-2 md:grid-cols-3'
+                : 'grid-cols-2 md:grid-cols-4'
             }`}
           >
             {counters.map((counter, index) => (

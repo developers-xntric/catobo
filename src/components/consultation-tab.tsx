@@ -112,7 +112,7 @@ export default function ConsultationTabs() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`border border-[#168DCA] px-2 sm:px-12 py-3 text-center text-[11px] sm:text-sm lg:text-base font-light transition-colors whitespace-normal break-words ${activeTab === tab.id
+              className={`border border-[#168DCA] px-2 sm:px-6 lg:px-12 py-3 text-center text-[11px] sm:text-sm lg:text-base font-light transition-colors whitespace-normal break-words ${activeTab === tab.id
                   ? 'text-white'
                   : 'bg-white text-[#168DCA] hover:bg-gray-200'
                 }`}
@@ -127,7 +127,7 @@ export default function ConsultationTabs() {
         <div className="overflow-hidden rounded-xl">
           <div className="grid lg:grid-cols-2">
             {/* Image */}
-            <div className="flex items-stretch max-h-[220px] sm:max-h-[300px] lg:max-h-none">
+            <div className="flex items-stretch rounded-[10px] max-h-[200px] sm:max-h-[300px] md:max-h-[350px] lg:max-h-none">
               <img
                 src={currentTab.image}
                 alt={currentTab.title}
@@ -136,12 +136,12 @@ export default function ConsultationTabs() {
             </div>
 
             {/* Content */}
-            <div className="flex flex-col justify-center px-4 sm:px-8 py-6 sm:py-10 space-y-3 md:space-y-6">
-              <h2 className="text-lg sm:text-xl md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-[#000000]">
+            <div className="flex flex-col justify-center md:px-8 py-6 sm:py-10 space-y-3 md:space-y-6">
+              <h2 className="text-[18px] sm:text-xl md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-[#000000]">
                 {currentTab.title}
               </h2>
 
-              <p className="text-sm sm:text-base md:text-lg text-[#7C7E86] tracking-normal">
+              <p className="text-[14px] sm:text-base md:text-lg text-[#7C7E86] tracking-normal">
                 {currentTab.description}
               </p>
 

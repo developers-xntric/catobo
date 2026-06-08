@@ -1,5 +1,6 @@
 'use client'
 
+import { useRef, useState, useCallback, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { HomeData } from "@/data/types";
 import Stats from "./stats";
@@ -9,6 +10,38 @@ export default function Solutions({ data }: { data: HomeData['solutions'] }) {
   const pathname = usePathname()
   const isAviation = pathname?.startsWith('/aviation')
   const { badge, title, cards, stats } = data;
+  const [activeDot, setActiveDot] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = useCallback(() => {
+    if (!scrollRef.current) return;
+    const { scrollLeft } = scrollRef.current;
+    const child = scrollRef.current.children[0] as HTMLElement;
+    if (!child) return;
+    const gap = 24;
+    const cardWidth = child.offsetWidth;
+    const idx = Math.round(scrollLeft / (cardWidth + gap));
+    setActiveDot(Math.min(idx, cards.length - 1));
+  }, [cards.length]);
+
+  useEffect(() => {
+    if (cards.length <= 1) return;
+    const timer = setInterval(() => {
+      if (!scrollRef.current) return;
+      const { scrollLeft } = scrollRef.current;
+      const child = scrollRef.current.children[0] as HTMLElement;
+      if (!child) return;
+      const gap = 24;
+      const cardWidth = child.offsetWidth;
+      const currentIdx = Math.round(scrollLeft / (cardWidth + gap));
+      const nextIndex = (currentIdx + 1) % cards.length;
+      scrollRef.current.scrollTo({
+        left: nextIndex * (cardWidth + gap),
+        behavior: 'smooth',
+      });
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [cards.length]);
 
   return (
     <div className="2xl:max-w-350 w-[90%] py-16 mx-auto">
@@ -19,21 +52,22 @@ export default function Solutions({ data }: { data: HomeData['solutions'] }) {
         </span>
       </div>
 
-      <h2 className="text-[20px] md:text-[30px] lg:text-[35px] font-medium leading-[1.2] text-balance text-[#000] mb-10 text-center">
+      <h2 className="text-[18px] md:text-[30px] lg:text-[35px] font-medium leading-[1.2] text-balance text-[#000] mb-10 text-center">
         {title}
       </h2>
 
       {isAviation ? (
         <ConsultationTabs />
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <>
+        <div ref={scrollRef} onScroll={handleScroll} className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible">
           {cards.map((item) => (
             <div
               key={item.title}
-              className="bg-[#f3f3f3] border border-gray-200 rounded-xl p-5 h-[335px] hover:shadow-lg hover:border-[#168DCA] transition-all duration-300 flex flex-col group"
+              className="bg-[#f3f3f3] border border-gray-200 rounded-xl p-5 min-h-[300px] md:min-h-[335px] hover:shadow-lg hover:border-[#168DCA] transition-all duration-300 flex flex-col group shrink-0 w-[95%] snap-center md:w-auto"
             >
               <div className="flex items-start justify-between mb-4 border-b border-white/20">
-                <h3 className="text-[22px] min-h-14 text-balance font-semibold text-[#151515] leading-7 md:w-[95%]">
+                <h3 className="text-[20px] md:text-[22px] min-h-14 text-balance font-semibold text-[#151515] leading-7 md:w-[95%]">
                   {item.title}
                 </h3>
                 <div className="relative  shrink-0 w-11 h-11 rounded-full border border-gray-400 flex items-center justify-center">
@@ -52,7 +86,7 @@ export default function Solutions({ data }: { data: HomeData['solutions'] }) {
                   </svg>
                 </div>
               </div>
-              <p className="text-sm text-[#6D6D6D] leading-relaxed border-t border-gray-300 pt-4">
+              <p className="text-sm text-[#6D6D6D] leading-relaxed border-t border-gray-300 pt-4 md:mb-0">
                 {item.desc}
               </p>
               <div className="w-12 h-12 bg-linear-to-r from-[#0F2453] to-[#168DCA] text-white rounded-full flex items-center justify-center mt-auto transition-transform duration-300 group-hover:scale-110 p-2.5">
@@ -61,6 +95,15 @@ export default function Solutions({ data }: { data: HomeData['solutions'] }) {
             </div>
           ))}
         </div>
+        <div className="flex justify-center gap-2 mt-4 md:hidden">
+          {cards.map((_, i) => (
+            <span
+              key={i}
+              className={`w-2 h-2 rounded-full transition-colors ${i === activeDot ? 'bg-[#168DCA]' : 'bg-gray-300'}`}
+            />
+          ))}
+        </div>
+        </>
       )}
       <Stats {...stats} />
     </div>

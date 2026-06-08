@@ -33,17 +33,7 @@ export default function HowItWorks({ data }: { data: HomeData['howItWorks'] }) {
           </div>
 
           <div className="w-full lg:w-[70%] lg:pl-10">
-            <div className="hidden md:block w-full rounded-[10px] overflow-hidden 2xl:h-100.5">
-              <video
-                src={videoSrc}
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="block md:hidden w-full rounded-[10px] overflow-hidden md:h-[500px]">
+            <div className="w-full rounded-[10px] overflow-hidden min-h-[200px] md:min-h-[400px] 2xl:h-100.5">
               <video
                 src={videoSrc}
                 autoPlay
