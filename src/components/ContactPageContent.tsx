@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { ContactData } from "@/data/types";
+import ReCAPTCHA from "react-google-recaptcha";
 
 interface ContactPageContentProps {
     data: ContactData;
@@ -28,6 +29,8 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+    const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+    const recaptchaRef = useRef<ReCAPTCHA>(null);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -40,6 +43,7 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
     };
 
     const handleSubmit = async () => {
+        if (!recaptchaToken) return;
         setIsSubmitting(true);
         setSubmitStatus("idle");
         try {
@@ -51,6 +55,7 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
                     email: formData.email,
                     inquiryType: formData.subject,
                     message: `Surname: ${formData.surname}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nSubject: ${formData.subject}\n\nMessage:\n${formData.enquiry}`,
+                    recaptchaToken,
                 }),
             });
             if (response.ok) {
@@ -59,6 +64,8 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
                     name: "", surname: "", phone: "", email: "",
                     company: "", subject: "", enquiry: "", robot: false,
                 });
+                setRecaptchaToken(null);
+                recaptchaRef.current?.reset();
             } else {
                 setSubmitStatus("error");
             }
@@ -231,9 +238,14 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
                                 </div>
                             </div>
 
+                            <ReCAPTCHA
+                                ref={recaptchaRef}
+                                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                                onChange={(token) => setRecaptchaToken(token)}
+                            />
                             <button
                                 onClick={handleSubmit}
-                                disabled={isSubmitting}
+                                disabled={isSubmitting || !recaptchaToken}
                                 className="mt-6 w-full flex items-center justify-center gap-2.5 py-3.5 rounded-lg text-white text-[14px] font-medium tracking-wide transition-opacity hover:opacity-90 active:opacity-80 disabled:opacity-50"
                                 style={{
                                     background: "linear-gradient(93deg, #22A1D8 0.43%, #025094 98.09%)",
