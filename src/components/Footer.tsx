@@ -212,7 +212,7 @@ export function Footer() {
                             <p className="text-sm text-white">
                                 Copyright <span className='font-sans'>© {new Date().getFullYear()}</span> {bottomSection.copyrightText}
                             </p>
-                            <div className="flex flex-wrap gap-x-5 gap-y-1 justify-center sm:justify-end">
+                            <div className="flex flex-wrap gap-x-5 gap-y-1 sm:justify-end">
                                 {navLinks.map((link) => (
                                     <Link key={link.href} href={link.href} className="text-sm text-white hover:text-blue-300 transition-colors">
                                         {link.label}

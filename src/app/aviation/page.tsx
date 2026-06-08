@@ -10,7 +10,7 @@ import ProcessTimeline from "@/components/Timeline";
  
 export default function AviationHome() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
+    <div className="min-h-screen bg-gray-50 flex flex-col font-sans overflow-hidden md:overflow-auto">
       <Hero data={aviationHomeData.hero} />
       
       <Solutions data={aviationHomeData.solutions} />
