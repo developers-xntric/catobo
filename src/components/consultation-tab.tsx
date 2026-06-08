@@ -116,7 +116,7 @@ export default function ConsultationTabs() {
     <div>
       <div className="mx-auto">
         {/* Tabs Navigation */}
-        <div className="mb-6 grid grid-cols-2 sm:grid-cols-4 border border-[#168DCA]">
+        <div className="mb-6 grid grid-cols-2 sm:grid-cols-4 border border-[#168DCA] ">
           {tabsData.map((tab) => (
             <button
               key={tab.id}
@@ -146,7 +146,7 @@ export default function ConsultationTabs() {
 
             {/* Content */}
             <div className="flex flex-col justify-center md:px-8 py-6 sm:py-10 space-y-3 md:space-y-6">
-              <h2 className="text-[18px] sm:text-xl md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-[#000000]">
+              <h2 className="text-[20px]  md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-[#000000]">
                 {currentTab.title}
               </h2>
 

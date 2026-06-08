@@ -14,7 +14,7 @@ export default function TrustedSolutions({ data }: { data: AboutData['trustedSol
                                 {badge}
                             </span>
                         </div>
-                        <h2 className="text-[28px] md:text-[35px] font-medium text-[#111111] leading-[1.2] mb-4">
+                        <h2 className="text-[22px] md:text-[35px] font-medium text-[#111111] md:leading-[1.2] mb-4">
                             {title}
                         </h2>
                         <p className="text-[#636363] text-[16px] md:text-base leading-relaxed">

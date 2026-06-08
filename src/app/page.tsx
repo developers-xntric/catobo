@@ -14,7 +14,7 @@ export default function Home() {
     <div className="min-h-screen  flex flex-col font-sans">
       <div className="w-full bg-[#F3F3F3]">
         {/* Top Section: Hero Cards */}
-        <section className="w-full max-w-360 mx-auto px-5 py-16 grid grid-cols-1 md:grid-cols-2 gap-4  bg-[#F3F3F3]">
+        <section className="w-full max-w-360 mx-auto px-5 md:pb-6 pt-4 pb-12 grid grid-cols-1 md:grid-cols-2 gap-4  bg-[#F3F3F3]">
           {/* Aviation Solutions Card */}
           <div className="relative h-100 md:h-150 rounded-3xl overflow-hidden group">
             {/* Background Image (Replace with your actual image path or Next/Image) */}
@@ -24,7 +24,7 @@ export default function Home() {
             />
 
             {/* Card Content */}
-            <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-10 text-white">
+            <div className="relative z-10 h-full flex flex-col justify-end p-4 md:p-10 text-white">
               <h2 className="text-2xl md:text-4xl font-medium mb-3 md:mb-4 tracking-wide">
                 Aviation Solutions
               </h2>
@@ -56,7 +56,7 @@ export default function Home() {
             {/* Blue-ish dark overlay to match the second card's tone */}
 
             {/* Card Content */}
-            <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-10 text-white">
+            <div className="relative z-10 h-full flex flex-col justify-end p-4 md:p-10 text-white">
               <h2 className="text-2xl md:text-4xl font-medium mb-3 md:mb-4 tracking-wide">
                 Engineering Solutions
               </h2>
@@ -68,7 +68,7 @@ export default function Home() {
                 <Link
                   href="/engineering"
                   style={brandGradient}
-                  className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
+                  className="px-3 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
                 >
                   Explore Engineering Solutions
                 </Link>
@@ -144,14 +144,11 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        className="p-3 text-center"
-        style={{
-          background: "linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%)",
-        }}
-      >
-        <p className="text-white">Copyright © 2026 All Rights Reserved.</p>
-      </section>
+      <section className="p-3 text-center" style={{ background: 'linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%)' }}  >
+        <p className="text-white text-sm md:text-[16px]">Copyright © 2026 All Rights Reserved.</p>
+        </section>
+      
+
     </div>
   );
 }

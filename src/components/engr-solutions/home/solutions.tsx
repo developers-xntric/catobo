@@ -59,7 +59,7 @@ export default function Solutions({ data }: { data: HomeData['solutions'] }) {
         </span>
       </div>
 
-      <h2 className="text-[18px] md:text-[30px] lg:text-[35px] font-medium leading-[1.2] text-balance text-[#000] mb-10 text-center">
+      <h2 className={`text-[22px] md:text-[30px] lg:text-[35px] font-medium leading-[1.2] text-balance text-[#000] text-center ${isAviation ? 'mb-5 md:mb-10' : 'mb-10'}`}>
         {title}
       </h2>
 

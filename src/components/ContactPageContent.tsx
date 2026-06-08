@@ -238,11 +238,15 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
                                 </div>
                             </div>
 
-                            <ReCAPTCHA
-                                ref={recaptchaRef}
-                                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                                onChange={(token) => setRecaptchaToken(token)}
-                            />
+                            <div className="w-full overflow-hidden">
+                                <div className="sm:scale-100 scale-[0.77] origin-left">
+                                    <ReCAPTCHA
+                                        ref={recaptchaRef}
+                                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                                        onChange={(token) => setRecaptchaToken(token)}
+                                    />
+                                </div>
+                            </div>
                             <button
                                 onClick={handleSubmit}
                                 disabled={isSubmitting || !recaptchaToken}

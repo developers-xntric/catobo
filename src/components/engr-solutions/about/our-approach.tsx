@@ -50,7 +50,7 @@ export default function OurApproach({ data }: { data: AboutData['ourApproach'] }
                                 {badge}
                             </span>
                         </div>
-                        <h2 className="text-[28px] md:text-[35px] font-medium leading-[1.2] mb-6">
+                        <h2 className="text-[22px] md:text-[35px] font-medium md:leading-[1.2] mb-6">
                             {title}
                         </h2>
                         <p className="text-white text-[16px] md:text-base max-w-2xl font-normal mx-auto lg:mx-0">

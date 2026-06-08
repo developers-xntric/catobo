@@ -87,7 +87,7 @@ export default function ContactSection() {
                 {/* Header */}
                 <div className="text-center w-full md:w-[80%] mx-auto flex flex-col items-center justify-center">
                     <Badge text='Partner with Precision' variant='black' />
-                    <h2 className="text-[20px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000] mb-10 text-center ">
+                    <h2 className="text-[22px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000] mb-10 text-center ">
                         Begin your Journey with Precision-Engineered Aviation Safety, Heliport, Vertiport, and Airfield Solutions Backed by Decades of Expertise.
                     </h2>
                 </div>
@@ -174,11 +174,15 @@ export default function ContactSection() {
                             </div>
 
                             {/* reCAPTCHA */}
-                            <ReCAPTCHA
-                                ref={recaptchaRef}
-                                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
-                                onChange={(token) => setRecaptchaToken(token)}
-                            />
+                            <div className="w-full overflow-hidden">
+                                <div className="sm:scale-100 scale-[0.77] origin-left">
+                                    <ReCAPTCHA
+                                        ref={recaptchaRef}
+                                        sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                                        onChange={(token) => setRecaptchaToken(token)}
+                                    />
+                                </div>
+                            </div>
 
                             {/* Submit Button */}
                             <Button

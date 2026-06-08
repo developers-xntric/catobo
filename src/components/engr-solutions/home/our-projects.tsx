@@ -90,7 +90,7 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                                 {badge}
                             </span>
                         </div>
-                        <h2 className="text-[20px] md:text-[30px] lg:text-[35px] font-medium leading-[1.2] text-balance text-white">
+                        <h2 className="text-[22px] md:text-[30px] lg:text-[35px] font-medium leading-[1.2] text-balance text-white">
                             {title}
                         </h2>
                     </div>
