@@ -16,7 +16,7 @@ export default function Hero({ data }: { data: HeroData }) {
       </div>
 
 
-      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-16 md:py-24">
+      <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-4 sm:px-6 py-16 md:py-24 mt-16 md:mt-0">
         <h1 className="max-w-6xl text-3xl md:text-[40px] lg:text-[50px] font-medium leading-[1.1] tracking-tight text-white mb-3">
           {title}
         </h1>
