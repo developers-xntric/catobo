@@ -31,7 +31,7 @@ export default function ConsultationDesignBody() {
   const activeCompliance = consultationCompliance[activeComplianceIndex];
   return (
     <main className="bg-white">
-      <div className="mx-auto w-[90%] 2xl:max-w-[1560px] py-8 md:py-10">
+      <div className="mx-auto w-[90%] 2xl:max-w-350 py-8 md:py-10">
         <section className="pb-10 md:pb-16">
           <h1 className="font-raleway text-[26px] font-medium tracking-wide text-black md:text-[35px]">
             {consultationPageContent.intro.title}
@@ -242,7 +242,7 @@ export default function ConsultationDesignBody() {
       </div>
 
       <section className="bg-[#151515] py-16 text-white md:py-[80px]">
-        <div className="mx-auto w-[90%] 2xl:max-w-[1560px]">
+        <div className="mx-auto w-[90%] 2xl:max-w-350">
           <h2 className="font-raleway text-[30px] font-medium md:text-[35px]">
             {consultationPageContent.compliance.title}
           </h2>

@@ -41,7 +41,7 @@ export default function ProcessTimeline({
   subtitle,
   steps = defaultSteps,
   columns = 4,
-  cardHeight = 'h-40',
+  cardHeight = 'h-28 md:h-40',
   className = '',
 }: ProcessTimelineProps) {
   const gridCols = {
@@ -64,7 +64,7 @@ export default function ProcessTimeline({
           </p>
         )}
 
-        <div className={`grid grid-cols-1 gap-10 md:gap-7 ${gridCols[columns]}`}>
+        <div className={`grid grid-cols-1 gap-10 md:gap-7 md:!gap-y-12 ${gridCols[columns]}`}>
           {steps.map((step, index) => (
             <motion.div
               key={`${step.number}-${index}`}
@@ -83,7 +83,7 @@ export default function ProcessTimeline({
 
               {/* Card */}
               <div
-                className={`relative z-10 flex ${step.description ? "h-auto min-h-[150px] md:min-h-[200px]" : cardHeight} flex-col justify-between rounded-sm border border-white/30 bg-white/10 backdrop-blur-md px-2 sm:px-3 py-2 sm:py-3 shadow-lg`}
+                className={`relative z-10 flex  md:min-h-auto ${step.description ? "h-auto min-h-[150px] md:min-h-[200px]" : cardHeight} flex-col justify-between rounded-sm border border-white/30 bg-white/10 backdrop-blur-md px-2 sm:px-3 py-2 sm:py-3 shadow-lg`}
               >
                 <span className="text-sm sm:text-[17px] font-medium text-black">
                   {step.number}

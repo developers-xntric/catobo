@@ -30,7 +30,7 @@ function BodyText({
   );
 }
 
-function SectionHeading({
+export function SectionHeading({
   children,
   size = "h2",
   className = "",
@@ -41,7 +41,7 @@ function SectionHeading({
 }) {
   const base = `font-medium text-black leading-tight tracking-wide ${className}`;
   if (size === "h1")
-    return <h1 className={`text-[28px] ${base}`}>{children}</h1>;
+    return <h1 className={`text-[28px] 2xl:text-[35px] ${base}`}>{children}</h1>;
   if (size === "h3")
     return <h3 className={`text-[16px] ${base}`}>{children}</h3>;
   return <h2 className={`text-[28px] 2xl:text-[35px] ${base}`}>{children}</h2>;
@@ -707,7 +707,7 @@ export default function SolutionPortableLighting() {
         backgroundImage="/modular-floating-bg.png"
       />
       <main className="min-h-screen bg-white">
-        <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
+        <div className="2xl:max-w-[1400px] w-[90%] mx-auto py-8">
           <div className="flex flex-col lg:flex-row gap-5 items-start">
             <Sidebar
               title="Modular Floating Solutions"

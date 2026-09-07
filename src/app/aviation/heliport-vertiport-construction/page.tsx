@@ -1,309 +1,364 @@
 "use client";
 
-import { CheckIcon } from "@/components/common/CheckIcon";
 import DynamicHero from "@/components/common/hero";
+import { CheckIcon } from "@/components/common/CheckIcon";
 import ProcessTimeline from "@/components/Timeline";
-import React, { useState } from "react";
+import React from "react";
 
-// SHARED UI COMPONENTS
+const services = [
+  "Design & Build Solutions",
+  "Civil & Structural Construction",
+  "Ground, Rooftop & Elevated Heliports",
+  "Structural Design Coordination & Load Analysis",
+  "Earthworks & Foundation Construction",
+  "Drainage & Water Management Systems",
+  "Surface Finishes & Anti-Skid Coatings",
+  "Helipad Markings & Operational Zoning",
+  "Aviation Lighting Systems",
+  "Firefighting Systems",
+  "Electrical & Control Infrastructure",
+  "Earthing & Lightning Protection",
+  "Testing, Commissioning & Operational Handover",
+];
+const standards = [
+  "ICAO Annex 14, Volume II – Heliports",
+  "ICAO Doc 9261 – Heliport Manual",
+  "FAA AC 150/5390-2D – Heliport Design",
+  "NFPA 418 – Heliports",
+  "CAP 437 (where applicable)",
+  "Applicable Civil Aviation Authority Regulations",
+];
+const quality = [
+  "Material Inspection & Verification",
+  "Construction Quality Control",
+  "Structural & Load Verification",
+  "Installation Inspections",
+  "Functional Testing & Commissioning",
+  "Documentation for Authority Approvals",
+  "Certification Support & Operational Readiness",
+];
 
-function CheckItem({ label }: { label: string }) {
-    return (
-        <div className="flex items-start gap-3">
-            <CheckIcon />
-            <span className="text-[14px] text-[#636363] leading-relaxed">{label}</span>
-        </div>
-    );
-}
-
-function BodyText({
-    children,
-    className = "",
+const BodyText = ({
+  children,
+  className = "",
 }: {
-    children: React.ReactNode;
-    className?: string;
-}) {
-    return (
-        <p className={`text-[14px] text-[#636363] leading-[1.78] ${className}`}>
-            {children}
-        </p>
-    );
-}
-
-function SectionHeading({
-    children,
-    size = "h2",
-    className = "",
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <p className={`text-[12.5px] leading-relaxed text-[#636363] ${className}`}>
+    {children}
+  </p>
+);
+const MainText = ({
+  children,
+  className = "",
 }: {
-    children: React.ReactNode;
-    size?: "h1" | "h2" | "h3";
-    className?: string;
-}) {
-    const base = `font-medium text-black leading-tight tracking-wide ${className}`;
-    if (size === "h1") return <h1 className={`text-[24px] ${base}`}>{children}</h1>;
-    if (size === "h3") return <h3 className={`text-[18px] ${base}`}>{children}</h3>;
-    return <h2 className={`text-[24px] ${base}`}>{children}</h2>;
-}
-
-// ==========================================
-// SIDEBAR
-// ==========================================
-
-interface SidebarItem {
-    label: string;
-    hasArrow?: boolean;
-}
-
-interface SidebarGroup {
-    heading?: string;
-    items: SidebarItem[];
-}
-
-interface SidebarProps {
-    title: string;
-    groups: SidebarGroup[];
-}
-
-export function Sidebar({ title, groups }: SidebarProps) {
-    const [active, setActive] = useState(0);
-    let globalIdx = 0;
-
-    return (
-        <div className="w-full lg:w-90 lg:shrink-0 bg-[#F3F3F3] p-5 rounded-2xl lg:sticky lg:top-8">
-            <div className="mb-4 px-1">
-                <h2 className="text-[1.1rem] text-black font-medium tracking-wide leading-snug">
-                    {title}
-                </h2>
-            </div>
-
-            <div className="flex flex-col gap-2">
-                {groups.map((group, gi) => (
-                    <div key={gi}>
-                        {group.heading && (
-                            <p className="text-[0.72rem] font-semibold text-[#1a1a1a] uppercase tracking-widest mb-2 px-1">
-                                {group.heading}
-                            </p>
-                        )}
-                        <div className="flex flex-col gap-2">
-                            {group.items.map((item) => {
-                                const idx = globalIdx++;
-                                const isActive = active === idx;
-                                return (
-                                    <button
-                                        key={idx}
-                                        onClick={() => {
-                                            setActive(idx);
-                                            document.getElementById(`section-${idx}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-                                        }}
-                                        className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${isActive
-                                            ? "border-transparent shadow-md"
-                                            : "border-[#E8E8E8] hover:border-gray-300"
-                                            }`}
-                                        style={{
-                                            background: isActive
-                                                ? "linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%)"
-                                                : "#fff",
-                                        }}
-                                    >
-                                        <span
-                                            className={`text-[0.875rem] leading-snug font-normal tracking-wide pr-3 whitespace-pre-line ${isActive ? "text-white" : "text-[#1a1a1a]"
-                                                }`}
-                                        >
-                                            {item.label}
-                                        </span>
-                                        {item.hasArrow && (
-                                            <svg
-                                                className={`w-4 h-4 shrink-0 ${isActive ? "text-white" : "text-black"
-                                                    }`}
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
-                                                strokeWidth={1.5}
-                                            >
-                                                <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    d="M7 17L17 7M7 7h10v10"
-                                                />
-                                            </svg>
-                                        )}
-                                    </button>
-                                );
-                            })}
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-    );
-}
-
-// IMAGE GRID — Equal 50/50
-
-function ImageGridEqual({ left, right }: { left: string; right: string }) {
-    return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-70 sm:h-100">
-                <img src={left} alt="" className="w-full h-full object-cover" />
-            </div>
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-70 sm:h-100">
-                <img src={right} alt="" className="w-full h-full object-cover" />
-            </div>
-        </div>
-    );
-}
-
-// Image LEFT + Content RIGHT
-function ImageTextRow({
-    src,
-    children,
+  children: React.ReactNode;
+  className?: string;
+}) => (
+  <p
+    className={`text-[14px] md:text-[16px] leading-relaxed text-[#636363] ${className}`}
+  >
+    {children}
+  </p>
+);
+export function SectionHeading({
+  children,
+  size = "h2",
+  className = "",
 }: {
-    src: string;
-    children: React.ReactNode;
+  children: React.ReactNode;
+  size?: "h1" | "h2" | "h3";
+  className?: string;
 }) {
-    return (
-        <div className="grid grid-cols-1 md:grid-cols-[5fr_7fr] gap-7 items-start">
-            <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
-                <img src={src} alt="" className="w-full h-full object-cover" />
-            </div>
-            <div>{children}</div>
-        </div>
-    );
+  const base = `font-medium text-black leading-tight tracking-wide ${className}`;
+  if (size === "h1")
+    return <h1 className={`text-[28px] ${base}`}>{children}</h1>;
+  if (size === "h3")
+    return <h3 className={`text-[16px] ${base}`}>{children}</h3>;
+  return <h2 className={`text-[28px] 2xl:text-[35px] ${base}`}>{children}</h2>;
 }
+const List = ({ items }: { items: string[] }) => (
+  <div className="space-y-2">
+    {items.map((item) => (
+      <div
+        key={item}
+        className="flex items-start gap-2 text-[13px] leading-5 text-[#636363] md:text-[14px]"
+      >
+        <span className=" flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#168dca] text-[8px] text-[#168dca]">
+          ✓
+        </span>
+        {item}
+      </div>
+    ))}
+  </div>
+);
+const Photo = ({
+  src,
+  alt,
+  className = "",
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+}) => (
+  <img
+    src={src}
+    alt={alt}
+    className={`h-full w-full rounded-md object-cover ${className}`}
+  />
+);
+const ThemeIcon = ({ src }: { src: string }) => (
+  <span
+    aria-hidden="true"
+    className="mb-2 block h-12 w-12 bg-gradient-to-br from-[#168dca] to-[#0f2453]"
+    style={{
+      maskImage: `url(${src})`,
+      WebkitMaskImage: `url(${src})`,
+      maskRepeat: "no-repeat",
+      WebkitMaskRepeat: "no-repeat",
+      maskPosition: "center",
+      WebkitMaskPosition: "center",
+      maskSize: "contain",
+      WebkitMaskSize: "contain",
+    }}
+  />
+);
 
-// MAIN CONTENT
-
-function MainContent() {
-    return (
-        <div className="flex-1 min-w-0 max-w-240">
-
-            {/* ─── Section 1: Industrial Products / Overview ─── */}
-            <section id="section-0" className="mb-14">
-                <SectionHeading size="h1" className="mb-4">
-                    Engineered Construction For Safe And Reliable Aviation Operations
-                </SectionHeading>
-
-                <BodyText className="mb-3">
-                    Catoba provides end-to-end helipad and vertipad construction services designed to meet operational,
-                    structural, and aviation safety requirements. Our construction solutions support both permanent and
-                    temporary aviation facilities, ensuring safe landings, long-term durability, and compliance with
-                    international aviation standards.
-                </BodyText>
-                <BodyText className="mb-8">
-                    From concept development to final execution, we deliver construction solutions that are efficient, precise,
-                    and built to perform in demanding operational environments.
-                </BodyText>
-
-                <ImageGridEqual
-                    left="/hvc/1.png"
-                    right="/hvc/2.png"
-                />
-            </section>
-
-            {/* ─── Section 2: Comprehensive Construction Solutions ─── */}
-            <section id="section-1" className="mb-14">
-                <SectionHeading size="h2" className="mb-3">
-                    Comprehensive Construction Solutions
-                </SectionHeading>
-
-                <BodyText className="mb-5">
-                    Our helipad and vertipad construction services are designed to support a wide range of aviation
-                    applications, including rooftop, ground-level, and elevated installations. We work closely with project
-                    stakeholders to ensure seamless integration with the surrounding infrastructure.
-                </BodyText>
-
-                <div className="space-y-3 mb-10">
-                    {[
-                        "Structural design coordination and load analysis",
-                        "Ground, rooftop, and elevated helipad construction",
-                        "Surface finishing and anti-skid treatments",
-                        "Drainage and water management systems",
-                        "Safety markings and operational zoning",
-                    ].map((item, i) => (
-                        <CheckItem key={i} label={item} />
-                    ))}
-                </div>
-
-                {/* ProcessTimeline — Built For Performance & Safety */}
-                <ProcessTimeline
-                    title="Built For Performance & Safety"
-                    columns={4}
-                    subtitle="Every helipad and vertipad is constructed with a strong focus on safety, stability, and long-term operational performance. Our approach ensures that the facility can withstand repeated aircraft operations while maintaining structural integrity."
-                    steps={[
-                        { number: "01", title: "High Load-Bearing Capacity" },
-                        { number: "02", title: "Anti-Slip And Weather-Resistant Surfaces" },
-                        { number: "03", title: "Resistance To Vibration And Rotor Wash" },
-                        { number: "04", title: "Durable Materials For Extended Service Life" },
-                    ]}
-                />
-            </section>
-
-            {/* ─── Section 3: Compliance & Quality Assurance ─── */}
-            <section id="section-2" className="mb-14">
-                <ImageTextRow src="/hvc/3.png">
-                    <SectionHeading size="h2" className="mb-3">
-                        Compliance &amp; Quality Assurance
-                    </SectionHeading>
-                    <BodyText className="mb-4">
-                        All construction activities are carried out in line with recognised aviation and safety standards. Our
-                        quality-driven processes ensure that each facility is approval-ready and operationally compliant.
-                    </BodyText>
-
-                    <p className="text-[13.5px] font-semibold text-[#1a1a1a] mb-3">
-                        Our Quality Approach Includes:
-                    </p>
-
-                    <div className="space-y-3">
-                        {[
-                            "Adherence to aviation authority guidelines",
-                            "Strict quality control during construction",
-                            "Inspection and testing support",
-                            "Documentation for certification and approvals",
-                        ].map((item, i) => (
-                            <CheckItem key={i} label={item} />
-                        ))}
-                    </div>
-                </ImageTextRow>
-            </section>
-
-        </div>
-    );
-}
-
-// MAIN PAGE EXPORT
-
-export default function SolutionAviationConsultationFirefighting() {
-    const sidebarGroups: SidebarGroup[] = [
-        {
-            items: [
-                { label: "Industrial Products / Overview", hasArrow: true },
-                { label: "Comprehensive Construction\nSolutions", hasArrow: true },
-                { label: "Compliance & Quality\nAssurance", hasArrow: true },
-            ],
-        },
-    ];
-
-    return (
-        <div>
-            <DynamicHero
-                title={"Heliport & Vertiport Construction "}
-                breadcrumbs={[
-                    { label: "Home", href: "/" },
-                    { label: "Heliport & Vertiport Construction " },
-                ]}
-                backgroundImage="/hvc.png"
+export default function HeliportVertiportConstructionPage() {
+  return (
+    <div>
+      <DynamicHero
+        title="Heliport & Vertiport Construction"
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Heliport & Vertiport Construction" },
+        ]}
+        backgroundImage="/hvc/hero-bg.png"
+      />
+      <main className="2xl:max-w-350 mx-auto w-[90%] space-y-12 py-8 md:space-y-16 md:py-12">
+        <section className="space-y-3">
+          <SectionHeading>
+            Engineered Construction for Safe and Reliable Aviation Operations
+          </SectionHeading>
+          <MainText className="mb-3">
+            Catobo delivers complete Design &amp; Build solutions for heliports,
+            helidecks, and vertiports across the Middle East, Africa, and India.
+            From initial engineering and authority coordination to construction,
+            certification, and operational handover, we manage every stage of
+            the project lifecycle. Every facility is engineered for structural
+            integrity, operational safety, and long-term performance while
+            complying with international aviation standards.
+          </MainText>
+          <MainText className="mb-3">
+            Whether it&apos;s a hospital rooftop, airport, offshore platform,
+            military base, commercial development, or an Advanced Air Mobility
+            (AAM) facility, Catobo provides turnkey construction solutions
+            tailored to each project&apos;s operational requirements.
+          </MainText>
+          <div className="mb-8 mt-5 grid gap-2 overflow-hidden sm:grid-cols-2">
+            <Photo
+              src="/hvc/intro-ground.png"
+              alt="Ground heliport construction"
+              className="h-auto"
             />
-            <main className="min-h-screen bg-white">
-                <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
-                    <div className="flex flex-col lg:flex-row gap-5 items-start">
-                        <Sidebar
-                            title="Helipad & VertiPad Construction"
-                            groups={sidebarGroups}
-                        />
-                        <MainContent />
-                    </div>
-                </div>
-            </main>
-        </div>
-    );
+            <Photo
+              src="/hvc/intro-elevated.png"
+              alt="Elevated heliport construction"
+              className="h-auto"
+            />
+          </div>
+          <div className="mt-8 block grid items-stretch gap-2 md:grid-cols-2">
+            <div className="rounded-md bg-[#f3f3f3] p-3">
+              <ThemeIcon src="/hvc/aam-1.png" />
+              <h3 className="text-[16px] font-medium text-black">
+                Complete Construction Solutions
+              </h3>
+              <BodyText className="mt-1">
+                Our integrated construction services cover every aspect of
+                aviation infrastructure, providing clients with a single point
+                of responsibility throughout the project.
+              </BodyText>
+            </div>
+            <div className="rounded-md bg-[#f3f3f3] p-3">
+              <ThemeIcon src="/hvc/aam-2.png" />
+              <h3 className="text-[16px] font-medium text-black">
+                Ground Helipads
+              </h3>
+              <BodyText className="mt-1">
+                Construction of concrete, interlocks or asphalt heliports
+                designed for heavy helicopter operations, including earthworks,
+                pavements, lighting infrastructure, drainage, firefighting
+                systems, and operational markings.
+              </BodyText>
+            </div>
+          </div>
+          <div className=" mt-3 rounded-md bg-[#f3f3f3] p-3">
+            <ThemeIcon src="/hvc/aam-3.png" />
+            <h3 className="text-[16px] font-medium text-black">
+              Elevated Aluminium Helidecks
+            </h3>
+            <BodyText className="mt-1">
+              Catobo specializes in the design, supply, and installation of
+              modular aluminium helidecks for hospitals, offshore facilities,
+              commercial buildings, military installations, and industrial
+              sites. Lightweight, corrosion-resistant, and structurally
+              efficient, aluminium helidecks reduce dead loads while providing
+              exceptional durability and low maintenance. Complete systems
+              include aluminium deck panels, supporting structures, safety nets,
+              perimeter safety equipment, integrated lighting, firefighting
+              systems, and access platforms.
+            </BodyText>
+          </div>
+        </section>
+        <section>
+          <SectionHeading>
+            Vertiports &amp; Advanced Air Mobility (AAM)
+          </SectionHeading>
+          <p className="mt-2 text-[14px] md:text-[16px] leading-relaxed text-[#636363]">
+            Future-ready infrastructure engineered for eVTOL aircraft and
+            next-generation urban air mobility, with scalable designs to
+            accommodate evolving operational requirements.
+          </p>
+          <p className="mt-3 text-[12px] font-medium text-black">
+            Our turnkey construction services include:
+          </p>
+          <div className="mt-2 grid gap-x-8 sm:grid-cols-2">
+            <List items={services.slice(0, 7)} />
+            <List items={services.slice(7)} />
+          </div>
+        </section>
+        <section className="grid items-stretch gap-6 md:grid-cols-2 md:items-stretch">
+          <div className="h-full self-stretch order-2 md:order-1">
+            <Photo src="/hvc/closing.png" alt="Heliport perimeter safety net" />
+          </div>
+          <div className="order-1 md:order-2">
+            <SectionHeading>Perimeter Safety Nets</SectionHeading>
+            <p className="mt-3 text-[14px] md:text-[16px] leading-relaxed text-[#636363]">
+              Catobo can design, supply and install safety netting to meet your needs. Material of safety netting frames are galvanized and SS316 wire rope mesh with ferrules. Our Safety Net produce a safe and effective hammock effect that absorbs the kinetic energy of falling objects or persons without fear of re-bounce. This proven design is strong as well as long lasting and is designed to withstand the harshest environmental conditions. The benefits of balanced strength and fail-safe structure of our safety Net come into effect especially when the net is damaged: even several cuts will not affect its ability to safely stop and contain a falling person. This results in market-leading safety and reliability, so you can always be sure that your operations run safely and smoothly.
+            </p>
+          </div>
+        </section>
+        <section>
+          <ProcessTimeline
+            title="Built for Compliance"
+            subtitle="Every project is designed and constructed in accordance with recognised aviation standards and local authority requirements, ensuring a smooth certification process and safe operational performance."
+            columns={3}
+            steps={[
+              { number: "01", title: "ICAO Annex 14, Volume II – Heliports" },
+              { number: "02", title: "ICAO Doc 9261 – Heliport Manual" },
+              { number: "03", title: "FAA AC 150/5390-2D – Heliport Design" },
+              { number: "04", title: "NFPA 418 – Heliports" },
+              { number: "05", title: "CAP 437 (where applicable)" },
+              {
+                number: "06",
+                title: "Applicable Civil Aviation Authority Regulations",
+              },
+            ]}
+          />
+        </section>
+        <section className="grid items-stretch gap-6 md:grid-cols-2 md:items-stretch">
+          <div>
+            <SectionHeading>Quality Assurance</SectionHeading>
+            <p className="mt-3 text-[14px] md:text-[16px] leading-relaxed text-[#636363]">
+              Quality is integrated into every stage of construction. From
+              material selection to final commissioning, Catobo follows rigorous
+              inspection and testing procedures to ensure every aviation
+              facility is delivered to the highest standards.
+            </p>
+            <p className="mt-3 text-[12px] font-medium text-black">
+              Our Quality Process Includes:
+            </p>
+            <div className="mt-2">
+              <List items={quality} />
+            </div>
+          </div>
+          <div className="h-full min-h-[280px]">
+            <Photo src="/hvc/quality.png" alt="Heliport quality assurance" />
+          </div>
+        </section>
+        <section>
+          <SectionHeading>Turnkey Delivery</SectionHeading>
+          <p className="mt-3  text-[14px] md:text-[16px] leading-relaxed text-[#636363]">
+            Catobo serves as your single-source partner for aviation
+            infrastructure. By combining engineering expertise, construction
+            capability, authority coordination, and certification support, we
+            simplify complex aviation projects while ensuring every facility is
+            safe, compliant, and ready for operation.
+          </p>
+          <p className="mt-4 text-[12px] text-[#636363]">
+            From Design &amp; Build to Certification—Catobo delivers aviation
+            infrastructure built to perform.
+          </p>
+          <div className="mt-4 grid items-stretch gap-2 sm:grid-cols-2 lg:grid-cols-5">
+            {[
+              [
+                "/hvc/turnkey-1.svg",
+                "Turnkey Design & Build",
+                "From concept and engineering to construction, certification, and operational handover.",
+              ],
+              [
+                "/hvc/turnkey-2.svg",
+                "Ground & Elevated Solutions",
+                "Specialists in concrete helipads, asphalt heliports, rooftop facilities, and modular aluminium helidecks.",
+              ],
+              [
+                "/hvc/turnkey-3.svg",
+                "Integrated Aviation Systems",
+                "Complete lighting, firefighting, electrical, earthing, drainage, and safety systems under one contract.",
+              ],
+              [
+                "/hvc/turnkey-4.svg",
+                "Built to International Standards",
+                "Designed and constructed in accordance with ICAO, FAA, NFPA, CAP 437, and local aviation authority requirements.",
+              ],
+              [
+                "/hvc/turnkey-5.svg",
+                "Certification Ready",
+                "Comprehensive testing, commissioning, documentation, and authority support for a smooth certification process.",
+              ],
+            ].map(([icon, title, description]) => (
+              <div
+                key={title}
+                className="flex h-full flex-col rounded-md bg-[#f3f3f3] p-3"
+              >
+                <img
+                  src={icon}
+                  alt=""
+                  className="mb-3 h-7 w-7 object-contain"
+                />
+                <h3 className="text-[15px] md:text-[13px] 2xl:text-[15px] font-medium leading-5 text-black">
+                  {title}
+                </h3>
+                <p className="mt-2 text-[12px] md:text-[10px] 2xl:text-[12px] leading-[1.45] text-[#636363]">
+                  {description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section className="grid gap-6 xl:grid-cols-2 md:items-start">
+          <div>
+            <SectionHeading>
+              Catobo Is One Of The Few Aviation Infrastructure Companies
+            </SectionHeading>
+            <p className="mt-3 text-[14px] md:text-[16px] leading-relaxed text-[#636363]">
+              Catobo is one of the few aviation infrastructure companies that
+              delivers the complete project lifecycle under a single umbrella.
+              From initial consultation, feasibility studies, and engineering
+              design to procurement, supply, construction, installation,
+              testing, commissioning, certification support, and long-term
+              maintenance, every stage is managed by one experienced team. This
+              integrated approach eliminates the need to coordinate multiple
+              contractors, reduces project risks, streamlines communication, and
+              ensures consistent quality throughout the project.
+            </p>
+          </div>
+          <div className="h-56 md:h-72">
+            <Photo src="/hvc/perimeter.png" alt="Completed heliport facility" />
+          </div>
+        </section>
+      </main>
+    </div>
+  );
 }

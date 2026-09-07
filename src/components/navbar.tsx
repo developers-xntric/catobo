@@ -96,7 +96,7 @@ const AVIATION_NAV_ITEMS: NavItem[] = [
           heading: "Infrastructure",
           subItems: [
             { label: "Helipad & VertiPad Construction", href: "/aviation/helipad-construction" },
-            { label: "Portable Helipad & VertiPad Solutions", href: "/aviation/portable-helipad" },
+            { label: "Portable Helipad & VertiPad Solutions", href: "/aviation/portable-helipad-lighting-solutions" },
           ],
         },
         {

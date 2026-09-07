@@ -85,13 +85,13 @@ const tabsData: TabContent[] = [
   },
   {
     id: 'PortableHelipadAndVertiPad',
-    title: 'Portable Helipad & VertiPad',
+    title: 'Portable Helipads & Lighting Solutions',
     subTitle: '',
     description:
       'Catobo supplies portable helipads and temporary lighting systems for emergency response, military operations, remote sites, oil & gas, and temporary aviation facilities. These solutions are designed for rapid deployment, easy transportation, and reliable operation in demanding environments. Lightweight yet durable construction ensures quick installation with minimal site preparation. Portable lighting systems provide safe day and night helicopter operations wherever they are needed. They are ideal for both planned and emergency missions.',
     image: '/aviation/PortableHelipadAndVertiPad.png',
     primaryBtnText: 'Explore More',
-    primaryBtnHref: '/aviation/portable-helipad',
+    primaryBtnHref: '/aviation/portable-helipad-lighting-solutions',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
