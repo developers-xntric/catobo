@@ -89,7 +89,7 @@ const AVIATION_NAV_ITEMS: NavItem[] = [
           heading: "Fire & Safety",
           subItems: [
             { label: "Heliport & Vertiport Firefighting Systems", href: "/aviation/firefighting-systems" },
-            { label: "Aviation Consultation & Firefighting Design", href: "/aviation/consultation-design" },
+            { label: "Aviation Consultation & Firefighting Design", href: "/aviation/consultation" },
           ],
         },
         {
@@ -102,7 +102,7 @@ const AVIATION_NAV_ITEMS: NavItem[] = [
         {
           heading: "Lighting Solutions",
           subItems: [
-            { label: "Portable Lighting Solutions", href: "/aviation/portable-lighting" },
+            { label: "Modular Floating Solutions", href: "/aviation/modular-floating-solutions" },
             { label: "Aircraft Warning Lights", href: "/aviation/aircraft-warning-lights" },
             { label: "Airfield Lighting Solution", href: "/aviation/airfield-lighting" },
             { label: "Helideck & Helipad Lighting Systems", href: "/aviation/helideck-and-helipad-lighting-systems" },

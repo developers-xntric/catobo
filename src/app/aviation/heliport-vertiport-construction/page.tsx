@@ -286,10 +286,10 @@ export default function SolutionAviationConsultationFirefighting() {
     return (
         <div>
             <DynamicHero
-                title={"Helipad & VertiPad Construction"}
+                title={"Heliport & Vertiport Construction "}
                 breadcrumbs={[
                     { label: "Home", href: "/" },
-                    { label: "Helipad & VertiPad Construction" },
+                    { label: "Heliport & Vertiport Construction " },
                 ]}
                 backgroundImage="/hvc.png"
             />

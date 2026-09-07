@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 export interface TimelineStep {
   number: string;
   title: string;
+  description?: string;
 }
 
 interface ProcessTimelineProps {
@@ -63,7 +64,7 @@ export default function ProcessTimeline({
           </p>
         )}
 
-        <div className={`grid grid-cols-1 gap-5 sm:gap-7.5 ${gridCols[columns]}`}>
+        <div className={`grid grid-cols-1 gap-10 md:gap-7 ${gridCols[columns]}`}>
           {steps.map((step, index) => (
             <motion.div
               key={`${step.number}-${index}`}
@@ -82,15 +83,22 @@ export default function ProcessTimeline({
 
               {/* Card */}
               <div
-                className={`relative z-10 flex ${cardHeight} flex-col justify-between rounded-sm border border-white/30 bg-white/10 backdrop-blur-md px-2 sm:px-3 py-2 sm:py-3 shadow-lg`}
+                className={`relative z-10 flex ${step.description ? "h-auto min-h-[150px] md:min-h-[200px]" : cardHeight} flex-col justify-between rounded-sm border border-white/30 bg-white/10 backdrop-blur-md px-2 sm:px-3 py-2 sm:py-3 shadow-lg`}
               >
                 <span className="text-sm sm:text-[17px] font-medium text-black">
                   {step.number}
                 </span>
 
-                <p className="max-w-[70%] text-xs sm:text-[13px] font-medium text-black leading-tight">
-                  {step.title}
-                </p>
+                <div className="">
+                  <p className=" text-xs sm:text-[13px] font-medium text-black leading-tight">
+                    {step.title}
+                  </p>
+                  {step.description && (
+                    <p className="mt-2 text-[12px] xl:text-[10px] lg:text-[12px] leading-snug text-[#3a3a3a]">
+                      {step.description}
+                    </p>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}

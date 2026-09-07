@@ -3,8 +3,21 @@ import GradButton from "@/components/ui/grad-button";
 import { ContactCtaButton } from "@/components/ContactCtaButton";
 import { HomeData } from "@/data/types";
 
-export default function AboutCompany({ data }: { data: HomeData['aboutCompany'] }) {
-  const { badge, title, description, image, safelyBg, safelyTitle, safelyDesc, buttonHref } = data;
+export default function AboutCompany({
+  data,
+}: {
+  data: HomeData["aboutCompany"];
+}) {
+  const {
+    badge,
+    title,
+    description,
+    image,
+    safelyBg,
+    safelyTitle,
+    safelyDesc,
+    buttonHref,
+  } = data;
 
   return (
     <section className="w-full bg-white pb-6 md:pb-10 pt-16">
@@ -35,15 +48,10 @@ export default function AboutCompany({ data }: { data: HomeData['aboutCompany'] 
           </div>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-6 md:gap-10 items-stretch">
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-1 items-stretch">
           <div className="w-full lg:w-[35%]">
             <div className="relative w-full h-full rounded-[15px] overflow-hidden min-h-[250px]">
-              <Image
-                src={image}
-                alt={title}
-                fill
-                className="object-cover"
-              />
+              <Image src={image} alt={title} fill className="object-cover" />
             </div>
           </div>
 

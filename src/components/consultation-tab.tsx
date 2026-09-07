@@ -19,24 +19,24 @@ interface TabContent {
 const tabsData: TabContent[] = [
   {
     id: 'aviation',
-    title: 'Aviation Consultation & Firefighting Design',
+    title: 'Aviation Consultation',
     subTitle: ' ',
     description:
-      'Expert consultation and engineered fire-fighting system designs tailored for heliports, vertiports, and airfield environments. We ensure safety, compliance, and operational readiness from concept to execution.',
-    image: '/aviation-consultant.png',
+      'Every successful aviation project starts with the right planning. Catobo provides expert consultation for helipads, vertiports, and aviation infrastructure from concept through operational approval. Our team carries out feasibility studies, OLS assessments, regulatory compliance reviews, and authority coordination. We help clients make informed decisions while minimizing risks and delays. From the first idea to certification, we are your trusted aviation partner',
+    image: '/consultation.png',
     primaryBtnText: 'Explore More',
-    primaryBtnHref: '/aviation/consultation-design',
+    primaryBtnHref: '/aviation/consultation',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
     id: 'medical',
-    title: 'Helipad & VertiPad Construction',
+    title: 'Heliport & Vertiport Construction',
     subTitle: '',
     description:
-      'End-to-end construction of helipads and vertipads, engineered for structural integrity, load performance, and aviation safety. Built to meet operational demands and international standards.',
-    image: '/aviation/helipad-vertiports.png',
+      'Catobo delivers complete turnkey heliport and vertiport construction solutions for Hospitals, Airports, Government, Military, Offshore, and Commercial Facilities. Our expertise covers both ground-level helipads and elevated aluminium helidecks, providing the most suitable solution for each application. Our services include Design, Engineering, Civil Works, Structural Works, Aluminium Helideck Systems, Lighting, Firefighting Systems, Electrical Infrastructure, Testing, Commissioning, and Certification. We do undertake Annual Maintenance Contracts to ensure the operational readiness of Heliports and Vertiports systems at all times. Every project is designed and constructed in compliance with applicable aviation standards and operational requirements. From concept and authority approvals to final certification and handover, Catobo provides a single point of responsibility for the complete project lifecycle.',
+    image: '/vertipads-construction.png',
     primaryBtnText: 'Explore More',
-    primaryBtnHref: '/aviation/helipad-construction',
+    primaryBtnHref: '/aviation/heliport-vertiport-construction',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
@@ -44,8 +44,8 @@ const tabsData: TabContent[] = [
     title: 'Heliport & Vertiport Lighting Systems',
     subTitle: '',
     description:
-      'High-performance lighting systems designed to enhance visibility, guidance, and safety during landing and take-off. Our solutions ensure reliable operation in all weather and light conditions.',
-    image: '/aviation/heliport-lightning.png',
+      'Safe helicopter operations depend on reliable visual guidance. Catobo designs, supplies, installs, and commissions complete heliport and vertiport lighting systems, including perimeter lights, floodlights, illuminated wind cones, approach lighting, HAPI systems, and control panels. Our lighting solutions are selected for long service life, low maintenance, and dependable performance. Every installation is designed to meet international aviation standards and operational requirements.',
+    image: '/vertiport-lighting-systems.png',
      primaryBtnText: 'Explore More',
     primaryBtnHref: '/aviation/helideck-and-helipad-lighting-systems',
     secondaryBtnText: 'Book Your Consultation',
@@ -55,8 +55,8 @@ const tabsData: TabContent[] = [
     title: 'Heliport & Vertiport Firefighting Systems',
     subTitle: '',
     description:
-      'Advanced fire-fighting solutions engineered to protect aircraft, crew, and infrastructure. Designed for rapid response, compliance, and seamless integration with heliport operations.',
-    image: '/aviation/firefighting.png',
+      'Fire protection is a critical part of every heliport and vertiport. Catobo delivers integrated firefighting systems designed to meet aviation safety requirements and authority regulations. Our solutions include foam systems (Trolley type and DIFF type), extinguishers, hydrants, monitors, emergency equipment, and associated infrastructure. Each system is engineered to provide rapid response while ensuring reliability and compliance. We also support testing, commissioning, and operational readiness.',
+    image: '/vertiport-firefighting.png',
     primaryBtnText: 'Explore More',
     primaryBtnHref: '/aviation/firefighting-systems',
     secondaryBtnText: 'Book Your Consultation',
@@ -66,7 +66,7 @@ const tabsData: TabContent[] = [
     title: 'Airfield Lighting Systems',
     subTitle: '',
     description:
-      'Precision airfield lighting solutions that support safe aircraft ground movement and runway operations. Engineered for durability, efficiency, and consistent performance in demanding environments.',
+      'Catobo delivers complete airfield lighting solutions for airports, military airbases, private airfields, and aviation facilities. Our expertise includes runway, taxiway, apron, and approach lighting systems, together with control and monitoring solutions. Every system is engineered to provide maximum reliability, operational efficiency, and regulatory compliance. From design and supply to installation, testing, commissioning, and maintenance, we offer complete lifecycle support. Our turnkey approach ensures safe and efficient aircraft operations in all conditions.',
     image: '/aviation/AirfieldLightingSystems.png',
     primaryBtnText: 'Explore More',
     primaryBtnHref: '/aviation/helideck-and-helipad-lighting-systems',
@@ -77,7 +77,7 @@ const tabsData: TabContent[] = [
     title: 'Aircraft Warning Lights',
     subTitle: '',
     description:
-      'High-visibility aircraft warning lights for towers, buildings, and obstacles. Designed to ensure maximum visibility, regulatory compliance, and long-term reliability.',
+      'Catobo supplies ICAO and FAA-compliant aircraft warning lights for buildings, towers, bridges, cranes, wind turbines, and other tall structures. Our product range includes low, medium, and high-intensity LED obstruction lighting systems with intelligent monitoring and control options. These solutions improve aviation safety while providing reliable long-term performance and low maintenance. We also provide complete installation, commissioning, and maintenance support for obstruction lighting systems. We do undertake Annual Maintenance Contracts to ensure the operational readiness of systems at all times.',
     image: '/aviation/AircraftWarningLights.png',
    primaryBtnText: 'Explore More',
     primaryBtnHref: '/aviation/aircraft-warning-lights',
@@ -88,21 +88,21 @@ const tabsData: TabContent[] = [
     title: 'Portable Helipad & VertiPad',
     subTitle: '',
     description:
-      'Flexible, rapid-deployment helipad and lighting systems for temporary or remote operations. Ideal for emergency response, offshore use, and mobile aviation requirements.',
+      'Catobo supplies portable helipads and temporary lighting systems for emergency response, military operations, remote sites, oil & gas, and temporary aviation facilities. These solutions are designed for rapid deployment, easy transportation, and reliable operation in demanding environments. Lightweight yet durable construction ensures quick installation with minimal site preparation. Portable lighting systems provide safe day and night helicopter operations wherever they are needed. They are ideal for both planned and emergency missions.',
     image: '/aviation/PortableHelipadAndVertiPad.png',
     primaryBtnText: 'Explore More',
     primaryBtnHref: '/aviation/portable-helipad',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
-    id: 'PortableLightingSolutions',
-    title: 'Portable Lighting Solutions',
+    id: 'ModularFloatingSolutions',
+    title: 'Modular Floating Solutions',
     subTitle: '',
     description:
-      'Flexible, rapid-deployment helipad and lighting systems for temporary or remote operations. Ideal for emergency response, offshore use, and mobile aviation requirements.',
-    image: '/aviation/PortableLightingSolutions.png',
+      'Catobo provides complete floating heliport solutions for offshore, marine, and waterfront applications. Our systems are engineered to deliver stable and safe helicopter operations in challenging environments. From structural design and mooring systems to lighting, firefighting, and safety equipment, every component is integrated into a complete solution. We work closely with clients to develop customized floating heliports for their operational needs. Every project is designed with safety, durability, and compliance in mind.',
+    image: '/modular-floating.png',
     primaryBtnText: 'Explore More',
-    primaryBtnHref: '/aviation/portable-lighting',
+    primaryBtnHref: '/aviation/modular-floating-solutions',
     secondaryBtnText: 'Book Your Consultation',
   },
 ]
@@ -133,7 +133,7 @@ export default function ConsultationTabs() {
         </div>
 
         {/* Content Section */}
-        <div className="overflow-hidden rounded-xl">
+        <div className="overflow-hidden rounded-xl mb-12">
           <div className="grid lg:grid-cols-2">
             {/* Image */}
             <div className="flex items-stretch rounded-[10px] max-h-[200px] sm:max-h-[300px] md:max-h-[350px] lg:max-h-none">
@@ -150,7 +150,7 @@ export default function ConsultationTabs() {
                 {currentTab.title}
               </h2>
 
-              <p className="text-[14px] sm:text-base md:text-lg text-[#7C7E86] tracking-normal">
+              <p className="text-[14px] sm:text-base 2xl:text-lg text-[#7C7E86] tracking-normal">
                 {currentTab.description}
               </p>
 
@@ -159,7 +159,7 @@ export default function ConsultationTabs() {
                 <Link   href={currentTab.primaryBtnHref}>
 
                   <Button
-                    className="w-full sm:w-auto px-6 py-2 text-white sm:px-8"
+                    className="w-full sm:w-auto px-6 py-5 text-white sm:px-8"
                     style={{ background: 'var(--New-button, linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%))' }}
                   >
                     {currentTab.primaryBtnText}
@@ -169,7 +169,7 @@ export default function ConsultationTabs() {
                 <Button
                   onClick={open}
                   variant="outline"
-                  className="w-full sm:w-auto border-2 border-black px-6 py-2 text-black hover:bg-blue-50 sm:px-8"
+                  className="w-full sm:w-auto border-2 border-black px-6 py-5 text-black hover:bg-blue-50 sm:px-8"
                 >
                   {currentTab.secondaryBtnText}
                 </Button>
