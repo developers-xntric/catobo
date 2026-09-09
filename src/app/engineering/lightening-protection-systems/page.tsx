@@ -15,7 +15,7 @@ const SolutionLighteningProtectionSystems = () => {
             />
             <main className="min-h-screen bg-white">
                 <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
-                    <div className="flex gap-5 items-start">
+                    <div className="flex flex-col items-stretch gap-5 lg:flex-row lg:items-start">
                         <Sidebar title={sidebar.title} items={sidebar.items} />
                         <MainContent data={engineeringLightningProtectionData} />
                     </div>

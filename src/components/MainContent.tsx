@@ -59,8 +59,8 @@ const defaultSections: ContentSection[] = [
 function renderSection(section: ContentSection, index: number) {
     const Heading = index === 0 ? "h1" : "h2";
     const headingClass = index === 0
-        ? "text-[32px] font-medium text-black mb-5 leading-tight tracking-wide"
-        : "text-[28px] font-medium text-black mb-4 leading-tight tracking-wide";
+        ? "text-[28px] 2xl:text-[32px] font-medium text-black mb-5 leading-tight tracking-wide"
+        : "text-[28px] 2xl:text-[32px] font-medium text-black mb-4 leading-tight tracking-wide";
 
     const hasTwoImages = section.images?.length === 2;
     const hasThreeImages = section.images?.length === 3;
@@ -84,7 +84,7 @@ function renderSection(section: ContentSection, index: number) {
             )}
 
             {section.description && (
-                <p className="text-md text-[#636363] leading-[1.7] mb-6">
+                <p className="text-sm md:text-md text-[#636363] md:leading-[1.7] mb-6">
                     {section.description}
                 </p>
             )}
@@ -93,7 +93,7 @@ function renderSection(section: ContentSection, index: number) {
             {hasTwoImages && section.description && (
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-2 mb-6">
                     {section.images!.map((img, i) => (
-                        <div key={i} className="rounded-xl overflow-hidden bg-gray-100 h-76">
+                        <div key={i} className="h-64 overflow-hidden rounded-xl bg-gray-100 sm:h-72 lg:h-76">
                             <img
                                 src={img.src}
                                 alt={img.alt}
@@ -107,7 +107,7 @@ function renderSection(section: ContentSection, index: number) {
             {section.paragraphs && (
                 <div className="space-y-5 mb-8">
                     {section.paragraphs.map((p, i) => (
-                        <p key={i} className="text-md text-[#636363] leading-[1.7]">
+                        <p key={i} className="text-[15px] md:text-md text-[#636363] leading-[1.7]">
                             {p}
                         </p>
                     ))}
@@ -121,7 +121,7 @@ function renderSection(section: ContentSection, index: number) {
                         return (
                             <div key={i} className="flex items-start gap-3">
                                 <CheckIcon />
-                                <span className="text-md text-[#636363] leading-relaxed">
+                                <span className="text-sm md:text-md text-[#636363] leading-relaxed">
                                     {point}{pdfLink ? <> – <ViewPDFLink label={pdfLink.label} /></> : ""}
                                 </span>
                             </div>
@@ -131,7 +131,7 @@ function renderSection(section: ContentSection, index: number) {
                         section.pdfLinks.slice(section.points?.length || 0).map((link, i) => (
                             <div key={i + (section.points?.length || 0)} className="flex items-start gap-3">
                                 <CheckIcon />
-                                <span className="text-md text-[#636363] leading-relaxed">
+                                <span className="text-sm md:text-md text-[#636363] leading-relaxed">
                                     <ViewPDFLink label={link.label} />
                                 </span>
                             </div>
@@ -144,7 +144,7 @@ function renderSection(section: ContentSection, index: number) {
             {hasTwoImages && !section.description && (
                 <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4">
                     {section.images!.map((img, i) => (
-                        <div key={i} className={`rounded-xl overflow-hidden h-76${i === 1 ? " flex items-center justify-center" : ""}`}>
+                        <div key={i} className={`h-64 overflow-hidden rounded-xl bg-[#EFEFEF] sm:h-72 lg:h-80${i === 1 ? " flex items-center justify-center" : ""}`}>
                             <img
                                 src={img.src}
                                 alt={img.alt}
@@ -157,13 +157,13 @@ function renderSection(section: ContentSection, index: number) {
 
             {/* Three-image grid */}
             {hasThreeImages && (
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                    {section.images!.map((img, i) => (
-                        <div key={i} className="rounded-xl overflow-hidden bg-[#EFEFEF] flex items-center justify-center">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                    {section.images!.map((img) => (
+                        <div key={img.src} className="flex h-64 items-center justify-center overflow-hidden rounded-xl border border   ">
                             <img
                                 src={img.src}
                                 alt={img.alt}
-                                className={`w-full h-full object-cover mix-blend-multiply opacity-90${img.className ? " " + img.className : ""}${i === 1 ? " hue-rotate-180" : ""}${i === 2 ? " hue-rotate-90" : ""}`}
+                                className="h-full w-full object-contain"
                             />
                         </div>
                     ))}
@@ -178,7 +178,7 @@ function renderSection(section: ContentSection, index: number) {
                         </h3>
                     )}
                     {sub.description && (
-                        <p className="text-md text-[#636363] mb-4">{sub.description}</p>
+                        <p className="text-[15px] md:text-md text-[#636363] mb-4">{sub.description}</p>
                     )}
                     {sub.points && (
                         <div className="space-y-3.5 mb-8">
@@ -232,10 +232,10 @@ export default function MainContent({ data }: MainContentProps) {
     }
 
     return (
-        <div className="flex-1 min-w-0 max-w-240">
-            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-[#E8E8E8] rounded-md mb-8">
+        <div className="flex-1 min-w-0 max-w-240 mt-7 md:mt-0">
+            <div className="inline-flex items-center gap-2.5 px-3 py-1.5 border border-[#E8E8E8] rounded-full mb-4 md:mb-8">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#168DCA]"></span>
-                <span className="text-[13px] font-medium text-black tracking-wide">
+                <span className="text-[11px] text-black ">
                     {d.hero.title}
                 </span>
             </div>

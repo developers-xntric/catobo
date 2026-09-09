@@ -9,7 +9,7 @@ import ConsultationTabs from "@/components/consultation-tab";
 
 const cardRoutes: Record<string, string> = {
   'Cable Containment Systems': '/engineering/cable-trunking',
-  'Lightning Protection Systems': '/engineering/solution-lightening-protection-systems',
+  'Lightning Protection Systems': '/engineering/lightening-protection-systems',
   'Industrial Products': '/engineering/explosion-proof-systems',
 }
 

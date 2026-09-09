@@ -36,7 +36,7 @@ export default function Home() {
                 <Link
                   href="/engineering"
                   style={brandGradient}
-                  className="px-3 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
+                  className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
                 >
                   Explore Engineering Solutions
                 </Link>
@@ -52,7 +52,7 @@ export default function Home() {
             {/* Background Image (Replace with your actual image path or Next/Image) */}
             <div
               className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{ backgroundImage: 'url("/aviation.png")' }}
+              style={{ backgroundImage: 'url("/aviation2.png")' }}
             />
 
             {/* Card Content */}

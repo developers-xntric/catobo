@@ -42,7 +42,7 @@ export default function TechnologyPartners({ data, logoCount = 49, logosBasePath
         {/* Badge */}
         <div className="flex items-center gap-2 mb-6 bg-white border border-gray-200 px-4 py-2 rounded-full w-fit md:mx-auto">
           <span className="w-2 h-2 rounded-full bg-[#168DCA]" />
-          <span className="text-xs font-semibold text-black tracking-normal lg:tracking-wide">
+          <span className="text-xs font-medium text-black tracking-normal lg:tracking-wide">
             {badge}
           </span>
         </div>

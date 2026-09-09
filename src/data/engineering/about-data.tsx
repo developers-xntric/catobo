@@ -95,22 +95,22 @@ export const engineeringAboutData: AboutData = {
         steps: [
             {
                 title: "Integrated Engineering Expertise",
-                desc: "Each strategic project is thoughtfully planned and executed to solve specific client problems while providing more cost-effective solutions and maintenance as part of our step-by-step approach.",
+                desc: "From concept and design to supply, installation, commissioning, and certification, our multidisciplinary teams manage every stage with technical rigor and compliance at the core.",
                 icon: "/engr-solutions/about/1.png"
             },
             {
                 title: "Quality Without Compromise",
-                desc: "We focus on quality and reliability and strive for excellence in every aspect of our work, prioritizing the safety and performance of every system we deliver.",
+                desc: "We follow strict quality control processes and international standards to ensure reliability, safety, and durability across all systems we deliver.",
                 icon: "/engr-solutions/about/2.png"
             },
             {
                 title: "Long-Term Support & Reliability",
-                desc: "Our commitment to our clients and projects extends far beyond the completion stage. We provide sustained maintenance support and technical consultancy for long-term efficiency and peace of mind.",
+                desc: "Our commitment doesn’t end at project completion. We provide ongoing technical support, maintenance guidance, and upgrades to ensure systems perform efficiently over their lifecycle.",
                 icon: "/engr-solutions/about/3.png"
             },
             {
                 title: "Continuous Improvement",
-                desc: "Driven by innovation, we continuously evaluate and refine our processes, methods, and solutions to ensure that we meet and exceed our clients' ever-evolving needs.",
+                desc: "Driven by innovation and knowledge-sharing, we continuously refine our processes, adopt advanced technologies, and strengthen capabilities to meet evolving industry demands.",
                 icon: "/engr-solutions/about/4.png"
             }
         ]
@@ -144,6 +144,7 @@ export const engineeringAboutData: AboutData = {
                 designation: "CEO",
                 image: "/profile/user-3.png",
             },
-        ]
+        ],
+        buttonHref: "/engineering/testimonials",
     }
 };

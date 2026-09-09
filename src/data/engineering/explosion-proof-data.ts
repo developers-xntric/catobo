@@ -1,5 +1,142 @@
 import { ExplosionProofData } from '../types';
 
+export type ExplosionProofProductSection = {
+  id: string;
+  badge?: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  featuresHeading: string;
+  features: string[];
+  images: [string, string];
+};
+
+export type ExplosionProofFeatureCard = {
+  title: string;
+  description: string;
+};
+
+export const explosionProofIntro = {
+  badge: "Industrial Products & Explosion Proof Systems",
+  title: "Reliable Power Where Conditions Are Anything but Ordinary",
+  paragraphs: [
+    "Industrial environments demand equipment that performs consistently under heat, moisture, dust, mechanical stress and hazardous operating conditions.",
+    "Our industrial product range combines durable materials, proven connection technologies and certified protection systems to support safer, more efficient operations throughout the equipment lifecycle.",
+  ],
+  image: "/eps/figma-intro.png",
+};
+
+export const explosionProofIndustrialSection = {
+  id: "section-industrial-power",
+  badge: "Industrial Power Connection Systems",
+  title: "Dependable Connections for High-Demand Applications",
+  paragraphs: [
+    "Heavy-duty connectors, socket outlets and plug-in systems are engineered for demanding industrial environments and continuous operation.",
+    "Technologies including pilot-contact interlocking, lamellar contacts, multi-way connections and push-and-pull engagement help maintain consistent connection quality throughout the system's service life.",
+  ],
+  featuresHeading: "Engineered for Performance",
+  featureCards: [
+    { title: "Durable Construction", description: "Available in marine-grade aluminium or copper for demanding applications." },
+    { title: "Environmental Protection", description: "IP66 and IP67 options provide resistance against dust, dirt and water." },
+    { title: "Safe Operation", description: "Ergonomic designs engineered in accordance with applicable IEC 60079 requirements." },
+    { title: "Extreme Temperature Resistance", description: "Standard operating range from -40°C to 80°C, with extended options rated up to 400°C." },
+  ] satisfies ExplosionProofFeatureCard[],
+  image: "/eps/figma-industrial.png",
+  imageRowContent: {
+    badge: "Product Range",
+    title: "Solutions include:",
+    points: [
+      "Plugs and socket outlets — 16A, 32A, 63A and 125A",
+      "ATEX-certified plugs and sockets",
+      "Explosion-proof lighting",
+      "Portable and pendant lighting",
+      "Explosion-proof floodlights and signal devices",
+      "Junction boxes",
+      "Control stations",
+      "Cable glands",
+      "Explosion-proof connectors and socket outlets",
+    ],
+  },
+};
+
+export const explosionProofProductSections: ExplosionProofProductSection[] = [
+  {
+    id: "section-isolator",
+    title: "Isolator Switches",
+    subtitle: "Four Ranges. Different Environments. One Focus on Reliable Isolation.",
+    description: "Our isolator switch portfolio is engineered around different operating environments, electrical loads and safety requirements.",
+    featuresHeading: "",
+    features: [],
+    images: ["/eps/figma-isolator-2.png", "/eps/figma-isolator-1.png"],
+  },
+  {
+    id: "section-thermoplastic",
+    title: "Thermoplastic Range",
+    subtitle: "Reliable Isolation with Corrosion-Resistant Construction",
+    description: "A lightweight and corrosion-resistant solution for standard industrial applications requiring dependable and lockable electrical isolation.",
+    featuresHeading: "Key Features",
+    features: [
+      "Conforms to IEC/EN 60947-3",
+      "Available from 16A to 100A",
+      "Lockable switching",
+      "Full-rated AC3–AC23A switching category",
+      "Robust enclosure construction",
+    ],
+    images: ["/eps/figma-thermoplastic-2.png", "/eps/figma-thermoplastic-1.png"],
+  },
+  {
+    id: "section-metal-clad",
+    title: "Metal Clad Range",
+    subtitle: "Robust Isolation for More Demanding Installations",
+    description: "Constructed from die-cast aluminium alloy for applications requiring greater mechanical strength and environmental protection.",
+    featuresHeading: "Key Features",
+    features: [
+      "Conforms to EN 60947-3 and EN 60529",
+      "Available from 16A to 100A",
+      "Die-cast aluminium alloy construction",
+      "Door-interlocked operation",
+      "Full-rated AC23A switching",
+      "Modular construction",
+      "Padlockable design",
+    ],
+    images: ["/eps/figma-metal-clad-2.png", "/eps/figma-metal-clad-1.png"],
+  },
+  {
+    id: "section-fire-rated",
+    title: "Fire Rated Range",
+    subtitle: "Electrical Isolation Engineered for Critical Fire Conditions",
+    description: "A fire-rated F400 isolator switch built in aluminium alloy for installations where continued performance under extreme temperatures is essential.",
+    featuresHeading: "Key Features",
+    features: [
+      "Conforms to EN 60947-3 / EN 12101-3",
+      "Rated to 400°C for 120 minutes",
+      "Available from 16A to 200A",
+      "High-visibility operating handle",
+      "Full-rated AC3–AC23A category",
+      "Customisable entry flanges",
+    ],
+    images: ["/eps/figma-fire-rated-2.png", "/eps/figma-fire-rated-1.png"],
+  },
+  {
+    id: "section-switch-fuses",
+    title: "Switch Fuses & Switch Disconnectors",
+    subtitle: "High-Capacity Isolation with Flexible Protection Options",
+    description: "Heavy-duty switch disconnectors and fused switch disconnectors engineered for industrial power distribution requirements.",
+    featuresHeading: "Key Features",
+    features: [
+      "Mild-steel construction",
+      "Conforms to IEC 60947-3",
+      "IP65 enclosure",
+      "Steel or GRP enclosure options",
+      "Fully rated to AC-23A",
+      "Padlockable operation",
+      "Interlocked door",
+      "Available from 32A to 630A",
+    ],
+    images: ["/eps/figma-switch-fuses-2.png", "/eps/figma-switch-fuses-1.png"],
+  },
+];
+
 export const engineeringExplosionProofData: ExplosionProofData = {
   hero: {
     title: "Industrial Products / Explosion Proof Systems",
@@ -12,101 +149,14 @@ export const engineeringExplosionProofData: ExplosionProofData = {
   sidebar: {
     title: "Explosion Proof Systems",
     items: [
-      { label: "Industrial Products", hasArrow: true },
+      { label: "Overview", hasArrow: true },
+      { label: "Industrial Power Connection Systems", hasArrow: true },
+      { label: "Isolator Switches", hasArrow: true },
       { label: "Thermoplastic Range", hasArrow: true },
       { label: "Metal Clad Range", hasArrow: true },
       { label: "Fire Rated Range", hasArrow: true },
       { label: "Switch Fuses & Switch Disconnectors", hasArrow: true },
     ],
   },
-  sections: [
-    {
-      title: "Industrial Products / Explosion Proof Systems",
-      paragraphs: [
-        "Catobo supply high quality, heavy-duty industrial power connectors, power units and automatic plug-in systems for applications worldwide. Technologies that help customers improve safety, reduce environmental impact and operate more efficiently. Our connectors are used in many heavy industries for all kinds of electrification purposes.",
-        "Our connectors feature a variety of cutting-edge technologies that ensure optimal performance throughout products lifetime. These features include electrical interlocking of pilot contacts, lamellar, Multi-Way Technology, and Push & Pull systems. All connectors are IP 66 protected, and have a standard maximum operating temperature of 80°C – which can be extended to withstand temperatures of up to 400°C",
-      ],
-      points: [
-        "High quality and durable (Marine grade aluminium or copper)",
-        "Dust, dirt and waterproof resulting in low maintenance (IP66, IP67)",
-        "Safe to use (Ergonomic design, IEC 60079)",
-        "Unlikely to freeze or melt (-40-80C, option up to 400C)",
-        "Multi-way technology (Extra tight connection between male and female poles)",
-        "Plugs / Socket outlets 16-32-63-125 amps.",
-        "Reefer Points",
-        "Plugs / Sockets outlets 200-250-320-400 amps",
-        "Atex certified plugs / sockets , lighting and small devices.",
-        "Ex-Light fittings – Portable, Pendant , Flood-lights ,Signals",
-        "Ex-Terminal boxes , Junction boxes , Control Stations ,Glands",
-        "Ex-Connectors , Socket outlets",
-        "Isolator Switches",
-      ],
-      images: [
-        { src: "/eps/1.png", alt: "Industrial shipping containers" },
-        { src: "/eps/2.png", alt: "Connector schematic", className: "mix-blend-multiply" },
-      ],
-      pdfLinks: [
-        { label: "View Isolator Switches PDF" },
-      ],
-    },
-    {
-      title: "Thermoplastic Range",
-      points: [
-        "Conformity to IEC/EN 60947-3",
-        "Wide Range from 16A to 100A",
-        "Lockable Switch Full rated AC3 – AC23A switching category",
-        "Robust and wide enclosure",
-      ],
-      images: [
-        { src: "/eps/3.png", alt: "Electrical maintenance" },
-        { src: "/eps/4.png", alt: "Thermoplastic isolator", className: "mix-blend-multiply" },
-      ],
-    },
-    {
-      title: "Metal Clad Range",
-      points: [
-        "Conformity to EN 60947-3 EN60529",
-        "Wide Range from 16A to 125A",
-        "die cast aluminium alloy",
-        "Full rated AC23A switching category",
-        "Modular Construction",
-        "Padlock able and door interlocked",
-      ],
-      images: [
-        { src: "/eps/5.png", alt: "Industrial panel" },
-        { src: "/eps/6.png", alt: "Metal clad plugs", className: "mix-blend-multiply" },
-      ],
-    },
-    {
-      title: "Fire Rated Range",
-      points: [
-        "Fire rated F400 isolator switch in aluminium alloy.",
-        "Conformity to EN 60947-3 / EN12101-3 (400°C for 120 minutes)",
-        "Wide Range from 16A to 200A",
-        "High visibility handle",
-        "Full rated AC3-AC23A category",
-        "Customisable entry flanges",
-      ],
-      images: [
-        { src: "/eps/7.png", alt: "Wire installation" },
-        { src: "/eps/8.png", alt: "Fire rated switch" },
-      ],
-    },
-    {
-      title: "Switch Fuses & Switch Disconnectors",
-      points: [
-        "Switch Disconnector or Fused Switch Disconnector in Mild Steel.",
-        "Conformity to IEC60947-3",
-        "Robust and wide IP65 Enclosures",
-        "Fully rated to AC-23A category",
-        "Pad lockable and interlocked door",
-        "In Steel or GRP Enclosure Options.",
-        "Wide Range 32A – 630A",
-      ],
-      images: [
-        { src: "/eps/9.png", alt: "Industrial site" },
-        { src: "/eps/10.png", alt: "Switch disconnectors", className: "mix-blend-multiply" },
-      ],
-    },
-  ],
+  sections: [],
 };

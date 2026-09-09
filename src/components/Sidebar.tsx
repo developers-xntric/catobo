@@ -10,6 +10,7 @@ interface SidebarItem {
 interface SidebarProps {
     title?: string;
     items?: SidebarItem[];
+    sectionIds?: string[];
 }
 
 const defaultItems: SidebarItem[] = [
@@ -18,7 +19,7 @@ const defaultItems: SidebarItem[] = [
     { label: "Surge Protection Devices", hasArrow: true },
 ];
 
-export function Sidebar({ title = "Lightning Protection", items = defaultItems }: SidebarProps) {
+export function Sidebar({ title = "Lightning Protection", items = defaultItems, sectionIds }: SidebarProps) {
     const [active, setActive] = useState(0);
 
     return (
@@ -35,9 +36,9 @@ export function Sidebar({ title = "Lightning Protection", items = defaultItems }
                         <button
                             onClick={() => {
                                 setActive(i);
-                                document.getElementById(`section-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                                document.getElementById(sectionIds?.[i] ?? `section-${i}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
                             }}
-                            className={`w-full text-left flex items-center justify-between px-5 py-4 rounded-xl border transition-all ${active === i
+                            className={`w-full text-left flex items-center justify-between px-4 py-3 2xl:px-5 2xl:py-4 rounded-xl border transition-all ${active === i
                                 ? "border-transparent shadow-md"
                                 : "border-[#E8E8E8] hover:border-gray-300"
                                 }`}
@@ -49,7 +50,7 @@ export function Sidebar({ title = "Lightning Protection", items = defaultItems }
                             }}
                         >
                             <span
-                                className={`text-[0.95rem] leading-snug font-normal font-raleway tracking-wide pr-4 whitespace-pre-line ${active === i ? "text-white" : "text-[#1a1a1a]"
+                                className={`text-[12px] md:text-[0.95rem] leading-snug font-normal font-raleway tracking-wide pr-4 whitespace-pre-line ${active === i ? "text-white" : "text-[#1a1a1a]"
                                     }`}
                             >
                                 {item.label}

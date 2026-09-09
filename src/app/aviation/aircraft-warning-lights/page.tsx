@@ -572,10 +572,10 @@ export default function SolutionAviationObstructionLighting() {
   return (
     <div>
       <DynamicHero
-        title={"Aviation Obstruction Lighting"}
+        title={"Aircraft Warning Lights"}
         breadcrumbs={[
           { label: "Home", href: "/" },
-          { label: "Aviation Obstruction Lighting" },
+          { label: "Aircraft Warning Lights" },
         ]}
         backgroundImage="/acs.png"
       />
@@ -583,7 +583,7 @@ export default function SolutionAviationObstructionLighting() {
         <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
           <div className="flex flex-col lg:flex-row gap-5 items-start">
             <Sidebar
-              title="Aviation Obstruction Lighting"
+              title=""
               groups={sidebarGroups}
             />
             <MainContent />

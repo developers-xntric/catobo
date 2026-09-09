@@ -1,48 +1,13 @@
 import { ContactData } from '../types';
+import { Mail, Phone } from "lucide-react";
 
 
 function PhoneIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <g clipPath="url(#clip0_3115_17565)">
-        <mask id="mask0_3115_17565" style={{ maskType: "luminance" }} x="0" y="0" width="24" height="24">
-          <path d="M24 0H0V24H24V0Z" fill="white" />
-        </mask>
-        <g mask="url(#mask0_3115_17565)">
-          <path d="M20 11.03V17C20 21 19 22 15 22H9C5 22 4 21 4 17V7C4 3 5 2 9 2H15C19 2 20 3 20 7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M14 5.5H10" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M12.0012 19.1C12.8572 19.1 13.5512 18.406 13.5512 17.55C13.5512 16.694 12.8572 16 12.0012 16C11.1452 16 10.4512 16.694 10.4512 17.55C10.4512 18.406 11.1452 19.1 12.0012 19.1Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </g>
-      </g>
-      <defs>
-        <clipPath id="clip0_3115_17565">
-          <rect width="24" height="24" fill="white" />
-        </clipPath>
-      </defs>
-    </svg>
-  );
+  return <Phone width={20} height={20} strokeWidth={1.8} color="white" aria-hidden="true" />;
 }
 
 function EmailIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-      <g clipPath="url(#clip0_3115_17579)">
-        <mask id="mask0_3115_17579" style={{ maskType: "luminance" }} x="0" y="0" width="24" height="24">
-          <path d="M24 0H0V24H24V0Z" fill="white" />
-        </mask>
-        <g mask="url(#mask0_3115_17579)">
-          <path d="M20 11.03V17C20 21 19 22 15 22H9C5 22 4 21 4 17V7C4 3 5 2 9 2H15C19 2 20 3 20 7" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M14 5.5H10" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M12.0012 19.1C12.8572 19.1 13.5512 18.406 13.5512 17.55C13.5512 16.694 12.8572 16 12.0012 16C11.1452 16 10.4512 16.694 10.4512 17.55C10.4512 18.406 11.1452 19.1 12.0012 19.1Z" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-        </g>
-      </g>
-      <defs>
-        <clipPath id="clip0_3115_17579">
-          <rect width="24" height="24" fill="white" />
-        </clipPath>
-      </defs>
-    </svg>
-  );
+  return <Mail width={22} height={22} strokeWidth={1.8} color="white" aria-hidden="true" />;
 }
 
 function LocationIcon() {

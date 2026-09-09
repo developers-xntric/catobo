@@ -149,7 +149,7 @@ export interface CableTrunkingData {
         title: string;
         items: SidebarItem[];
     };
-    sections: ContentSection[];
+    sections?: ContentSection[];
 }
 
 export interface ContactData {

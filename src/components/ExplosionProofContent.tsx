@@ -1,128 +1,153 @@
 "use client";
 
-import React from "react";
-import { CheckIcon } from "@/components/common/CheckIcon";
-import { ViewPDFLink } from "@/components/common/ViewPDFLink";
-import { ExplosionProofData, ContentSection } from "@/data/types";
+import Image from "next/image";
+import { Check } from "lucide-react";
+import { ExplosionProofData } from "@/data/types";
+import {
+  explosionProofIndustrialSection,
+  explosionProofIntro,
+  explosionProofProductSections,
+  ExplosionProofProductSection,
+} from "@/data/engineering/explosion-proof-data";
 
 interface ExplosionProofContentProps {
-    data: ExplosionProofData;
+  data: ExplosionProofData;
 }
 
-function renderSection(section: ContentSection, index: number, isLast: boolean) {
-    const isFirst = index === 0;
-    const hasTwoImages = section.images?.length === 2;
-    const sectionClass = isLast ? "mb-10" : "mb-16";
-
-    return (
-        <section key={index} id={`section-${index}`} className={sectionClass}>
-            {isFirst ? (
-                <h1 className="text-[32px] font-medium text-black mb-5 leading-tight tracking-wide">
-                    {section.title}
-                </h1>
-            ) : (
-                <h2 className="text-[28px] font-medium text-black mb-6 leading-tight tracking-wide">
-                    {section.title}
-                </h2>
-            )}
-
-            {section.paragraphs && (
-                <div className="space-y-5 mb-8">
-                    {section.paragraphs.map((p, i) => (
-                        <p key={i} className="text-md text-[#636363] leading-[1.7]">
-                            {p}
-                        </p>
-                    ))}
-                </div>
-            )}
-
-            {isFirst && (
-                <>
-                    <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4 mb-8">
-                        {section.images && section.images.length >= 1 && (
-                            <div className="rounded-xl overflow-hidden bg-gray-100 h-76">
-                                <img
-                                    src={section.images[0].src}
-                                    alt={section.images[0].alt}
-                                    className={`w-full h-full object-cover${section.images[0].className ? " " + section.images[0].className : ""}`}
-                                />
-                            </div>
-                        )}
-                        {section.images && section.images.length >= 2 && (
-                            <div className="rounded-xl overflow-hidden bg-[#EFEFEF] h-76 flex items-center justify-center">
-                                <img
-                                    src={section.images[1].src}
-                                    alt={section.images[1].alt}
-                                    className={`w-full h-full object-cover${section.images[1].className ? " " + section.images[1].className : ""}`}
-                                />
-                            </div>
-                        )}
-                    </div>
-
-                    {section.points && (
-                        <>
-                            <h3 className="text-[24px] font-medium text-black mb-4 tracking-wide">
-                                Features:
-                            </h3>
-                            <div className="space-y-3.5">
-                                {section.points.map((point, i) => (
-                                    <div key={i} className="flex items-start gap-3">
-                                        <CheckIcon />
-                                        <span className="text-md text-[#636363] leading-relaxed">{point}</span>
-                                    </div>
-                                ))}
-                                {section.pdfLinks && section.pdfLinks.map((link, i) => (
-                                    <div key={i} className="flex items-start gap-3">
-                                        <CheckIcon />
-                                        <span className="text-md text-[#636363] leading-relaxed">
-                                            Isolator Switches – <ViewPDFLink label={link.label} />
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        </>
-                    )}
-                </>
-            )}
-
-            {!isFirst && section.points && (
-                <div className="space-y-3.5 mb-6">
-                    {section.points.map((point, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                            <CheckIcon />
-                            <span className="text-md text-[#636363] leading-relaxed">{point}</span>
-                        </div>
-                    ))}
-                </div>
-            )}
-
-            {hasTwoImages && !isFirst && (
-                <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-4">
-                    {section.images!.map((img, i) => {
-                        const hasBlend = img.className?.includes("mix-blend-multiply");
-                        return (
-                            <div
-                                key={i}
-                                className={`rounded-xl overflow-hidden h-76${hasBlend ? " bg-[#EFEFEF] flex items-center justify-center" : " bg-gray-100"}${i === 1 && !hasBlend ? " bg-gray-100" : ""}`}
-                            >
-                                <img
-                                    src={img.src}
-                                    alt={img.alt}
-                                    className={`w-full h-full object-cover${img.className ? " " + img.className : ""}`}
-                                />
-                            </div>
-                        );
-                    })}
-                </div>
-            )}
-        </section>
-    );
+function Badge({ children }: { children: string }) {
+  return (
+    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-black/10 px-4 py-2 text-[10px] text-black md:text-[12px]">
+      <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-[#168DCA] to-[#0F2453]" />
+      {children}
+    </div>
+  );
 }
 
-export default function ExplosionProofContent({ data }: ExplosionProofContentProps) {
-    return (
-        <div className="flex-1 min-w-0 max-w-240">
-            {data.sections.map((section, index) => renderSection(section, index, index === data.sections.length - 1))}
+function FeatureList({ features }: { features: string[] }) {
+  return (
+    <div className={`grid gap-x-8 gap-y-2 ${features.length > 3 ? "sm:grid-cols-2" : "grid-cols-1"}`}>
+      {features.map((feature) => (
+        <div key={feature} className="flex items-start gap-3 text-[14px] leading-relaxed text-[#636363]">
+          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[#1475AF] bg-white">
+            <Check className="h-3 w-3 text-[#1475AF]" strokeWidth={2.5} />
+          </span>
+          <span>{feature}</span>
         </div>
-    );
+      ))}
+    </div>
+  );
+}
+
+function ProductSection({ section }: { section: ExplosionProofProductSection }) {
+  return (
+    <section id={section.id} className="mb-10 scroll-mt-8">
+      <h2 className="mb-3 text-[28px] font-medium leading-tight tracking-wide text-black 2xl:text-[32px]">
+        {section.title}
+      </h2>
+      <h3 className="mb-2 text-[16px] font-medium leading-tight tracking-wide text-black 2xl:text-[20px]">
+        {section.subtitle}
+      </h3>
+      <p className="mb-5 text-[14px] leading-[1.78] text-[#636363]">{section.description}</p>
+
+      {section.features.length > 0 && (
+        <div className="mb-8">
+          {section.featuresHeading && (
+            <h4 className="mb-4 text-[22px] font-medium tracking-wide text-black 2xl:text-[25px]">
+              {section.featuresHeading}
+            </h4>
+          )}
+          <FeatureList features={section.features} />
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-[5fr_3fr]">
+        <div className="relative h-64 overflow-hidden rounded-[8px] md:rounded-[14px] bg-[#F0F0F0] sm:h-72 md:h-[367px]">
+          <Image src={section.images[0]} alt={`${section.title} installation`} fill className="object-cover" sizes="(min-width: 768px) 62vw, 90vw" />
+        </div>
+        <div className="relative h-64 overflow-hidden rounded-[8px] md:rounded-[14px] bg-[#E6E6E6] sm:h-72 md:h-[367px]">
+          <Image src={section.images[1]} alt={`${section.title} product`} fill className="object-cover mix-blend-multiply" sizes="(min-width: 768px) 38vw, 90vw" />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function IndustrialPowerSection() {
+  return (
+    <section id={explosionProofIndustrialSection.id} className="mb-16 scroll-mt-8">
+      <div className="grid items-start gap-8 xl:grid-cols-[1.02fr_0.8fr]">
+        <div>
+          <Badge>{explosionProofIndustrialSection.badge}</Badge>
+          <h2 className="mb-4 text-[28px] font-medium leading-tight tracking-wide text-black 2xl:text-[32px]">
+            {explosionProofIndustrialSection.title}
+          </h2>
+          <div className="space-y-4 text-[14px] leading-[1.78] text-[#636363]">
+            {explosionProofIndustrialSection.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          </div>
+        </div>
+        <div>
+          <h3 className="mb-4 text-[18px] font-medium tracking-wide text-black 2xl:text-[20px]">
+            {explosionProofIndustrialSection.featuresHeading}
+          </h3>
+          <div className="space-y-2">
+            {explosionProofIndustrialSection.featureCards.map((card) => (
+              <div key={card.title} className="rounded-[10px] bg-[#F3F3F3] p-3">
+                <h4 className="text-[14px] font-medium text-black">{card.title}</h4>
+                <p className="mt-1 text-[11px] leading-relaxed text-[#636363]">{card.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-8 grid items-stretch gap-8 xl:grid-cols-[1.02fr_0.8fr]">
+        <div className="relative min-h-[320px] w-full self-stretch overflow-hidden rounded-[14px] bg-[#E6E6E6] ">
+          <Image src={explosionProofIndustrialSection.image} alt="Industrial power connection systems" fill className="object-cover" sizes="(min-width: 1280px) 48vw, 90vw" />
+        </div>
+        <div>
+          <Badge>{explosionProofIndustrialSection.imageRowContent.badge}</Badge>
+          <h2 className="mb-4 text-[28px] font-medium leading-tight tracking-wide text-black 2xl:text-[32px]">
+            {explosionProofIndustrialSection.imageRowContent.title}
+          </h2>
+          <div className="space-y-2 md:space-y-3.5 text-[13px] md:text-[14px] leading-relaxed text-[#636363]">
+            {explosionProofIndustrialSection.imageRowContent.points.map((point) => (
+              <div key={point} className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-[#1475AF] bg-white">
+                  <Check className="h-3 w-3 text-[#1475AF]" strokeWidth={2.5} />
+                </span>
+                <span>{point}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+export default function ExplosionProofContent({ data }: ExplosionProofContentProps) {
+  void data;
+
+  return (
+    <div className="min-w-0 max-w-240 flex-1 mt-7 md:mt-0">
+      <section id="section-0" className="mb-16 scroll-mt-8">
+        <div className="grid items-stretch gap-7 xl:grid-cols-[1.02fr_1fr]">
+          <div className="relative order-2 min-h-[320px] overflow-hidden rounded-[15px] bg-gray-100 xl:order-1 xl:min-h-0">
+            <Image src={explosionProofIntro.image} alt="Industrial explosion proof systems" fill priority className="object-cover" sizes="(min-width: 1280px) 48vw, 90vw" />
+          </div>
+          <div className="order-1 xl:order-2">
+            <Badge>{explosionProofIntro.badge}</Badge>
+            <h1 className="mb-5 text-[28px] font-medium leading-tight tracking-wide text-black 2xl:text-[32px]">
+              {explosionProofIntro.title}
+            </h1>
+            <div className="space-y-4 text-[14px] leading-[1.78] text-[#636363]">{explosionProofIntro.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
+          </div>
+        </div>
+      </section>
+
+      <IndustrialPowerSection />
+      {explosionProofProductSections.map((section) => (
+        <ProductSection key={section.id} section={section} />
+      ))}
+    </div>
+  );
 }

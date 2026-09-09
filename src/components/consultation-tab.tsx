@@ -47,7 +47,7 @@ const tabsData: TabContent[] = [
       'Safe helicopter operations depend on reliable visual guidance. Catobo designs, supplies, installs, and commissions complete heliport and vertiport lighting systems, including perimeter lights, floodlights, illuminated wind cones, approach lighting, HAPI systems, and control panels. Our lighting solutions are selected for long service life, low maintenance, and dependable performance. Every installation is designed to meet international aviation standards and operational requirements.',
     image: '/vertiport-lighting-systems.png',
      primaryBtnText: 'Explore More',
-    primaryBtnHref: '/aviation/helideck-and-helipad-lighting-systems',
+    primaryBtnHref: '/aviation/heliport-and-vertiport-lighting-solutions',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
@@ -69,7 +69,7 @@ const tabsData: TabContent[] = [
       'Catobo delivers complete airfield lighting solutions for airports, military airbases, private airfields, and aviation facilities. Our expertise includes runway, taxiway, apron, and approach lighting systems, together with control and monitoring solutions. Every system is engineered to provide maximum reliability, operational efficiency, and regulatory compliance. From design and supply to installation, testing, commissioning, and maintenance, we offer complete lifecycle support. Our turnkey approach ensures safe and efficient aircraft operations in all conditions.',
     image: '/aviation/AirfieldLightingSystems.png',
     primaryBtnText: 'Explore More',
-    primaryBtnHref: '/aviation/helideck-and-helipad-lighting-systems',
+    primaryBtnHref: '/aviation/airfield-lighting',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
