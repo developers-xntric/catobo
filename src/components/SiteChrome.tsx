@@ -17,7 +17,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
     <>
       <Navbar />
       {children}
-      <Footer />
+      {!pathname.startsWith("/sustainability") && <Footer />}
     </>
   );
 }

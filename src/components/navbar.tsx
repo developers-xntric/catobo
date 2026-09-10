@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
+import SolutionsMenu, { solutionLinks } from "./SolutionsMenu";
 
 interface SubItem {
   label: string;
@@ -117,178 +118,6 @@ const AVIATION_NAV_ITEMS: NavItem[] = [
   { label: "Contact Us", href: "/aviation/contact" },
 ];
 
-const ExpandableRow = memo(function ExpandableRow({
-  item,
-  isSimpleList,
-  isOpen,
-  onToggle,
-  onHover,
-  onClose,
-}: {
-  item: ContentItem;
-  isSimpleList: boolean;
-  isOpen?: boolean;
-  onToggle?: () => void;
-  onHover?: (item: ContentItem) => void;
-  onClose?: () => void;
-}) {
-  const [internalOpen, setInternalOpen] = useState(false);
-  const isCurrentlyOpen = isOpen !== undefined ? isOpen : internalOpen;
-  const handleToggle = onToggle || (() => setInternalOpen(!internalOpen));
-  const hasSubItems = item.subItems && item.subItems.length > 0;
-
-  if (isSimpleList) {
-    return (
-      <Link
-        href={item.href ?? "#"}
-        onMouseEnter={() => onHover && onHover(item)}
-        onClick={() => onClose && onClose()}
-        className="group flex justify-between items-center gap-2 px-3 py-2 text-xs text-[#333333] hover:text-[#133066] hover:bg-blue-50 rounded-md transition-colors duration-150 font-medium"
-      >
-        {item.heading}
-        <ArrowRight className="w-3 h-3 shrink-0 scale-0 group-hover:scale-100 transition-transform duration-300" />
-      </Link>
-    );
-  }
-
-  return (
-    <div className="border-b border-gray-100 last:border-0 p-1">
-      <div
-        className={`rounded-xl transition-all duration-300 ${isCurrentlyOpen ? "bg-blue-50/80 pb-2" : ""}`}
-      >
-        <button
-          onClick={() => hasSubItems && handleToggle()}
-          onMouseEnter={() => onHover && onHover(item)}
-          className={`w-full flex items-center font-bold text-xs justify-between px-3 py-2.5 rounded-xl transition-colors duration-150 ${isCurrentlyOpen
-              ? "text-[#133066]"
-              : "text-[#333333] hover:text-[#133066] hover:bg-gray-50"
-            } ${hasSubItems ? "cursor-pointer" : "cursor-default"}`}
-        >
-          <span>{item.heading}</span>
-          {hasSubItems && (
-            <svg
-              className={`w-3.5 h-3.5 text-[#333333] transition-transform duration-200 ${isCurrentlyOpen ? "rotate-180" : ""}`}
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2.5}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          )}
-        </button>
-        {isCurrentlyOpen && hasSubItems && (
-          <ul className="px-2 space-y-1">
-            {item.subItems!.map((sub) => (
-              <li key={sub.label}>
-                <Link
-                  href={sub.href ?? "#"}
-                  onClick={() => onClose && onClose()}
-                  className="group flex justify-between items-center gap-2 px-3 py-1.5 text-[11.5px] rounded-lg text-[#133066] hover:bg-white transition-all duration-200"
-                >
-                  {sub.label}
-                  <ArrowRight className="w-3 h-3 shrink-0 scale-0 group-hover:scale-100 transition-transform duration-300" />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </div>
-  );
-});
-
-ExpandableRow.displayName = "ExpandableRow";
-
-const DropdownPanel = memo(function DropdownPanel({
-  dropdown,
-  isSimpleList,
-  onClose,
-}: {
-  dropdown: NonNullable<NavItem["dropdown"]>;
-  isSimpleList: boolean;
-  onClose?: () => void;
-}) {
-  const [openSubItem, setOpenSubItem] = useState<string | null>(null);
-  const [currentImage, setCurrentImage] = useState(
-    !isSimpleList && dropdown.items.length > 0 && dropdown.items[0].hoverImage
-      ? dropdown.items[0].hoverImage
-      : dropdown.image,
-  );
-
-  useEffect(() => {
-    if (!isSimpleList && dropdown.items.length > 0) {
-      setOpenSubItem(null);
-      setCurrentImage(dropdown.items[0].hoverImage || dropdown.image);
-    } else {
-      setOpenSubItem(null);
-      setCurrentImage(dropdown.image);
-    }
-  }, [dropdown, isSimpleList]);
-
-  const handleHover = useCallback((item: ContentItem) => {
-    if (item.hoverImage) setCurrentImage(item.hoverImage);
-  }, []);
-
-  return (
-    <div className="absolute top-full left-full -translate-x-1/2 pt-3 w-110 z-50 animate-dropdown">
-      <div className="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden p-2">
-        <div className="flex items-stretch">
-          <div className="relative w-45 shrink-0 overflow-hidden rounded-[10px]">
-            <Image
-              src={currentImage}
-              alt={dropdown.imageAlt}
-              fill
-              sizes="180px"
-              className="object-cover transition-all duration-500 ease-in-out"
-              loading="eager"
-              priority
-            />
-          </div>
-          <div className="flex-1 px-4 overflow-y-auto max-h-125 custom-scrollbar">
-            {isSimpleList ? (
-              <div className="space-y-1 border-2 border-[#F5F5F5] rounded-[10px]">
-                {dropdown.items.map((item) => (
-                  <ExpandableRow
-                    key={item.heading}
-                    item={item}
-                    isSimpleList={true}
-                    onHover={handleHover}
-                    onClose={onClose}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="divide-y divide-gray-100 border-2 border-[#F5F5F5] rounded-[10px]">
-                {dropdown.items.map((item) => (
-                  <ExpandableRow
-                    key={item.heading}
-                    item={item}
-                    isSimpleList={false}
-                    isOpen={openSubItem === item.heading}
-                    onToggle={() =>
-                      setOpenSubItem(
-                        openSubItem === item.heading ? null : item.heading,
-                      )
-                    }
-                    onHover={handleHover}
-                    onClose={onClose}
-                  />
-                ))}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-});
-
-DropdownPanel.displayName = "DropdownPanel";
 
 const MobileMenu = memo(function MobileMenu({
   open,
@@ -302,27 +131,27 @@ const MobileMenu = memo(function MobileMenu({
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
   const [expandedSubIdx, setExpandedSubIdx] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!open) {
-      setExpandedIdx(null);
-      setExpandedSubIdx(null);
-    }
-  }, [open]);
+  const handleClose = () => {
+    setExpandedIdx(null);
+    setExpandedSubIdx(null);
+    onClose();
+  };
 
   return (
     <>
       <div
         className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
-        onClick={onClose}
+        onClick={handleClose}
       />
       <div
         id="mobile-menu"
-        className={`fixed top-0 right-0 h-full w-80 bg-[#1e2533] text-white z-50 overflow-y-auto transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"}`}
+        inert={!open}
+        className={`fixed top-0 right-0 h-full w-80 max-w-full bg-[#1e2533] text-white z-50 overflow-y-auto transition-transform duration-300 ${open ? "translate-x-0" : "translate-x-full"}`}
       >
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/10">
           <span className="font-bold text-base tracking-wide">Menu</span>
           <button
-            onClick={onClose}
+            onClick={handleClose}
             className="p-1.5 rounded-md hover:bg-white/10 transition-colors"
             aria-label="Close menu"
           >
@@ -403,7 +232,7 @@ const MobileMenu = memo(function MobileMenu({
                                   <li key={sub.label}>
                                     <Link
                                       href={sub.href ?? "#"}
-                                      onClick={onClose}
+                                      onClick={handleClose}
                                       className="group flex justify-between items-center gap-2 text-[11.5px] pr-1.5 text-gray-400 hover:text-white py-1 transition-colors"
                                     >
                                       {sub.label}
@@ -418,7 +247,7 @@ const MobileMenu = memo(function MobileMenu({
                           <Link
                             key={di.heading}
                             href={di.href ?? "#"}
-                            onClick={onClose}
+                            onClick={handleClose}
                             className="group flex justify-between items-center gap-2 py-2 text-[13px] text-gray-300 hover:text-white transition-colors"
                           >
                             {di.heading}
@@ -432,7 +261,7 @@ const MobileMenu = memo(function MobileMenu({
               ) : (
                 <Link
                   href={item.href ?? "#"}
-                  onClick={onClose}
+                  onClick={handleClose}
                   className="block px-3 py-3 text-sm font-semibold rounded-lg hover:bg-white/10 transition-colors"
                 >
                   {item.label}
@@ -451,7 +280,21 @@ MobileMenu.displayName = "MobileMenu";
 export default function Navbar() {
   const pathname = usePathname();
   const isAviation = pathname?.startsWith("/aviation") ?? false;
-  const navItems = isAviation ? AVIATION_NAV_ITEMS : NAV_ITEMS;
+  const isSustainability = pathname?.startsWith("/sustainability") ?? false;
+  const navItems: NavItem[] = isSustainability ? [
+    { label: "Overview", href: "/sustainability#overview" },
+    { label: "Solutions", href: "/sustainability#systems" },
+    { label: "Savings Calculator", href: "/sustainability#savings" },
+    { label: "Emissions Calculator", href: "/sustainability#emissions" },
+    { label: "Live Impact", href: "/sustainability#impact" },
+    { label: "Contact", href: "/sustainability#contact" },
+  ] : (isAviation ? AVIATION_NAV_ITEMS : NAV_ITEMS).map(item => item.dropdown ? {
+    ...item, dropdown: { ...item.dropdown, items: [
+      ...solutionLinks.map(solution => ({ heading: solution.label, href: solution.href })),
+      { heading: "Sustainability Solutions", href: "/sustainability" },
+    ] },
+  } : item);
+  const contactHref = isSustainability ? "/sustainability#contact" : isAviation ? "/aviation/contact" : "/engineering/contact";
 
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -509,7 +352,7 @@ export default function Navbar() {
         className="fixed top-4 left-0 right-0 z-50 bg-transparent transition-all duration-300"
       >
         <div
-          className={`2xl:max-w-350 w-[90%] mx-auto border ${scrolled ? "bg-[#168DCA]/50 backdrop-blur-xs text-white border-[#168DCA] shadow-md" : "border-gray-500/50 backdrop-blur-3xl"} rounded-[10px] px-3 transition-all duration-300`}
+          className={`relative 2xl:max-w-350 w-[90%] mx-auto border ${scrolled ? "bg-[#168DCA]/50 backdrop-blur-xs text-white border-[#168DCA] shadow-md" : "border-gray-500/50 backdrop-blur-3xl"} rounded-[10px] px-3 transition-all duration-300`}
         >
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="shrink-0 flex items-center gap-2 w-14 h-14">
@@ -522,14 +365,16 @@ export default function Navbar() {
               />
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-1">
+            <nav className="hidden xl:flex items-center gap-1">
               {navItems.map((item) => {
                 const hasDropdown = !!item.dropdown;
                 const isActive = activeDropdown === item.label;
                 return (
                   <div
                     key={item.label}
-                    className="relative"
+                    className="static"
+                    onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setActiveDropdown(null); }}
+                    onKeyDown={(event) => { if (event.key === "Escape") { setActiveDropdown(null); event.currentTarget.querySelector("button")?.focus(); } }}
                     onMouseEnter={() =>
                       hasDropdown && handleMouseEnter(item.label)
                     }
@@ -537,6 +382,8 @@ export default function Navbar() {
                   >
                     {hasDropdown ? (
                       <button
+                        aria-expanded={isActive}
+                        aria-controls="solutions-dropdown"
                         onClick={(e) => {
                           e.preventDefault();
                           setActiveDropdown(isActive ? null : item.label);
@@ -567,32 +414,28 @@ export default function Navbar() {
                       </Link>
                     )}
                     {hasDropdown && isActive && (
-                      <DropdownPanel
-                        dropdown={item.dropdown!}
-                        isSimpleList={!item.dropdown?.items.some(i => i.subItems && i.subItems.length > 0)}
-                        onClose={() => setActiveDropdown(null)}
-                      />
+                      <SolutionsMenu contactHref={contactHref} onClose={() => setActiveDropdown(null)} />
                     )}
                   </div>
                 );
               })}
             </nav>
 
-            <div className="hidden lg:block">
+            <div className="hidden xl:block">
               <Link
-                href={isAviation ? "/aviation/contact" : "/engineering/contact"}
+                href={contactHref}
                 className="relative inline-flex h-11 overflow-hidden rounded-[10px] p-0.5 focus:outline-none"
               >
                 <span className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2E8F0_20%,#0F2453_80%,#E2E8F0_100%)] pointer-events-none" />
                 <span className="inline-flex h-full w-full items-center justify-center rounded-[8px] bg-linear-to-r from-[#0F2453] to-[#168DCA] px-8 py-1 text-sm font-medium text-white backdrop-blur-3xl transition-all duration-300 hover:bg-transparent hover:text-white">
-                  Request a Quote
+                  {isSustainability ? "Let’s talk Sustainability" : "Request a Quote"}
                 </span>
               </Link>
             </div>
 
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2 rounded-lg transition-colors text-gray-300 hover:text-white hover:bg-white/10"
+              className="xl:hidden p-2 rounded-lg transition-colors text-gray-300 hover:text-white hover:bg-white/10"
               aria-label="Open menu"
               aria-controls="mobile-menu"
               aria-expanded={mobileOpen}
