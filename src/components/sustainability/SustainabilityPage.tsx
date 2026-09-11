@@ -355,8 +355,8 @@ export default function SustainabilityPage() {
             [
               "email",
               "Email",
-              "info@catobo.com",
-              "mailto:info@catobo.com",
+              "info@catobollc.com",
+              "mailto:info@catobollc.com",
             ],
             ["phone", "Phone", "+971 4 391 8018", "tel:+97143918018"],
             ["office", "Office", "Dubai, UAE", ""],
