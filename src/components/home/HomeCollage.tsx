@@ -29,7 +29,7 @@ function Tile({
         className={`object-cover ${imageClassName}`}
       />
       <div
-        className={`absolute flex min-h-[35px] items-center rounded-[10px] ${alignmentClass} border border-white bg-white/5 px-4 py-1 text-[11px] xl:text-[12px] leading-tight text-white backdrop-blur-[17px] md:min-h-[44px] md:text-[13px] ${labelClassName || "bottom-[5%]"}`}
+        className={`absolute  hidden md:flex min-h-[35px] items-center rounded-[10px] ${alignmentClass} border border-white bg-white/5 px-4 py-1 text-[11px] xl:text-[12px] leading-tight text-white backdrop-blur-[17px] md:min-h-[44px] md:text-[13px] ${labelClassName || "bottom-[5%]"}`}
       >
         {label}
       </div>

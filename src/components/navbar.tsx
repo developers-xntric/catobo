@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
-import SolutionsMenu, { solutionLinks } from "./SolutionsMenu";
+import SolutionsMenu, { aviationSolutionLinks, engineeringSolutionLinks } from "./SolutionsMenu";
 
 interface SubItem {
   label: string;
@@ -290,8 +290,7 @@ export default function Navbar() {
     { label: "Contact", href: "/sustainability#contact" },
   ] : (isAviation ? AVIATION_NAV_ITEMS : NAV_ITEMS).map(item => item.dropdown ? {
     ...item, dropdown: { ...item.dropdown, items: [
-      ...solutionLinks.map(solution => ({ heading: solution.label, href: solution.href })),
-      { heading: "Sustainability Solutions", href: "/sustainability" },
+      ...(isAviation ? aviationSolutionLinks : engineeringSolutionLinks).map(solution => ({ heading: solution.label, href: solution.href })),
     ] },
   } : item);
   const contactHref = isSustainability ? "/sustainability#contact" : isAviation ? "/aviation/contact" : "/engineering/contact";
@@ -414,7 +413,11 @@ export default function Navbar() {
                       </Link>
                     )}
                     {hasDropdown && isActive && (
-                      <SolutionsMenu contactHref={contactHref} onClose={() => setActiveDropdown(null)} />
+                      <SolutionsMenu
+                        contactHref={contactHref}
+                        links={isAviation ? aviationSolutionLinks : engineeringSolutionLinks}
+                        onClose={() => setActiveDropdown(null)}
+                      />
                     )}
                   </div>
                 );
