@@ -3,52 +3,25 @@ import { FaqsData } from '../types';
 export const aviationFaqsData: FaqsData = {
   hero: {
     title: "Aviation FAQs",
-    breadcrumbs: [
-      { label: "Home", href: "/" },
-      { label: "FAQs" },
-    ],
+    breadcrumbs: [{ label: "Home", href: "/" }, { label: "FAQs" }],
     backgroundImage: "/aviation/faq-aviation.png",
   },
   faqs: [
-    {
-      question: "What aviation standards do Catobo's airfield lighting systems comply with?",
-      answer: "Our airfield lighting systems are designed and manufactured to comply with ICAO Annex 14, FAA AC 150/5345, and local civil aviation authority regulations. We also adhere to IEC and ISO standards applicable to electrical and safety systems in aviation environments.",
-    },
-    {
-      question: "Do you provide heliport lighting for private helipads?",
-      answer: "Yes, we provide complete heliport lighting solutions for private residences, hospitals, hotels, and corporate facilities. Our systems include perimeter lights, touchdown/position lights, helideck status lights, and floodlighting – all compliant with international heliport standards.",
-    },
-    {
-      question: "What is the typical lead time for an airfield lighting project?",
-      answer: "Lead times vary depending on project scope and complexity. A standard runway lighting upgrade may take 8-12 weeks from design approval to installation. Larger greenfield airport projects can require 6-12 months. We provide a detailed project schedule during the proposal stage.",
-    },
-    {
-      question: "Do you offer maintenance and support after installation?",
-      answer: "Absolutely. We offer comprehensive maintenance contracts including periodic inspections, preventive maintenance, emergency call-out services, and spare parts supply. Our service team is available 24/7 for critical aviation infrastructure support.",
-    },
-    {
-      question: "What is the difference between ICAO and FAA airfield lighting standards?",
-      answer: "ICAO Annex 14 provides international standards for aerodrome design and operations, while FAA AC 150 series specifies standards for US airports. Key differences include color tolerances, intensity requirements, and guidance on system configuration. Our systems can be configured to meet either standard based on project location.",
-    },
-    {
-      question: "Can Catobo supply explosion proof equipment for airport fuel stations?",
-      answer: "Yes, we supply a full range of ATEX and IECEx certified explosion proof equipment for airport fuel farms, hydrant pits, and refueling areas. This includes lighting, junction boxes, control panels, and intrinsically safe instrumentation for Zone 0, 1, and 2 hazardous areas.",
-    },
-    {
-      question: "Do you provide lightning protection for ATC towers and radar installations?",
-      answer: "Yes, we specialize in lightning protection for tall aviation structures including control towers, radar masts, and communication antenna farms. Our designs follow IEC 62305 and include air termination systems, down conductors, surge protection, and low-impedance earthing networks.",
-    },
-    {
-      question: "What certificates and documentation do you provide with aviation projects?",
-      answer: "We provide comprehensive documentation including design reports, installation records, test certificates, material certifications, as-built drawings, and operation & maintenance manuals. For explosion proof equipment, we supply ATEX/IECEx certificates of conformity. All documentation is provided in digital and hard copy formats.",
-    },
-    {
-      question: "Do you offer training for airport maintenance teams?",
-      answer: "Yes, we provide on-site and classroom-based training for airport maintenance personnel. Training covers system operation, routine inspection procedures, troubleshooting, and safety protocols. Custom training programs can be developed to meet specific client requirements.",
-    },
-    {
-      question: "How do I request a quotation for an aviation project?",
-      answer: "You can contact our aviation team through the contact form on our website, email us at aviation@catobo.com, or call +971 4 123 4567. Please provide project details including location, scope of work, applicable standards, and any specific requirements for an accurate quotation.",
-    },
+    { question: "When should I involve Catobo in an aviation project?", answer: "Ideally, Catobo should be involved from the earliest stage of the project. Early aviation consultation helps establish the feasibility, operational requirements, applicable regulations, design criteria, authority approvals, and project interfaces before construction begins\u2014reducing costly changes later." },
+    { question: "Can Catobo support aviation authority approvals and certification?", answer: "Yes. Catobo can support the aviation regulatory process as part of the project, including technical submissions, coordination with the relevant authority, design compliance, inspections, and certification requirements. The applicable requirements depend on the location and type of aviation facility." },
+    { question: "Can Catobo design and construct a complete heliport or vertiport?", answer: "Yes. Catobo provides turnkey heliport and vertiport solutions, covering the project from engineering and design through construction, installation, testing, certification, and handover. Solutions can be developed for ground-level, elevated, rooftop, private, commercial, and other specialised applications." },
+    { question: "What standards are considered when developing a heliport or vertiport?", answer: "The applicable standards depend on the project location, aircraft type, facility classification, and intended operation. Catobo develops projects around the relevant international aviation standards, local civil aviation regulations, and project-specific requirements, coordinating with the applicable authority throughout the approval process." },
+    { question: "Why is specialised lighting required for a heliport or vertiport?", answer: "Heliport and vertiport lighting provide pilots with essential visual references during approach, landing, ground movement, and departure, particularly in reduced visibility or night operations. The lighting arrangement is designed around the facility layout, operational requirements, aircraft characteristics, and applicable aviation standards." },
+    { question: "Can Catobo design, supply, install, and maintain the complete lighting system?", answer: "Yes. Catobo provides an end-to-end approach covering lighting design, equipment selection, authority requirements, supply, installation, testing, commissioning, and ongoing maintenance. Where required, lighting controls can also be engineered for automatic operation, dimming, monitoring, and integration with the wider facility systems." },
+    { question: "What is different about an offshore helideck compared with a land-based helipad?", answer: "Offshore helidecks operate in a much more demanding environment, where aviation requirements must be considered alongside marine exposure, hazardous areas, structural limitations, weather conditions, accessibility, and operational continuity. Catobo brings these requirements together when engineering offshore aviation infrastructure." },
+    { question: "Can Catobo provide aviation solutions for hazardous-area offshore installations?", answer: "Yes. Catobo can develop aviation systems for offshore environments where specialised or Ex-rated equipment is required. Solutions are engineered around the installation's hazardous-area classification, applicable aviation requirements, environmental conditions, and authority requirements." },
+    { question: "What does an airfield lighting system include?", answer: "An airfield lighting system provides visual guidance and identification for aircraft operating on runways, taxiways, aprons, and associated movement areas. The exact system depends on the aerodrome layout, operational category, visibility requirements, and applicable aviation standards." },
+    { question: "Can Catobo upgrade or modify an existing airfield lighting system?", answer: "Yes. Catobo can support both new installations and existing airfield infrastructure, including system assessment, engineering, supply, installation, testing, commissioning, and maintenance. Upgrades can be developed around the existing infrastructure and operational requirements to minimise disruption." },
+    { question: "How do I know which type of aircraft warning light my structure needs?", answer: "The required system depends on factors such as structure height, location, surrounding airspace, environment, and applicable aviation authority requirements. Catobo assesses these factors and engineers the appropriate low-, medium-, or high-intensity system and configuration, including applicable Type A, B, C, AB, or AC arrangements." },
+    { question: "Does Catobo handle the authority approval and installation of aircraft warning lights?", answer: "Yes. Catobo provides the complete service\u2014from aviation assessment and system design to authority submission and NOC, supply, installation, testing, commissioning, automatic/remote control, and AMC support. This gives clients one accountable partner throughout the system lifecycle." },
+    { question: "When is a portable helipad a better option than a permanent helipad?", answer: "Portable helipads can be suitable where a permanent facility is not practical or where aviation access is required for temporary operations, remote locations, emergency response, project sites, events, or rapidly deployable operations. The appropriate solution depends on the aircraft, site conditions, intended use, and applicable aviation requirements." },
+    { question: "Can a portable helipad be supplied as a complete operational solution?", answer: "Yes. Catobo can provide portable helipad solutions together with the associated lighting and aviation systems required for the intended operation. The solution can be developed around the deployment environment, aircraft requirements, operational duration, and applicable regulatory requirements." },
+    { question: "What are modular floating aviation solutions used for?", answer: "Modular floating solutions provide a flexible platform for aviation operations where a conventional fixed helipad may not be practical. They can be considered for waterfront developments, offshore applications, marine facilities, temporary operations, and specialised aviation requirements, subject to site and regulatory assessment." },
+    { question: "Can Catobo design and deliver a complete modular floating helipad solution?", answer: "Yes. Catobo can provide an integrated approach covering concept development, engineering, aviation requirements, modular platform configuration, lighting, installation, testing, and regulatory coordination. The final configuration is developed according to the site, marine conditions, aircraft requirements, intended operation, and applicable authority requirements." },
   ],
 };

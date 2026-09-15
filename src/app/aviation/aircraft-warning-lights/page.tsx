@@ -1,592 +1,565 @@
 "use client";
 
 import DynamicHero from "@/components/common/hero";
-import Badge from "@/components/ui/badge";
 import { CheckIcon } from "@/components/common/CheckIcon";
+import Badge from "@/components/ui/badge";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import { Sidebar } from "@/app/aviation/airfield-lighting/page";
 import React, { useState } from "react";
 
-// ==========================================
-// SHARED UI COMPONENTS
-// ==========================================
-
-interface CheckItemProps {
-  label: string;
-  value?: string;
-}
-
-function CheckItem({ label, value }: CheckItemProps) {
-  if (value) {
-    return (
-      <div className="flex items-start gap-3">
-        <CheckIcon />
-        <div>
-          <p className="text-[13.5px] font-semibold text-[#1a1a1a]">{label}</p>
-          <p className="text-[13px] text-[#636363] leading-snug">{value}</p>
-        </div>
-      </div>
-    );
-  }
+const menu = [
+  { heading: "Low Intensity", items: ["HORIZON L-810 LED Obstruction Light"] },
+  {
+    heading: "Medium Intensity",
+    items: [
+      "FlashGuard 2000B",
+      "FlashGuard 3000B",
+      "Horizon 2000/2009/3000 AC Series",
+      "HORIZON Tower Lighting Controller",
+    ],
+  },
+  { heading: "High Intensity", items: ["Strobeguard SS-122/125"] },
+];
+const lightTypes = [
+  [
+    "Low-Intensity Obstruction Lights",
+    "Type A • Type B • Type C",
+    "Low-intensity systems for applications where lower levels of obstruction marking are appropriate.",
+  ],
+  [
+    "Medium-Intensity Obstruction Lights",
+    "Type A • Type B • Type C",
+    "Medium-intensity systems for structures requiring greater conspicuity, with the applicable type and operating characteristics determined by the project requirements.",
+  ],
+  [
+    "Dual Medium-Intensity Systems",
+    "Type AB • Type AC",
+    "Combined configurations designed to provide different lighting characteristics for daytime and night-time operation, where required.",
+  ],
+  [
+    "High-Intensity Obstruction Lights",
+    "Type A • Type B",
+    "High-intensity systems for structures and applications requiring enhanced conspicuity. The final intensity, type, quantity, positioning, colour, flash characteristics, and operating configuration are established according to the applicable aviation standards and authority requirements. UAE GCAA regulations, for example, recognise low-, medium-, and high-intensity obstacle lighting and reference ICAO requirements for their application.",
+  ],
+];
+const reliability = [
+  [
+    "Reliable Operation",
+    "Systems designed for continuous and dependable performance.",
+  ],
+  [
+    "Automatic Operation",
+    "Automatic switching and operating sequences based on the defined aviation requirements.",
+  ],
+  [
+    "Remote Monitoring & Control",
+    "Remote status, fault indication, alarms, and control where required.",
+  ],
+  [
+    "System Integration",
+    "Interfaces with site electrical, BMS, SCADA, or other monitoring systems where applicable.",
+  ],
+  [
+    "Environmental Performance",
+    "Equipment and installation suited to demanding industrial and offshore environments.",
+  ],
+  [
+    "Maintainability",
+    "Systems designed with inspection, testing, servicing, and lifecycle support in mind.",
+  ],
+];
+const environments = [
+  [
+    "High-Rise Buildings",
+    "Structures where aviation obstruction marking is required within an urban environment.",
+  ],
+  [
+    "Major Infrastructure",
+    "Bridges, elevated structures, and infrastructure that may present an aviation obstacle.",
+  ],
+  [
+    "Communication & Transmission Towers",
+    "Tall structures requiring reliable and clearly visible obstruction lighting.",
+  ],
+  [
+    "Offshore Platforms & Marine Structures",
+    "Aircraft warning systems for harsh offshore environments.",
+  ],
+  [
+    "Industrial Facilities",
+    "Process structures, chimneys, stacks, towers, cranes, and other industrial assets.",
+  ],
+  [
+    "Remote & Critical Infrastructure",
+    "Reliable automation and remote monitoring for critical installations.",
+  ],
+];
+function Body({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-start gap-3">
-      <CheckIcon />
-      <span className="text-[14px] text-[#636363] leading-relaxed">
-        {label}
-      </span>
-    </div>
+    <p className="text-[14px] md:leading-[1.78] text-[#636363]">{children}</p>
   );
 }
-
-// ==========================================
-// SIDEBAR COMPONENT
-// ==========================================
-
-interface SidebarItem {
-  label: string;
-  hasArrow?: boolean;
-}
-
-interface SidebarGroup {
-  heading: string;
-  items: SidebarItem[];
-}
-
-interface SidebarProps {
-  title: string;
-  groups: SidebarGroup[];
-}
-
-export function Sidebar({ title, groups }: SidebarProps) {
-  // flatten all items for active tracking
-  const allItems = groups.flatMap((g) => g.items);
-  const [active, setActive] = useState(0);
-
-  let globalIdx = 0;
-
-  return (
-    <div className="w-full lg:w-90 lg:shrink-0 bg-[#F3F3F3] p-5 rounded-2xl lg:sticky lg:top-8">
-      <div className="mb-4 px-1">
-        <h2 className="text-[1.25rem] text-black font-medium tracking-wide">
-          {title}
-        </h2>
-      </div>
-
-      <div className="flex flex-col gap-5">
-        {groups.map((group, gi) => {
-          return (
-            <div key={gi}>
-              {/* Group heading */}
-              <p className="text-[0.82rem] font-semibold text-[#1a1a1a] uppercase tracking-widest mb-2.5 px-1">
-                {group.heading}
-              </p>
-
-              <div className="flex flex-col gap-2">
-                {group.items.map((item) => {
-                  const idx = globalIdx++;
-                  const isActive = active === idx;
-                  return (
-                    <button
-                      key={idx}
-                      onClick={() => {
-                        setActive(idx);
-                        document
-                          .getElementById(`section-${idx}`)
-                          ?.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start",
-                          });
-                      }}
-                      className={`w-full text-left flex items-center justify-between px-4 py-3.5 rounded-xl border transition-all ${
-                        isActive
-                          ? "border-transparent shadow-md"
-                          : "border-[#E8E8E8] hover:border-gray-300"
-                      }`}
-                      style={{
-                        background: isActive
-                          ? "linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%)"
-                          : "#fff",
-                      }}
-                    >
-                      <span
-                        className={`text-[0.875rem] leading-snug font-normal tracking-wide pr-3 ${
-                          isActive ? "text-white" : "text-[#1a1a1a]"
-                        }`}
-                      >
-                        {item.label}
-                      </span>
-                      {item.hasArrow && (
-                        <svg
-                          className={`w-4 h-4 shrink-0 ${isActive ? "text-white" : "text-black"}`}
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={1.5}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M7 17L17 7M7 7h10v10"
-                          />
-                        </svg>
-                      )}
-                    </button>
-                  );
-                })}
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-// ==========================================
-// REUSABLE IMAGE GRID
-// ==========================================
-
-function ImageGrid({
-  left,
-  right,
-  rightContain = false,
+function Heading({
+  children,
+  size = "section",
+  className = "",
 }: {
-  left: string;
-  right: string;
-  rightContain?: boolean;
+  children: React.ReactNode;
+  size?: "hero" | "section";
+  className?: string;
 }) {
+  const Tag = size === "hero" ? "h1" : "h2";
+  const sizeClass =
+    size === "hero"
+      ? "text-[32px] 2xl:text-[45px]"
+      : "text-[28px] 2xl:text-[35px]";
   return (
-    <div className="grid grid-cols-1 md:grid-cols-[5fr_3fr] gap-3">
-      <div className="rounded-xl overflow-hidden bg-gray-100 h-70">
-        <img src={left} alt="" className="w-full h-full object-cover" />
-      </div>
-      <div
-        className={`rounded-xl overflow-hidden h-70 ${rightContain ? "" : "bg-gray-100"}`}
-      >
-        <img
-          src={right}
-          alt=""
-          className={`w-full h-full ${rightContain ? "object-fill mix-blend-multiply" : "object-cover"}`}
-        />
-      </div>
-    </div>
+    <Tag
+      className={
+        sizeClass +
+        " font-medium leading-tight tracking-wide text-black " +
+        className
+      }
+    >
+      {children}
+    </Tag>
   );
 }
-
-// ==========================================
-// MAIN CONTENT
-// ==========================================
-
-function MainContent() {
+function Card({ title, text }: { title: string; text: string }) {
   return (
-    <div className="flex-1 min-w-0 max-w-240">
-      {/* ─── Section 1: HORIZON™ L-810 LED Obstruction Light ─── */}
-      <section id="section-0" className="mb-16">
-        <Badge text="Low Intensity" variant="black" />
-        <h1 className="text-[30px] font-medium text-black mb-4 leading-tight tracking-wide">
-          HORIZON™ L-810 LED Obstruction Light
-        </h1>
-        <p className="text-[14px] text-[#636363] leading-[1.75] mb-7">
-          The Hughey &amp; Phillips L-810 Obstruction Light provides an LED
-          based solution to the FAA L-810 style of steady burning lights. The
-          L-810 LED is currently available in both single and double
-          configurations operating at 120V, 240V, 265VAC and also in a range of
-          9-48 VDC. Both configurations are available as original equipment or
-          as a direct replacement to the existing socket/lamp/lens on H&amp;P
-          L-810 Incandescent OB2x Series obstruction lights.
-        </p>
-
-        {/* Spec check items */}
-        <div className="space-y-4 mb-8">
-          <CheckItem
-            label="FAA Type:"
-            value="L-810 Steady Burn Obstruction Light"
-          />
-          <CheckItem
-            label="ICAO Type:"
-            value="Low Intensity Type B Obstacle Light"
-          />
-          <CheckItem label="Certified to:" value="FAA AC 150/5345-43" />
-          <CheckItem
-            label="Compliant to:"
-            value="Transport Canada CAR 621.19, ICAO Annex 14, USAF AFMAN 32-1076"
-          />
-        </div>
-
-        <ImageGrid left="/acs/1.png" right="/acs/2.png" rightContain />
-
-        {/* Features */}
-        <h3 className="text-[22px] font-medium text-black mt-8 mb-4 tracking-wide">
-          Features:
-        </h3>
-        <div className="space-y-3">
-          {[
-            "LED based obstruction lights last over 15 times longer than an incandescent light",
-            "Approximately 94% less power than 116 Watt standard incandescent lamp",
-            "4 Watt Power Consumption (AC version) / 3.4 Watts (DC Version)",
-            'Available in both side and bottom conduit hubs at ¾" and 1" NPT',
-            "Weather resistant lamp assembly & housing",
-            "Self-contained wiring compartment on double units eliminates additional boxes",
-            "Operates as a steady burn or flashing light",
-            "Resistant to shock and vibration",
-            "Direct replacement for existing incandescent fixtures",
-          ].map((f, i) => (
-            <CheckItem key={i} label={f} />
-          ))}
-        </div>
-      </section>
-
-      {/* ─── Section 2: FlashGuard® 2000B ─── */}
-      <section id="section-1" className="mb-16">
-        <Badge text="Medium Intensity" variant="black" />
-        <h2 className="text-[28px] font-medium text-black mb-4 leading-tight tracking-wide">
-          FlashGuard® 2000B
-        </h2>
-        <div className="space-y-3.5 mb-7 text-[14px] text-[#636363] leading-[1.75]">
-          <p>
-            The Flashguard 2000B Medium Intensity White Lighting System combines
-            a daytime white strobe light and a nighttime white flashing light
-            into a single flashhead. The system is also available as a red
-            flashhead which can be used at night in place of red incandescent
-            lighting, for much longer light source life. The flashhead is
-            powered and controlled by a power supply that can be mounted
-            remotely at the base of the structure. The power supply constantly
-            monitors the operation of the system, and provides alarm contact
-            closure upon any failure.
-          </p>
-          <p>
-            The system automatically switches between day, twilight, and night
-            intensities by the use of a calibrated photocell. Flashguard® 2000B
-            flashheads incorporate a light blocking strip that minimizes ground
-            scatter light, resulting in a community friendly lighting system.
-          </p>
-        </div>
-
-        <ImageGrid left="/acs/3.png" right="/acs/4.png" rightContain />
-
-        <h3 className="text-[22px] font-medium text-black mt-8 mb-4 tracking-wide">
-          Application:
-        </h3>
-        <p className="text-[14px] text-[#636363] leading-[1.75] mb-6">
-          Medium Intensity obstruction lighting systems are typically used on
-          structures between 150' (45M) and 500' (150M) above ground level to
-          provide aviation safety. The use of a medium intensity white strobe
-          during the daytime typically eliminates the need to paint the
-          structure with aviation orange and white stripes. The use of a white
-          flashing strobe at night provides an 'eye catching' light for low
-          flying aviators. Hughey &amp; Phillips' medium intensity obstruction
-          lights are designed for lighting tall structures such as
-          communication, television and radio towers, chimneys, cooling towers,
-          tall buildings, catenary river crossings and bridges. This light is
-          compatible with Enhanced Flight Vision Systems that use IR energy
-          emissions for imaging, including NVG goggles.
-        </p>
-
-        <div className="space-y-4">
-          <CheckItem
-            label="FAA Type:"
-            value="L-864 (Red) or L-865 (White) Medium Intensity Lighting"
-          />
-          <CheckItem
-            label="ICAO Type:"
-            value="Medium Intensity Obstacle Light"
-          />
-          <CheckItem
-            label="Certified to:"
-            value="FAA Advisory Circular 150/5345-43"
-          />
-          <CheckItem
-            label="Compliant to:"
-            value="ICAO Annex 14, MIL-C-7989, DGAC of Mexico, CAR 621.19"
-          />
-        </div>
-      </section>
-
-      {/* ─── Section 3: FlashGuard® 3000B ─── */}
-      <section id="section-2" className="mb-16">
-        <Badge text="Medium Intensity" variant="black" />
-        <h2 className="text-[28px] font-medium text-black mb-4 leading-tight tracking-wide">
-          FlashGuard® 3000B
-        </h2>
-        <p className="text-[14px] text-[#636363] leading-[1.75] mb-7">
-          The Flashguard® 3000B Medium Intensity Dual Lighting System combines a
-          daytime white strobe light and a nighttime red flashing strobe into a
-          single flashhead, eliminating the need for two separate lighting
-          systems. The flashhead is powered and controlled by a power supply
-          that can be mounted remotely at the base of the structure. The power
-          supply constantly monitors the operation of the system, and provides
-          alarm contact closure upon any failure. The system automatically
-          switches between day and night intensities by the use of a calibrated
-          photocell. Flashguard® 3000B flashheads incorporate a light blocking
-          strip that minimizes ground scatter light, resulting in a "community
-          friendly" lighting system.
-        </p>
-
-        <ImageGrid left="/acs/5.png" right="/acs/6.png" rightContain />
-
-        <h3 className="text-[22px] font-medium text-black mt-8 mb-4 tracking-wide">
-          Application:
-        </h3>
-        <p className="text-[14px] text-[#636363] leading-[1.75]">
-          Medium intensity obstruction lighting systems are typically used on
-          structures between 150'(45M) and 500' (150M) above ground level to
-          provide aviation safety. The use of a medium intensity white strobe
-          during the daytime typically eliminates the need to paint the
-          structure with aviation orange and white stripes. The use of a red
-          flashing beacon at night provides a "community friendly" light. Hughey
-          &amp; Phillips' medium intensity obstruction lights are designed for
-          lighting tall structures such as communication, television and radio
-          towers, chimneys, cooling towers, tall buildings, catenary river
-          crossings and bridges. This light is compatible with Enhanced Flight
-          Vision Systems that use IR energy emissions for imaging, including NVG
-          goggles.
-        </p>
-      </section>
-
-      {/* ─── Section 4: Horizon™ 2000/2009/3000 AC Series ─── */}
-      <section id="section-3" className="mb-16">
-        <Badge text="Medium Intensity" variant="black" />
-        <h2 className="text-[28px] font-medium text-black mb-4 leading-tight tracking-wide">
-          Horizon™ 2000/2009/3000 AC Series
-        </h2>
-        <p className="text-[14px] text-[#636363] leading-[1.75] mb-7">
-          The Horizon™ Dual Medium Intensity LED Strobe System provides daytime
-          white and nighttime red lights in one unit. Its self-contained power
-          supply, with available GPS sync and day/night sensor, simplifies
-          wiring but also accepts external signals if desired. Advanced features
-          include advanced LED modules, cutting edge optics, individual LED
-          monitoring/bypass, and active lightning protection. The unit also
-          monitors the system and provides a NO or NC alarm contact upon any
-          system failure.
-        </p>
-
-        <ImageGrid left="/acs/7.png" right="/acs/8.png" rightContain />
-
-        <h3 className="text-[22px] font-medium text-black mt-8 mb-4 tracking-wide">
-          Application:
-        </h3>
-        <p className="text-[14px] text-[#636363] leading-[1.75] mb-6">
-          Medium intensity obstruction lighting systems are typically used on
-          structures between 150' (45m) and 500' (150m) above ground level to
-          provide aviation safety. The use of a medium intensity white strobe
-          during the daytime typically eliminates the need to paint the
-          structure with aviation orange and white stripes. The use of a red
-          flashing beacon at night provides a "community friendly" light. Hughey
-          &amp; Phillips medium intensity obstruction lights are designed for
-          lighting tall structures such as communication, television and radio
-          towers, wind turbines, smokestacks, cooling towers, tall buildings,
-          catenary river crossings and bridges.
-        </p>
-
-        <div className="space-y-4">
-          <CheckItem
-            label="FAA Type:"
-            value="LB64, LB65 or L-864/865 Medium Intensity Lighting"
-          />
-          <CheckItem
-            label="ICAO Type:"
-            value="Type A/B Medium Intensity Obstacle light"
-          />
-          <CheckItem
-            label="Certified to:"
-            value="FAA Advisory Circular 150/5345-43"
-          />
-          <CheckItem
-            label="Compliant to:"
-            value="ICAO Annex 14, MIL-C-7989, DGAC of Mexico, CAR 621.19"
-          />
-        </div>
-      </section>
-
-      {/* ─── Section 5: HORIZON™ Tower Lighting Controller ─── */}
-      <section id="section-4" className="mb-16">
-        <Badge text="Medium Intensity" variant="black" />
-        <h2 className="text-[28px] font-medium text-black mb-5 leading-tight tracking-wide">
-          HORIZON™ Tower Lighting Controller
-        </h2>
-
-        <h3 className="text-[20px] font-medium text-black mb-3 tracking-wide">
-          Application:
-        </h3>
-        <p className="text-[14px] text-[#636363] leading-[1.75] mb-8">
-          The SMART-CON HORIZON™ Controller is designed to operate a FAA Type
-          A1, D1 or F1 lighting system. The SAMRT-CON is available in different
-          input/output voltage configurations – AC/AC, DC/DC, or AC/DC. All
-          models have a NEMA 4 outdoor housing. A calibrated switched-leg
-          photocell is used for automatic day/ night switching. Fault Codes are
-          generated for quick analysis of system condition. Comprehensive status
-          indicators and alarm contacts for easy connection to remote monitoring
-          systems.
-        </p>
-
-        {/* Sub-section: 70 Series */}
-        <h3 className="text-[20px] font-medium text-black mb-4 tracking-wide">
-          70 Series LED Control System
-        </h3>
-
-        <ImageGrid left="/acs/9.png" right="/acs/10.png" />
-
-        <h3 className="text-[20px] font-medium text-black mt-8 mb-3 tracking-wide">
-          Application:
-        </h3>
-        <p className="text-[14px] text-[#636363] leading-[1.75] mb-5">
-          The 70 Series lighting controls combine the finest in digital
-          circuitry with rugged electromechanical hardware to yield the
-          industry's most comprehensive obstruction lighting controls. Standard
-          models are available for all common FAA and ICAO applications. The 70
-          Series modular design allows for custom controls for almost any
-          combination of flashing HORIZON™ beacons and sidelights. All models
-          include a NEMA 4 outdoor housing and a calibrated photocell for
-          automatic day/night switching. Optional Stainless Steel housing is
-          available upon request. A photocell override switch is standard on all
-          systems, facilitation troubleshooting or maintenance. All controls
-          provide comprehensive status indicators and alarm contacts for easy
-          connection to remote monitoring systems.
-        </p>
-
-        <div className="flex flex-wrap gap-x-12 gap-y-4">
-          <CheckItem label="FAA AC 150/5345-43," />
-          <CheckItem label="ICAO Annex 14, CAR 621.19" />
-        </div>
-
-        {/* Sub-section: 9LC */}
-        <h3 className="text-[20px] font-medium text-black mt-10 mb-4 tracking-wide">
-          9LC Control System
-        </h3>
-
-        <ImageGrid left="/acs/11.png" right="/acs/12.png" />
-
-        <h3 className="text-[20px] font-medium text-black mt-8 mb-3 tracking-wide">
-          Application:
-        </h3>
-        <p className="text-[14px] text-[#636363] leading-[1.75]">
-          9LC series lighting controls combine the finest in digital circuitry
-          with rugged electromechanical hardware to yield the industry's most
-          comprehensive obstruction lighting controls. Standard models are
-          available for all common FAA and ICAO applications. The 9LC's modular
-          design allows for custom controls for almost any combination of
-          flashing red beacons and sidelights. All models include a NEMA 4
-          outdoor housing and a calibrated photocell for automatic day/night
-          switching. A photocell override switch is standard on all systems,
-          facilitation troubleshooting or maintenance. All controls provide
-          comprehensive status indicators and alarm contacts for easy connection
-          to remote monitoring systems.
-        </p>
-      </section>
-
-      {/* ─── Section 6: High Intensity – Strobeguard® SS-122/125 ─── */}
-      <section id="section-5" className="mb-10">
-        <Badge text="High Intensity" variant="black" />
-        <h2 className="text-[28px] font-medium text-black mb-4 leading-tight tracking-wide">
-          Strobeguard® SS-122/125
-        </h2>
-        <p className="text-[14px] text-[#636363] leading-[1.75] mb-7">
-          The Strobeguard® SS-122/125 High Intensity White Strobe Systems are
-          designed and certified to meet FAA Advisory Circular 150/5345-51B.
-          Each system includes a flashhead and a solid-state power supply. The
-          flashhead may be mounted remotely at the base of the structure or at
-          the top of the structure adjacent to the flashhead. Systems are
-          available with either a 1,500 W/s or 2,000 W/s output. High intensity
-          obstruction lighting is used on structures over 500' (152M) above
-          ground level to provide aviation safety.
-        </p>
-
-        <ImageGrid left="/acs/13.png" right="/acs/14.png" rightContain />
-
-        <h3 className="text-[22px] font-medium text-black mt-8 mb-4 tracking-wide">
-          SS-125 Obstruction Strobe Light:
-        </h3>
-        <p className="text-[14px] text-[#636363] leading-[1.75] mb-6">
-          The StrobeGuard SS-125 is a single enclosure obstruction light
-          designed to meet or exceed the requirements of Advisory Circular
-          150/5345-43. The enclosures are fabricated from 304L stainless steel.
-          All plug-in printed circuit boards are protected with a coating which
-          meets the physical and electrical requirements of MIL-I-46058B. The
-          SS-125 is supplied with a lightning arrestor capable of withstanding
-          repeated 10,000 ampere current surges. Operated with the SS-122
-          Controller, the system is completely self-activating for monitoring
-          and identifying any malfunctioning light and is equipped to initiate a
-          remote alarm. The number of SS-125 obstruction lights used on an
-          installation depends upon the type of obstruction and its height.
-        </p>
-
-        <div className="space-y-4">
-          <CheckItem label="" value="FAA Type: L-856 High Intensity Lighting" />
-          <CheckItem
-            label=""
-            value="ICAO Type: Type A High Intensity Obstacle Light"
-          />
-          <CheckItem
-            label=""
-            value="Compliant for use with: ICAO Annex 14, Canadian Aviation Regulation 621.19, ICAO Annex 14, MIL-C-7989, DGAC of Mexico, FAA Advisory Circular AC 150/5345-43E"
-          />
-        </div>
-
-        <h3 className="text-[22px] font-medium text-black mt-8 mb-4 tracking-wide">
-          SS-122 Controller
-        </h3>
-        <p className="text-[14px] text-[#636363] leading-[1.75] mb-6">
-          StrobeGuard® Controllers contain the flash interval and timing
-          circuits, intensity selection controls, and monitoring receivers with
-          status indicators required to operate the SS-125 strobe light. The
-          controller is of modular construction with solid state circuitry for
-          long life and ease of maintenance. StrobeGuard® controllers are
-          designed to operate up to 32 obstruction lights at distances up to
-          4700 feet. Each controller is equipped with the necessary manually
-          operated controls to test all modes of operation. Digital monitor
-          lamps are provided and illuminate when a flashhead or power supply is
-          not operating as required. Each monitor lamp is operated in a coded
-          mode indicating the location of the flashhead/power supply which is
-          malfunctioning.
-        </p>
-      </section>
-    </div>
+    <article className="rounded-[10px] bg-[#f3f3f3] p-5">
+      <h3 className="text-[16px] font-medium text-black">{title}</h3>
+      <p className="mt-2 text-[13px] leading-relaxed text-[#636363]">{text}</p>
+    </article>
   );
 }
-
-// ==========================================
-// MAIN PAGE EXPORT
-// ==========================================
-
-export default function SolutionAviationObstructionLighting() {
-  const sidebarGroups: SidebarGroup[] = [
-    {
-      heading: "Low Intensity",
-      items: [
-        { label: "HORIZON™ L-810 LED\nObstruction Light", hasArrow: true },
-      ],
-    },
-    {
-      heading: "Medium Intensity",
-      items: [
-        { label: "FlashGuard® 2000B", hasArrow: true },
-        { label: "FlashGuard® 3000B", hasArrow: true },
-        { label: "Horizon™ 2000/2009/3000\nAC Series", hasArrow: true },
-        { label: "HORIZON™ Tower Lighting\nController", hasArrow: true },
-      ],
-    },
-    {
-      heading: "High Intensity",
-      items: [{ label: "Strobeguard® SS-122/125", hasArrow: true }],
-    },
-  ];
-
+function SideNav() {
+  const [active, setActive] = useState(0);
+  let number = 0;
+  return (
+    <aside className="w-full shrink-0 rounded-2xl bg-[#f3f3f3] p-5 lg:sticky lg:top-8 lg:w-90">
+      {menu.map((group) => (
+        <div key={group.heading} className="mb-5 last:mb-0">
+          <h2 className="mb-2 px-1 text-[1.1rem] font-medium text-black">
+            {group.heading}
+          </h2>
+          <div className="space-y-2">
+            {group.items.map((item) => {
+              const index = number++;
+              return (
+                <button
+                  key={item}
+                  onClick={() => {
+                    setActive(index);
+                    document
+                      .getElementById("section-" + index)
+                      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }}
+                  className={
+                    "flex w-full items-center justify-between rounded-xl border px-4 py-3.5 text-left " +
+                    (active === index
+                      ? "border-transparent text-white shadow-md"
+                      : "border-[#e8e8e8] bg-white text-black")
+                  }
+                  style={
+                    active === index
+                      ? {
+                          background:
+                            "linear-gradient(93deg,#168DCA -24.15%,#0F2453 134.7%)",
+                        }
+                      : {}
+                  }
+                >
+                  <span className="pr-3 text-[13px] leading-snug">{item}</span>
+                  <span aria-hidden="true">to</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+    </aside>
+  );
+}
+export default function AircraftWarningLightsPage() {
   return (
     <div>
       <DynamicHero
-        title={"Aircraft Warning Lights"}
+        title="Aircraft Warning Lights"
         breadcrumbs={[
           { label: "Home", href: "/" },
           { label: "Aircraft Warning Lights" },
         ]}
-        backgroundImage="/acs.png"
+        backgroundImage="/acs/aircraft-warning-hero.png"
       />
-      <main className="min-h-screen bg-white">
-        <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
-          <div className="flex flex-col lg:flex-row gap-5 items-start">
-            <Sidebar
-              title=""
-              groups={sidebarGroups}
-            />
-            <MainContent />
+      <main className="bg-white">
+        <div className="mx-auto flex w-[90%] flex-col items-start gap-8 py-8 2xl:max-w-360 lg:flex-row">
+          <Sidebar
+            title="Aircraft Warning Lights"
+            groups={[
+              {
+                items: [
+                  {
+                    label: "HORIZON L-810 LED Obstruction Light",
+                    hasArrow: true,
+                    sectionId: "section-0",
+                  },
+                  {
+                    label: "FlashGuard 2000B",
+                    hasArrow: true,
+                    sectionId: "section-1",
+                  },
+                  {
+                    label: "FlashGuard 3000B",
+                    hasArrow: true,
+                    sectionId: "section-2",
+                  },
+                  {
+                    label: "Horizon 2000/2009/3000 AC Series",
+                    hasArrow: true,
+                    sectionId: "section-3",
+                  },
+                  {
+                    label: "HORIZON Tower Lighting Controller",
+                    hasArrow: true,
+                    sectionId: "section-4",
+                  },
+                  {
+                    label: "Strobeguard SS-122/125",
+                    hasArrow: true,
+                    sectionId: "section-5",
+                  },
+                ],
+              },
+            ]}
+          />
+          <div className="min-w-0 max-w-240 flex-1">
+            <section id="section-0" className="mb-14 grid gap-8 xl:grid-cols-2">
+              <div className="relative min-h-80 overflow-hidden rounded-[10px]">
+                <Image
+                  src="/acs/aircraft-warning-low-intensity.png"
+                  alt="Aircraft warning light installation"
+                  fill
+                  priority
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col justify-center">
+                <Badge text="Aircraft Warning Lights" variant="black" />
+                <Heading className="mt-5">
+                  Making Structures Visible. Keeping Airspace Safe.
+                </Heading>
+                <Body>
+                  <span className="mt-4 block">
+                    Aircraft warning lights are a critical element of aviation
+                    safety, providing visual identification of structures that
+                    may present a hazard to aircraft. Catobo delivers complete
+                    aircraft warning lighting solutions for high-rise buildings,
+                    towers, industrial facilities, infrastructure, offshore
+                    installations, and other aviation-obstacle applications.
+                  </span>
+                  <span className="mt-4 block">
+                    We combine aviation engineering, regulatory expertise,
+                    system design, specialised equipment, and project execution
+                    to take each solution from initial assessment and design
+                    through authority approval, NOC, supply, installation,
+                    commissioning, and long-term maintenance.
+                  </span>
+                </Body>
+              </div>
+            </section>
+            <section id="section-1" className="mb-14">
+              <Heading>
+                The Right Obstruction Lighting for Every Application
+              </Heading>
+              <Body>
+                <span className="mt-4 block">
+                  Aircraft warning lighting is not a one-size-fits-all solution.
+                  The appropriate system depends on the structure, height,
+                  location, surrounding environment, aviation requirements, and
+                  applicable authority regulations. Catobo assesses these
+                  requirements and develops the appropriate lighting,
+                  positioning, operating, and control configuration for each
+                  project.
+                </span>
+              </Body>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                {lightTypes.slice(0, 3).map(([title, type, text]) => (
+                  <article
+                    key={title}
+                    className="rounded-[10px] bg-[#f3f3f3] p-5"
+                  >
+                    <h3 className="text-[20px] font-medium text-black">
+                      {title}
+                    </h3>
+                    <p className="mt-1 text-[12px] font-medium text-black">
+                      {type}
+                    </p>
+                    <p className="mt-3 text-[13px] leading-relaxed text-[#636363]">
+                      {text}
+                    </p>
+                  </article>
+                ))}
+              </div>
+              <div className="mt-3 rounded-[10px] bg-[#f3f3f3] p-5">
+                <h3 className="text-[20px] font-medium text-black">
+                  {lightTypes[3][0]}
+                </h3>
+                <p className="mt-1 text-[12px] font-medium text-black">
+                  {lightTypes[3][1]}
+                </p>
+                <p className="mt-3 text-[13px] leading-relaxed text-[#636363]">
+                  {lightTypes[3][2]}
+                </p>
+              </div>
+            </section>
+            <section id="section-2" className="mb-14 grid gap-8 xl:grid-cols-2">
+              <div>
+                <Heading>More Than Warning Lights</Heading>
+                <Body>
+                  <span className="mt-4 block">
+                    An aircraft warning system is only as reliable as the
+                    complete system behind it. Catobo engineers the lighting,
+                    control, automation, monitoring, and electrical interfaces
+                    as one integrated aviation system, rather than treating the
+                    warning light as an isolated product.
+                  </span>
+                  <span className="mt-4 block">
+                    Our solutions can incorporate purpose-engineered control
+                    panels, automatic operation, remote monitoring, remote
+                    control, fault indication, local override, and integration
+                    with BMS, SCADA, or other site control systems, where
+                    required. The control philosophy is developed around the
+                    project so that the system can operate automatically and
+                    reliably with minimum dependence on manual intervention.
+                  </span>
+                </Body>
+              </div>
+              <div className="relative min-h-80 overflow-hidden rounded-[10px]">
+                <Image
+                  src="/acs/aircraft-warning-intro.png"
+                  alt="Aircraft warning lighting system"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </section>
+            <section id="section-3" className="mb-14">
+              <Heading>Engineered for Reliable Operations</Heading>
+              <Body>
+                <span className="mt-4 block">
+                  Aircraft warning systems are safety-critical infrastructure.
+                  Catobo therefore focuses on the reliability of the complete
+                  operating system, not simply the performance of an individual
+                  light. Our engineering approach considers:
+                </span>
+              </Body>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+                {reliability.map(([title, text]) => (
+                  <Card key={title} title={title} text={text} />
+                ))}
+              </div>
+            </section>
+
+            <div className="mb-14">
+              <Heading>Assessment &amp; Design</Heading>
+              <Body>
+                <span className="mt-4 block">
+                  We assess the structure, location, height, surrounding
+                  environment, aviation requirements, and applicable regulatory
+                  framework to establish the appropriate obstruction-lighting
+                  strategy.
+                </span>
+              </Body>
+            </div>
+
+            <section id="section-4" className="mb-14 grid gap-8 xl:grid-cols-2">
+              <div className="relative min-h-80 overflow-hidden rounded-[10px]">
+                <Image
+                  src="/acs/aircraft-warning-compliance.png"
+                  alt="Aircraft warning light"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div>
+                <Heading>
+                  International &amp; Local Regulatory Compliance
+                </Heading>
+                <Body>
+                  <span className="mt-4 block">
+                    Our engineering approach considers the applicable
+                    international aviation standards and local aviation
+                    authority requirements, including:
+                  </span>
+                </Body>
+                <ul className="mt-5 space-y-4">
+                  {[
+                    "ICAO standards and recommended practices for obstacle marking and lighting.",
+                    "FAA AC 70/7460-1N - Obstruction Marking and Lighting",
+                    "Local Civil Aviation Authority regulations and requirements, including UAE GCAA requirements where applicable. Current GCAA aerodrome regulations provide for low-, medium-, and high-intensity obstacle lighting and reference ICAO guidance.",
+                    "Project- and location-specific aviation requirements, including authority conditions and aeronautical considerations.",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="flex gap-3 text-[14px] leading-relaxed text-[#636363]"
+                    >
+                      <CheckIcon />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+            <section id="section-5" className="mb-14">
+              <div className="mt-8 space-y-4">
+                {[
+                  [
+                    "Authority Approval & NOC",
+                    "We prepare and coordinate the required technical documentation and support the authority approval and NOC process, helping move the project from engineering design to approved implementation.",
+                  ],
+                  [
+                    "Supply",
+                    "Following approval, Catobo coordinates the supply of the selected aircraft warning lights, control panels, monitoring equipment, and associated system components.",
+                  ],
+                  [
+                    "Installation",
+                    "Our team executes the installation in accordance with the engineered design, approved requirements, and applicable aviation standards.",
+                  ],
+                  [
+                    "Testing & Commissioning",
+                    "The complete system is tested and commissioned, including lighting operation, automatic sequences, control panels, monitoring, alarms, and system interfaces, before handover.",
+                  ],
+                  [
+                    "Maintenance & AMC",
+                    "Our involvement continues beyond commissioning. Through Annual Maintenance Contracts (AMC), Catobo provides scheduled inspection, preventive maintenance, testing, fault identification, troubleshooting, and technical support to help maintain reliable operation throughout the system lifecycle.",
+                  ],
+                ].map(([title, text]) => (
+                  <div key={title}>
+                    <h3 className="text-[20px] font-medium text-black">
+                      {title}
+                    </h3>
+                    <Body>
+                      <span className="mt-2 block">{text}</span>
+                    </Body>
+                  </div>
+                ))}
+              </div>
+            </section>
+            <section id="section-6" className="mb-14">
+              <Heading className="text-center">
+                Built for Demanding Environments
+              </Heading>
+              <Body>
+                <span className="mt-3 block text-center">
+                  Catobo's aircraft warning lighting capability is suited to a
+                  wide range of structures and operating environments:
+                </span>
+              </Body>
+              <div className="mt-6 grid gap-3  md:gap-6 sm:grid-cols-2 xl:grid-cols-3">
+                {environments.map(([title, text], index) => (
+                  <article
+                    key={title}
+                    className="overflow-hidden rounded-[10px]"
+                  >
+                    <div className="relative h-52">
+                      <Image
+                        src={`/acs/aircraft-warning-environment-${index + 1}.png`}
+                        alt=""
+                        fill
+                        className="object-cover rounded-[10px]"
+                      />
+                    </div>
+                    <div className="mt-3">
+                      <h3 className="text-[18px] md:text-[20px] font-medium leading-snug text-black">
+                        {title}
+                      </h3>
+                      <p className="mt-2 text-[13px] leading-relaxed text-[#636363]">
+                        {text}
+                      </p>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </section>
+            <section className="mb-14">
+              <Heading>One Partner. From NOC to AMC.</Heading>
+              <Body>
+                <span className="mt-4 block">
+                  With Catobo, aircraft warning lighting is not simply a product
+                  supplied and installed. It is a complete aviation system
+                  engineered, approved, delivered, commissioned, automated,
+                  monitored, and maintained under one umbrella.
+                </span>
+                <span className="mt-4 block">
+                  By bringing engineering, authority coordination, equipment,
+                  controls, installation, and lifecycle support together, Catobo
+                  provides one accountable partner for the complete aircraft
+                  warning lighting lifecycle.
+                </span>
+              </Body>
+              <div className="mt-7 flex flex-wrap items-center gap-2 text-[14px] font-medium text-black">
+                {[
+                  "Design",
+                  "Regulatory Approval",
+                  "NOC",
+                  "Supply",
+                  "Installation",
+                  "Commissioning",
+                  "Automation",
+                  "Monitoring",
+                  "AMC",
+                ].map((item, index) => (
+                  <React.Fragment key={item}>
+                    <span>{item}</span>
+                    {index < 8 && (
+                      <ArrowRight
+                        className="size-4 text-[#168dca]"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
+            </section>
+            <section className="mb-5 grid gap-8 xl:grid-cols-2">
+              <div className="relative min-h-80 overflow-hidden rounded-[10px]">
+                <Image
+                  src="/acs/aircraft-warning-more-than-lights.png"
+                  alt="Aircraft warning lighting"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col justify-center">
+                <Heading>Visibility Where It Matters Most</Heading>
+                <Body>
+                  <span className="mt-4 block">
+                    The objective is simple: make structures clearly
+                    identifiable within the aviation environment. Achieving that
+                    reliably requires more than selecting a light. It requires
+                    understanding the aviation requirement, interpreting the
+                    applicable regulations, engineering the system, securing
+                    approval, delivering the installation, and maintaining it
+                    throughout its operational life.
+                  </span>
+                  <span className="mt-4 block">
+                    Catobo brings all of these capabilities together to deliver
+                    aircraft warning systems engineered for aviation safety,
+                    reliable operation, and long-term performance. Aircraft
+                    Warning Lighting. Engineered for Aviation. Built for
+                    Reliability.
+                  </span>
+                </Body>
+                <a
+                  href="/aviation/contact"
+                  className="mt-6 w-fit rounded-md bg-[linear-gradient(93deg,#168DCA_-24.15%,#0F2453_134.7%)] px-5 md:px-8 py-3 text-[13px] md:text-[14px] font-medium text-white"
+                >
+                  Talk to Catobo
+                </a>
+              </div>
+            </section>
           </div>
         </div>
       </main>
