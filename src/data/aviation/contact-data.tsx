@@ -28,13 +28,13 @@ export const aviationContactData: ContactData = {
       { label: "Home", href: "/" },
       { label: "Contact Us" },
     ],
-    backgroundImage: "/aviation/contact-bg.png",
+    backgroundImage: "/contact-bgav.png",
   },
   infoCards: [
     {
       icon: <PhoneIcon />,
       title: "Phone Number",
-      lines: ["Tel: +971 4 391 6018", "Fax: +971 4 391 8138"],
+      lines: ["Tel: +971 4 391 6018"],
     },
     {
       icon: <EmailIcon />,
@@ -44,7 +44,7 @@ export const aviationContactData: ContactData = {
     {
       icon: <LocationIcon />,
       title: "Address",
-      lines: ["Office 702 – Al Masaood Tower", "54 Al Maktoum Rd, Riggat Al Buteen", "Deira, Dubai, United Arab Emirates"],
+      lines: ["Office No. 702 | Al Masaood Tower | Deira | P. O. Box 120047 | Dubai – United Arab Emirates"],
     },
   ],
   form: {

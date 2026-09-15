@@ -43,7 +43,7 @@ function MainContent() {
       <section id="section-0" className="mb-14">
         <div className="grid items-stretch gap-7 xl:grid-cols-[1.02fr_1fr]">
           <div className="relative order-2 min-h-[320px] overflow-hidden rounded-[8px] lg:rounded-2xl bg-gray-100 xl:order-1 xl:min-h-full">
-            <Image src="/hvls/figma-intro.png" alt="Heliport and vertiport lighting infrastructure" fill className="object-cover" priority sizes="(min-width: 1280px) 48vw, 90vw" />
+            <Image src="/hvls/hvls-intro.png" alt="Heliport and vertiport lighting infrastructure" fill className="object-cover" priority sizes="(min-width: 1280px) 48vw, 90vw" />
           </div>
           <div className="order-1 xl:order-2">
             <Badge text="Heliport & Vertiport Lighting Solutions" variant="black" />

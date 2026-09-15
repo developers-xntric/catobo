@@ -733,7 +733,7 @@ export function Sidebar({ title, groups }: SidebarProps) {
                     onClick={() => {
                       setActive(idx);
                       document
-                        .getElementById(`section-${idx}`)
+                        .getElementById(item.sectionId ?? `section-${idx}`)
                         ?.scrollIntoView({
                           behavior: "smooth",
                           block: "start",
@@ -943,6 +943,96 @@ function MainContent() {
   );
   return (
     <div className="min-w-0 flex-1 max-w-240">
+      <section id="section-5" className="mb-12">
+        <SectionHeading size="h2" className="mb-4">
+          Rapid-Deploy Helipad Systems For Temporary &amp; Emergency Operations
+        </SectionHeading>
+        <p className="mb-4 text-[14px] text-[#636363] md:text-[16px]">
+          Catobo’s Portable Helipad and VertiPad solutions are engineered for
+          rapid deployment where permanent infrastructure is not feasible.
+          Designed for emergency response, temporary operations, and remote
+          locations, these systems deliver high load capacity, operational
+          safety, and compliance without permanent civil works.
+        </p>
+        <p className="mb-4 text-[14px] text-[#636363] md:text-[16px]">
+          Our portable helipad systems use a modular, heavy-duty flooring
+          structure that can be quickly assembled to create stable, load-bearing
+          landing areas for helicopters. The system is ideal for medical
+          evacuation, disaster response, construction sites, events, and
+          temporary aviation operations.
+        </p>
+        <p className="mb-7 text-[14px] text-[#636363] md:text-[16px]">
+          Each solution is designed for speed, strength, and flexibility,
+          allowing teams to deploy, relocate, or dismantle the helipad with
+          minimal manpower and tools.
+        </p>
+        <div className="grid lg:grid-cols-3 gap-4">
+          <div className="lg:col-span-2 h-72 overflow-hidden rounded-xl bg-gray-100">
+            <img
+              src="/phls/helipad-surface.png"
+              alt="Portable helipad system"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="h-72 overflow-hidden rounded-xl bg-gray-100">
+            <img
+              src="/phls/helipad-overview.png"
+              alt="Portable helipad modular surface"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </section>
+      <section id="section-6" className="mb-12">
+        <SectionHeading size="h2" className="mb-5">
+          Key Features
+        </SectionHeading>
+        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          {helipadFeatures.map((card, i) => (
+            <FeatureCard key={i} {...card} />
+          ))}
+        </div>
+      </section>
+      <section id="section-7" className="mb-12">
+        <ProcessTimeline
+          title="Applications"
+          columns={4}
+          steps={helipadApplications}
+        />
+      </section>
+      <section id="section-8" className="mb-10">
+        <div className="grid items-center gap-8 md:grid-cols-[5fr_7fr]">
+          <div className="order-2 h-90 overflow-hidden rounded-xl bg-gray-100 md:order-1">
+            <img
+              src="/phls/why-helipad.png"
+              alt="Portable helipad installation"
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="order-1 md:order-2">
+            <SectionHeading size="h2" className="mb-5">
+              Why Choose Catobo Portable Helipad Solutions
+            </SectionHeading>
+            <div className="mb-7">
+              {checks([
+                "Proven modular engineering",
+                "High load performance with rapid deployment",
+                "Minimal site preparation required",
+                "Flexible, reusable, and cost-effective",
+              ])}
+            </div>
+            <button
+              className="rounded-lg px-6 py-3 text-[14px] font-medium tracking-wide text-white"
+              style={{
+                background:
+                  "linear-gradient(93deg, #22A1D8 0.43%, #025094 98.09%)",
+              }}
+            >
+              Talk to an Expert
+            </button>
+          </div>
+        </div>
+      </section>
       <section id="section-0" className="mb-12">
         <SectionHeading size="h1" className="mb-4">
           Reliable. Rapid. Ready for Every Operation.
@@ -1053,96 +1143,6 @@ function MainContent() {
           </div>
         </div>
       </section>
-      <section id="section-5" className="mb-12">
-        <SectionHeading size="h2" className="mb-4">
-          Rapid-Deploy Helipad Systems For Temporary &amp; Emergency Operations
-        </SectionHeading>
-        <p className="mb-4 text-[14px] text-[#636363] md:text-[16px]">
-          Catobo’s Portable Helipad and VertiPad solutions are engineered for
-          rapid deployment where permanent infrastructure is not feasible.
-          Designed for emergency response, temporary operations, and remote
-          locations, these systems deliver high load capacity, operational
-          safety, and compliance without permanent civil works.
-        </p>
-        <p className="mb-4 text-[14px] text-[#636363] md:text-[16px]">
-          Our portable helipad systems use a modular, heavy-duty flooring
-          structure that can be quickly assembled to create stable, load-bearing
-          landing areas for helicopters. The system is ideal for medical
-          evacuation, disaster response, construction sites, events, and
-          temporary aviation operations.
-        </p>
-        <p className="mb-7 text-[14px] text-[#636363] md:text-[16px]">
-          Each solution is designed for speed, strength, and flexibility,
-          allowing teams to deploy, relocate, or dismantle the helipad with
-          minimal manpower and tools.
-        </p>
-        <div className="grid lg:grid-cols-3 gap-4">
-          <div className="lg:col-span-2 h-72 overflow-hidden rounded-xl bg-gray-100">
-            <img
-              src="/phls/helipad-surface.png"
-              alt="Portable helipad system"
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="h-72 overflow-hidden rounded-xl bg-gray-100">
-            <img
-              src="/phls/helipad-overview.png"
-              alt="Portable helipad modular surface"
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
-      </section>
-      <section id="section-6" className="mb-12">
-        <SectionHeading size="h2" className="mb-5">
-          Key Features
-        </SectionHeading>
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {helipadFeatures.map((card, i) => (
-            <FeatureCard key={i} {...card} />
-          ))}
-        </div>
-      </section>
-      <section id="section-7" className="mb-12">
-        <ProcessTimeline
-          title="Applications"
-          columns={4}
-          steps={helipadApplications}
-        />
-      </section>
-      <section id="section-8" className="mb-10">
-        <div className="grid items-center gap-8 md:grid-cols-[5fr_7fr]">
-          <div className="order-2 h-90 overflow-hidden rounded-xl bg-gray-100 md:order-1">
-            <img
-              src="/phls/why-helipad.png"
-              alt="Portable helipad installation"
-              className="h-full w-full object-cover"
-            />
-          </div>
-          <div className="order-1 md:order-2">
-            <SectionHeading size="h2" className="mb-5">
-              Why Choose Catobo Portable Helipad Solutions
-            </SectionHeading>
-            <div className="mb-7">
-              {checks([
-                "Proven modular engineering",
-                "High load performance with rapid deployment",
-                "Minimal site preparation required",
-                "Flexible, reusable, and cost-effective",
-              ])}
-            </div>
-            <button
-              className="rounded-lg px-6 py-3 text-[14px] font-medium tracking-wide text-white"
-              style={{
-                background:
-                  "linear-gradient(93deg, #22A1D8 0.43%, #025094 98.09%)",
-              }}
-            >
-              Talk to an Expert
-            </button>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
@@ -1152,19 +1152,19 @@ function MainContent() {
 export default function SolutionPortableHelipad() {
   const sidebarGroups: SidebarGroup[] = [
     {
-      heading: "Portable Lighting Solutions",
-      items: [
-        { label: "Overview", hasArrow: true, sectionId: "section-0" },
-        { label: "Key Features", hasArrow: true, sectionId: "section-1" },
-        { label: "Applications", hasArrow: true, sectionId: "section-3" },
-      ],
-    },
-    {
       heading: "Portable Helipad & VertiPad Solutions",
       items: [
         { label: "Overview", hasArrow: true, sectionId: "section-5" },
         { label: "Key Features", hasArrow: true, sectionId: "section-6" },
         { label: "Applications", hasArrow: true, sectionId: "section-7" },
+      ],
+    },
+    {
+      heading: "Portable Lighting Solutions",
+      items: [
+        { label: "Overview", hasArrow: true, sectionId: "section-0" },
+        { label: "Key Features", hasArrow: true, sectionId: "section-1" },
+        { label: "Applications", hasArrow: true, sectionId: "section-3" },
       ],
     },
   ];

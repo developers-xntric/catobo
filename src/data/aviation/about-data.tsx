@@ -173,7 +173,7 @@ export const aviationAboutData: AboutData = {
   engineeringExcellence: {
     badge: "About Us",
     title: "Engineering Excellence That Powers Progress",
-    image: "/engr-solutions/about/about.png",
+    image: "/engr-solutions/about/about2.png",
     paragraphs: [
       <p key="1">
         Company started in 2007 of industry presence, Catobo has grown into a

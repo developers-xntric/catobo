@@ -72,7 +72,7 @@ export const engineeringAboutData: AboutData = {
     engineeringExcellence: {
         badge: "About Us",
         title: "Engineering Excellence That Powers Progress",
-        image: "/engr-solutions/about/about.png",
+        image: "/engr-solutions/about/about2.png",
         paragraphs: [
             <p key="1">
                 Company started in 2007 of industry presence, Catobo has grown into a highly internationalized engineering and technical solutions group. We support critical industries by enhancing productivity, safety, and sustainability through well-integrated systems and expert-led execution.

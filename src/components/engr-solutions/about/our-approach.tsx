@@ -59,10 +59,10 @@ export default function OurApproach({ data }: { data: AboutData['ourApproach'] }
                     </div>
                     <div className="lg:w-[50%] relative min-h-[300px] w-full rounded-2xl overflow-hidden border border-white/10 group">
                         <Image
-                            src="/engr-solutions/about/approach.png"
+                            src="/engr-solutions/about/approach2.png"
                             alt="Approach"
                             fill
-                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                            className="object-cover transition-transform duration-700"
                         />
                     </div>
                 </div>

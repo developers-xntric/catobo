@@ -91,15 +91,16 @@ export const engineeringHomeData: HomeData = {
       </>
     ),
     buttonHref:"/engineering/about",
-    image: "/engr-solutions/about.png",
+    image: "/engr-solutions/about2.png",
     safelyBg: "/engr-solutions/safely-bg.png",
     safelyTitle: "Safety Without Compromise.",
     safelyDesc: "Catobo integrates rigorous international compliance ICAO, FAA, IEC, and local regulations into airfield lighting, vertiport & heliport, lightning protection, and cable systems, delivering risk-mitigated excellence from design to maintenance.",
+    safelyCtaText: "Start Your Consultation",
   },
   projects: {
     badge: "Our Projects",
     title: "Engineering Excellence In Every Project We Deliver",
-    buttonHre: "/engineering/portfolio",
+    buttonHre: "/engineering/contact",
     description: "Showcasing our expertise in aviation, construction, and critical infrastructure solutions. Explore how we deliver safety, compliance, precision in every project.",
     items: [
       {

@@ -52,6 +52,7 @@ function SectionHeading({
 interface SidebarItem {
   label: string;
   hasArrow?: boolean;
+  sectionId?: string;
 }
 
 interface SidebarGroup {
@@ -94,7 +95,7 @@ export function Sidebar({
                     onClick={() => {
                       setActive(idx);
                       document
-                        .getElementById(`section-${idx}`)
+                        .getElementById(item.sectionId ?? `section-${idx}`)
                         ?.scrollIntoView({
                           behavior: "smooth",
                           block: "start",

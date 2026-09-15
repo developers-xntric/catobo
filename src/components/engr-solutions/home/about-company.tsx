@@ -16,6 +16,7 @@ export default function AboutCompany({
     safelyBg,
     safelyTitle,
     safelyDesc,
+    safelyCtaText,
     buttonHref,
   } = data;
 
@@ -35,7 +36,7 @@ export default function AboutCompany({
             <h2 className="text-[22px] md:text-3xl lg:text-[35px] font-medium leading-[1.2] text-white mb-4">
               {safelyTitle}
             </h2>
-            <p className="text-[14px] md:text-lg text-white mb-6 max-w-full sm:max-w-[80%] px-4 sm:px-0 mx-auto">
+            <p className="text-[14px] md:text-base text-white mb-6 max-w-full lg:max-w-[90%] px-4 sm:px-0 mx-auto">
               {safelyDesc}
             </p>
 
@@ -43,7 +44,7 @@ export default function AboutCompany({
               className="group inline-flex items-center gap-2.5 rounded-[5px] bg-white px-7 py-3 text-sm font-medium text-[#000000] shadow-lg shadow-white/10
                          hover:bg-transparent hover:text-white hover:border hover:border-white hover:shadow-xl hover:shadow-white/20 active:scale-95 transition-all duration-200 cursor-pointer"
             >
-              Start Your Consultation
+              {safelyCtaText}
             </ContactCtaButton>
           </div>
         </div>

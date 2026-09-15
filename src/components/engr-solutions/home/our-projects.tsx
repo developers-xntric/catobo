@@ -101,7 +101,7 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                             {description}
                         </p>
                         <GradButton href={buttonHre} size="md">
-                            View All Projects
+                            View Projects
                         </GradButton>
                     </div>
                 </div>
@@ -137,12 +137,12 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                         </div>
 
                         {/* gradient arrow button */}
-                        <Link
+                        {/* <Link
                             href={project.link}
                             className="mt-6 w-11 h-11 rounded-full bg-linear-to-r from-[#0F2453] to-[#168DCA] flex items-center justify-center text-white hover:scale-110 transition-transform duration-300 shadow-lg shadow-blue-500/20"
                         >
                             <ArrowIcon />
-                        </Link>
+                        </Link> */}
                     </div>
 
                     {/* ── Mobile nav arrows + marquee after card 2 ── */}

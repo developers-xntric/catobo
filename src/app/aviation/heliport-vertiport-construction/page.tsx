@@ -9,7 +9,9 @@ const services = [
   "Design & Build Solutions",
   "Civil & Structural Construction",
   "Ground, Rooftop & Elevated Heliports",
+  "Aluminium Helideck Systems",
   "Structural Design Coordination & Load Analysis",
+  "Pre-Conditioned Air (PCA) Pit Systems",
   "Earthworks & Foundation Construction",
   "Drainage & Water Management Systems",
   "Surface Finishes & Anti-Skid Coatings",
@@ -134,7 +136,7 @@ export default function HeliportVertiportConstructionPage() {
           { label: "Home", href: "/" },
           { label: "Heliport & Vertiport Construction" },
         ]}
-        backgroundImage="/hvc/hero-bg.png"
+        backgroundImage="/hvc/hero2.png"
       />
       <main className="2xl:max-w-350 mx-auto w-[90%] space-y-12 py-8 md:space-y-16 md:py-12">
         <section className="space-y-3">
@@ -158,12 +160,12 @@ export default function HeliportVertiportConstructionPage() {
           </MainText>
           <div className="mb-8 mt-5 grid gap-2 overflow-hidden sm:grid-cols-2">
             <Photo
-              src="/hvc/intro-ground.png"
+              src="/hvc/intro1.png"
               alt="Ground heliport construction"
               className="h-auto"
             />
             <Photo
-              src="/hvc/intro-elevated.png"
+              src="/hvc/intro2.png"
               alt="Elevated heliport construction"
               className="h-auto"
             />
@@ -211,6 +213,27 @@ export default function HeliportVertiportConstructionPage() {
             </BodyText>
           </div>
         </section>
+         <section className="grid gap-6 xl:grid-cols-2 md:items-start">
+          <div>
+            <SectionHeading>
+              Catobo Is One Of The Few Aviation Infrastructure Companies
+            </SectionHeading>
+            <p className="mt-3 text-[14px] md:text-[16px] leading-relaxed text-[#636363]">
+              Catobo is one of the few aviation infrastructure companies that
+              delivers the complete project lifecycle under a single umbrella.
+              From initial consultation, feasibility studies, and engineering
+              design to procurement, supply, construction, installation,
+              testing, commissioning, certification support, and long-term
+              maintenance, every stage is managed by one experienced team. This
+              integrated approach eliminates the need to coordinate multiple
+              contractors, reduces project risks, streamlines communication, and
+              ensures consistent quality throughout the project.
+            </p>
+          </div>
+          <div className="h-56 md:h-72">
+            <Photo src="/hvc/few-aviation.png" alt="Completed heliport facility" />
+          </div>
+        </section>
         <section>
           <SectionHeading>
             Vertiports &amp; Advanced Air Mobility (AAM)
@@ -224,13 +247,13 @@ export default function HeliportVertiportConstructionPage() {
             Our turnkey construction services include:
           </p>
           <div className="mt-2 grid gap-x-8 sm:grid-cols-2">
-            <List items={services.slice(0, 7)} />
-            <List items={services.slice(7)} />
+            <List items={services.slice(0, 8)} />
+            <List items={services.slice(8)} />
           </div>
         </section>
-        <section className="grid items-stretch gap-6 md:grid-cols-2 md:items-stretch">
+        <section className="grid items-stretch gap-6 md:grid-cols-2 md:items-center">
           <div className="h-full self-stretch order-2 md:order-1">
-            <Photo src="/hvc/closing.png" alt="Heliport perimeter safety net" />
+            <Photo src="/hvc/closing2.png" alt="Heliport perimeter safety net" />
           </div>
           <div className="order-1 md:order-2">
             <SectionHeading>Perimeter Safety Nets</SectionHeading>
@@ -337,27 +360,7 @@ export default function HeliportVertiportConstructionPage() {
             ))}
           </div>
         </section>
-        <section className="grid gap-6 xl:grid-cols-2 md:items-start">
-          <div>
-            <SectionHeading>
-              Catobo Is One Of The Few Aviation Infrastructure Companies
-            </SectionHeading>
-            <p className="mt-3 text-[14px] md:text-[16px] leading-relaxed text-[#636363]">
-              Catobo is one of the few aviation infrastructure companies that
-              delivers the complete project lifecycle under a single umbrella.
-              From initial consultation, feasibility studies, and engineering
-              design to procurement, supply, construction, installation,
-              testing, commissioning, certification support, and long-term
-              maintenance, every stage is managed by one experienced team. This
-              integrated approach eliminates the need to coordinate multiple
-              contractors, reduces project risks, streamlines communication, and
-              ensures consistent quality throughout the project.
-            </p>
-          </div>
-          <div className="h-56 md:h-72">
-            <Photo src="/hvc/perimeter.png" alt="Completed heliport facility" />
-          </div>
-        </section>
+       
       </main>
     </div>
   );

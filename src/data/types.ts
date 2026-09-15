@@ -6,8 +6,11 @@ export interface NavLink {
 export interface HeroData {
     title: string;
     subtitle?: string;
+    additionalParagraph?: string;
+    highlightText?: string;
     buttonText?: string;
     backgroundImage: string;
+    backgroundVideo?: string;
     breadcrumbs?: NavLink[];
     partnerLogos?: { file: string; name: string }[];
 }
@@ -21,6 +24,7 @@ export interface SolutionCard {
 export interface HomeData {
     hero: HeroData;
     solutions: {
+        description?: string;
         badge: string;
         title: string;
         cards: SolutionCard[];
@@ -48,6 +52,7 @@ export interface HomeData {
         safelyBg: string;
         safelyTitle: string;
         safelyDesc: string;
+        safelyCtaText: string;
         buttonHref: string;
     };
     projects: {
@@ -127,6 +132,8 @@ export interface ContentSection {
     badge?: string;
     title: string;
     subtitle?: string;
+    additionalParagraph?: string;
+    highlightText?: string;
     description?: string;
     paragraphs?: string[];
     points?: string[];
@@ -140,6 +147,8 @@ export interface NumberedCardData {
     number: number;
     title: string;
     subtitle?: string;
+    additionalParagraph?: string;
+    highlightText?: string;
     points: string[];
 }
 

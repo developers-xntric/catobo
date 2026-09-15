@@ -16,7 +16,7 @@ const cardRoutes: Record<string, string> = {
 export default function Solutions({ data }: { data: HomeData['solutions'] }) {
   const pathname = usePathname()
   const isAviation = pathname?.startsWith('/aviation')
-  const { badge, title, cards, stats } = data;
+  const { badge, title, cards, stats, description } = data;
   const [activeDot, setActiveDot] = useState(0);
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -59,9 +59,15 @@ export default function Solutions({ data }: { data: HomeData['solutions'] }) {
         </span>
       </div>
 
-      <h2 className={`text-[22px] md:text-[30px] lg:text-[35px] font-medium leading-[1.2] text-balance text-[#000] text-center ${isAviation ? 'mb-5 md:mb-10' : 'mb-10'}`}>
+      <h2 className={`text-[22px] md:text-[30px] lg:text-[35px] font-medium leading-[1.2] text-balance text-[#000] text-center ${isAviation ? 'mb-5 ' : 'mb-10'}`}>
         {title}
       </h2>
+
+      {description && (
+        <p className="text-center text-sm md:text-base text-[#6D6D6D] leading-relaxed md:max-w-[80%] mx-auto mb-10">
+          {description}
+        </p>
+      )}
 
       {isAviation ? (
         <ConsultationTabs />

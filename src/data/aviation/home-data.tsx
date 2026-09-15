@@ -3,11 +3,14 @@ import { HomeData } from "../types";
 
 export const aviationHomeData: HomeData = {
   hero: {
-    title: "Decades of Precision, Across Continents",
+    title: "Aviation Infrastructure. Engineered for What’s Next.",
     subtitle:
-      "Catobo harnesses deep expertise in ME/African military, healthcare, airport, and royal challenges to deliver holistic airfield lighting, vertiport & heliport, lightning protection, and cable systems from inception to completion.",
-    buttonText: "Book Your Consultation",
+      "Catobo delivers the infrastructure that enables aviation to operate safely, reliably, and confidently from urban rooftops and private developments to remote and offshore environments.",
+    additionalParagraph:
+      "We combine specialist aviation engineering, regulatory expertise, construction capability, and end-to-end project delivery to transform complex requirements into operational aviation infrastructure.",
+    highlightText: "Designed with precision. Built for performance. Ready for what’s next.",    buttonText: "Book Your Consultation",
     backgroundImage: "/engr-solutions/hero-bg.png", // placeholder
+    backgroundVideo: "/aviation/hero.mp4",
     partnerLogos: [
       { file: "1-aviation.png", name: "Partner 1" },
       { file: "2-aviation.png", name: "Partner 2" },
@@ -18,7 +21,9 @@ export const aviationHomeData: HomeData = {
   },
   solutions: {
     badge: "Solutions",
-    title: "Complete Aviation Lighting Solutions for High-Risk Environments",
+    title: "Engineering the Infrastructure Behind Aviation",
+    description:
+      "From consultation and design to construction, certification, and specialised aviation systems, Catobo delivers integrated solutions for aviation operations across onshore, offshore, urban, and remote environments.",
     cards: [],
     stats: {
       title: "Impact Across Continents",
@@ -90,11 +95,12 @@ export const aviationHomeData: HomeData = {
     safelyBg: "/engr-solutions/safely-bg.png", // placeholder
     safelyTitle: "Safety Without Compromise.",
     safelyDesc:
-      "Catobo integrates rigorous international compliance ICAO, FAA, IEC, and local regulations into airfield lighting, vertiport & heliport, lightning protection, and cable systems, delivering risk-mitigated excellence from design to maintenance.",
+      "Catobo delivers specialised aviation infrastructure engineered around the highest standards of safety, compliance, and operational reliability. From helipads and vertipads to runways and associated aviation systems, we integrate international aviation standards, specialist engineering, and disciplined project execution from design and approvals through construction, certification, and long-term support.",
+    safelyCtaText: "Engineered for Safety. Built for Aviation.",
   },
   projects: {
     badge: "Our Projects",
-    buttonHre: "/aviation/portfolio",
+    buttonHre: "/aviation/contact",
     title: "Engineering Excellence in Every Project We Deliver",
     description:
       "Showcasing our expertise in aviation, construction, and critical infrastructure solutions. Explore how we deliver safety, compliance, and precision in every project.",

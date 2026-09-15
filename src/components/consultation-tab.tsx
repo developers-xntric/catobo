@@ -45,20 +45,20 @@ const tabsData: TabContent[] = [
     subTitle: '',
     description:
       'Safe helicopter operations depend on reliable visual guidance. Catobo designs, supplies, installs, and commissions complete heliport and vertiport lighting systems, including perimeter lights, floodlights, illuminated wind cones, approach lighting, HAPI systems, and control panels. Our lighting solutions are selected for long service life, low maintenance, and dependable performance. Every installation is designed to meet international aviation standards and operational requirements.',
-    image: '/vertiport-lighting-systems.png',
+    image: '/lighting-system.png',
      primaryBtnText: 'Explore More',
     primaryBtnHref: '/aviation/heliport-and-vertiport-lighting-solutions',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
-    id: 'transport',
-    title: 'Heliport & Vertiport Firefighting Systems',
+    id: 'offshore-helidecks',
+    title: 'Offshore Helidecks',
     subTitle: '',
     description:
-      'Fire protection is a critical part of every heliport and vertiport. Catobo delivers integrated firefighting systems designed to meet aviation safety requirements and authority regulations. Our solutions include foam systems (Trolley type and DIFF type), extinguishers, hydrants, monitors, emergency equipment, and associated infrastructure. Each system is engineered to provide rapid response while ensuring reliability and compliance. We also support testing, commissioning, and operational readiness.',
-    image: '/vertiport-firefighting.png',
+      'From offshore platforms and FPSOs to other demanding marine environments, Catobo delivers specialised offshore helideck solutions engineered for safety, reliability, and operational performance. Combining aviation expertise with offshore engineering capability, we support projects from design and regulatory approvals through construction, certification, and lifecycle support, including solutions for hazardous environments where specialised and Ex-rated systems are required.',
+    image: '/aviation/offshore-tab.png',
     primaryBtnText: 'Explore More',
-    primaryBtnHref: '/aviation/firefighting-systems',
+    primaryBtnHref: '#',
     secondaryBtnText: 'Book Your Consultation',
   },
   {
@@ -78,7 +78,7 @@ const tabsData: TabContent[] = [
     subTitle: '',
     description:
       'Catobo supplies ICAO and FAA-compliant aircraft warning lights for buildings, towers, bridges, cranes, wind turbines, and other tall structures. Our product range includes low, medium, and high-intensity LED obstruction lighting systems with intelligent monitoring and control options. These solutions improve aviation safety while providing reliable long-term performance and low maintenance. We also provide complete installation, commissioning, and maintenance support for obstruction lighting systems. We do undertake Annual Maintenance Contracts to ensure the operational readiness of systems at all times.',
-    image: '/aviation/AircraftWarningLights.png',
+    image: '/aviation/aircraft-warning.png',
    primaryBtnText: 'Explore More',
     primaryBtnHref: '/aviation/aircraft-warning-lights',
     secondaryBtnText: 'Book Your Consultation',
@@ -100,7 +100,7 @@ const tabsData: TabContent[] = [
     subTitle: '',
     description:
       'Catobo provides complete floating heliport solutions for offshore, marine, and waterfront applications. Our systems are engineered to deliver stable and safe helicopter operations in challenging environments. From structural design and mooring systems to lighting, firefighting, and safety equipment, every component is integrated into a complete solution. We work closely with clients to develop customized floating heliports for their operational needs. Every project is designed with safety, durability, and compliance in mind.',
-    image: '/modular-floating.png',
+    image: '/aviation/modular-floating.png',
     primaryBtnText: 'Explore More',
     primaryBtnHref: '/aviation/modular-floating-solutions',
     secondaryBtnText: 'Book Your Consultation',
@@ -136,11 +136,11 @@ export default function ConsultationTabs() {
         <div className="overflow-hidden rounded-xl mb-12">
           <div className="grid lg:grid-cols-2">
             {/* Image */}
-            <div className="flex items-stretch rounded-[10px] max-h-[200px] sm:max-h-[300px] md:max-h-[350px] lg:max-h-none">
+            <div className="flex items-stretch max-h-[200px] sm:max-h-[300px] md:max-h-[350px] lg:max-h-none">
               <img
                 src={currentTab.image}
                 alt={currentTab.title}
-                className="h-full w-full object-cover"
+                className="h-full w-full rounded-[10px] "
               />
             </div>
 

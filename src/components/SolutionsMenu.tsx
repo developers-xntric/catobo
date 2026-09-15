@@ -7,14 +7,14 @@ import { ArrowRight } from "lucide-react";
 export type SolutionLink = { label: string; href: string; image: number };
 
 export const aviationSolutionLinks: SolutionLink[] = [
-  ["Aircraft Warning Lights", "/aviation/aircraft-warning-lights", 3962],
   ["Aviation Consultation & Firefighting Design", "/aviation/consultation", 3959],
-  ["Portable Helipad & VertiPad", "/aviation/portable-helipad-lighting-solutions", 3964],
-  ["Heliport & Vertiport Lighting Systems", "/aviation/heliport-and-vertiport-lighting-solutions", 3963],
-  ["Heliport & Vertiport Firefighting Systems", "/aviation/firefighting-systems", 3965],
-  ["Airfield Lighting Systems", "/aviation/airfield-lighting", 3960],
-  ["Modular Floating Solutions", "/aviation/modular-floating-solutions", 3966],
   ["Heliport & Vertiport Construction", "/aviation/heliport-vertiport-construction", 3961],
+  ["Heliport & Vertiport Lighting Systems", "/aviation/heliport-and-vertiport-lighting-solutions", 3977],
+  ["Offshore Helidecks", "/aviation/offshore-helidecks", 3976],
+  ["Airfield Lighting Systems", "/aviation/airfield-lighting", 3960],
+  ["Aircraft Warning Lights", "/aviation/aircraft-warning-lights", 3974],
+  ["Portable Helipad Lighting Solutions", "/aviation/portable-helipad-lighting-solutions", 3964],
+  ["Modular Floating Solutions", "/aviation/modular-floating-solutions", 3975],
 ].map(([label, href, image]) => ({ label: String(label), href: String(href), image: Number(image) }));
 
 export const engineeringSolutionLinks: SolutionLink[] = [
