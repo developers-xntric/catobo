@@ -58,7 +58,6 @@ export interface HomeData {
     projects: {
         badge: string;
         title: string;
-        buttonHre?:string;
         description: string;
         items: {
             image: string;

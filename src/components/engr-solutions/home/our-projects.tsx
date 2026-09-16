@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import GradButton from "@/components/ui/grad-button";
 import { ContactCtaButton } from "@/components/ContactCtaButton";
 import { HomeData } from "@/data/types";
 
@@ -55,13 +54,26 @@ const ChevronRight = () => (
 );
 
 export default function OurProjects({ data }: { data: HomeData['projects'] }) {
-    const { badge, title, description, items: projects, categories, buttonHre } = data;
+    const { badge, title, description, items: projects, categories } = data;
     const [activeIndex, setActiveIndex] = useState(0);
 
     const goPrev = () =>
         setActiveIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
     const goNext = () =>
         setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+
+    const selectCategory = (category: string) => {
+        const index = projects.findIndex((item) => item.category === category);
+        if (index >= 0) setActiveIndex(index);
+    };
+
+    useEffect(() => {
+        const autoplayTimer = window.setInterval(() => {
+            setActiveIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+        }, 2000);
+
+        return () => window.clearInterval(autoplayTimer);
+    }, [projects.length]);
 
     const project = projects[activeIndex];
 
@@ -100,9 +112,6 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                         <p className="text-[14px] md:text-[15px] leading-relaxed text-[#7C8192] mb-6">
                             {description}
                         </p>
-                        <GradButton href={buttonHre} size="md">
-                            View Projects
-                        </GradButton>
                     </div>
                 </div>
 
@@ -173,15 +182,18 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                             />
                             <div className="category-marquee-track flex items-center gap-6 whitespace-nowrap py-2">
                                 {[...categories, ...categories, ...categories].map((cat, i) => (
-                                    <span
+                                    <button
+                                        type="button"
                                         key={`${cat}-${i}`}
+                                        onClick={() => selectCategory(cat)}
+                                        aria-pressed={cat === project.category}
                                         className={`text-[14px] transition-colors duration-200 cursor-pointer select-none shrink-0 ${cat === project.category
                                             ? "text-[#168DCA] font-medium"
                                             : "text-[#fff]"
                                         }`}
                                     >
                                         {cat}
-                                    </span>
+                                    </button>
                                 ))}
                             </div>
                         </div>
@@ -249,15 +261,18 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
 
                             <div className="category-marquee-track flex items-center gap-6 md:gap-10 whitespace-nowrap py-2">
                                 {[...categories, ...categories, ...categories].map((cat, i) => (
-                                    <span
+                                    <button
+                                        type="button"
                                         key={`${cat}-${i}`}
+                                        onClick={() => selectCategory(cat)}
+                                        aria-pressed={cat === project.category}
                                         className={`text-[14px] md:text-[15px] transition-colors duration-200 cursor-pointer select-none shrink-0 ${cat === project.category
                                             ? "text-[#168DCA] font-medium"
                                             : "text-[#fff]"
                                             }`}
                                     >
                                         {cat}
-                                    </span>
+                                    </button>
                                 ))}
                             </div>
                         </div>
@@ -275,7 +290,7 @@ export default function OurProjects({ data }: { data: HomeData['projects'] }) {
                     {/* Right column: Request a Strategy Call — aligned under map card */}
                     <div className="w-full">
                         <ContactCtaButton
-                            className="inline-flex w-full items-center justify-center gap-2 px-6 py-2.5 rounded-[13px] border border-[#fff] text-sm text-[#fff] hover:text-white hover:border-white/40 transition-all duration-200 whitespace-nowrap "
+                            className="inline-flex w-full items-center justify-center gap-2 rounded-[13px] border border-transparent bg-linear-to-r from-[#0F2453] to-[#168DCA] px-6 py-2.5 text-sm text-white transition-all duration-200 hover:scale-[1.02] hover:border-[#E85D9A] hover:bg-[#E85D9A] hover:bg-none hover:shadow-lg hover:shadow-[#E85D9A]/25 whitespace-nowrap"
                         >
                             Request a Strategy Call
                         </ContactCtaButton>

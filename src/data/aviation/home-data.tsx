@@ -99,11 +99,10 @@ export const aviationHomeData: HomeData = {
     safelyCtaText: "Engineered for Safety. Built for Aviation.",
   },
   projects: {
-    badge: "Our Projects",
-    buttonHre: "/aviation/contact",
-    title: "Engineering Excellence in Every Project We Deliver",
+    badge: "Industry Expertise",
+    title: "Deep Knowledge Across Complex Environments",
     description:
-      "Showcasing our expertise in aviation, construction, and critical infrastructure solutions. Explore how we deliver safety, compliance, and precision in every project.",
+      "With nearly two decades of experience across aviation, defense, healthcare, construction, and offshore environments, we bring the sector insight, technical depth, and delivery expertise needed to manage complex requirements and execute full-scale projects with precision.",
     items: [
       {
         image: "/projects/1.png",
@@ -119,7 +118,7 @@ export const aviationHomeData: HomeData = {
         description:
           "We provide specialist engineering and infrastructure solutions for commercial, industrial, and technically demanding developments. From early stage planning and system design to installation, integration, testing, and commissioning, Catobo supports complex projects with a single-point delivery approach. Our focus is on precision, coordination, safety, durability, and dependable long-term operation.",
         link: "/projects/hospital-helipad",
-        category: "Healthcare",
+        category: "Construction",
       },
       {
         image: "/projects/3.png",
@@ -127,7 +126,7 @@ export const aviationHomeData: HomeData = {
         description:
           "Catobo supports defence and military environments with mission-critical infrastructure engineered for secure, high-performance operations. Our experience includes military airfields, aviation systems, specialist lighting, safety infrastructure, and supporting engineering solutions. Each project is designed to meet demanding operational, technical, regulatory, and environmental requirements.",
         link: "/projects/private-vertiport",
-        category: "Aviation",
+        category: "Defense & Military",
       },
       {
         image: "/projects/4.png",
@@ -135,7 +134,7 @@ export const aviationHomeData: HomeData = {
         description:
           "We deliver specialist aviation and infrastructure solutions for hospitals, healthcare facilities, and emergency-response environments. Our expertise includes rooftop and ground-level helipads, aviation lighting, firefighting systems, safety infrastructure, and supporting electrical works. These systems are engineered to enable safe, reliable, and efficient emergency access while meeting applicable aviation and operational standards.",
         link: "/projects/private-vertiport",
-        category: "Aviation",
+        category: "Healthcare",
       },
       {
         image: "/projects/5.png",
@@ -143,7 +142,7 @@ export const aviationHomeData: HomeData = {
         description:
           "Catobo provides robust engineering solutions for offshore platforms, oil rigs, marine facilities, and remote operating environments. Our capabilities include offshore helidecks, aviation lighting, aircraft warning systems, firefighting infrastructure, electrical integration, and safety systems. Every solution is engineered to perform reliably in harsh environmental conditions where operational continuity and safety are critical.",
         link: "/projects/private-vertiport",
-        category: "Aviation",
+        category: "Oil Rigs & Offshore",
       },
     ],
     categories: [

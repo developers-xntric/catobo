@@ -1,7 +1,7 @@
 import React from 'react';
 import { HomeData } from '../types';
 
-export const engineeringHomeData: HomeData = {
+export const engineeringHomeData: Omit<HomeData, "projects"> = {
   hero: {
     title: "Decades of Precision, Across Continents",
     subtitle: "Catobo harnesses deep expertise in ME/African military, healthcare, airport, and royal challenges to deliver holistic airfield lighting, vertiport & heliport, lightning protection, and cable systems from inception to completion.",
@@ -91,50 +91,11 @@ export const engineeringHomeData: HomeData = {
       </>
     ),
     buttonHref:"/engineering/about",
-    image: "/engr-solutions/about2.png",
+    image: "/engr-solutions/about.png",
     safelyBg: "/engr-solutions/safely-bg.png",
     safelyTitle: "Safety Without Compromise.",
     safelyDesc: "Catobo integrates rigorous international compliance ICAO, FAA, IEC, and local regulations into airfield lighting, vertiport & heliport, lightning protection, and cable systems, delivering risk-mitigated excellence from design to maintenance.",
     safelyCtaText: "Start Your Consultation",
-  },
-  projects: {
-    badge: "Our Projects",
-    title: "Engineering Excellence In Every Project We Deliver",
-    buttonHre: "/engineering/contact",
-    description: "Showcasing our expertise in aviation, construction, and critical infrastructure solutions. Explore how we deliver safety, compliance, precision in every project.",
-    items: [
-      {
-        image: "/engr-solutions/project-image.png",
-        title: "Vertiport & Heliport Lighting & Safety System",
-        description: "Delivered a state-of-the-art helipad lighting system designed for maximum safety, reliability, and operational efficiency. The project included perimeter and touchdown lighting, integrated safety beacons, and a control & monitoring system to ensure continuous compliance with international aviation standards. Engineered to withstand challenging conditions, this installation highlights Catobo's expertise in end-to-end aviation solutions.",
-        link: "/projects/vertiport-heliport",
-        category: "Aviation",
-      },
-      {
-        image: "/engr-solutions/project-image.png",
-        title: "Airfield Ground Lighting System",
-        description: "Designed and installed a comprehensive airfield ground lighting system for a major international airport, ensuring full compliance with ICAO standards. The project encompassed runway edge and centerline lighting, taxiway guidance systems, and approach lighting with advanced CCR control. Built to perform under extreme conditions, this installation demonstrates Catobo's capability in large-scale aviation infrastructure.",
-        link: "/projects/airfield-lighting",
-        category: "Construction",
-      },
-      {
-        image: "/engr-solutions/project-image.png",
-        title: "Lightning Protection & Earthing Systems",
-        description: "Engineered a complete lightning protection and earthing solution for a healthcare facility, safeguarding critical medical equipment and patient safety. The installation included external LPS, surge protection devices, and a comprehensive earthing network designed to meet IEC 62305 standards. This project underscores Catobo's precision in delivering safety-critical infrastructure.",
-        link: "/projects/lightning-protection",
-        category: "Healthcare",
-      },
-    ],
-    categories: [
-      "Aviation",
-      "Construction",
-      "Defense & Military",
-      "Healthcare",
-      "Oil & Gas",
-      "Transportation",
-      "Telecommunications",
-      "Energy",
-    ],
   },
   testimonials: {
     badge: "Testimonials",
