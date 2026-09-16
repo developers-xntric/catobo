@@ -29,7 +29,7 @@ function Tile({
         className={`object-cover ${imageClassName}`}
       />
       <div
-        className={`absolute  hidden md:flex min-h-[35px] items-center rounded-[10px] ${alignmentClass} border border-white bg-white/5 px-4 py-1 text-[11px] xl:text-[12px] leading-tight text-white backdrop-blur-[17px] md:min-h-[44px] md:text-[13px] ${labelClassName || "bottom-[5%]"}`}
+        className={`absolute  hidden lg:flex min-h-[35px] items-center rounded-[10px] ${alignmentClass} border border-white bg-white/5 px-4 py-1 text-[11px] xl:text-[12px] leading-tight text-white backdrop-blur-[17px] md:min-h-[44px] md:text-[13px] ${labelClassName || "bottom-[5%]"}`}
       >
         {label}
       </div>
@@ -57,7 +57,7 @@ export default function HomeCollage() {
           <Tile
             src="/home-collage-sustainability.png"
             label="Sustainability Solutions"
-            className="left-[47.7%] top-[2.25%] z-10 h-[33.2%] w-[26%]  "
+            className="left-[46%] lg:left-[47.7%] -top-2 md:top-1 lg:top-[2.25%] z-10 h-[37%] md:h-[32%] lg:h-[33.2%] w-[27%] lg:w-[26%]  "
             imageClassName="rotate-180 m-4"
             labelClassName="bottom-12 "
           />

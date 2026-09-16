@@ -54,7 +54,7 @@ export default function Home() {
           {solutionCards.map((card) => (
             <div
               key={card.href}
-              className="relative h-100 md:h-150 rounded-3xl overflow-hidden group"
+              className="relative min-h-90 md:h-150 rounded-[10px] md:rounded-3xl overflow-hidden group"
             >
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"

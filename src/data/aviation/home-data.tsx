@@ -106,35 +106,52 @@ export const aviationHomeData: HomeData = {
       "Showcasing our expertise in aviation, construction, and critical infrastructure solutions. Explore how we deliver safety, compliance, and precision in every project.",
     items: [
       {
-        image: "/aviation/project-image.png",
-        title: "vertiport & heliport Lighting & Safety System",
+        image: "/projects/1.png",
+        title: "Aviation",
         description:
-          "Delivered a state-of-the-art helipad lighting system designed for maximum safety, reliability, and operational efficiency. The project included perimeter and touchdown lighting, integrated safety beacons, and a control & monitoring system to ensure continuous compliance with international aviation standards. Engineered to withstand challenging conditions, this installation highlights Catobo’s expertise in end-to-end aviation solutions.",
+          "Catobo delivers complete aviation infrastructure solutions for heliports, vertiports, airfields, and advanced air mobility environments. Our capabilities span design, engineering, construction, lighting, firefighting systems, certification, testing, commissioning, and long-term maintenance. Every solution is developed around operational safety, regulatory compliance, reliability, and future-ready performance.",
         link: "/projects/runway-upgrade",
         category: "Aviation",
       },
       {
-        image: "/engr-solutions/project-image.png",
-        title: "Hospital Emergency Helipad",
+        image: "/projects/2.png",
+        title: "Construction",
         description:
-          "Designed and installed a rapid-response lighting system for a critical care facility, ensuring 24/7 accessibility for medical transport.",
+          "We provide specialist engineering and infrastructure solutions for commercial, industrial, and technically demanding developments. From early stage planning and system design to installation, integration, testing, and commissioning, Catobo supports complex projects with a single-point delivery approach. Our focus is on precision, coordination, safety, durability, and dependable long-term operation.",
         link: "/projects/hospital-helipad",
         category: "Healthcare",
       },
       {
-        image: "/engr-solutions/project-image.png",
-        title: "Private Estate Vertiport",
+        image: "/projects/3.png",
+        title: "Defense & Military",
         description:
-          "Created a bespoke, discreet lightning and landing system for a high-profile residence, balancing high performance with aesthetic requirements.",
+          "Catobo supports defence and military environments with mission-critical infrastructure engineered for secure, high-performance operations. Our experience includes military airfields, aviation systems, specialist lighting, safety infrastructure, and supporting engineering solutions. Each project is designed to meet demanding operational, technical, regulatory, and environmental requirements.",
+        link: "/projects/private-vertiport",
+        category: "Aviation",
+      },
+      {
+        image: "/projects/4.png",
+        title: "Healthcare",
+        description:
+          "We deliver specialist aviation and infrastructure solutions for hospitals, healthcare facilities, and emergency-response environments. Our expertise includes rooftop and ground-level helipads, aviation lighting, firefighting systems, safety infrastructure, and supporting electrical works. These systems are engineered to enable safe, reliable, and efficient emergency access while meeting applicable aviation and operational standards.",
+        link: "/projects/private-vertiport",
+        category: "Aviation",
+      },
+      {
+        image: "/projects/5.png",
+        title: "Oil Rigs & Offshore",
+        description:
+          "Catobo provides robust engineering solutions for offshore platforms, oil rigs, marine facilities, and remote operating environments. Our capabilities include offshore helidecks, aviation lighting, aircraft warning systems, firefighting infrastructure, electrical integration, and safety systems. Every solution is engineered to perform reliably in harsh environmental conditions where operational continuity and safety are critical.",
         link: "/projects/private-vertiport",
         category: "Aviation",
       },
     ],
     categories: [
       "Aviation",
+      "Construction",
       "Defense & Military",
       "Healthcare",
-      "Transportation",
+      "Oil Rigs & Offshore",
     ],
   },
   testimonials: {
