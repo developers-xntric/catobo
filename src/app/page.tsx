@@ -42,13 +42,36 @@ const solutionCards = [
 
 export default function Home() {
   const [isAviationDescriptionExpanded, setIsAviationDescriptionExpanded] = useState(false);
+  const [isLoadingVideoVisible, setIsLoadingVideoVisible] = useState(true);
   // Custom gradient defined from your prompt
   const brandGradient = {
     background: "linear-gradient(93deg, #168DCA -24.15%, #0F2453 134.7%)",
   };
 
   return (
-    <div className="min-h-screen  flex flex-col font-sans">
+    <div className="min-h-screen flex flex-col font-sans">
+      <div
+        aria-hidden={!isLoadingVideoVisible}
+        className={`fixed inset-0 z-[100] bg-black transition-opacity duration-500 ${isLoadingVideoVisible ? "opacity-100" : "pointer-events-none opacity-0"}`}
+      >
+        <video
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          onEnded={() => setIsLoadingVideoVisible(false)}
+          onTimeUpdate={(event) => {
+            if (event.currentTarget.currentTime >= 4) {
+              event.currentTarget.pause();
+              setIsLoadingVideoVisible(false);
+            }
+          }}
+          onError={() => setIsLoadingVideoVisible(false)}
+          className="h-full w-full object-cover"
+        >
+          <source src="/loading-page.webm" type="video/webm" />
+        </video>
+      </div>
       <div className="w-full bg-[#F3F3F3]">
         <section className="w-full max-w-360 mx-auto px-5 pt-12 md:pt-16 pb-12 md:pb-16 bg-[#F3F3F3]">
           <div className="grid grid-cols-1 gap-6 mb-10 lg:grid-cols-2 lg:gap-12">
