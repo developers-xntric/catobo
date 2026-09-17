@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { CheckIcon } from "@/components/common/CheckIcon";
 import DynamicHero from "@/components/common/hero";
@@ -262,7 +262,7 @@ function MainContent() {
           ].map((item, index, items) => (
             <React.Fragment key={item}>
               <span>{item}</span>
-              {index < items.length - 1 && <span aria-hidden="true">→</span>}
+              {index < items.length - 1 && <span aria-hidden="true">â†’</span>}
             </React.Fragment>
           ))}
         </div>

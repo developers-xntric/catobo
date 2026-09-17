@@ -1,10 +1,11 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import Link from "next/link";
 import Badge from "@/components/ui/badge";
 import { ContactCtaButton } from "@/components/ContactCtaButton";
 import HomeCollage from "@/components/home/HomeCollage";
+import { ArrowRight } from "lucide-react";
 
 const solutionCards = [
   {
@@ -49,9 +50,29 @@ export default function Home() {
   return (
     <div className="min-h-screen  flex flex-col font-sans">
       <div className="w-full bg-[#F3F3F3]">
-        {/* Top Section: Hero Cards */}
-        <section className="w-full max-w-360 mx-auto px-5 md:pb-16 pt-4 pb-12 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 bg-[#F3F3F3]">
-          {solutionCards.map((card) => (
+        <section className="w-full max-w-360 mx-auto px-5 pt-12 md:pt-16 pb-12 md:pb-16 bg-[#F3F3F3]">
+          <div className="grid grid-cols-1 gap-6 mb-10 lg:grid-cols-2 lg:gap-12">
+            <div>
+              <h1 className="text-3xl md:text-4xl lg:text-[40px] font-medium leading-[1.2] text-[#0a0f1e]">
+                Engineering Infrastructure for a Smarter Future
+              </h1>
+              <p className="mt-3 text-md md:text-[25px] font-medium leading-[1.2] text-[#0a0f1e]">
+                Aviation | Engineering | Sustainability
+              </p>
+            </div>
+            <div className="lg:pt-1">
+              <p className="text-sm md:text-base leading-relaxed text-[#636363]">
+                Since 2007, Catobo has delivered specialised engineering solutions from the UAE across the Middle East, Africa, and India from aviation infrastructure and electrical systems to sustainable engineering solutions.
+              </p>
+              <Link href="#solutions" className="group mt-6 inline-flex items-center gap-2 rounded px-6 py-2.5 text-sm font-medium text-white shadow-lg transition-opacity hover:opacity-90" style={brandGradient}>
+                Explore Our Solutions
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          </div>
+
+          <div id="solutions" className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 scroll-mt-6">
+            {solutionCards.map((card) => (
             <div
               key={card.href}
               className="relative min-h-90 md:h-150 rounded-[10px] md:rounded-3xl overflow-hidden group"
@@ -101,9 +122,11 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          ))}
+            ))}
+          </div>
         </section>
       </div>
+
 
       {/* Middle Section: Text Content & Bottom Images */}
       <section className="2xl:max-w-340 w-[90%] mx-auto  md:px-8 pt-12 md:pt-16 bg-white grow">
@@ -192,7 +215,7 @@ export default function Home() {
         }}
       >
         <p className="text-white text-sm md:text-[16px]">
-          Copyright © 2026 All Rights Reserved.
+          Copyright Â© 2026 All Rights Reserved.
         </p>
       </section>
     </div>

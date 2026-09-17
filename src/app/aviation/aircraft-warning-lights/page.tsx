@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import DynamicHero from "@/components/common/hero";
 import { CheckIcon } from "@/components/common/CheckIcon";
@@ -9,37 +9,37 @@ import { Sidebar } from "@/app/aviation/airfield-lighting/page";
 import React, { useState } from "react";
 
 const menu = [
-  { heading: "Low Intensity", items: ["HORIZON L-810 LED Obstruction Light"] },
+  { heading: "Low Intensity", items: ["Making Structures Visible. Keeping Airspace Safe."] },
   {
     heading: "Medium Intensity",
     items: [
-      "FlashGuard 2000B",
-      "FlashGuard 3000B",
-      "Horizon 2000/2009/3000 AC Series",
-      "HORIZON Tower Lighting Controller",
+      "The Right Obstruction Lighting for Every Application",
+      "More Than Warning Lights",
+      "Engineered for Reliable Operations",
+      "Assessment & Design",
     ],
   },
-  { heading: "High Intensity", items: ["Strobeguard SS-122/125"] },
+  { heading: "High Intensity", items: ["International & Local Regulatory Compliance"] },
 ];
 const lightTypes = [
   [
     "Low-Intensity Obstruction Lights",
-    "Type A • Type B • Type C",
+    "Type A. Type B. Type C",
     "Low-intensity systems for applications where lower levels of obstruction marking are appropriate.",
   ],
   [
     "Medium-Intensity Obstruction Lights",
-    "Type A • Type B • Type C",
+    "Type A. Type B. Type C",
     "Medium-intensity systems for structures requiring greater conspicuity, with the applicable type and operating characteristics determined by the project requirements.",
   ],
   [
     "Dual Medium-Intensity Systems",
-    "Type AB • Type AC",
+    "Type AB. Type AC",
     "Combined configurations designed to provide different lighting characteristics for daytime and night-time operation, where required.",
   ],
   [
     "High-Intensity Obstruction Lights",
-    "Type A • Type B",
+    "Type A. Type B",
     "High-intensity systems for structures and applications requiring enhanced conspicuity. The final intensity, type, quantity, positioning, colour, flash characteristics, and operating configuration are established according to the applicable aviation standards and authority requirements. UAE GCAA regulations, for example, recognise low-, medium-, and high-intensity obstacle lighting and reference ICAO requirements for their application.",
   ],
 ];
@@ -191,7 +191,7 @@ export default function AircraftWarningLightsPage() {
           { label: "Home", href: "/" },
           { label: "Aircraft Warning Lights" },
         ]}
-        backgroundImage="/acs/aircraft-warning-hero.png"
+        backgroundImage="/acs/aircraft-hero.png"
       />
       <main className="bg-white">
         <div className="mx-auto flex w-[90%] flex-col items-start gap-8 py-8 2xl:max-w-360 lg:flex-row">
@@ -201,41 +201,47 @@ export default function AircraftWarningLightsPage() {
               {
                 items: [
                   {
-                    label: "HORIZON L-810 LED Obstruction Light",
+                    label: "Making Structures Visible. Keeping Airspace Safe.",
                     hasArrow: true,
-                    sectionId: "section-0",
+                    sectionId: "overview",
                   },
                   {
-                    label: "FlashGuard 2000B",
+                    label: "The Right Obstruction Lighting for Every Application",
                     hasArrow: true,
-                    sectionId: "section-1",
+                    sectionId: "applications",
                   },
                   {
-                    label: "FlashGuard 3000B",
+                    label: "More Than Warning Lights",
                     hasArrow: true,
-                    sectionId: "section-2",
+                    sectionId: "integrated-systems",
                   },
                   {
-                    label: "Horizon 2000/2009/3000 AC Series",
+                    label: "Engineered for Reliable Operations",
                     hasArrow: true,
-                    sectionId: "section-3",
+                    sectionId: "reliable-operations",
                   },
                   {
-                    label: "HORIZON Tower Lighting Controller",
+                    label: "Assessment & Design",
                     hasArrow: true,
-                    sectionId: "section-4",
+                    sectionId: "assessment-design",
+                  },
+                  
+                  {
+                    label: "Built for Demanding Environments",
+                    hasArrow: true,
+                    sectionId: "environments",
                   },
                   {
-                    label: "Strobeguard SS-122/125",
+                    label: "One Partner. From NOC to AMC.",
                     hasArrow: true,
-                    sectionId: "section-5",
+                    sectionId: "partner",
                   },
                 ],
               },
             ]}
           />
           <div className="min-w-0 max-w-240 flex-1">
-            <section id="section-0" className="mb-14 grid gap-8 xl:grid-cols-2">
+            <section id="overview" className="mb-14 scroll-mt-8 grid gap-8 xl:grid-cols-2">
               <div className="relative min-h-80 overflow-hidden rounded-[10px]">
                 <Image
                   src="/acs/aircraft-warning-low-intensity.png"
@@ -269,7 +275,7 @@ export default function AircraftWarningLightsPage() {
                 </Body>
               </div>
             </section>
-            <section id="section-1" className="mb-14">
+            <section id="applications" className="mb-14 scroll-mt-8">
               <Heading>
                 The Right Obstruction Lighting for Every Application
               </Heading>
@@ -314,7 +320,7 @@ export default function AircraftWarningLightsPage() {
                 </p>
               </div>
             </section>
-            <section id="section-2" className="mb-14 grid gap-8 xl:grid-cols-2">
+            <section id="integrated-systems" className="mb-14 scroll-mt-8 grid gap-8 xl:grid-cols-2">
               <div>
                 <Heading>More Than Warning Lights</Heading>
                 <Body>
@@ -345,7 +351,7 @@ export default function AircraftWarningLightsPage() {
                 />
               </div>
             </section>
-            <section id="section-3" className="mb-14">
+            <section id="reliable-operations" className="mb-14 scroll-mt-8">
               <Heading>Engineered for Reliable Operations</Heading>
               <Body>
                 <span className="mt-4 block">
@@ -362,7 +368,7 @@ export default function AircraftWarningLightsPage() {
               </div>
             </section>
 
-            <div className="mb-14">
+            <section id="assessment-design" className="mb-14 scroll-mt-8">
               <Heading>Assessment &amp; Design</Heading>
               <Body>
                 <span className="mt-4 block">
@@ -372,9 +378,9 @@ export default function AircraftWarningLightsPage() {
                   strategy.
                 </span>
               </Body>
-            </div>
+            </section>
 
-            <section id="section-4" className="mb-14 grid gap-8 xl:grid-cols-2">
+            <section id="compliance" className="mb-14 scroll-mt-8 grid gap-8 xl:grid-cols-2">
               <div className="relative min-h-80 overflow-hidden rounded-[10px]">
                 <Image
                   src="/acs/aircraft-warning-compliance.png"
@@ -412,7 +418,7 @@ export default function AircraftWarningLightsPage() {
                 </ul>
               </div>
             </section>
-            <section id="section-5" className="mb-14">
+            <section id="compliance" className="mb-14">
               <div className="mt-8 space-y-4">
                 {[
                   [
@@ -447,13 +453,13 @@ export default function AircraftWarningLightsPage() {
                 ))}
               </div>
             </section>
-            <section id="section-6" className="mb-14">
+            <section id="environments" className="mb-14 scroll-mt-8">
               <Heading className="text-center">
                 Built for Demanding Environments
               </Heading>
               <Body>
                 <span className="mt-3 block text-center">
-                  Catobo's aircraft warning lighting capability is suited to a
+                  Catobo&apos;s aircraft warning lighting capability is suited to a
                   wide range of structures and operating environments:
                 </span>
               </Body>
@@ -483,7 +489,7 @@ export default function AircraftWarningLightsPage() {
                 ))}
               </div>
             </section>
-            <section className="mb-14">
+            <section id="partner" className="mb-14 scroll-mt-8">
               <Heading>One Partner. From NOC to AMC.</Heading>
               <Body>
                 <span className="mt-4 block">
