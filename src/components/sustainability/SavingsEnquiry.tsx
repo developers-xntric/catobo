@@ -82,7 +82,7 @@ export default function SavingsEnquiry({ interest }: { interest: string }) {
             <Input id={`estimate-${field.name}`} {...field} required maxLength={100} className={inputClass} />
           </div>
         ))}
-        <div className="space-y-2">`r`n          <label htmlFor="estimate-phone" className="block text-sm">Phone Number*</label>`r`n          <CountryPhoneInput id="estimate-phone" country={countryCode} number={phone} onCountryChange={setCountryCode} onNumberChange={setPhone} required wrapperClassName="rounded-lg border-2 border-[#e6e6e6]" />`r`n        </div>`r`n        <div className="space-y-2">
+        <div className="space-y-2">          <label htmlFor="estimate-phone" className="block text-sm">Phone Number*</label>          <CountryPhoneInput id="estimate-phone" country={countryCode} number={phone} onCountryChange={setCountryCode} onNumberChange={setPhone} required wrapperClassName="rounded-lg border-2 border-[#e6e6e6]" />        </div>        <div className="space-y-2">
           <label htmlFor="estimate-email" className="block text-sm">Email Address*</label>
           <Input id="estimate-email" name="email" type="email" autoComplete="email" placeholder="Enter Your Email Address" required maxLength={254} className={inputClass} />
         </div>
