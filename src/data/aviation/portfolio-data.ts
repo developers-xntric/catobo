@@ -5,12 +5,12 @@ export const aviationPortfolioData: PortfolioData = {
     title: "Our Network of Associate Companies & Strategic Partners",
     breadcrumbs: [
       { label: "Home", href: "/" },
-      { label: "Portfolio" },
+      { label: "Affiliations" },
     ],
     backgroundImage: "/aviation/portfolio-bg.png",
   },
   associateImage: "/portfolio/poseidon.png",
-  associateTitle: "Associated Companies & Affiliates",
+  associateTitle: "Associates & Partners",
   associateDescription: "AirPoseidon strives to foster long-term relationships with its customers in an effort to attain their true satisfaction by providing a wide spectrum of services in the Aviation sector. We offer the below services (either directly/in conjunction with our associates & based on geographical locations). Please click on the logo for further information.",
   associates: [
     { id: 1, title: "Passenger Charters" },
@@ -28,5 +28,12 @@ export const aviationPortfolioData: PortfolioData = {
     description: "Some of the global players in their field of excellence with whom we have partnered for various prestigious projects",
     logoCount: 5,
     logosBasePath: "/aviation/partners",
+    cardDescriptions: [
+      "Global specialist in helideck safety systems, including safety netting, lighting, and offshore aviation solutions.",
+      "Global manufacturer of airfield and obstruction lighting systems for airports, towers, and critical aviation infrastructure.",
+      "Specialist in designing and manufacturing airfield ground lighting solutions for commercial and military airports.",
+      "Specialist in the design, engineering, manufacturing, and installation of rooftop, ground, portable, and offshore helipads.",
+      "Global manufacturer of aluminium helidecks, heliport lighting, and obstruction lighting solutions for land-based and offshore aviation.",
+    ],
   },
 };

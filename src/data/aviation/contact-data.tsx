@@ -44,7 +44,7 @@ export const aviationContactData: ContactData = {
     {
       icon: <LocationIcon />,
       title: "Address",
-      lines: ["Office No. 702 | Al Masaood Tower | Deira | P. O. Box 120047 | Dubai – United Arab Emirates"],
+      lines: ["Office No. 702 | Al Masaood Tower | Deira | P. O. Box 120047 | Dubai – United Arab Emirates", "Door No.92/48, 3rd Main Road | Meena Estate | Coimbatore – 641028 Tamil Nadu – India"],
     },
   ],
   form: {

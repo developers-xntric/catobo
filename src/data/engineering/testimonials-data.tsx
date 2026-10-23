@@ -35,7 +35,7 @@ export const engineeringTestimonialsData: TestimonialsData = {
       company: "SEED Engineering, UAE",
       text1: `"We have the pleasure of working with Catobo for more than 15 years. Every once in a while, you run across another professional whose standards match your own. Catobo for us has been that kind of great experience. We were able to take our idea from concept, to a working model, then to a working product effectively with full confidence in what we were engineering. I wholeheartedly recommend Catobo as the "go to team" when it comes to engineering products and services.`,
       text2: `We have used Catobo for their engineering services since 2007. Catobo has a very broad service offering. Their Sales and support team is extremely knowledgeable with conventional and "leading edge" solutions. What I appreciate most is their ability to guide us toward and/or provide practical solutions regardless of the complexity of the problem"`,
-      author: "SANJU MATHEW",
+      author: "SANU MATHEW",
       designation: "CEO",
       avatar: "/testimonials/sanju.png",
       logo: "/testimonials/seed-logo.png",

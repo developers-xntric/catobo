@@ -16,6 +16,7 @@ export default function Hero({ data }: { data: HeroData }) {
   } = data;
 
   return (
+    <>
     <section className="relative min-h-screen flex flex-col justify-between overflow-hidden shadow-none">
       <div className="absolute inset-0 z-0">
         {backgroundVideo ? (
@@ -86,45 +87,18 @@ export default function Hero({ data }: { data: HeroData }) {
         </div>
       </div>
 
-      <div className="relative z-10 bottom-6 overflow-hidden py-5 select-none">
-        <div className="relative">
-          <div
-            aria-hidden
-            className="pointer-events-none absolute left-0 top-0 h-full w-28 z-10"
-            style={{
-              background:
-                "linear-gradient(to right, rgba(10,14,22,0.95) 0%, transparent 100%)",
-            }}
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute right-0 top-0 h-full w-28 z-10"
-            style={{
-              background:
-                "linear-gradient(to left, rgba(10,14,22,0.95) 0%, transparent 100%)",
-            }}
-          />
+      {partnerLogos.length > 0 && (
+        <div aria-label="Technology partners" className="marquee-logo-viewport relative z-10 mx-auto w-[90%] max-w-350 overflow-hidden py-5 select-none">
           <div className="marquee-track flex items-center gap-5">
-            {[...partnerLogos, ...partnerLogos, ...partnerLogos].map(
-              (logo, i) => (
-                <div
-                  key={`${logo.file}-${i}`}
-                  title={logo.name}
-                  className="shrink-0 flex items-center justify-center w-35 md:w-45 h-15 md:h-20 rounded-xl border border-white bg-white/10 backdrop-blur-md shadow-md shadow-black/20 hover:border-white/40 hover:bg-white/15 hover:shadow-lg hover:shadow-black/30 transition-all duration-300 overflow-hidden px-4 py-3"
-                >
-                  <Image
-                    src={`/engr-solutions/logo/${logo.file}`}
-                    alt={logo.name}
-                    width={100}
-                    height={50}
-                    className="object-contain w-[95%] h-full opacity-85 hover:opacity-100 transition-opacity duration-300"
-                  />
-                </div>
-              ),
-            )}
+            {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, i) => (
+              <div key={`${logo.file}-${i}`} title={logo.name} className="flex h-15 w-[var(--marquee-logo-width)] shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white bg-white/10 px-4 py-3 shadow-md shadow-black/20 backdrop-blur-md transition-all duration-300 hover:border-white/40 hover:bg-white/15 md:h-24 2xl:h-28">
+                <Image src={`/engr-solutions/logo/${logo.file}`} alt={logo.name} width={100} height={50} className={`h-full ${logo.name === "Partner 1" ? "w-[75%]" : "w-[95%]"} object-contain`} />
+              </div>
+            ))}
           </div>
         </div>
-      </div>
+      )}
     </section>
+    </>
   );
 }

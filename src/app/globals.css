@@ -225,3 +225,18 @@ h6 {
 .font-raleway {
   font-family: var(--font-raleway);
 }
+.marquee-logo-viewport {
+  --marquee-logo-width: calc((90vw - 1.25rem) / 2);
+}
+
+@media (min-width: 640px) {
+  .marquee-logo-viewport {
+    --marquee-logo-width: calc((90vw - 2.5rem) / 3);
+  }
+}
+
+@media (min-width: 768px) {
+  .marquee-logo-viewport {
+    --marquee-logo-width: calc((min(90vw, 87.5rem) - 5rem) / 5);
+  }
+}

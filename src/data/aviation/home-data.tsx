@@ -35,8 +35,9 @@ export const aviationHomeData: HomeData = {
       counters: [
         { target: 18, label: "Military & Defense Projects" },
         { target: 30, label: "Healthcare Facility Deployments" },
-        { target: 120, label: "Aviation Installations Executed" },
         { target: 75, label: "Government & Public Sector Installations" },
+        { target: 120, label: "Helipad Installations Completed" },
+        { target: 120, label: "Aviation Installations Executed" },
       ],
     },
   },
@@ -91,7 +92,7 @@ export const aviationHomeData: HomeData = {
     ),
     buttonHref: "/aviation/about",
 
-    image: "/aviation/our-company.png", // placeholder
+    image: "/aviation/our-company2.png", // placeholder
     safelyBg: "/engr-solutions/safely-bg.png", // placeholder
     safelyTitle: "Safety Without Compromise.",
     safelyDesc:

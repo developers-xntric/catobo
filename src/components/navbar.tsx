@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ArrowRight } from "lucide-react";
+import { sustainabilityLinks } from "./sustainability/revamp-data";
 import SolutionsMenu, { aviationSolutionLinks, engineeringSolutionLinks } from "./SolutionsMenu";
 
 interface SubItem {
@@ -58,12 +59,8 @@ const NAV_ITEMS: NavItem[] = [
     },
   },
   {
-    label: "Portfolio",
-    href: "/engineering/portfolio",
-  },
-  {
-    label: "Testimonials",
-    href: "/engineering/testimonials",
+    label: "Affiliations",
+    href: "/engineering/affiliations",
   },
   {
     label: "FAQs",
@@ -112,8 +109,7 @@ const AVIATION_NAV_ITEMS: NavItem[] = [
       ],
     },
   },
-  { label: "Portfolio", href: "/aviation/portfolio" },
-  { label: "Testimonials", href: "/aviation/testimonials" },
+  { label: "Affiliations", href: "/aviation/affiliations" },
   { label: "FAQs", href: "/aviation/faqs" },
   { label: "Contact Us", href: "/aviation/contact" },
 ];
@@ -281,14 +277,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const isAviation = pathname?.startsWith("/aviation") ?? false;
   const isSustainability = pathname?.startsWith("/sustainability") ?? false;
-  const navItems: NavItem[] = isSustainability ? [
-    { label: "Overview", href: "/sustainability#overview" },
-    { label: "Solutions", href: "/sustainability#systems" },
-    { label: "Savings Calculator", href: "/sustainability#savings" },
-    { label: "Emissions Calculator", href: "/sustainability#emissions" },
-    { label: "Live Impact", href: "/sustainability#impact" },
-    { label: "Contact", href: "/sustainability#contact" },
-  ] : (isAviation ? AVIATION_NAV_ITEMS : NAV_ITEMS).map(item => item.dropdown ? {
+  const navItems: NavItem[] = isSustainability ? sustainabilityLinks : (isAviation ? AVIATION_NAV_ITEMS : NAV_ITEMS).map(item => item.dropdown ? {
     ...item, dropdown: { ...item.dropdown, items: [
       ...(isAviation ? aviationSolutionLinks : engineeringSolutionLinks).map(solution => ({ heading: solution.label, href: solution.href })),
     ] },
@@ -354,17 +343,17 @@ export default function Navbar() {
           className={`relative 2xl:max-w-350 w-[90%] mx-auto border ${scrolled ? "bg-[#168DCA]/50 backdrop-blur-xs text-white border-[#168DCA] shadow-md" : "border-gray-500/50 backdrop-blur-3xl"} rounded-[10px] px-3 transition-all duration-300`}
         >
           <div className="flex items-center justify-between h-16">
-            <Link href="/" className="shrink-0 flex items-center gap-2 w-14 h-14">
+            <Link href="/" className="flex h-12 w-36 shrink-0 items-center">
               <Image
-                src="/logo.png"
+                src="/new-logo.png"
                 alt="Catobo Logo"
-                width={2000}
-                height={2000}
-                className="object-cover "
+                width={288}
+                height={70}
+                className="h-auto w-full object-contain"
               />
             </Link>
 
-            <nav className="hidden xl:flex items-center gap-1">
+            <nav className={`hidden xl:flex items-center gap-1 ${isSustainability ? "absolute left-1/2 -translate-x-1/2" : ""}`}>
               {navItems.map((item) => {
                 const hasDropdown = !!item.dropdown;
                 const isActive = activeDropdown === item.label;
@@ -431,7 +420,7 @@ export default function Navbar() {
               >
                 <span className="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2E8F0_20%,#0F2453_80%,#E2E8F0_100%)] pointer-events-none" />
                 <span className="inline-flex h-full w-full items-center justify-center rounded-[8px] bg-linear-to-r from-[#0F2453] to-[#168DCA] px-8 py-1 text-sm font-medium text-white backdrop-blur-3xl transition-all duration-300 hover:bg-transparent hover:text-white">
-                  {isSustainability ? "Let’s talk Sustainability" : "Request a Quote"}
+                  {isSustainability ? "Book Your Consultation" : "Request a Quote"}
                 </span>
               </Link>
             </div>

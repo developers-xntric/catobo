@@ -238,7 +238,7 @@ export default function Home() {
         }}
       >
         <p className="text-white text-sm md:text-[16px]">
-          Copyright Â© 2026 All Rights Reserved.
+          Copyright © 2026 All Rights Reserved.
         </p>
       </section>
     </div>

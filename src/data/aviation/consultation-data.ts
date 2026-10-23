@@ -29,15 +29,15 @@ export const consultationDeliverables = [
 ] as const;
 
 export const consultationIndustries = [
-  ["Hospitals & Emergency Medical Services", "consultation-industry-1.png"],
-  ["Airports & Airfields", "consultation-industry-2.png"],
-  ["Government & Public Infrastructure", "consultation-industry-3.png"],
-  ["Defence & Military Facilities", "consultation-industry-4.png"],
-  ["Oil & Gas", "consultation-industry-5.png"],
-  ["Offshore Platforms", "consultation-industry-6.png"],
-  ["Commercial Developments", "consultation-industry-7.png"],
-  ["Advanced Air Mobility (AAM)", "consultation-industry-8.png"],
-  ["Urban Air Mobility (UAM) / Vertiports", "consultation-industry-9.png"],
+  ["Hospitals & Emergency Medical Services", "/consultation-industries/industry-1.png"],
+  ["Airports & Airfields", "/consultation-industries/industry-2.png"],
+  ["Government & Public Infrastructure", "/consultation-industries/industry-3.png"],
+  ["Defence & Military Facilities", "/consultation-industries/industry-4.png"],
+  ["Oil & Gas", "/consultation-industries/industry-5.png"],
+  ["Offshore Platforms", "/consultation-industries/industry-6.png"],
+  ["Commercial Developments", "/consultation-industries/industry-7.png"],
+  ["Advanced Air Mobility (AAM)", "/consultation-industries/industry-8.png"],
+  ["Urban Air Mobility (UAM) / Vertiports", "/consultation-industries/industry-9.png"],
 ] as const;
 
 export const consultationCompliance = [

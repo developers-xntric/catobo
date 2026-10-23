@@ -5,7 +5,7 @@ export default function HowItWorks({ data }: { data: HomeData['howItWorks'] }) {
   const { badge, title, description, videoSrc, ctaText } = data;
 
   return (
-    <section className="w-full bg-[#F8F8F8] pb-10">
+    <section className="w-full pt-12">
       <div className="2xl:max-w-350 w-[90%] mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-0">
           <div className="w-full lg:w-[30%] flex flex-col items-start justify-end">

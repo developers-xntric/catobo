@@ -1,0 +1,23 @@
+import DynamicHero from '@/components/common/hero';
+import PortfolioContent from '@/components/portfolio';
+import TechnologyPartners from '@/components/TechnologyPartners';
+import { aviationPortfolioData } from '@/data/aviation/portfolio-data';
+
+const Affiliations = () => {
+  const { hero, partners } = aviationPortfolioData;
+
+  return (
+    <div>
+      <DynamicHero title={hero.title} breadcrumbs={hero.breadcrumbs} backgroundImage={hero.backgroundImage} />
+      <PortfolioContent data={aviationPortfolioData} />
+      <TechnologyPartners
+        data={{ badge: partners.badge, title: partners.title, description: [{ children: [{ text: partners.description }] }] }}
+        logoCount={partners.logoCount}
+        logosBasePath={partners.logosBasePath}
+        cardDescriptions={partners.cardDescriptions}
+      />
+    </div>
+  );
+};
+
+export default Affiliations;

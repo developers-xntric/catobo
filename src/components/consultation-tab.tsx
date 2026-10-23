@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { useContactPopup } from '@/contexts/ContactPopupContext'
 import Link from 'next/link'
 
-interface TabContent {
+export interface TabContent {
   id: string
   title: string
   subTitle: string
@@ -16,7 +16,7 @@ interface TabContent {
   secondaryBtnText: string
 }
 
-const tabsData: TabContent[] = [
+export const tabsData: TabContent[] = [
   {
     id: 'aviation',
     title: 'Aviation Consultation',

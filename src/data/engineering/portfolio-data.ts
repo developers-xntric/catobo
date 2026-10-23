@@ -5,7 +5,7 @@ export const engineeringPortfolioData: PortfolioData = {
     title: "Our Network of Associate Companies & Strategic Partners",
     breadcrumbs: [
       { label: "Home", href: "/" },
-      { label: "Portfolio" },
+      { label: "Affiliations" },
     ],
     backgroundImage: "/portfolio/bg.png",
   },

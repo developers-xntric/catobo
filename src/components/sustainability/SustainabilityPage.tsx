@@ -1,554 +1,476 @@
 "use client";
 
-import { useState, type KeyboardEvent } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Accordion, Dialog, Tabs } from "radix-ui";
 import Badge from "@/components/ui/badge";
+import Typography from "@/components/ui/heading";
+import Button from "@/components/ui/grad-button";
+import { Footer } from "@/components/Footer";
+import SavingsEnquiry from "./SavingsEnquiry";
 import {
-  systems,
-  impactProjects,
-  savingsOptions,
-  energyOptions,
-  positiveAmount,
-  sustainabilityContent,
-} from "./data";
+  asset,
+  faqs,
+  industries,
+  products,
+  steps,
+  type Product,
+} from "./revamp-data";
 
-const format = (value: number) =>
-  value.toLocaleString("en-US", { maximumFractionDigits: 2 });
-const total = impactProjects.reduce((sum, project) => sum + project.avoided, 0);
-const container = "2xl:max-w-360 w-[90%] 2xl:px-4 mx-auto";
+const container = "mx-auto w-[90%] 2xl:max-w-350";
+const paragraph = "text-xs md:text-base leading-relaxed text-[#3c3c3c]";
 
 export default function SustainabilityPage() {
-  const [group, setGroup] = useState<"fuel" | "renewable">("fuel");
-  const [savingSystem, setSavingSystem] = useState(0);
-  const [spend, setSpend] = useState("");
-  const [energy, setEnergy] = useState(0);
-  const [consumption, setConsumption] = useState("");
-  const saving = savingsOptions[savingSystem];
-  const source = energyOptions[energy];
-  const baseline = positiveAmount(consumption) * source.factor;
+  const [selected, setSelected] = useState<Product | null>(null);
+  const [interest, setInterest] = useState("");
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const consultationRef = useRef(false);
 
-  function switchTab(event: KeyboardEvent<HTMLButtonElement>) {
-    if (["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) {
-      event.preventDefault();
-      const next =
-        event.key === "Home"
-          ? "fuel"
-          : event.key === "End"
-            ? "renewable"
-            : group === "fuel"
-              ? "renewable"
-              : "fuel";
-      setGroup(next);
-      document.getElementById("tab-" + next)?.focus();
+  function consult(product: Product) {
+    setInterest(product.name);
+    if (selected) {
+      consultationRef.current = true;
+      setSelected(null);
+    } else {
+      document
+        .getElementById("contact")
+        ?.scrollIntoView({ behavior: "smooth" });
+      document.getElementById("estimate-name")?.focus({ preventScroll: true });
     }
   }
 
   return (
-    <main className="bg-white font-(family-name:--font-poppins) text-black [&_section]:scroll-mt-28 [&_footer]:scroll-mt-28 overflow-hidden">
-      <section
-        id="overview"
-        className="relative min-h-160 h-[min(56.25vw,1080px)] overflow-hidden bg-[#222] text-white max-md:h-[95svh] max-md:min-h-185 max-md:max-h-225"
-      >
-        <Image
-          src="/sustainability/hero.png"
-          alt="Solar panels and wind turbines beside a renewable energy facility"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover -scale-x-100 max-md:object-[42%_center]"
-        />
-        <Image
-          src="/sustainability/hero-overlay.svg"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-fill"
-        />
-        <div className={container + " relative h-full"}>
-          <div className="absolute top-[29.9%] w-[49%] max-md:top-1/4 max-md:w-full max-md:max-w-130">
-            <Badge
-              text={sustainabilityContent.hero.badge}
-              className="mb-4 border-white/10 [&>span:first-child]:bg-white"
-            />
-            <h1 className="text-[clamp(36px,3.386vw,65px)] font-medium leading-[1.16] tracking-[.02em] max-md:text-[clamp(30px,7.8vw,48px)]">
-              {sustainabilityContent.hero.title.map((line) => (
-                <span key={line} className="block">
-                  {line}
-                </span>
-              ))}
-            </h1>
-            <p className="mt-5 text-[clamp(14px,1.146vw,22px)] leading-6 max-md:max-w-110 max-md:text-sm">
-              {sustainabilityContent.hero.description}
-            </p>
-          </div>
-          <div className="absolute bottom-[5.8%] flex gap-[clamp(30px,5.625vw,108px)] max-md:bottom-[6%] max-md:w-full max-md:justify-between max-md:gap-4">
-            {sustainabilityContent.hero.stats.map(([value, label]) => (
-              <div key={value} className="max-md:flex-1">
-                <strong className="block text-[clamp(28px,2.344vw,45px)] font-semibold max-md:text-[27px]">
-                  {value}
-                </strong>
-                <span className="block text-[clamp(12px,1.146vw,22px)] max-md:max-w-27.5 max-md:text-[11px]">
-                  {label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="systems" className="pt-[clamp(55px,4.48vw,86px)]">
-        <div className={container}>
-          <div className="mx-auto mb-9 text-center max-md:mb-7">
-            <h2 className="text-[clamp(28px,2.344vw,45px)] font-semibold leading-[1.2] tracking-[.02em]">
-              {sustainabilityContent.systems.title}
-            </h2>
-            <p className="mx-auto mt-4 md:max-w-[45%] text-[clamp(14px,1.146vw,22px)] leading-6 text-[#3c3c3c]">
-              {sustainabilityContent.systems.description}
-            </p>
-          </div>
+    <>
+      <main className="bg-white text-black [&_section]:scroll-mt-28 [&_h2]:font-semibold">
+        <section
+          id="overview"
+          className="relative flex h-svh flex-col overflow-hidden bg-[#222] pb-5 pt-24 text-white md:pb-8 md:pt-28"
+        >
+          <Image
+            src={asset("hero.png")}
+            alt="Solar panels, wind turbines and renewable energy facilities"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover -scale-x-100 max-md:object-[40%_center]"
+          />
+          <Image
+            src={asset("hero-overlay.svg")}
+            alt=""
+            fill
+            priority
+            className="object-cover"
+          />
           <div
-            className="mb-10 flex justify-center gap-7.5 max-md:mb-6 max-md:gap-2.5"
-            role="tablist"
-            aria-label="Sustainability systems"
-          >
-            {(["fuel", "renewable"] as const).map((tab) => (
-              <button
-                key={tab}
-                id={"tab-" + tab}
-                type="button"
-                role="tab"
-                aria-selected={group === tab}
-                aria-controls={"panel-" + tab}
-                tabIndex={group === tab ? 0 : -1}
-                onKeyDown={switchTab}
-                onClick={() => setGroup(tab)}
-                className="rounded-[5px] border border-[#1473ad] px-[clamp(20px,2.6vw,50px)] py-3.5 text-[clamp(14px,1.042vw,20px)] text-[#1473ad] transition-colors focus-visible:outline-3 focus-visible:outline-[#168dca] focus-visible:outline-offset-4 aria-selected:bg-[linear-gradient(106deg,#168dca_24.15%,#0f2453_134.7%)] aria-selected:text-white max-md:flex-1 max-md:px-2 max-md:text-xs"
-              >
-                {sustainabilityContent.systems.tabs[tab]}
-              </button>
-            ))}
-          </div>
-          <div
-            id={"panel-" + group}
-            role="tabpanel"
-            aria-labelledby={"tab-" + group}
-            className="grid grid-cols-3 gap-7.5 max-md:grid-cols-1 max-md:gap-5"
-          >
-            {systems
-              .filter((system) => system.group === group)
-              .map((system) => (
-                <article
-                  key={system.id}
-                  id={system.id}
-                  className="group min-h-[min(26.05vw,500px)] rounded-[20px] border border-[#cfcfcf] px-4.25 py-7 transition-colors duration-300 hover:bg-[linear-gradient(106deg,#168dca_24.15%,#0f2453_134.7%)] hover:text-white max-xl:px-[18px] max-xl:py-[22px] max-md:min-h-0 max-md:p-4.5"
-                >
-                  <div className="flex h-20 items-start pt-1.5 ">
-                    <div
-                      className="size-[51px] shrink-0 bg-[linear-gradient(90deg,#168dca,#0f2453)] transition-[background] duration-300 group-hover:!bg-white group-hover:!bg-none"
-                      style={{
-                        maskImage: "url(/sustainability/" + system.icon + ")",
-                        WebkitMaskImage: "url(/sustainability/" + system.icon + ")",
-                        maskRepeat: "no-repeat",
-                        WebkitMaskRepeat: "no-repeat",
-                        maskSize: "100% 100%",
-                        WebkitMaskSize: "100% 100%",
-                      }}
-                      aria-hidden="true"
-                    />
-                  </div>
-                  <div className="mb-1 flex items-center gap-3 text-[clamp(12px,1vw,19px)] group-hover:text-white">
-                    <span className="size-2 rounded-full bg-[linear-gradient(93deg,#168dca,#0f2453)] group-hover:!bg-white group-hover:!bg-none" />
-                    {sustainabilityContent.systems.tabs[group]}
-                  </div>
-                  <h3 className="text-[clamp(21px,1.82vw,35px)] font-semibold leading-[1.18] tracking-[.02em] max-md:text-[25px]">
-                    {system.name}
-                  </h3>
-                  <p className="my-4 md:my-2 mb-2 text-[clamp(13px,1.042vw,20px)] uppercase text-black group-hover:text-white">
-                    {system.metric}
-                  </p>
-                  <p className="text-[clamp(13px,.938vw,18px)] text-[#3c3c3c] group-hover:text-white max-md:text-sm">
-                    {system.intro}
-                  </p>
-                  <hr className="my-3 border-0 border-t border-[#cfcfcf]" />
-                  <p className="text-[clamp(13px,.938vw,18px)] text-[#3c3c3c] group-hover:text-white max-md:text-sm">
-                    {system.detail}
-                  </p>
-                </article>
-              ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="savings"
-        className="pb-[clamp(55px,4.27vw,82px)] pt-[clamp(60px,5.31vw,102px)]"
-      >
-        <div className={container}>
-          <SectionHeading
-            title={sustainabilityContent.savings.title}
-            text={sustainabilityContent.savings.description}
-          />
-          <Calculator
-            image="/sustainability/savings.png"
-            imageAlt="Modern industrial warehouse with energy monitoring systems"
-            title={sustainabilityContent.savings.calculatorTitle}
-            description={sustainabilityContent.savings.calculatorDescription}
-            label={sustainabilityContent.savings.label}
-            fieldId="saving-system"
-            value={savingSystem}
-            onChange={setSavingSystem}
-            options={savingsOptions.map((option) => option.label)}
-            inputLabel={"Current monthly " + saving.kind + " spend (AED)"}
-            inputId="monthly-spend"
-            inputValue={spend}
-            onInputChange={setSpend}
-            placeholder="e.g. 40000"
-            result={"AED " + format(positiveAmount(spend) * saving.rate)}
-            resultDescription="Estimated monthly saving"
-          />
-        </div>
-      </section>
-
-      <section
-        id="emissions"
-        className="bg-[#151515] bg-[url('/sustainability/emissions-background.png')] bg-cover bg-left-top py-[clamp(60px,4.984vw,96px)] text-white"
-      >
-        <div className={container}>
-          <SectionHeading
-            dark
-            title={sustainabilityContent.emissions.title}
-            text={sustainabilityContent.emissions.description}
-          />
-          <Calculator
-            dark
-            image="/sustainability/emissions.png"
-            imageAlt="Industrial energy plant framed by green trees"
-            title={sustainabilityContent.emissions.calculatorTitle}
-            description={sustainabilityContent.emissions.calculatorDescription}
-            label={sustainabilityContent.emissions.label}
-            fieldId="energy-source"
-            value={energy}
-            onChange={setEnergy}
-            options={energyOptions.map((option) => option.label)}
-            inputLabel={"Monthly consumption (" + source.unit + ")"}
-            inputId="monthly-consumption"
-            inputValue={consumption}
-            onInputChange={setConsumption}
-            placeholder="e.g. 150000"
-            result={format(baseline * source.rate) + " kg CO\u2082e"}
-            resultDescription="Estimated CO\u2082e avoided per month"
-            secondaryResult={
-              "Baseline: " + format(baseline) + " kg CO\u2082e/month"
+            className={
+              container +
+              " relative flex min-h-0 flex-1 flex-col justify-center py-5 md:py-8 [@media(max-height:600px)]:py-2"
             }
-          />
-        </div>
-      </section>
-
-      <section id="impact" className="pb-10 pt-[clamp(55px,3.68vw,71px)]">
-        <div className={container}>
-          <div className="mb-9.5 grid grid-cols-[1.1fr_1.5fr] items-center gap-7.5 max-xl:grid-cols-1">
-            <div>
-              <h2 className="text-[clamp(25px,2.083vw,40px)] font-semibold leading-[1.2]">
-                {sustainabilityContent.impact.title}
-              </h2>
-              <p className="mt-4 text-[clamp(14px,.833vw,16px)] text-[#3c3c3c]">
-                {sustainabilityContent.impact.description}
+          >
+            <div className="max-w-165 lg:w-[50%]">
+              <Badge
+                text="SUSTAINABILITY SOLUTIONS"
+                className="rounded-lg border-white/10 [&>span:first-child]:bg-white"
+              />
+              <h1 className="mb-3 text-3xl font-semibold leading-[1.1] tracking-tight md:text-[40px] lg:text-[50px]">
+                Sustainability Solutions
+                <br />
+                One Desk.
+              </h1>
+              <p className="text-sm leading-relaxed md:text-lg [@media(max-height:600px)]:text-[13px] [@media(max-height:600px)]:leading-5">
+                Fuel &amp; combustion, cooling, and renewable energy
+                technologies, all retrofit onto equipment a customer already
+                runs. This vertical sits beside Catobo&apos;s Aviation and
+                Engineering lines as the group&apos;s dedicated
+                energy-efficiency offer.
               </p>
+              <div className="mt-4 md:mt-6">
+                <strong className="block text-3xl font-semibold md:text-[40px]">
+                  5–10%
+                </strong>
+                <span className="mt-2 block text-sm md:text-lg">Less fuel</span>
+              </div>
             </div>
-            <div className="flex justify-between gap-[18px] max-xl:justify-start max-xl:gap-8.75 max-md:gap-3">
-              {[
-                [
-                  String(impactProjects.length).padStart(2, "0"),
-                  "Projects live",
-                ],
-                [format(total), "kg CO\u2082e avoided / month"],
-                [format(total * 12), "kg CO\u2082e avoided / year"],
-              ].map(([value, label]) => (
+          </div>
+          <div
+            aria-label="Technology partners"
+            className={container + " marquee-logo-viewport relative shrink-0 overflow-hidden py-2 select-none"}
+          >
+            <div className="marquee-track motion-reduce:animate-none">
+              {[0, 1, 2].map((copy) => (
                 <div
-                  key={label}
-                  className="min-w-0 border-l border-[#c9c9c9] pl-[18px] max-md:flex-1 max-md:pl-2.5"
+                  key={copy}
+                  aria-hidden={copy > 0 ? true : undefined}
+                  className="flex shrink-0 items-center gap-5 pr-5"
                 >
-                  <strong className="block bg-[linear-gradient(90deg,#168dca,#0f2453)] bg-clip-text text-[clamp(28px,3.34vw,64px)] font-semibold leading-[1.15] text-transparent max-md:text-[clamp(24px,6.2vw,34px)]">
-                    {value}
-                  </strong>
-                  <span className=" block text-[clamp(11px,1.042vw,20px)] max-md:text-[10px]">
-                    {label}
-                  </span>
+                  <Partner name="Frictape">
+                    <Image
+                      src={asset("partner-proterial.svg")}
+                      alt="Frictape"
+                      width={135}
+                      height={23}
+                      className="max-w-full"
+                    />
+                  </Partner>
+                  <Partner name="Phillips">
+                    <div className="relative w-24 aspect-[122.288/77.613] md:w-30">
+                      <Image
+                        src={asset("partner-hef.png")}
+                        alt="Phillips"
+                        fill
+                        sizes="120px"
+                        className="object-contain"
+                      />
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          maskImage: `url(${asset("partner-hef-mask.png")})`,
+                          maskSize: "100% 100%",
+                          background:
+                            "linear-gradient(to bottom,white 19.64%,transparent 19.64%,transparent 81.94%,white 81.94%,white 98.42%,transparent 98.42%)",
+                        }}
+                      />
+                    </div>
+                  </Partner>
+                  <Partner name="ALS Airfield Lighting Systems">
+                    <div
+                      role="img"
+                      aria-label="ALS Airfield Lighting Systems"
+                      className="aspect-[138.224/65.046] w-24 bg-[#168dca] md:w-32"
+                      style={{
+                        maskImage: `url(${asset("partner-american-wind.png")})`,
+                        maskSize: "contain",
+                        maskRepeat: "no-repeat",
+                        maskPosition: "center",
+                      }}
+                    />
+                  </Partner>
+                  <Partner name="Technology partner">
+                    <Image
+                      src={asset("partner-sun-wind.png")}
+                      alt="Technology partner"
+                      width={119}
+                      height={79}
+                      className="h-12 w-auto object-contain md:h-16"
+                    />
+                  </Partner>
+                  <Partner name="Cranton">
+                    <Image
+                      src={asset("partner-catalyst.png")}
+                      alt="Cranton"
+                      width={101}
+                      height={79}
+                      className="h-12 w-auto object-contain md:h-16"
+                    />
+                  </Partner>
                 </div>
               ))}
             </div>
           </div>
-          <div
-            tabIndex={0}
-            role="region"
-            aria-label={sustainabilityContent.impact.tableLabel}
-            className="overflow-x-auto focus-visible:outline-3 focus-visible:outline-[#168dca] focus-visible:outline-offset-4"
-          >
-            <table className="w-full table-fixed border-separate border-spacing-y-[18px] text-left max-md:min-w-175">
-              <thead>
-                <tr className="[&_th]:text-[clamp(12px,1.25vw,24px)] [&_th]:font-semibold [&_th]:uppercase">
-                  <th scope="col">Project</th>
-                  <th scope="col">Sector</th>
-                  <th scope="col">System</th>
-                  <th scope="col">kg CO\u2082e avoided / month</th>
-                </tr>
-              </thead>
-              <tbody>
-                {impactProjects.map((project) => (
-                  <tr
-                    key={project.project}
-                    className="[&_td]:border-y-[1.5px] [&_td]:border-[#1475af33] [&_td]:bg-[#f8f8f8] [&_td]:px-3.5 [&_td]:py-[18px] [&_td]:text-[clamp(12px,1.042vw,20px)] [&_td]:text-[#3c3c3c] [&_td:first-child]:rounded-l-[10px] [&_td:first-child]:border-l-[1.5px] [&_td:last-child]:rounded-r-[10px] [&_td:last-child]:border-r-[1.5px]"
-                  >
-                    <td>{project.project}</td>
-                    <td>{project.sector}</td>
-                    <td>{project.system}</td>
-                    <td>{format(project.avoided)}</td>
-                  </tr>
-                ))}
-              </tbody>
-              <tfoot>
-                <tr className="[&_th]:font-semibold [&_td]:font-semibold">
-                  <th scope="row" colSpan={3} className="text-md md:text-lg">
-                    Total
-                  </th>
-                  <td className="text-md md:text-lg">{format(total)} KG</td>
-                </tr>
-              </tfoot>
-            </table>
-          </div>
-        </div>
-      </section>
+        </section>
 
-      <footer
-        id="contact"
-        className="bg-[linear-gradient(118deg,#168dca_24.15%,#0f2453_134.7%)] text-white"
-      >
-        <div
-          className={
-            container +
-            " grid md:grid-cols-[112px_minmax(20px,1.2fr)_repeat(3,minmax(0,1fr))] lg:grid-cols-[112px_minmax(210px,1.2fr)_repeat(3,minmax(0,1fr))] xl:grid-cols-[112px_minmax(210px,1.2fr)_repeat(3,minmax(0,1fr))] items-center gap-7.5 py-2 max-xl:grid-cols-2 max-xl:gap-x-10 max-xl:gap-y-7 max-md:grid-cols-[70px_1fr] max-md:gap-4"
-          }
-        >
-          <Link
-            href="/"
-            aria-label="Catobo home"
-            className="relative size-28 shrink-0 overflow-hidden max-md:size-20"
-          >
-            <Image
-              src="/sustainability/logo.png"
-              alt="Catobo"
-              fill
-              sizes="112px"
-              className="!size-[140.57%] !max-w-none !left-[-39.29%] !top-[-20%]"
-            />
-          </Link>
-          <h2 className="text-[clamp(20px,1.563vw,30px)] font-semibold leading-[1.2]">
-            {sustainabilityContent.footer.title.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
-          </h2>
-          {[
-            [
-              "email",
-              "Email",
-              "info@catobollc.com",
-              "mailto:info@catobollc.com",
-            ],
-            ["phone", "Phone", "+971 4 391 8018", "tel:+97143918018"],
-            ["office", "Office", "Dubai, UAE", ""],
-          ].map(([icon, label, value, href]) => (
-            <div
-              key={icon}
-              className="flex min-w-0 items-start md:justify-end gap-3.75 max-lg:col-span-2"
+        <section id="systems" className={container + " py-14 md:py-20"}>
+          <div className="mx-auto max-w-190">
+            <Typography text="Cut your fuel and energy bills, without changing your equipment" />
+          </div>
+          <Tabs.Root defaultValue="Catobo">
+            <Tabs.List
+              aria-label="Solution brands"
+              className="mb-8 flex justify-center gap-4 md:mb-10 md:gap-7"
             >
+              {["Catobo", "Aerostrata"].map((brand) => (
+                <Tabs.Trigger
+                  key={brand}
+                  value={brand}
+                  className="min-w-32 rounded-md border border-[#1473ad] px-6 py-3 text-sm text-[#1473ad] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#168dca] data-[state=active]:bg-linear-to-r data-[state=active]:from-[#168dca] data-[state=active]:to-[#0f2453] data-[state=active]:text-white md:min-w-44 md:text-base"
+                >
+                  {brand}
+                </Tabs.Trigger>
+              ))}
+            </Tabs.List>
+            {["Catobo", "Aerostrata"].map((brand) => (
+              <Tabs.Content
+                key={brand}
+                value={brand}
+                className="grid gap-6 outline-none md:grid-cols-3"
+              >
+                {products
+                  .filter((product) => product.brand === brand)
+                  .map((product) => (
+                    <article
+                      key={product.id}
+                      className="flex min-w-0 flex-col overflow-hidden rounded-[20px] border border-[#cfcfcf] bg-white"
+                    >
+                      <div className="relative aspect-[500/352] overflow-hidden bg-[#f5f5f5]">
+                        <Image
+                          src={asset(product.image)}
+                          alt={product.name}
+                          fill
+                          sizes="(max-width: 767px) 90vw, 30vw"
+                          className={
+                            product.id === "catalyst"
+                              ? "object-cover scale-[1.025] origin-top-left"
+                              : "object-cover"
+                          }
+                        />
+                        <span className="absolute right-4 top-4 rounded bg-linear-to-r from-[#168dca] to-[#0f2453] px-3 py-1.5 text-xs text-white">
+                          {brand}
+                        </span>
+                      </div>
+                      <div className="flex flex-1 flex-col p-4 lg:p-5">
+                        <h3 className="mb-2 text-xl font-semibold leading-tight lg:text-2xl">
+                          {product.name}
+                        </h3>
+                        <p className={paragraph + " mb-5"}>{product.intro}</p>
+                        <div className="mt-auto grid grid-cols-[.85fr_1.15fr] gap-2 max-[350px]:grid-cols-1">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            className="min-h-10 !px-2 !text-xs !border-[#168dca] !text-[#1473ad] [&>svg]:hidden"
+                            onClick={(event) => {
+                              triggerRef.current = event.currentTarget;
+                              setSelected(product);
+                            }}
+                          >
+                            Learn more
+                          </Button>
+                          <Button
+                            size="sm"
+                            className="min-h-10 !px-2 !text-xs hover:!scale-100 [&>svg]:hidden"
+                            onClick={() => consult(product)}
+                          >
+                            Book Your Consultation
+                          </Button>
+                        </div>
+                      </div>
+                    </article>
+                  ))}
+              </Tabs.Content>
+            ))}
+          </Tabs.Root>
+        </section>
+
+        <section id="about" className={container + " pb-14 md:pb-20"}>
+          <Typography text="Simple, low-risk, results first" />
+          <div className="grid items-stretch gap-8 md:grid-cols-2 lg:gap-16">
+            <div className="relative min-h-72 overflow-hidden rounded-[20px] md:min-h-110">
               <Image
-                src={`/sustainability/${icon}.svg`}
-                alt=""
-                width={62}
-                height={62}
-                className="size-[40px] md:size-[50px] shrink-0"
+                src={asset("process.png")}
+                alt="Industrial plant with chimneys and processing equipment"
+                fill
+                sizes="(max-width: 767px) 90vw, 43vw"
+                className="object-cover"
               />
-              <div>
-                <h3 className="text-[clamp(16px,1.25vw,24px)] font-semibold uppercase">
-                  {label}
-                </h3>
-                {href ? (
-                  <a
-                    className="text-[clamp(11px,.833vw,16px)] hover:underline max-md:text-sm"
-                    href={href}
-                  >
-                    {value}
-                  </a>
-                ) : (
-                  <p className="text-[clamp(11px,.833vw,16px)] max-md:text-sm">
-                    {value}
-                  </p>
-                )}
-              </div>
             </div>
-          ))}
-        </div>
-        <div className="border-t border-white/25 p-4 text-center text-[clamp(11px,.833vw,16px)]">
-          Copyright © 2026 All Rights Reserved.
-        </div>
-      </footer>
-    </main>
+            <ol className="flex flex-col justify-between gap-6">
+              {steps.map((step, index) => (
+                <li
+                  key={step.title}
+                  className="flex items-center gap-5 border-l-[5px] border-[#168ac7] py-3 pl-5 lg:gap-6 lg:pl-7"
+                >
+                  <div className="flex size-16 shrink-0 items-center justify-center rounded-xl bg-linear-to-br from-[#168dca] to-[#0f2453] lg:size-20">
+                    <Image
+                      src={asset(step.icon)}
+                      alt=""
+                      width={48}
+                      height={48}
+                      className={
+                        "h-auto max-h-12 w-10 lg:w-12" +
+                        (index === 1 || index === 2 ? " -scale-y-100" : "")
+                      }
+                    />
+                  </div>
+                  <div>
+                    <h3 className="md:mb-2 text-xl font-semibold lg:text-2xl">
+                      {step.title}
+                    </h3>
+                    <p className={paragraph}>{step.text}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        <section id="faqs" className="bg-[#f6f6f6] py-14 md:py-20">
+          <div className={container}>
+            <Typography text="Frequently Asked Questions" />
+            <Accordion.Root
+              type="single"
+              collapsible
+              defaultValue="faq-0"
+              className="space-y-3"
+            >
+              {faqs.map(([question, answer], index) => (
+                <Accordion.Item
+                  key={question}
+                  value={`faq-${index}`}
+                  className="group rounded-xl border border-[#dadada] px-5 data-[state=open]:border-transparent data-[state=open]:bg-white md:px-6"
+                >
+                  <Accordion.Header>
+                    <Accordion.Trigger className="flex w-full items-center justify-between gap-5 py-5 text-left font-(family-name:--font-raleway) text-base font-medium focus-visible:outline-2 focus-visible:outline-[#168dca] group-data-[state=open]:text-[#1473ad] md:text-lg">
+                      {question}
+                      <span aria-hidden className="shrink-0">
+                        <Image
+                          src={asset("plus.svg")}
+                          alt=""
+                          width={24}
+                          height={24}
+                          className="group-data-[state=open]:hidden"
+                        />
+                        <Image
+                          src={asset("minus.svg")}
+                          alt=""
+                          width={24}
+                          height={24}
+                          className="hidden group-data-[state=open]:block"
+                        />
+                      </span>
+                    </Accordion.Trigger>
+                  </Accordion.Header>
+                  <Accordion.Content className="pb-5 text-sm leading-relaxed text-[#333] md:text-base">
+                    {answer}
+                  </Accordion.Content>
+                </Accordion.Item>
+              ))}
+            </Accordion.Root>
+          </div>
+        </section>
+
+        <section id="industries" className={container + " pt-14 md:pt-20"}>
+          <Typography text="Industries we serve" />
+          <div className="mx-auto grid max-w-260 grid-cols-2 gap-3 md:grid-cols-3 md:gap-6">
+            {industries.map((industry) => (
+              <div
+                key={industry.name}
+                className="flex items-center gap-3 rounded-xl border border-[#cfcfcf] p-3 md:gap-5"
+              >
+                <div className="flex size-12 shrink-0 items-center justify-center rounded-lg bg-linear-to-br from-[#168dca] to-[#0f2453] md:size-16">
+                  <Image
+                    src={asset(industry.icon)}
+                    alt=""
+                    width={42}
+                    height={42}
+                    className="h-8 w-auto max-w-8 md:h-10 md:max-w-10"
+                  />
+                </div>
+                <h3 className="text-sm font-medium sm:text-lg lg:text-2xl">
+                  {industry.name}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </section>
+        <section id="contact" className={container + " py-14 md:py-20"}>
+          <h2 className="mb-4 text-[22px] font-semibold leading-[1.2] md:text-3xl lg:text-[40px]">
+            Get your free savings estimate
+          </h2>
+          <p className={paragraph + " mb-7"}>
+            Tell us a little about your site and our team will get back to you
+            within two working days.
+          </p>
+          <SavingsEnquiry interest={interest} />
+        </section>
+      </main>
+      <Footer />
+
+      <Dialog.Root
+        open={selected !== null}
+        onOpenChange={(open) => {
+          if (!open) setSelected(null);
+        }}
+      >
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 z-[100] bg-black/70" />
+          <Dialog.Content
+            aria-describedby={undefined}
+            onCloseAutoFocus={(event) => {
+              event.preventDefault();
+              if (consultationRef.current) {
+                consultationRef.current = false;
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+                document
+                  .getElementById("estimate-name")
+                  ?.focus({ preventScroll: true });
+              } else triggerRef.current?.focus({ preventScroll: true });
+            }}
+            className="fixed left-1/2 top-1/2 z-[101] max-h-[90dvh] w-[92%] max-w-6xl -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-2xl bg-[#f2f4f4] shadow-2xl focus:outline-none"
+          >
+            {selected && (
+              <div className="grid md:grid-cols-[43%_57%]">
+                <div className="relative min-h-64 overflow-hidden bg-white max-md:h-64 md:min-h-120">
+                  <Image
+                    src={asset(selected.detailImage)}
+                    alt={
+                      selected.name === "High Emissivity Coating"
+                        ? "Furnace heat flow before and after FuelSave coating"
+                        : selected.name
+                    }
+                    fill
+                    sizes="(max-width: 767px) 92vw, 43vw"
+                    className={
+                      selected.id === "coating"
+                        ? "object-contain"
+                        : selected.id === "sun-wind"
+                          ? "object-cover object-[37.3%_center]"
+                          : "object-cover"
+                    }
+                  />
+                </div>
+                <div className="flex flex-col justify-center gap-8 px-6 py-10 md:px-8 md:py-12 lg:px-10">
+                  <div>
+                    <Dialog.Title className="mb-5 text-2xl font-extrabold leading-tight lg:text-3xl">
+                      {selected.name}
+                    </Dialog.Title>
+                    <div className="space-y-4 text-sm leading-relaxed text-[#464646] md:text-base">
+                      {selected.paragraphs.map((text) => (
+                        <p key={text}>{text}</p>
+                      ))}
+                    </div>
+                  </div>
+                  <Button
+                    fullWidth
+                    className="hover:!scale-100 [&>svg]:hidden"
+                    onClick={() => consult(selected)}
+                  >
+                    Book Your Consultation
+                  </Button>
+                </div>
+                <Dialog.Close
+                  aria-label="Close product details"
+                  className="absolute right-3 top-3 flex size-10 items-center justify-center rounded-full bg-[#f2f4f4]/95 hover:bg-white focus-visible:outline-2 focus-visible:outline-[#168dca]"
+                >
+                  <Image
+                    src={asset("close.svg")}
+                    alt=""
+                    width={16}
+                    height={18}
+                  />
+                </Dialog.Close>
+              </div>
+            )}
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+    </>
   );
 }
 
-function SectionHeading({
-  title,
-  text,
-  dark = false,
+function Partner({
+  name,
+  children,
 }: {
-  title: string;
-  text: string;
-  dark?: boolean;
+  name: string;
+  children: React.ReactNode;
 }) {
   return (
-    <div className="mx-auto mb-9 text-center max-md:mb-7">
-      <h2 className="text-[clamp(28px,2.344vw,45px)] font-semibold leading-[1.2] tracking-[.02em]">
-        {title}
-      </h2>
-      <p
-        className={
-          "mx-auto mt-4 max-w-191.5 text-[clamp(14px,1.146vw,22px)] leading-6 " +
-          (dark ? "text-white" : "text-[#3c3c3c]")
-        }
-      >
-        {text}
-      </p>
-    </div>
-  );
-}
-
-type CalculatorProps = {
-  dark?: boolean;
-  image: string;
-  imageAlt: string;
-  title: string;
-  description: string;
-  label: string;
-  fieldId: string;
-  value: number;
-  onChange: (value: number) => void;
-  options: string[];
-  inputLabel: string;
-  inputId: string;
-  inputValue: string;
-  onInputChange: (value: string) => void;
-  placeholder: string;
-  result: string;
-  resultDescription: string;
-  secondaryResult?: string;
-};
-
-function Calculator({
-  dark = false,
-  image,
-  imageAlt,
-  title,
-  description,
-  label,
-  fieldId,
-  value,
-  onChange,
-  options,
-  inputLabel,
-  inputId,
-  inputValue,
-  onInputChange,
-  placeholder,
-  result,
-  resultDescription,
-  secondaryResult,
-}: CalculatorProps) {
-  const fields = dark
-    ? "bg-[#2f2f2f] [&_p]:text-white [&_input]:border-[#282828] [&_input]:bg-[#2b2b2b] [&_input]:text-white [&_select]:border-[#282828] [&_select]:bg-[#2b2b2b] [&_select]:text-white [&_select]:[color-scheme:dark]"
-    : "bg-[#f2f2f2]";
-  return (
-    <div className="grid grid-cols-2 gap-7.5 max-md:grid-cols-1 max-md:gap-5">
-      <div className="relative aspect-[765/632] min-h-107.5 overflow-hidden rounded-[20px] max-md:min-h-0">
-        <Image
-          src={image}
-          alt={imageAlt}
-          fill
-          sizes="(max-width: 767px) 90vw, 41vw"
-          className="object-cover"
-        />
-      </div>
-      <div
-        className={
-          "flex min-h-[min(32.92vw,632px)] flex-col overflow-hidden rounded-[20px] " +
-          fields +
-          " max-md:min-h-105"
-        }
-      >
-        <div className="flex-1 px-[clamp(24px,1.875vw,36px)] py-[clamp(24px,2.1vw,40px)] max-md:px-[22px] max-md:py-[26px]">
-          <h3 className="text-[clamp(23px,1.823vw,35px)] font-semibold">
-            {title}
-          </h3>
-          <p className="mb-6 mt-1.75 text-[clamp(13px,1.146vw,22px)] leading-6 text-[#3c3c3c] max-md:text-[13px]">
-            {description}
-          </p>
-          <label
-            htmlFor={fieldId}
-            className="mb-3 mt-5 block font-(family-name:--font-raleway) text-[clamp(17px,1.302vw,25px)] font-semibold"
-          >
-            {label}
-          </label>
-          <select
-            id={fieldId}
-            value={value}
-            onChange={(event) => onChange(Number(event.target.value))}
-            className="h-[clamp(48px,3.554vw,68px)] w-full min-w-0 rounded-[10px] border-[1.5px] border-[#ddd] bg-[#edeaea] px-[18px] text-[clamp(13px,1.146vw,22px)] text-[#3c3c3c] focus-visible:outline-3 focus-visible:outline-[#168dca] focus-visible:outline-offset-4 max-md:text-[13px]"
-          >
-            {options.map((option, index) => (
-              <option key={option} value={index}>
-                {option}
-              </option>
-            ))}
-          </select>
-          <label
-            htmlFor={inputId}
-            className="mb-3 mt-5 block font-(family-name:--font-raleway) text-[clamp(17px,1.302vw,25px)] font-semibold"
-          >
-            {inputLabel}
-          </label>
-          <input
-            id={inputId}
-            type="number"
-            min="0"
-            step="any"
-            inputMode="decimal"
-            placeholder={placeholder}
-            value={inputValue}
-            onChange={(event) => onInputChange(event.target.value)}
-            className="h-[clamp(48px,3.554vw,68px)] w-full min-w-0 rounded-[10px] border-[1.5px] border-[#ddd] bg-[#edeaea] px-[18px] text-[clamp(13px,1.146vw,22px)] text-[#3c3c3c] placeholder:text-[#a4a0a0] focus-visible:outline-3 focus-visible:outline-[#168dca] focus-visible:outline-offset-4 max-md:text-[13px]"
-          />
-        </div>
-        <div
-          role="status"
-          aria-live="polite"
-          className="min-h-[clamp(126px,9.343vw,179px)] bg-[linear-gradient(114deg,#168dca_5.4%,#0f2453_105.1%)] px-[clamp(24px,1.875vw,36px)] py-[clamp(22px,2vw,38px)] text-white max-md:px-[22px] max-md:py-[25px]"
-        >
-          <strong className="block break-words text-[clamp(30px,2.606vw,50px)] font-semibold leading-[1.2]">
-            {result}
-          </strong>
-          <p className="mt-1.5 text-[clamp(12px,1vw,19px)]">
-            {resultDescription}
-          </p>
-          {secondaryResult && (
-            <p className="mt-1.5 text-[clamp(12px,1vw,19px)]">
-              {secondaryResult}
-            </p>
-          )}
-        </div>
-      </div>
+    <div
+      title={name}
+      className="flex h-15 w-[var(--marquee-logo-width)] shrink-0 items-center justify-center overflow-hidden rounded-xl border border-white bg-white/10 px-4 py-2 shadow-md shadow-black/20 backdrop-blur-md transition-all duration-300 hover:border-white/40 hover:bg-white/15 md:h-24 2xl:h-28"
+    >
+      {children}
     </div>
   );
 }

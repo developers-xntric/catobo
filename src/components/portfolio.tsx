@@ -25,8 +25,8 @@ export default function PortfolioContent({ data }: PortfolioContentProps) {
     } as PortfolioData;
 
     return (
-        <section className="w-full py-12 ">
-            <div className="2xl:max-w-[1440px] w-[90%] mx-auto">
+        <section className="w-full pt-12 ">
+            <div className="2xl:max-w-350 w-[90%] mx-auto">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
                     <div className="flex justify-center w-full h-full ">
                         <div className="w-full h-full rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">

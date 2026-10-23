@@ -111,7 +111,7 @@ export default function Testimonials({ data }: { data?: HomeData['testimonials']
                         />
                     ))}
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center hidden">
                     <Button
                         href={buttonHref}
                         className="text-white font-medium py-3 px-10 transition-colors rounded-lg disabled:opacity-50 mt-5"

@@ -253,5 +253,6 @@ export interface PortfolioData {
         description: string;
         logoCount: number;
         logosBasePath?: string;
+        cardDescriptions?: string[];
     };
 }

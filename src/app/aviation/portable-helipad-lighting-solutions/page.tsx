@@ -942,7 +942,7 @@ function MainContent() {
     </div>
   );
   return (
-    <div className="min-w-0 flex-1 max-w-240">
+    <div className="min-w-0 w-full">
       <section id="section-5" className="mb-12">
         <SectionHeading size="h2" className="mb-4">
           Rapid-Deploy Helipad Systems For Temporary &amp; Emergency Operations
@@ -967,18 +967,18 @@ function MainContent() {
           minimal manpower and tools.
         </p>
         <div className="grid lg:grid-cols-3 gap-4">
-          <div className="lg:col-span-2 h-72 overflow-hidden rounded-xl bg-gray-100">
+          <div className="lg:col-span-2 h-72 md:h-90 overflow-hidden rounded-xl bg-gray-100">
             <img
               src="/phls/helipad-surface.png"
               alt="Portable helipad system"
               className="h-full w-full object-cover"
             />
           </div>
-          <div className="h-72 overflow-hidden rounded-xl bg-gray-100">
+          <div className="h-72 md:h-90 overflow-hidden rounded-xl bg-gray-100">
             <img
               src="/phls/helipad-overview.png"
               alt="Portable helipad modular surface"
-              className="h-full w-full object-cover"
+              className="h-full w-full "
             />
           </div>
         </div>
@@ -1181,13 +1181,7 @@ export default function SolutionPortableHelipad() {
       />
       <main className="min-h-screen bg-white">
         <div className="2xl:max-w-360 w-[90%] mx-auto py-8">
-          <div className="flex flex-col lg:flex-row gap-5 items-start">
-            <Sidebar
-              title=""
-              groups={sidebarGroups}
-            />
-            <MainContent />
-          </div>
+          <MainContent />
         </div>
       </main>
     </div>

@@ -15,8 +15,12 @@ import {
   consultationImages,
 } from "@/data/aviation/consultation-data";
 
+const industryDotIndexes = [0, 2, 4, 6, 8];
+
 export default function ConsultationDesignBody() {
   const [activeComplianceIndex, setActiveComplianceIndex] = useState(0);
+  const [activeIndustrySlide, setActiveIndustrySlide] = useState(0);
+  const [activeIndustryIndex, setActiveIndustryIndex] = useState(0);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -24,6 +28,15 @@ export default function ConsultationDesignBody() {
         (current) => (current + 1) % consultationCompliance.length,
       );
     }, 1500);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveIndustrySlide((current) => (current + 1) % consultationIndustries.length);
+      setActiveIndustryIndex((current) => (current + 1) % consultationIndustries.length);
+    }, 2000);
 
     return () => window.clearInterval(timer);
   }, []);
@@ -135,51 +148,36 @@ export default function ConsultationDesignBody() {
         </section>
 
         <section className="py-10 md:py-16">
-          <h2 className="font-raleway text-[26px] font-medium tracking-wide text-black md:text-[35px]">
+          <h2 className="font-raleway text-left text-[26px] font-medium tracking-wide text-black md:text-center md:text-[35px]">
             {consultationPageContent.industriesTitle}
           </h2>
-          <div className="mt-5 space-y-3">
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {consultationIndustries.slice(0, 4).map(([label, image]) => (
-                <div
-                  key={label}
-                  className="flex min-h-[64px] items-center gap-3 rounded-full bg-[#f5f5f5] px-3 pr-5 md:min-h-[76px]"
-                >
-                  <Image
-                    src={"/" + image}
-                    alt=""
-                    width={58}
-                    height={58}
-                    className="h-10 w-10 shrink-0 rounded-full object-cover md:h-16 md:w-16"
-                  />
-                  <span className="font-raleway text-[10px] font-medium text-black md:text-sm">
-                    {label}
-                  </span>
-                </div>
-              ))}
+          <div className="mt-5">
+            <div className="hidden md:block">
+              <div className="grid grid-cols-4 gap-5" key={activeIndustrySlide}>
+                {Array.from({ length: 4 }, (_, offset) => consultationIndustries[(activeIndustrySlide + offset) % consultationIndustries.length]).map(([label, image]) => (
+                  <IndustryCard key={label} label={label} image={image} />
+                ))}
+              </div>
+              <div className="mt-6 flex justify-center gap-2" aria-label="Industry carousel slides">
+                {industryDotIndexes.map((industryIndex, index) => (
+                  <button key={industryIndex} type="button" aria-label={`Show ${consultationIndustries[industryIndex][0]}`} aria-current={Math.min(4, Math.floor(activeIndustrySlide / 2)) === index} onClick={() => setActiveIndustrySlide(industryIndex)} className={`h-2.5 rounded-full transition-all ${Math.min(4, Math.floor(activeIndustrySlide / 2)) === index ? "w-7 bg-[#168DCA]" : "w-2.5 bg-[#d5d5d5] hover:bg-[#a6a6a6]"}`} />
+                ))}
+              </div>
             </div>
-            <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 lg:grid-cols-5">
-              {consultationIndustries.slice(4).map(([label, image]) => (
-                <div
-                  key={label}
-                  className="flex min-h-[64px] items-center gap-3 rounded-full bg-[#f5f5f5] px-3 pr-5 md:min-h-[76px]"
-                >
-                  <Image
-                    src={"/" + image}
-                    alt=""
-                    width={58}
-                    height={58}
-                    className="h-10 w-10 shrink-0 rounded-full object-cover md:h-16 md:w-16"
-                  />
-                  <span className="font-raleway text-[10px] font-medium text-black md:text-sm">
-                    {label}
-                  </span>
+            <div className="md:hidden">
+              {consultationIndustries[activeIndustryIndex] && (
+                <div key={consultationIndustries[activeIndustryIndex][0]} className="animate-fadeIn">
+                  <IndustryCard label={consultationIndustries[activeIndustryIndex][0]} image={consultationIndustries[activeIndustryIndex][1]} />
                 </div>
-              ))}
+              )}
+              <div className="mt-5 flex justify-center gap-2" aria-label="Industry carousel slides">
+                {industryDotIndexes.map((industryIndex, index) => (
+                  <button key={industryIndex} type="button" aria-label={`Show ${consultationIndustries[industryIndex][0]}`} aria-current={Math.min(4, Math.floor(activeIndustryIndex / 2)) === index} onClick={() => setActiveIndustryIndex(industryIndex)} className={`h-2.5 rounded-full transition-all ${Math.min(4, Math.floor(activeIndustryIndex / 2)) === index ? "w-7 bg-[#168DCA]" : "w-2.5 bg-[#d5d5d5] hover:bg-[#a6a6a6]"}`} />
+                ))}
+              </div>
             </div>
-          </div>{" "}
+          </div>
         </section>
-
         <section className="relative mt-8 min-h-[260px] overflow-hidden rounded-[12px] px-6 py-16 text-center text-white md:min-h-[411px] md:px-[126px] md:py-[100px]">
           <Image
             src={consultationImages.ctaBackground}
@@ -308,5 +306,15 @@ export default function ConsultationDesignBody() {
         </div>
       </section>
     </main>
+  );
+}
+
+function IndustryCard({ label, image }: { label: string; image: string }) {
+  return (
+    <article className="relative aspect-[367/248] overflow-hidden rounded-[20px] bg-[#151515]">
+      <Image src={`${image}`} alt={label} fill sizes="(max-width: 767px) 90vw, 23vw" className="object-cover" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-black" />
+      <h3 className="absolute inset-x-5 bottom-5 font-raleway text-[18px] font-medium leading-snug tracking-[0.02em] text-white md:text-[20px]">{label}</h3>
+    </article>
   );
 }

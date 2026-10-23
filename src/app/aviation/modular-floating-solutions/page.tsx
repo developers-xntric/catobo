@@ -522,7 +522,7 @@ export function Sidebar({ title, groups }: SidebarProps) {
 
 function MainContent() {
   return (
-    <div className="flex-1 ">
+    <div className="w-full">
       {/* ─── Section 1: Overview ─── */}
       <section id="section-0" className="mb-12">
         <SectionHeading size="h1" className="mb-4">
@@ -560,11 +560,11 @@ function MainContent() {
 
         {/* Equal 50/50 image grid */}
         <div className="flex md:flex-row flex-col gap-3">
-          <div className="md:w-[63%] rounded-xl overflow-hidden bg-gray-100 h-74">
-            <img src="/pl/4.png" alt="" className="w-full h-full object-fill" />
+          <div className="md:w-[63%] rounded-xl overflow-hidden bg-gray-100 h-60 md:h-80">
+            <img src="/pl/4.png" alt="" className="w-full h-full object-cover" />
           </div>
-          <div className="md:w-[36%] rounded-xl overflow-hidden bg-gray-100 h-74">
-            <img src="/pl/5.png" alt="" className="w-full h-full object-fill" />
+          <div className="md:w-[36%] rounded-xl overflow-hidden bg-gray-100 h-60  md:h-80">
+            <img src="/pl/5.png" alt="" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
@@ -708,13 +708,7 @@ export default function SolutionPortableLighting() {
       />
       <main className="min-h-screen bg-white">
         <div className="2xl:max-w-[1400px] w-[90%] mx-auto py-8">
-          <div className="flex flex-col lg:flex-row gap-5 items-start">
-            <Sidebar
-              title="Modular Floating Solutions"
-              groups={sidebarGroups}
-            />
-            <MainContent />
-          </div>
+          <MainContent />
         </div>
       </main>
     </div>

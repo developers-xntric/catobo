@@ -3,6 +3,8 @@
 import React, { useState, useRef } from "react";
 import { ContactData } from "@/data/types";
 import ReCAPTCHA from "react-google-recaptcha";
+import CountryPhoneInput, { formatInternationalPhone } from "@/components/CountryPhoneInput";
+import type { Country } from "react-phone-number-input";
 
 interface ContactPageContentProps {
     data: ContactData;
@@ -21,6 +23,7 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
         name: "",
         surname: "",
         phone: "",
+        countryCode: "AE" as Country,
         email: "",
         company: "",
         subject: "",
@@ -54,14 +57,14 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
                     name: formData.name,
                     email: formData.email,
                     inquiryType: formData.subject,
-                    message: `Surname: ${formData.surname}\nPhone: ${formData.phone}\nCompany: ${formData.company}\nSubject: ${formData.subject}\n\nMessage:\n${formData.enquiry}`,
+                    message: `Surname: ${formData.surname}\nPhone: ${formatInternationalPhone(formData.countryCode, formData.phone)}\nCompany: ${formData.company}\nSubject: ${formData.subject}\n\nMessage:\n${formData.enquiry}`,
                     recaptchaToken,
                 }),
             });
             if (response.ok) {
                 setSubmitStatus("success");
                 setFormData({
-                    name: "", surname: "", phone: "", email: "",
+                    name: "", surname: "", phone: "", countryCode: "AE" as Country, email: "",
                     company: "", subject: "", enquiry: "", robot: false,
                 });
                 setRecaptchaToken(null);
@@ -149,14 +152,7 @@ export default function ContactPageContent({ data }: ContactPageContentProps) {
                                     <label className={labelClass}>
                                         {data.form.fields.phone}<span className="text-[#168DCA]">*</span>
                                     </label>
-                                    <input
-                                        type="tel"
-                                        name="phone"
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        placeholder="Enter Your Phone Number"
-                                        className={inputClass}
-                                    />
+                                    <CountryPhoneInput id="contact-phone" country={formData.countryCode} number={formData.phone} onCountryChange={(countryCode) => setFormData((previous) => ({ ...previous, countryCode }))} onNumberChange={(phone) => setFormData((previous) => ({ ...previous, phone }))} required />
                                 </div>
 
                                 <div>

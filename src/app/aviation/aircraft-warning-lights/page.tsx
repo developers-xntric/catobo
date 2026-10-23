@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import DynamicHero from "@/components/common/hero";
 import { CheckIcon } from "@/components/common/CheckIcon";
@@ -6,7 +6,7 @@ import Badge from "@/components/ui/badge";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Sidebar } from "@/app/aviation/airfield-lighting/page";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const menu = [
   { heading: "Low Intensity", items: ["Making Structures Visible. Keeping Airspace Safe."] },
@@ -40,7 +40,7 @@ const lightTypes = [
   [
     "High-Intensity Obstruction Lights",
     "Type A. Type B",
-    "High-intensity systems for structures and applications requiring enhanced conspicuity. The final intensity, type, quantity, positioning, colour, flash characteristics, and operating configuration are established according to the applicable aviation standards and authority requirements. UAE GCAA regulations, for example, recognise low-, medium-, and high-intensity obstacle lighting and reference ICAO requirements for their application.",
+    "High-intensity systems for structures requiring enhanced conspicuity, configured to meet applicable aviation standards and authority requirements.",
   ],
 ];
 const reliability = [
@@ -134,6 +134,36 @@ function Card({ title, text }: { title: string; text: string }) {
     </article>
   );
 }
+function EnvironmentCard({
+  title,
+  text,
+  index,
+}: {
+  title: string;
+  text: string;
+  index: number;
+}) {
+  return (
+    <article className="overflow-hidden rounded-[10px]">
+      <div className="relative h-52">
+        <Image
+          src={`/acs/aircraft-warning-environment-${index + 1}.png`}
+          alt=""
+          fill
+          className="object-cover rounded-[10px]"
+        />
+      </div>
+      <div className="mt-3">
+        <h3 className="text-[18px] md:text-[20px] font-medium leading-snug text-black">
+          {title}
+        </h3>
+        <p className="mt-2 text-[13px] leading-relaxed text-[#636363]">
+          {text}
+        </p>
+      </div>
+    </article>
+  );
+}
 function SideNav() {
   const [active, setActive] = useState(0);
   let number = 0;
@@ -183,6 +213,22 @@ function SideNav() {
   );
 }
 export default function AircraftWarningLightsPage() {
+  const [activeReliabilityIndex, setActiveReliabilityIndex] = useState(0);
+  const [activeEnvironmentIndex, setActiveEnvironmentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveReliabilityIndex((current) => (current + 1) % reliability.length);
+    }, 2000);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveEnvironmentIndex((current) => (current + 1) % environments.length);
+    }, 2000);
+    return () => window.clearInterval(timer);
+  }, []);
   return (
     <div>
       <DynamicHero
@@ -194,55 +240,10 @@ export default function AircraftWarningLightsPage() {
         backgroundImage="/acs/aircraft-hero.png"
       />
       <main className="bg-white">
-        <div className="mx-auto flex w-[90%] flex-col items-start gap-8 py-8 2xl:max-w-360 lg:flex-row">
-          <Sidebar
-            title="Aircraft Warning Lights"
-            groups={[
-              {
-                items: [
-                  {
-                    label: "Making Structures Visible. Keeping Airspace Safe.",
-                    hasArrow: true,
-                    sectionId: "overview",
-                  },
-                  {
-                    label: "The Right Obstruction Lighting for Every Application",
-                    hasArrow: true,
-                    sectionId: "applications",
-                  },
-                  {
-                    label: "More Than Warning Lights",
-                    hasArrow: true,
-                    sectionId: "integrated-systems",
-                  },
-                  {
-                    label: "Engineered for Reliable Operations",
-                    hasArrow: true,
-                    sectionId: "reliable-operations",
-                  },
-                  {
-                    label: "Assessment & Design",
-                    hasArrow: true,
-                    sectionId: "assessment-design",
-                  },
-                  
-                  {
-                    label: "Built for Demanding Environments",
-                    hasArrow: true,
-                    sectionId: "environments",
-                  },
-                  {
-                    label: "One Partner. From NOC to AMC.",
-                    hasArrow: true,
-                    sectionId: "partner",
-                  },
-                ],
-              },
-            ]}
-          />
-          <div className="min-w-0 max-w-240 flex-1">
-            <section id="overview" className="mb-14 scroll-mt-8 grid gap-8 xl:grid-cols-2">
-              <div className="relative min-h-80 overflow-hidden rounded-[10px]">
+        <div className="mx-auto w-[90%] py-10 md:py-16 2xl:max-w-350">
+          <div className="min-w-0 w-full">
+            <section id="overview" className="mb-16 scroll-mt-8 grid items-center gap-8 xl:grid-cols-2 xl:gap-[33px] md:py-10">
+              <div className="relative h-60 md:h-90 xl:h-[120%] overflow-hidden rounded-[10px]">
                 <Image
                   src="/acs/aircraft-warning-low-intensity.png"
                   alt="Aircraft warning light installation"
@@ -253,7 +254,7 @@ export default function AircraftWarningLightsPage() {
               </div>
               <div className="flex flex-col justify-center">
                 <Badge text="Aircraft Warning Lights" variant="black" />
-                <Heading className="mt-5">
+                <Heading className="mt5">
                   Making Structures Visible. Keeping Airspace Safe.
                 </Heading>
                 <Body>
@@ -275,7 +276,7 @@ export default function AircraftWarningLightsPage() {
                 </Body>
               </div>
             </section>
-            <section id="applications" className="mb-14 scroll-mt-8">
+            <section id="applications" className="mb-16 scroll-mt-8">
               <Heading>
                 The Right Obstruction Lighting for Every Application
               </Heading>
@@ -290,37 +291,25 @@ export default function AircraftWarningLightsPage() {
                   project.
                 </span>
               </Body>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-                {lightTypes.slice(0, 3).map(([title, type, text]) => (
+              <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                {lightTypes.map(([title, type, text], index) => (
                   <article
                     key={title}
-                    className="rounded-[10px] bg-[#f3f3f3] p-5"
+                    className={`rounded-[10px] p-5 ${index === 1 || index === 3 ? "bg-[linear-gradient(125deg,#168DCA,#0F2453)] text-white" : "bg-[#f3f3f3] text-black"}`}
                   >
-                    <h3 className="text-[20px] font-medium text-black">
+                    <h3 className="text-[20px] font-medium">
                       {title}
                     </h3>
-                    <p className="mt-1 text-[12px] font-medium text-black">
+                    <p className={`mt-1 text-[12px] font-medium ${index === 1 || index === 3 ? "text-white" : "text-black"}`}>
                       {type}
                     </p>
-                    <p className="mt-3 text-[13px] leading-relaxed text-[#636363]">
-                      {text}
+                    <p className={`mt-3 text-[13px] leading-relaxed ${index === 1 || index === 3 ? "text-white" : "text-[#636363]"}`}>                      {text}
                     </p>
                   </article>
                 ))}
               </div>
-              <div className="mt-3 rounded-[10px] bg-[#f3f3f3] p-5">
-                <h3 className="text-[20px] font-medium text-black">
-                  {lightTypes[3][0]}
-                </h3>
-                <p className="mt-1 text-[12px] font-medium text-black">
-                  {lightTypes[3][1]}
-                </p>
-                <p className="mt-3 text-[13px] leading-relaxed text-[#636363]">
-                  {lightTypes[3][2]}
-                </p>
-              </div>
             </section>
-            <section id="integrated-systems" className="mb-14 scroll-mt-8 grid gap-8 xl:grid-cols-2">
+            <section id="integrated-systems" className="mb-16 scroll-mt-8 grid items-center gap-8 xl:grid-cols-2 xl:gap-[33px]">
               <div>
                 <Heading>More Than Warning Lights</Heading>
                 <Body>
@@ -336,13 +325,16 @@ export default function AircraftWarningLightsPage() {
                     panels, automatic operation, remote monitoring, remote
                     control, fault indication, local override, and integration
                     with BMS, SCADA, or other site control systems, where
-                    required. The control philosophy is developed around the
+                    required.
+                  </span>
+                  <span className="mt-4 block">
+                    The control philosophy is developed around the
                     project so that the system can operate automatically and
                     reliably with minimum dependence on manual intervention.
                   </span>
                 </Body>
               </div>
-              <div className="relative min-h-80 overflow-hidden rounded-[10px]">
+              <div className="relative min-h-60 md:min-h-100 overflow-hidden rounded-[10px]">
                 <Image
                   src="/acs/aircraft-warning-intro.png"
                   alt="Aircraft warning lighting system"
@@ -351,7 +343,7 @@ export default function AircraftWarningLightsPage() {
                 />
               </div>
             </section>
-            <section id="reliable-operations" className="mb-14 scroll-mt-8">
+            <section id="reliable-operations" className="mb-16 scroll-mt-8 text-center">
               <Heading>Engineered for Reliable Operations</Heading>
               <Body>
                 <span className="mt-4 block">
@@ -361,7 +353,27 @@ export default function AircraftWarningLightsPage() {
                   light. Our engineering approach considers:
                 </span>
               </Body>
-              <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="mt-6 text-left md:hidden">
+                <div key={reliability[activeReliabilityIndex][0]} className="animate-fadeIn">
+                  <Card
+                    title={reliability[activeReliabilityIndex][0]}
+                    text={reliability[activeReliabilityIndex][1]}
+                  />
+                </div>
+              </div>
+              <div className="mt-5 flex justify-center gap-2 md:hidden" aria-label="Reliable operations carousel slides">
+                {reliability.map(([title], index) => (
+                  <button
+                    key={title}
+                    type="button"
+                    aria-label={`Show ${title}`}
+                    aria-current={activeReliabilityIndex === index}
+                    onClick={() => setActiveReliabilityIndex(index)}
+                    className={`h-2.5 rounded-full transition-all ${activeReliabilityIndex === index ? "w-7 bg-[#168DCA]" : "w-2.5 bg-[#d5d5d5] hover:bg-[#a6a6a6]"}`}
+                  />
+                ))}
+              </div>
+              <div className="mt-6 hidden gap-3 text-left md:grid md:grid-cols-2 xl:grid-cols-3">
                 {reliability.map(([title, text]) => (
                   <Card key={title} title={title} text={text} />
                 ))}
@@ -380,8 +392,8 @@ export default function AircraftWarningLightsPage() {
               </Body>
             </section>
 
-            <section id="compliance" className="mb-14 scroll-mt-8 grid gap-8 xl:grid-cols-2">
-              <div className="relative min-h-80 overflow-hidden rounded-[10px]">
+            <section id="compliance" className="mb-16 scroll-mt-8 grid items-center gap-8 xl:grid-cols-2 xl:gap-[33px]">
+              <div className="relative min-h-60 md:min-h-110 overflow-hidden rounded-[10px]">
                 <Image
                   src="/acs/aircraft-warning-compliance.png"
                   alt="Aircraft warning light"
@@ -419,7 +431,7 @@ export default function AircraftWarningLightsPage() {
               </div>
             </section>
             <section id="compliance" className="mb-14">
-              <div className="mt-8 space-y-4">
+              <div className="mt-8 space-y-5">
                 {[
                   [
                     "Authority Approval & NOC",
@@ -442,18 +454,18 @@ export default function AircraftWarningLightsPage() {
                     "Our involvement continues beyond commissioning. Through Annual Maintenance Contracts (AMC), Catobo provides scheduled inspection, preventive maintenance, testing, fault identification, troubleshooting, and technical support to help maintain reliable operation throughout the system lifecycle.",
                   ],
                 ].map(([title, text]) => (
-                  <div key={title}>
-                    <h3 className="text-[20px] font-medium text-black">
+                  <div key={title} className="grid gap-2 md:grid-cols-[300px_1fr] md:gap-8">
+                    <h3 className="text-[20px] font-medium">
                       {title}
                     </h3>
                     <Body>
-                      <span className="mt-2 block">{text}</span>
+                      <span className="block">{text}</span>
                     </Body>
                   </div>
                 ))}
               </div>
             </section>
-            <section id="environments" className="mb-14 scroll-mt-8">
+            <section id="environments" className="mb-16 scroll-mt-8">
               <Heading className="text-center">
                 Built for Demanding Environments
               </Heading>
@@ -463,36 +475,62 @@ export default function AircraftWarningLightsPage() {
                   wide range of structures and operating environments:
                 </span>
               </Body>
-              <div className="mt-6 grid gap-3  md:gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                {environments.map(([title, text], index) => (
-                  <article
+              <div className="mt-6 md:hidden">
+                <div key={environments[activeEnvironmentIndex][0]} className="animate-fadeIn">
+                  <EnvironmentCard
+                    title={environments[activeEnvironmentIndex][0]}
+                    text={environments[activeEnvironmentIndex][1]}
+                    index={activeEnvironmentIndex}
+                  />
+                </div>
+              </div>
+              <div className="mt-5 flex justify-center gap-2 md:hidden" aria-label="Demanding environments carousel slides">
+                {environments.map(([title], index) => (
+                  <button
                     key={title}
-                    className="overflow-hidden rounded-[10px]"
-                  >
-                    <div className="relative h-52">
-                      <Image
-                        src={`/acs/aircraft-warning-environment-${index + 1}.png`}
-                        alt=""
-                        fill
-                        className="object-cover rounded-[10px]"
-                      />
-                    </div>
-                    <div className="mt-3">
-                      <h3 className="text-[18px] md:text-[20px] font-medium leading-snug text-black">
-                        {title}
-                      </h3>
-                      <p className="mt-2 text-[13px] leading-relaxed text-[#636363]">
-                        {text}
-                      </p>
-                    </div>
-                  </article>
+                    type="button"
+                    aria-label={`Show ${title}`}
+                    aria-current={activeEnvironmentIndex === index}
+                    onClick={() => setActiveEnvironmentIndex(index)}
+                    className={`h-2.5 rounded-full transition-all ${activeEnvironmentIndex === index ? "w-7 bg-[#168DCA]" : "w-2.5 bg-[#d5d5d5] hover:bg-[#a6a6a6]"}`}
+                  />
+                ))}
+              </div>
+              <div className="mt-6 hidden gap-3 md:grid md:grid-cols-2 md:gap-6 xl:grid-cols-3">
+                {environments.map(([title, text], index) => (
+                  <EnvironmentCard key={title} title={title} text={text} index={index} />
                 ))}
               </div>
             </section>
-            <section id="partner" className="mb-14 scroll-mt-8">
-              <Heading>One Partner. From NOC to AMC.</Heading>
+            <section id="partner" className="mb-16 scroll-mt-8 grid items-start gap-8 xl:grid-cols-2 xl:gap-[33px]">
+              <div>
+                <Heading>One Partner. From NOC to AMC.</Heading>
+                <div className="mt-4 md:mt-7 flex flex-wrap items-center gap-2 text-[14px] font-medium text-black">
+                  {[
+                    "Design",
+                    "Regulatory Approval",
+                    "NOC",
+                    "Supply",
+                    "Installation",
+                    "Commissioning",
+                    "Automation",
+                    "Monitoring",
+                    "AMC",
+                  ].map((item, index) => (
+                    <React.Fragment key={item}>
+                      <span>{item}</span>
+                      {index < 8 && (
+                        <ArrowRight
+                          className="size-4 text-[#168dca]"
+                          aria-hidden="true"
+                        />
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
               <Body>
-                <span className="mt-4 block">
+                <span className="md:mt-4 block xl:mt-0">
                   With Catobo, aircraft warning lighting is not simply a product
                   supplied and installed. It is a complete aviation system
                   engineered, approved, delivered, commissioned, automated,
@@ -505,37 +543,13 @@ export default function AircraftWarningLightsPage() {
                   warning lighting lifecycle.
                 </span>
               </Body>
-              <div className="mt-7 flex flex-wrap items-center gap-2 text-[14px] font-medium text-black">
-                {[
-                  "Design",
-                  "Regulatory Approval",
-                  "NOC",
-                  "Supply",
-                  "Installation",
-                  "Commissioning",
-                  "Automation",
-                  "Monitoring",
-                  "AMC",
-                ].map((item, index) => (
-                  <React.Fragment key={item}>
-                    <span>{item}</span>
-                    {index < 8 && (
-                      <ArrowRight
-                        className="size-4 text-[#168dca]"
-                        aria-hidden="true"
-                      />
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-            </section>
-            <section className="mb-5 grid gap-8 xl:grid-cols-2">
-              <div className="relative min-h-80 overflow-hidden rounded-[10px]">
+            </section>            <section className="mb-5 grid items-center gap-8 xl:grid-cols-2 xl:gap-[33px]">
+              <div className="relative min-h-64 md:min-h-100 overflow-hidden rounded-[10px]">
                 <Image
                   src="/acs/aircraft-warning-more-than-lights.png"
                   alt="Aircraft warning lighting"
                   fill
-                  className="object-cover"
+                  className="md:object-cover"
                 />
               </div>
               <div className="flex flex-col justify-center">

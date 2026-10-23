@@ -15,8 +15,9 @@ import {
 import Badge from "./ui/badge";
 import Typography from "./ui/heading";
 import ReCAPTCHA from "react-google-recaptcha";
+import AviationHomeForm from "./AviationHomeForm";
 
-export default function ContactSection() {
+export default function ContactSection({ aviation = false }: { aviation?: boolean }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -89,13 +90,12 @@ export default function ContactSection() {
     <section className="w-full bg-[#E6E5E5] md:py-16 py-10">
       <div className="2xl:max-w-350 w-[90%] mx-auto lg:px-8 ">
         {/* Header */}
-        <div className="text-center w-full md:w-[80%] mx-auto flex flex-col items-center justify-center">
+        <div className="text-center w-full md:w-[80%] mx-auto flex flex-col items-center justify-center mb-10">
           <Badge text="Partner with Precision" variant="black" />
-          <h2 className="text-[22px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000] mb-10 text-center ">
-            Begin your Journey with Precision-Engineered Aviation Safety,
-            Heliport, Vertiport, and Airfield Solutions Backed by Decades of
-            Expertise.
+          <h2 className="text-[22px] md:text-3xl lg:text-[40px] font-medium leading-[1.2] text-balance text-[#000000]  text-center mb-2 ">
+           Begin your Journey with Precision-Engineered Aviation Safety, Heliport, Vertiport, and Airfield Solutions Backed by Decades of Expertise.
           </h2>
+         
         </div>
 
         {/* Two Column Layout */}
@@ -114,7 +114,7 @@ export default function ContactSection() {
 
           {/* Right Column - Form */}
           <div className="flex flex-col  justify-center bg-[#D9D9D9] px-5 md:px-8 py-6 rounded-[14px]">
-            <form onSubmit={handleSubmit} className="space-y-5">
+            {aviation ? <AviationHomeForm /> : <form onSubmit={handleSubmit} className="space-y-5">
               {/* Name Field */}
               <div className="space-y-2">
                 <label
@@ -230,7 +230,7 @@ export default function ContactSection() {
                   Failed to send message. Please try again later.
                 </p>
               )}
-            </form>
+            </form>}
           </div>
 
           {/* Left Column - Image */}

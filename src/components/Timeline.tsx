@@ -85,7 +85,7 @@ export default function ProcessTimeline({
               <div
                 className={`relative z-10 flex  md:min-h-auto ${step.description ? "h-auto min-h-[150px] md:min-h-[200px]" : cardHeight} flex-col justify-between rounded-sm border border-white/30 bg-white/10 backdrop-blur-md px-2 sm:px-3 py-2 sm:py-3 shadow-lg`}
               >
-                <span className="text-sm sm:text-[17px] font-medium text-black">
+                <span className="text-sm sm:text-[17px] font-medium text-white">
                   {step.number}
                 </span>
 
