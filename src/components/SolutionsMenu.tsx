@@ -7,7 +7,7 @@ import { ArrowRight } from "lucide-react";
 export type SolutionLink = { label: string; href: string; image: number };
 
 export const aviationSolutionLinks: SolutionLink[] = [
-  ["Aviation Consultation & Firefighting Design", "/aviation/consultation", 3959],
+  ["Aviation Consultation ", "/aviation/consultation", 3959],
   ["Heliport & Vertiport Construction", "/aviation/heliport-vertiport-construction", 3961],
   ["Heliport & Vertiport Lighting Systems", "/aviation/heliport-and-vertiport-lighting-solutions", 3977],
   ["Offshore Helidecks", "/aviation/offshore-helidecks", 3976],

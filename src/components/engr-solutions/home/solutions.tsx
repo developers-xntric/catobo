@@ -6,6 +6,7 @@ import Link from "next/link";
 import { HomeData } from "@/data/types";
 import Stats from "./stats";
 import ConsultationTabs from "@/components/consultation-tab";
+import AviationLightingSolutions from "@/components/aviation/AviationLightingSolutions";
 
 const cardRoutes: Record<string, string> = {
   "Cable Containment Systems": "/engineering/cable-trunking",
@@ -128,6 +129,7 @@ export default function Solutions({ data }: { data: HomeData["solutions"] }) {
         )}
       </div>
       <Stats {...stats} />
+       <AviationLightingSolutions />
 
       
     </div>

@@ -87,7 +87,7 @@ const AVIATION_NAV_ITEMS: NavItem[] = [
           heading: "Fire & Safety",
           subItems: [
             { label: "Heliport & Vertiport Firefighting Systems", href: "/aviation/firefighting-systems" },
-            { label: "Aviation Consultation & Firefighting Design", href: "/aviation/consultation" },
+            { label: "Aviation Consultation", href: "/aviation/consultation" },
           ],
         },
         {

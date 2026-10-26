@@ -12,7 +12,7 @@ export default function AviationLightingSolutions() {
   const active = tabsData[activeIndex];
 
   return (
-    <section id="aviation-solutions" className="bg-white  ">
+    <section id="aviation-solutions" className=" py-10 ">
       <div className="">
         <div className="overflow-hidden rounded-[20px] bg-linear-to-tr to-[#168dca] from-[#0f2453] p-5 text-white md:p-9 lg:grid  lg:grid-cols-[minmax(260px,.92fr)_minmax(280px,1fr)_minmax(300px,.98fr)] lg:gap-10 ">
           <div className="flex flex-col">
