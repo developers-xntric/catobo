@@ -5,12 +5,14 @@ import AboutCompany from "@/components/engr-solutions/home/about-company";
 import ContactSection from "@/components/ContactSection";
 import Testimonials from "@/components/Testimonials";
 import { engineeringHomeData } from "@/data/engineering/home-data";
+import AboutEng from "@/components/engr-solutions/abouteng";
 
 export default function EngineeringHome() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col font-sans overflow-hidden md:overflow-auto">
       <Hero data={engineeringHomeData.hero} />
       <Solutions data={engineeringHomeData.solutions} />
+      <AboutEng data={engineeringHomeData.aboutCompany}/>
       <HowItWorks data={engineeringHomeData.howItWorks} />
       <AboutCompany data={engineeringHomeData.aboutCompany} />
       <Testimonials data={engineeringHomeData.testimonials} />

@@ -53,24 +53,28 @@ export default function Solutions({ data }: { data: HomeData["solutions"] }) {
 
   return (
     <div className="2xl:max-w-350 w-[90%] py-6 md:py-10 mx-auto">
-      <div className="hidden">
-        <div className="flex items-center gap-2 mb-2 border border-gray-200 px-4 py-2 rounded-full w-fit mx-auto">
-          <span className="w-2 h-2 rounded-full bg-[#168DCA]" />
-          <span className="text-xs font-medium text-black tracking-normal lg:tracking-wide">
-            {badge}
-          </span>
-        </div>
+      <div className="">
+        {!isAviation && (
+          <>
+            <div className="flex items-center gap-2 mb-2 border border-gray-200 px-4 py-2 rounded-full w-fit mx-auto mt-8">
+              <span className="w-2 h-2 rounded-full bg-[#168DCA]" />
+              <span className="text-xs font-medium text-black tracking-normal lg:tracking-wide">
+                {badge}
+              </span>
+            </div>
 
-        <h2
-          className={`text-[22px] md:text-[30px] lg:text-[35px] font-medium leading-[1.2] text-balance text-[#000] text-center ${isAviation ? "mb-5 " : "mb-10"}`}
-        >
-          {title}
-        </h2>
+            <h2
+              className={`text-[22px] md:text-[30px] lg:text-[35px] font-medium leading-[1.2] text-balance text-[#000] text-center ${isAviation ? "mb-5 " : "mb-10"}`}
+            >
+              {title}
+            </h2>
 
-        {description && (
-          <p className="text-center text-sm md:text-base text-[#6D6D6D] leading-relaxed md:max-w-[80%] mx-auto mb-10">
-            {description}
-          </p>
+            {description && (
+              <p className="text-center text-sm md:text-base text-[#6D6D6D] leading-relaxed md:max-w-[80%] mx-auto mb-10">
+                {description}
+              </p>
+            )}
+          </>
         )}
 
         {isAviation ? (
@@ -80,7 +84,7 @@ export default function Solutions({ data }: { data: HomeData["solutions"] }) {
             <div
               ref={scrollRef}
               onScroll={handleScroll}
-              className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible"
+              className="flex gap-6 overflow-x-auto snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible mb-12"
             >
               {cards.map((item) => (
                 <Link
@@ -129,9 +133,8 @@ export default function Solutions({ data }: { data: HomeData["solutions"] }) {
         )}
       </div>
       <Stats {...stats} />
-       <AviationLightingSolutions />
 
-      
+      {isAviation && <AviationLightingSolutions />}
     </div>
   );
 }

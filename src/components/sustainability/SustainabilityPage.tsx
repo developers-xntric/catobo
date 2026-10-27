@@ -94,7 +94,7 @@ export default function SustainabilityPage() {
           </div>
           <div
             aria-label="Technology partners"
-            className={container + " marquee-logo-viewport relative shrink-0 overflow-hidden py-2 select-none"}
+            className={container + " marquee-logo-viewport relative hidden shrink-0 overflow-hidden py-2 select-none"}
           >
             <div className="marquee-track motion-reduce:animate-none">
               {[0, 1, 2].map((copy) => (

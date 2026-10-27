@@ -114,7 +114,7 @@ export default function ConsultationTabs() {
 
   return (
     <div>
-      <div className="mx-auto">
+      <div className="mx-auto hidden">
         {/* Tabs Navigation */}
         <div className="mb-6 grid grid-cols-2 sm:grid-cols-4 border border-[#168DCA] ">
           {tabsData.map((tab) => (

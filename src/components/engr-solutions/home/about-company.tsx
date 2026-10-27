@@ -46,6 +46,8 @@ export default function AboutCompany({
             </ContactCtaButton>
           </div>
         </div>
+
+        
        
       </div>
     </section>
