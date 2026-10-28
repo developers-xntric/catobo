@@ -6,6 +6,7 @@ import Badge from "@/components/ui/badge";
 import { ContactCtaButton } from "@/components/ContactCtaButton";
 import HomeCollage from "@/components/home/HomeCollage";
 import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const solutionCards = [
   {
@@ -41,7 +42,8 @@ const solutionCards = [
 ] as const;
 
 export default function Home() {
-  const [isAviationDescriptionExpanded, setIsAviationDescriptionExpanded] = useState(false);
+  const [isAviationDescriptionExpanded, setIsAviationDescriptionExpanded] =
+    useState(false);
   const [isLoadingVideoVisible, setIsLoadingVideoVisible] = useState(true);
   // Custom gradient defined from your prompt
   const brandGradient = {
@@ -73,7 +75,14 @@ export default function Home() {
         </video>
       </div>
       <div className="w-full bg-[#F3F3F3]">
-        <section className="w-full max-w-360 mx-auto px-5 pt-12 md:pt-16 pb-12 md:pb-16 bg-[#F3F3F3]">
+        <section className="w-full max-w-360 mx-auto px-5 pt-8 pb-12 md:pb-16 bg-[#F3F3F3]">
+          <Image
+            src={"/blue-logo.png"}
+            width={2000}
+            height={2000}
+            alt="Blue Logo"
+            className="w-32 md:w-40 lg:w-48 mb-4"
+          />
           <div className="grid grid-cols-1 gap-6 mb-10 lg:grid-cols-2 lg:gap-12">
             <div>
               <h1 className="text-3xl md:text-4xl lg:text-[40px] font-medium leading-[1.2] text-[#0a0f1e]">
@@ -85,71 +94,86 @@ export default function Home() {
             </div>
             <div className="lg:pt-1">
               <p className="text-sm md:text-base leading-relaxed text-[#636363]">
-                Since 2007, Catobo has delivered specialised engineering solutions from the UAE across the Middle East, Africa, and India from aviation infrastructure and electrical systems to sustainable engineering solutions.
+                Since 2007, Catobo has delivered specialised engineering
+                solutions from the UAE across the Middle East, Africa, and India
+                from aviation infrastructure and electrical systems to
+                sustainable engineering solutions.
               </p>
-              <Link href="#solutions" className="group mt-6 inline-flex items-center gap-2 rounded px-6 py-2.5 text-sm font-medium text-white shadow-lg transition-opacity hover:opacity-90" style={brandGradient}>
+              <Link
+                href="#solutions"
+                className="group mt-6 inline-flex items-center gap-2 rounded px-6 py-2.5 text-sm font-medium text-white shadow-lg transition-opacity hover:opacity-90"
+                style={brandGradient}
+              >
                 Explore Our Solutions
                 <ArrowRight size={16} />
               </Link>
             </div>
           </div>
 
-          <div id="solutions" className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 scroll-mt-6">
+          <div
+            id="solutions"
+            className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4 scroll-mt-6"
+          >
             {solutionCards.map((card) => (
-            <div
-              key={card.href}
-              className="relative min-h-90 md:h-150 rounded-[10px] md:rounded-3xl overflow-hidden group"
-            >
               <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url("${card.image}")` }}
-              />
-              <div className="relative z-10 h-full flex flex-col justify-end p-4 md:p-5 text-white">
-                <h2
-                  className={`text-3xl md:text-4xl font-medium md:mb-3 ${card.titleSpacing} tracking-wide`}
-                >
-                  {card.title}
-                </h2>
-                <p
-                  className={`text-sm md:text-[16px] text-white! max-w-lg ${
-                    card.href === "/aviation"
-                      ? isAviationDescriptionExpanded
-                        ? "mb-3"
-                        : "line-clamp-2 mb-1"
-                      : card.descriptionSpacing
-                  }`}
-                >
-                  {card.description}
-                </p>
-                {card.href === "/aviation" && (
-                  <button
-                    type="button"
-                    onClick={() => setIsAviationDescriptionExpanded((expanded) => !expanded)}
-                    aria-expanded={isAviationDescriptionExpanded}
-                    className="mb-6 w-fit text-sm font-medium text-white underline underline-offset-4 transition-opacity hover:opacity-80"
+                key={card.href}
+                className="relative min-h-90 md:h-150 rounded-[10px] md:rounded-3xl overflow-hidden group"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                  style={{ backgroundImage: `url("${card.image}")` }}
+                />
+                <div className="relative z-10 h-full flex flex-col justify-end p-4 md:p-5 text-white">
+                  <h2
+                    className={`text-3xl md:text-4xl font-medium md:mb-3 ${card.titleSpacing} tracking-wide`}
                   >
-                    {isAviationDescriptionExpanded ? "Read less" : "Read more"}
-                  </button>
-                )}
-                <div className="flex flex-wrap gap-4">
-                  <Link
-                    href={card.href}
-                    style={brandGradient}
-                    className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
+                    {card.title}
+                  </h2>
+                  <p
+                    className={`text-sm md:text-[16px] text-white! max-w-lg ${
+                      card.href === "/aviation"
+                        ? isAviationDescriptionExpanded
+                          ? "mb-3"
+                          : "line-clamp-2 mb-1"
+                        : card.descriptionSpacing
+                    }`}
                   >
-                    {card.cta}
-                  </Link>
-                  <ContactCtaButton className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
-                    Book Your Consultation
-                  </ContactCtaButton>
+                    {card.description}
+                  </p>
+                  {card.href === "/aviation" && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setIsAviationDescriptionExpanded(
+                          (expanded) => !expanded,
+                        )
+                      }
+                      aria-expanded={isAviationDescriptionExpanded}
+                      className="mb-6 w-fit text-sm font-medium text-white underline underline-offset-4 transition-opacity hover:opacity-80"
+                    >
+                      {isAviationDescriptionExpanded
+                        ? "Read less"
+                        : "Read more"}
+                    </button>
+                  )}
+                  <div className="flex flex-wrap gap-4">
+                    <Link
+                      href={card.href}
+                      style={brandGradient}
+                      className="px-6 py-2.5 rounded text-sm font-medium text-white shadow-lg hover:opacity-90 transition-opacity inline-block"
+                    >
+                      {card.cta}
+                    </Link>
+                    <ContactCtaButton className="px-6 py-2.5 rounded text-sm font-medium text-white border border-white hover:bg-white/10 transition-colors">
+                      Book Your Consultation
+                    </ContactCtaButton>
+                  </div>
                 </div>
               </div>
-            </div>
             ))}
           </div>
         </section>
       </div>
-
 
       {/* Middle Section: Text Content & Bottom Images */}
       <section className="2xl:max-w-340 w-[90%] mx-auto  md:px-8 pt-12 md:pt-16 bg-white grow">
@@ -222,8 +246,11 @@ export default function Home() {
               Whether it is a helipad above a high-rise building or offshore
               platforms, a runway supporting critical operations, an electrical
               system protecting essential infrastructure, or a sustainable
-              solution designed for the next generation, <b> Catobo engineers
-              solutions that perform when it matters most.</b>
+              solution designed for the next generation,{" "}
+              <b>
+                {" "}
+                Catobo engineers solutions that perform when it matters most.
+              </b>
             </p>
           </div>
         </div>
